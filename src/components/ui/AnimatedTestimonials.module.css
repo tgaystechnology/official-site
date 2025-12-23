@@ -1,0 +1,161 @@
+/* AnimatedTestimonials.module.css */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 24rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 56rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  height: 20rem;
+  width: 100%;
+}
+
+.imageWrapper {
+  position: absolute;
+  inset: 0;
+  transform-origin: bottom;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.designation {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.quote {
+  margin-top: 2rem;
+  font-size: 1.125rem;
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+.word {
+  display: inline-block;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .controls {
+    padding-top: 0;
+  }
+}
+
+.button {
+  display: flex;
+  height: 1.75rem;
+  width: 1.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: #f3f4f6;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.buttonIcon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: #000;
+  transition: transform 0.3s ease;
+}
+
+.button:hover .buttonIcon {
+  transform: rotate(12deg);
+}
+
+.button:hover .buttonIconRight {
+  transform: rotate(-12deg);
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .name {
+    color: #161515;
+  }
+  
+  .designation {
+    color: #a3a3a3;
+  }
+  
+  .quote {
+    color: #6a7282;
+  }
+  
+  .button {
+    background-color: #262626;
+  }
+  
+  .buttonIcon {
+    color: #a3a3a3;
+  }
+}

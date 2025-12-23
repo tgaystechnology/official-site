@@ -1,0 +1,360 @@
+
+/* wrapper for centering on the page or inside a section */
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  /* background-image: linear-gradient(135deg, var(--bg1) 0%, var(--bg28) 100%); */
+ /* border-radius: 12px;*/
+  /* background: linear-gradient(301deg,rgba(14, 57, 107, 1) 0%, rgba(19, 66, 110, 1) 35%, rgba(0, 212, 255, 1) 100%); */
+  border-radius: 0;
+  /* padding: 60px 0; */
+  margin-bottom: 40px;
+}
+
+/* the 3D stage */
+.carousel {
+  position: relative;
+  /* width: var(--card-size); */
+  width: 70%;
+  height: calc(var(--card-size) * 0.65);
+  perspective: var(--perspective);
+  transform-style: preserve-3d;
+}
+
+/* container for each card - the transforms come from inline CSS variables */
+/* container for each card - adjusted for 70% width carousel */
+.cardContainer {
+  position: absolute;
+  inset: 0;
+  transition: all 420ms cubic-bezier(.2, .9, .2, 1);
+  transform-style: preserve-3d;
+  will-change: transform, opacity, filter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  /* adjusted 3D effect for narrower width (70%) */
+  transform:
+    translateX(calc(var(--direction) * -4rem)) /* slightly wider offset */
+    rotateY(calc(var(--offset) * 28deg))       /* more visible rotation */
+    translateZ(calc(var(--abs-offset) * -18rem)) /* shallower depth */
+    scale(calc(1 + var(--abs-offset) * -0.15));  /* subtle scale down */
+  filter: blur(calc(var(--abs-offset) * 0.5rem));
+}
+
+
+/* the card itself: split layout left (text) / right (video) */
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,250,0.95));
+  box-shadow:
+    0 10px 30px rgba(15,23,42,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+/* inner flex split */
+.cardInner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* left side: text */
+.left {
+  flex: 0 0 50%;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.title {
+  margin: 0;
+  /* font-size: 1.1rem;
+  color: var(--text-dark); */
+  font-size: 24px;
+  color: #212529;
+  letter-spacing: -0.2px;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  /* color: var(--muted); */
+  color: #333;
+  font-weight: 600;
+}
+
+.text {
+  margin: 0.6rem 0 0;
+  /* color: #374151; */
+  color: #212529;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+/* right side: video */
+.right {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.12);
+}
+
+/* --- Nav Buttons --- */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0083ff; /* purple shade to match background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease-in-out;
+}
+
+.nav:hover {
+  background: white;
+  color: #111;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Left and right placement with spacing from the card */
+.leftNav {
+  left: -5rem; /* pushes it away from the card */
+}
+
+.rightNav {
+  right: -5rem;
+}
+
+/* Make sure arrows stay visible on gradient backgrounds */
+.nav svg {
+  stroke-width: 1.8;
+  pointer-events: none;
+}
+
+.CarouselStack_carousel__IrEOU{
+  width: 70%;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .leftNav {
+    left: -3rem;
+  }
+
+  .rightNav {
+    right: -3rem;
+  }
+
+  .nav {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.4rem;
+  }
+}
+
+
+/* hide very far cards for perf */
+.cardContainer[style*="--abs-offset: 3"] {
+  opacity: 0;
+  display: none;
+}
+.student_testimonial_sec{
+  padding: 40px 0 1px;
+  background: linear-gradient(301deg, rgba(14, 57, 107, 1) 0%, rgba(19, 66, 110, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+/* Section title above carousel */
+.carouselTitle {
+  /* position: absolute; */
+  top: 7px; /* moves it just above the cards */
+  left: 50%;
+  /* transform: translateX(-50%); */
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  margin: 0;
+  z-index: 20;
+  white-space: nowrap;
+}
+
+/* Optional underline below the title */
+.carouselTitle::after {
+  /* content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  margin: 0.6rem auto 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 2px; */
+}
+
+
+/* small screens: stack vertically and scale down */
+
+@media (max-width: 506px) {
+   .student_testimonial_sec{
+     padding-bottom: 35px !important;
+   }
+
+   .carousel{
+     width: 100% !important;
+   }
+}
+
+@media (min-width: 320px) and (max-width: 330px) {
+   .student_testimonial_sec{
+     padding-bottom: 75px !important;
+   }
+}
+
+@media (max-width: 767px) {
+   .carouselTitle {
+    font-size: 27px !important;
+   }
+
+  .video{
+     height: 260px !important;
+  }
+}
+@media (max-width: 880px) {
+
+  .CarouselStack_wrapper__dZrqh{
+    padding: 0px 0 60px !important;
+    margin-bottom: 40px !important;
+  }
+
+  .CarouselStack_cardContainer__QlIV4{
+    top:100px;
+  }
+  /* :global(:root) {
+    --card-size: 22.5rem;
+  } */
+
+  .carousel {
+    height: auto;
+    min-height: 28rem;
+  }
+
+  /* The card stacks vertically now */
+  .card {
+    flex-direction: column;     /* Stack vertically */
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    padding: 10px;
+    background: white;
+    border-radius: 1rem;
+  }
+
+  .cardInner {
+    display: flex;
+    flex-direction: column;     /* Force vertical stack */
+    width: 100%;
+    height: auto;
+  }
+
+  /* Video at top section */
+  .right {
+    order: 1;                  /* Video first */
+    width: 100%;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .video {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Text below the video */
+  .left {
+    order: 2;                   /* Text second */
+    width: 100%;
+    padding: 1.2rem;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.4rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #374151;
+    margin-top: 0;
+  }
+
+  /* Navigation buttons smaller and closer */
+  .nav {
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 1.4rem;
+  }
+
+  .leftNav {
+    left: -2rem;
+  }
+
+  .rightNav {
+    right: -2rem;
+  }
+}
+
