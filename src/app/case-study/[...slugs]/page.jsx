@@ -12,15 +12,16 @@ import CaseStudyCarousel from '@/app/_components/home/CaseStudyCarousel';
 import { generateMetadata as generateDynamicMetadata } from '@/lib/generateMetadata';
 export async function generateMetadata({ params }) {
   // Join the slug segments
-  const fullSlug = params.slugs.join('/');
+  const { slugs } = await params;
+  const fullSlug = slugs.join('/');
   return await generateDynamicMetadata({ 
     params: { slug: fullSlug }
   });
 } 
 
-const CaseStudyDetail = ({ params }) => {
-  const { slug } = params; // ✅ Extract slug
-  const fullPath = params.slugs.join('/');
+const CaseStudyDetail = async ({ params }) => {
+  const { slugs } = await params; // ✅ Await params
+  const fullPath = slugs.join('/');
 
   return (
     <div>

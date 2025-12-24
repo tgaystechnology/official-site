@@ -15,6 +15,8 @@ const QuickConsultation = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
+  const [errors, setErrors] = useState({});
+
   // Form service options data
   const serviceOptions = [
     { value: 'mobile-app', label: 'A Mobile App' },
@@ -45,16 +47,75 @@ const QuickConsultation = () => {
     }
   ];
 
+  const validateForm = () => {
+    let newErrors = {};
+    let isValid = true;
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+      isValid = false;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email is invalid';
+      isValid = false;
+    }
+
+    if (!formData.phone_no.trim()) {
+      newErrors.phone_no = 'Phone number is required';
+      isValid = false;
+    } 
+
+    if (!formData.project_requirement) {
+      newErrors.project_requirement = 'Please select a requirement';
+      isValid = false;
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    
+    // For phone number, only allow numeric values
+    if (name === 'phone_no') {
+      const numericValue = value.replace(/[^0-9]/g, '');
+      setFormData(prev => ({
+        ...prev,
+        [name]: numericValue
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
+
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+        return;
+    }
+
     setIsSubmitting(true);
     setSubmitMessage('');
 
@@ -162,58 +223,62 @@ const QuickConsultation = () => {
                   <div className="row">
                     <div className="col-12 col-md-12 col-lg-6">
                       <div className="control-input">
+                        {errors.name && <div className="text-danger small mb-1">{errors.name}</div>}
                         <input 
                           type="text" 
                           name="name" 
-                          className="form-control" 
+                          className={`form-control ${errors.name ? 'is-invalid' : ''}`} 
                           id="InputName" 
                           placeholder="Full Name" 
                           value={formData.name}
                           onChange={handleInputChange}
-                          required 
+                          // required 
                         />
                       </div>
                     </div>
                     
                     <div className="col-12 col-md-12 col-lg-6">
                       <div className="control-input">
+                        {errors.email && <div className="text-danger small mb-1">{errors.email}</div>}
                         <input 
                           type="email" 
                           name="email" 
-                          className="form-control" 
+                          className={`form-control ${errors.email ? 'is-invalid' : ''}`} 
                           id="InputEmail" 
                           placeholder="Email" 
                           value={formData.email}
                           onChange={handleInputChange}
-                          required 
+                          // required 
                         />
                       </div>
                     </div>
                     
                     <div className="col-12 col-md-12 col-lg-6">
                       <div className="control-input">
+                        {errors.phone_no && <div className="text-danger small mb-1">{errors.phone_no}</div>}
                         <input 
                           type="tel" 
                           name="phone_no" 
-                          className="form-control" 
+                          className={`form-control ${errors.phone_no ? 'is-invalid' : ''}`} 
                           id="InputPhoneNumber" 
                           placeholder="Phone Number" 
                           value={formData.phone_no}
                           onChange={handleInputChange}
-                          required 
+                          // required 
                         />
                       </div>
                     </div>
                     
                     <div className="col-12 col-md-12 col-lg-6">
                       <div className="control-input">
+                        {errors.project_requirement && <div className="text-danger small mb-1">{errors.project_requirement}</div>}
                         <select
-                          className="form-select"
+                          className={`form-select ${errors.project_requirement ? 'is-invalid' : ''}`}
                           name="project_requirement"
                           id="InputService"
                           value={formData.project_requirement}
                           onChange={handleInputChange}
-                          required
+                          // required
                         >
                           <option value="" disabled>
                             I need
@@ -229,15 +294,16 @@ const QuickConsultation = () => {
                     
                     <div className="col-12 col-md-12">
                       <div className="control-input">
+                        {errors.message && <div className="text-danger small mb-1">{errors.message}</div>}
                         <textarea 
-                          className="form-textarea" 
+                          className={`form-textarea ${errors.message ? 'is-invalid' : ''}`} 
                           name="message" 
                           id="ControlTextarea" 
                           rows="3" 
                           placeholder="Describe your requirement" 
                           value={formData.message}
                           onChange={handleInputChange}
-                          required
+                          // required
                         ></textarea>
                       </div>
                     </div>

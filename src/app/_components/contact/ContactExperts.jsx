@@ -18,16 +18,90 @@ const ContactExperts = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
+  
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    let newErrors = {};
+    let isValid = true;
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+      isValid = false;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email is invalid';
+      isValid = false;
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+      isValid = false;
+    }
+
+    if (!formData.project_type) {
+      newErrors.project_type = 'Please select a project type';
+      isValid = false;
+    }
+
+    if (!formData.industry) {
+      newErrors.industry = 'Please select an industry';
+      isValid = false;
+    }
+
+    if (!formData.project_duration) {
+      newErrors.project_duration = 'Please select project duration';
+      isValid = false;
+    }
+
+    // Website and Subject are optional, so no validation needed for them
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    
+    // For phone number, only allow numeric values
+    if (name === 'phone') {
+      const numericValue = value.replace(/[^0-9]/g, '');
+      setFormData(prev => ({
+        ...prev,
+        [name]: numericValue
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
+
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+        return;
+    }
+
     setIsSubmitting(true);
     setSubmitMessage('');
 
@@ -164,45 +238,49 @@ const ContactExperts = () => {
 
                 <div className="row">
                   <div className="col-lg-6">
+                    {errors.name && <div className="text-danger small mb-1">{errors.name}</div>}
                     <input 
                       name="name" 
                       type="text" 
                       placeholder="Name" 
-                      className="form-field" 
+                      className={`form-field ${errors.name ? 'is-invalid' : ''}`} 
                       value={formData.name}
                       onChange={handleInputChange}
-                      required
+                      // required
                     />
                   </div>
                   <div className="col-lg-6">
+                    {errors.email && <div className="text-danger small mb-1">{errors.email}</div>}
                     <input 
                       name="email" 
                       type="email" 
                       placeholder="Enter Your email" 
-                      className="form-field" 
+                      className={`form-field ${errors.email ? 'is-invalid' : ''}`} 
                       value={formData.email}
                       onChange={handleInputChange}
-                      required
+                      // required
                     />
                   </div>
                   <div className="col-lg-6">
+                    {errors.phone && <div className="text-danger small mb-1">{errors.phone}</div>}
                     <input 
                       name="phone" 
-                      type="text" 
+                      type="tel" 
                       placeholder="Phone No" 
-                      className="form-field" 
+                      className={`form-field ${errors.phone ? 'is-invalid' : ''}`} 
                       value={formData.phone}
                       onChange={handleInputChange}
-                      required
+                      // required
                     />
                   </div>
                   <div className="col-lg-6 select-box">
+                    {errors.project_type && <div className="text-danger small mb-1">{errors.project_type}</div>}
                     <select 
                       name="project_type" 
-                      className="form-select"
+                      className={`form-select ${errors.project_type ? 'is-invalid' : ''}`}
                       value={formData.project_type}
                       onChange={handleInputChange}
-                      required
+                      // required
                     >
                       <option value="">Select Project Type</option>
                       <option value="ERP">ERP</option>
@@ -215,12 +293,13 @@ const ContactExperts = () => {
                     <span className="angle-down-arrow"><i className="fa fa-angle-down"></i></span>
                   </div>
                   <div className="col-lg-6 select-box">
+                    {errors.industry && <div className="text-danger small mb-1">{errors.industry}</div>}
                     <select 
                       name="industry" 
-                      className="form-select"
+                      className={`form-select ${errors.industry ? 'is-invalid' : ''}`}
                       value={formData.industry}
                       onChange={handleInputChange}
-                      required
+                      // required
                     >
                       <option value="">Select Industry</option>
                       <option value="Beauty & Personal Care">Beauty & Personal Care</option>
@@ -239,12 +318,13 @@ const ContactExperts = () => {
                     <span className="angle-down-arrow nw"><i className="fa fa-angle-down"></i></span>
                   </div>
                   <div className="col-lg-6 select-box">
+                    {errors.project_duration && <div className="text-danger small mb-1">{errors.project_duration}</div>}
                     <select 
                       name="project_duration" 
-                      className="form-select"
+                      className={`form-select ${errors.project_duration ? 'is-invalid' : ''}`}
                       value={formData.project_duration}
                       onChange={handleInputChange}
-                      required
+                      // required
                     >
                       <option value="">Select Project Duration</option>
                       <option value="1 month">1 month</option>
@@ -277,13 +357,14 @@ const ContactExperts = () => {
                     />
                   </div>
                   <div className="col-lg-12">
+                    {errors.message && <div className="text-danger small mb-1">{errors.message}</div>}
                     <textarea 
                       name="message" 
                       placeholder="Description" 
-                      className="form-field"
+                      className={`form-field ${errors.message ? 'is-invalid' : ''}`}
                       value={formData.message}
                       onChange={handleInputChange}
-                      required
+                      // required
                     ></textarea>
                   </div>
                   <div className="g-recaptcha" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>

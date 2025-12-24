@@ -227,8 +227,9 @@
   }
   
   .highlightIndicator {
-    height: 44px;
+    height: 54px;
     border-radius: 22px;
+    top: 0;
   }
   
   .navTab {
@@ -276,8 +277,10 @@
   }
   
   .highlightIndicator {
-    height: 52px;
+    /* height: 52px; */
     border-radius: 26px;
+    height: 58px;
+    top: 0px !important;
   }
   
   .tabIcon {

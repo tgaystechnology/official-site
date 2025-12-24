@@ -83,7 +83,7 @@ const JobPosting = () => {
             <div className="col-md-6 testimonials_box">
               <div className="icon">
                 <Image 
-                  src="/img/Attitude.png" 
+                  src="/img/attitude-icon-real.png" 
                   alt="testimonial" 
                   width={50} 
                   height={50}

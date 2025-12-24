@@ -29,7 +29,8 @@ const Footer = () => {
     { href: "/", text: "Home" },
     { href: "/about-us/company", text: "About Company" },
     { href: "/privacy-policy", text: "Privacy Policy" },
-    { href: "/blog", text: "Blogs" },
+    // { href: "/blog", text: "Blogs" },
+    { href: "https://blog.tgaystechnology.com/", text: "Blogs" },
     { href: "/contact-us", text: "Contact Us" },
     { href: "/about-us/career", text: "Career" }
   ];
@@ -139,7 +140,7 @@ const Footer = () => {
                   <svg className="utouch-icon utouch-icon-message-closed-envelope-1">
                     <use xlinkHref="#utouch-icon-message-closed-envelope-1"></use>
                   </svg>
-                  <span class="info">(+91) 9211827216<br></br> +36 704032902</span>
+                  <span className="info">(+91) 9211827216<br></br> +36 704032902</span>
                 </div>
                 <div className="contact-item display-flex">
                   <svg className="utouch-icon utouch-icon-message-closed-envelope-1">
