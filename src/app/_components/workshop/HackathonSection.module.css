@@ -183,44 +183,69 @@
 
 .heck-item {
     position: relative;
-    overflow: hidden;
     cursor: pointer;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background: #fff;
-    border: 1px solid #f3f4f6;
-    aspect-ratio: 16 / 9; /* Enforce standard aspect ratio */
+    padding: 8px; /* White frame thickness */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    transition: transform 0.3s ease;
+    aspect-ratio: 16 / 9;
 }
 
 .heck-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    border-color: #dbeafe; /* Light blue border on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
+
+/* Corner Accents */
+.heck-item::before,
+.heck-item::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+/* Top Left Corner */
+.heck-item::before {
+    top: -2px;
+    left: -2px;
+    border-top-color: #0d6efd; /* Blue accent */
+    border-left-color: #0d6efd;
+    border-radius: 4px 0 0 0;
+}
+
+/* Bottom Right Corner */
+.heck-item::after {
+    bottom: -2px;
+    right: -2px;
+    border-bottom-color: #0d6efd;
+    border-right-color: #0d6efd;
+    border-radius: 0 0 4px 0;
+}
+
+/* Hover Effect on Corners */
+.heck-item:hover::before,
+.heck-item:hover::after {
+    width: 100%;
+    height: 100%;
+    border-color: #0d6efd;
+    border-radius: 4px; /* Complete the border on hover */
+}
+
+/* Inner Overlay (optional, remove standard overlay for cleaner look if requested) */
+/* .heck-item::after { ... } - Replaced by corner logic */
 
 .heck-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
     display: block;
+    border: 1px solid #eee; /* Thin border just for image separation */
 }
 
-
-/* Image overlay effect on hover */
-.heck-item::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.heck-item:hover::after {
-    opacity: 1;
-}
 
 /* Footer / Conclusion */
 .conclusion-section {
