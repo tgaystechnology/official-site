@@ -6,6 +6,7 @@ import WorkshopGallery from '../_components/workshop/WorkshopGallery'
 // import WorkshopStudentTestimonial from '../_components/workshop/WorkshopStudentTestimonial'
 import WorkshopCourses from '../_components/workshop/WorkshopCourses'
 import WorkshopCertificate from '../_components/workshop/WorkshopCertificate'
+import HackathonSection from '../_components/workshop/HackathonSection'
 import CarouselStack from './../_components/workshop/CarouselStack'
 
 const WorkShop = () => {
@@ -18,6 +19,7 @@ const WorkShop = () => {
       <CarouselStack/>
       {/* <WorkshopStudentTestimonial/> */}
       <WorkshopCourses/>
+      <HackathonSection/>
       <WorkshopCertificate/>
     </div>
   )
