@@ -26,21 +26,21 @@ const BannerSlider = () => {
             <Image
               src="/img/hero-ai-banner.png"
               className="d-block w-100 home-img"
-              alt="banner"
+              alt="Empowering the Future With AI – TGays Technology"
               width={1920}
               height={800}
               priority
             />
             <div className="overlay" />
             <div className="carousel-caption  d-md-block home-page-slider-sec home-first-slider">
-              <h5>
+              <h1>
                 Empowering the Future With AI
                 <br />
-              </h5>
+              </h1>
               <p>
                 We integrate advanced Artificial Intelligence to create intelligent, predictive, and adaptive digital solutions. Let us help you unlock data-driven insights, automate complex processes, and build a competitive advantage that lasts.
               </p>
-              <Link href="/contact-us">
+              <Link href="/contact-us" aria-label="Free Consultation TGays Technology">
                 <span className="title">Schedule a Free Consultation</span>
               </Link>
             </div>
@@ -57,14 +57,14 @@ const BannerSlider = () => {
             />
             <div className="overlay" />
             <div className="carousel-caption  d-md-block home-page-slider-sec home-first-slider">
-              <h5>
+              <h2>
                 Trusted for SaaS, Websites, Mobile and Web Apps
                 <br />
-              </h5>
+              </h2>
               <p>
                 Many businesses get bogged down in daily operations. We build solutions that automate core functions, freeing you to focus on strategic growth and profitability.
               </p>
-              <Link href="/contact-us">
+              <Link href="/contact-us" aria-label="Free Consultation TGays Technology">
                 <span className="title">Schedule a Free Consultation</span>
               </Link>
             </div>
@@ -74,18 +74,18 @@ const BannerSlider = () => {
             <Image
               src="/img/mobile-banner.png"
               className="d-block w-100 home-img"
-              alt="mobile banner"
+              alt="Building the Future: Our Powerful Tech Stack"
               width={1920}
               height={800}
             />
             <div className="overlay" />
             <div className="carousel-caption d-md-block home-page-slider-sec">
-              <h5>Building the Future: Our Powerful Tech Stack</h5>
+              <h2>Building the Future: Our Powerful Tech Stack</h2>
               <p>
                 We leverage cutting-edge technologies (PYTHON, AI, DJANGO, JAVA, NODE, REACT, NEXT, REACT
                 NATIVE, PHP) to craft exceptional digital experiences.
               </p>
-              <Link href="/contact-us">
+              <Link href="/contact-us" aria-label="Free Consultation TGays Technology">
                 <span className="title">Schedule a Free Consultation</span>
               </Link>
             </div>
@@ -95,19 +95,19 @@ const BannerSlider = () => {
             <Image
               src="/img/banner-1.png"
               className="d-block w-100 home-img"
-              alt="banner 1"
+              alt="Client Success Stories Across 23 Countries"
               width={1920}
               height={800}
             />
             <div className="overlay" />
             <div className="carousel-caption d-md-block home-page-slider-sec empowering_industries">
-              <h5>100+ Client Success Stories Across 23 Countries</h5>
+              <h2>100+ Client Success Stories Across 23 Countries</h2>
               <p>
                 We craft innovative solutions that drive success in{' '}
                 <b>Finance, Travel &amp; Tourism, Healthcare, E-commerce, and Education.</b> We have got a
                 Proven Track Record of Serving 100+ Clients Across 23 Countries
               </p>
-              <Link href="/contact-us">
+              <Link href="/contact-us" aria-label="Schedule a Free Consultation TGays Technology">
                 <span className="title">Schedule a Free Consultation</span>
               </Link>
             </div>

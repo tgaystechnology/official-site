@@ -112,7 +112,7 @@ const OurSolutions = () => {
   ];
 
   return (
-    <section className="background-contain web-totle our_solution_section">
+    <section className="background-contain web-totle our_solution_section" aria-label="IT Solutions and Digital Services">
       <div className="container">
         <div className="counters">
           <div className="row">
@@ -130,11 +130,11 @@ const OurSolutions = () => {
                   </div>
                   <ul>
                     {solution.items.map((item, i) => (
-                      <li key={i}><span>-</span>{item}</li>
+                      <li key={i}><span aria-hidden="true">-</span>{item}</li>
                     ))}
                   </ul>
                 </div>
-                <div className={`icons-dv ${solution.colorClass} text-center`}>
+                <div className={`icons-dv ${solution.colorClass} text-center`} aria-hidden="true">
                   <ion-icon name={solution.icon}></ion-icon>
                 </div>
               </div>
