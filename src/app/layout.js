@@ -17,17 +17,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "TGays Technology",
-  description: "Web site created using create-react-app",
-  keywords: "technology, web development, software solutions",
+  title: "IT Solutions & Software Development Company in India | TGays Technology",
+  description: "TGays Technology is an IT solutions company in India offering website design, custom software development, and web & mobile app solutions for startups and growing businesses.",
+  keywords: "IT solutions & services company, software development company in India.",
   viewport: "width=device-width,initial-scale=1",
   themeColor: "#000000",
   
   // Open Graph metadata
   openGraph: {
-    title: "TGays Technology",
-    description: "Web site created using create-react-app",
-    url: "https://techsgeeks.in",
+    title: "TGays Technology – Web & Mobile App Development AI-Driven IT Solutions",
+    description: "TGays Technology is a trusted IT solutions company offering custom web development, mobile apps, CRM, SaaS, digital transformation & AI-powered software solutions.",
+    url: "https://tgaystechnology.com/",
     siteName: "TGays Technology",
     images: [
       {
