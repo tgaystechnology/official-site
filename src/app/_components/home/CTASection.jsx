@@ -12,7 +12,11 @@ const CTASection = ({ title, description }) => {
           </h2>
           {description && <p>{description}</p>}
         </div>
-        <Link href="/contact-us" className="btn btn-primary let-talk-btn home-talk-btn">
+        <Link 
+          href="/contact-us" 
+          className="btn btn-primary let-talk-btn home-talk-btn"
+          aria-label="Contact TGAYS Technology for web and mobile app development"
+        >
           LET'S TALK
         </Link>
       </div>

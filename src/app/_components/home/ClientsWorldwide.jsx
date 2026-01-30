@@ -121,12 +121,16 @@ const ClientsWorldwide = () => {
               <div key={index} className="col-lg-3 col-md-4 col-6 col-sm-6 col-xs-3">
                 <div className="client_box">
                   <div className="client-img">
-                    <img src={client.logo} alt={`${client.name} logo`} />
+                    <img
+                      src={client.logo}
+                      alt={`${client.name} – Client of TGays Technology`}
+                      loading="lazy"
+                    />
                   </div>
                   <div className="client_dt">
                     <div className="name-cl">
-                      <h5>{client.name}</h5>
-                      <h6>Location: {client.location}</h6>
+                      <h3>{client.name}</h3>
+                      <p>Location: {client.location}</p>
                     </div>
                   </div>
                 </div>

@@ -29,10 +29,11 @@ const ServicePartners = () => {
                   <figure>
                     <Image
                       src={partner.logo}
-                      alt={partner.alt}
+                      alt={`${partner.alt} – Service Partner of TGAYS Technology`}
                       width={150}  // Set appropriate width
                       height={60} // Set appropriate height
                       className="partner-logo"
+                      loading="lazy"
                     />
                   </figure>
                 </div>

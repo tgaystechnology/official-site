@@ -28,7 +28,7 @@ const WhyChooseUs = () => {
           <div className="col-xxl-6 col-xl-5 col-lg-6 d-flex order-2 order-lg-0">
             <div className="tech-management-wrap-6">
               <div className="tech-section mb-35">
-                <span className="tech-section-subtitle">Why TGAYS Technology?</span>
+                <p className="tech-section-subtitle">Why TGAYS Technology?</p>
                 <h2 className="tech-section-title mb-15 tech-section-title-white">
                   Let Everyone Know Why We are the Best!
                 </h2>
@@ -42,7 +42,7 @@ const WhyChooseUs = () => {
                         <i className="fa fa-check" aria-hidden="true"></i>
                       </span>
                       <div className="tech-management-content-info">
-                        <h5>{benefit}</h5>
+                        <h3 className="tech-benefit-title">{benefit}</h3>
                       </div>
                     </li>
                   ))}
@@ -57,14 +57,15 @@ const WhyChooseUs = () => {
               {/* Main Image */}
               <Image
                 src="/img/management-6.png"
-                alt="TGAYS Technology team"
+                alt="TGAYS Technology expert team delivering IT solutions"
                 className="tech-management-main-img img-w-100"
                 width={600} // Set appropriate dimensions
                 height={500}
+                loading="lazy"
               />
               
               {/* Decorative Icons */}
-              <div className="tech-management-head-icon-6">
+              <div className="tech-management-head-icon-6" aria-hidden="true">
                 <Link href="#">
                   <Image 
                     src="/img/headphones-icon-2.png" 
@@ -75,7 +76,7 @@ const WhyChooseUs = () => {
                 </Link>
               </div>
               
-              <div className="tech-management-img-icon-6">
+              <div className="tech-management-img-icon-6" aria-hidden="true">
                 <Link href="#">
                   <Image 
                     src="/img/press-icon-6.png" 

@@ -81,21 +81,20 @@ const Testimonials = () => {
   return (
     
     <div 
-      className={Style.testimonials}
-      style={{
-        backgroundImage: "url('/img/testi-bg3.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
+      className={Style.testimonials} 
+      style={{  backgroundImage: "url('/img/testi-bg3.jpg')", 
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+      }}>
       <div className="container">
         <div className="row">
           <div className="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div className={Style.testimonial_header}>
-              <h3>
-                <span className={Style.white_text}>Our</span> <span className={Style.blue_text}>Testimonial</span>
-              </h3>
+              <h2>
+                <span className={Style.white_text}>Our</span> 
+                <span className={Style.blue_text}>Testimonial</span>
+              </h2>
             </div>
           </div>
         </div>
@@ -114,19 +113,20 @@ const Testimonials = () => {
                             <div className={Style.image_wrapper}>
                               <Image 
                                 src={testimonial.image} 
-                                alt={testimonial.name}
+                                alt={`${testimonial.name} client testimonial`}
                                 width={80}
                                 height={80}
                                 className={Style.avatar_image}
+                                loading="lazy"
                               />
                             </div>
                           </div>
-                          <p className={Style.testimonial_text}>
+                          <blockquote className={Style.testimonial_text}>
                             {testimonial.text}
-                          </p>
-                          <h5 className={Style.testimonial_name}>
+                          </blockquote>
+                          <h3 className={Style.testimonial_name}>
                             {testimonial.name}
-                          </h5>
+                          </h3>
                           <p className={Style.testimonial_position}>
                             {testimonial.position}
                           </p>

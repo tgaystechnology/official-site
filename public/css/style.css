@@ -5318,20 +5318,22 @@ span.angle-down-arrow, span.angle-down-arrow.nw {
      margin-top: -41px;
      color: #555;
 }
- .featured-clients-section h2.heading-title{
-     color: #fff;
-     margin: 10px 0 40px;
+.featured-clients-section h2.heading-title{
+    color: #fff;
+    margin: 10px 0 40px;
 }
- .featured-clients-section .name-cl h5{
-     font-size: 15px;
-     font-weight: 700;
-     color: #000;
+.featured-clients-section .name-cl h5,
+.featured-clients-section .name-cl h3{
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
 }
- .featured-clients-section .name-cl h6{
-     font-size: 16px;
-     color: #000;
+.featured-clients-section .name-cl h6,
+.featured-clients-section .name-cl p{
+    font-size: 16px;
+    color: #000;
 }
- .about-video .about_img2{
+.about-video .about_img2{
      position: absolute;
      bottom: 27px;
      right: 10px;
@@ -5907,7 +5909,8 @@ span.angle-down-arrow, span.angle-down-arrow.nw {
  .tech-management-content-icon .fa{
      margin-top: 7px;
 }
- .tech-management-content-info h5 {
+.tech-management-content-info h5,
+.tech-management-content-info .tech-benefit-title  {
      font-size: 19px;
      color: #000;
      margin-bottom: 10px;

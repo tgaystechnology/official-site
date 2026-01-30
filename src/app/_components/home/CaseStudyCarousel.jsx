@@ -66,7 +66,7 @@ const CaseStudyCarousel = () => {
 
   return (
     <section className={styles.section}>
-      <div className={styles.shape}>
+      <div className={styles.shape} aria-hidden="true">
         <Image
           src="/img/intro-v1-shape3.png"
           alt="Decorative shape"
@@ -97,29 +97,31 @@ const CaseStudyCarousel = () => {
               {caseStudies.map((caseStudy) => (
                 <CarouselItem key={caseStudy.id} responsive={true}>
                   {/* ✅ restored responsive + your styling */}
-                  <div className={styles.caseCard}>
+                  <article className={styles.caseCard}>
                     <div className={styles.imageContainer}>
                       <Image
                         src={caseStudy.image}
-                        alt={caseStudy.alt}
+                        alt={`${caseStudy.title} case study by TGays Technology`}
                         width={400}
                         height={300}
                         className={styles.caseImage}
+                        loading="lazy"
                       />
                     </div>
                     <div className={styles.contentArea}>
-                      <h6 className={styles.caseTitle}>{caseStudy.title}</h6>
+                      <h3 className={styles.caseTitle}>{caseStudy.title}</h3>
                       <p className={styles.caseDescription}>
                         {caseStudy.description}
                       </p>
                       <Link
                         href={caseStudy.link}
                         className={styles.readMoreLink}
+                        aria-label={`Read full case study on ${caseStudy.title}`}
                       >
                         Read More
                       </Link>
                     </div>
-                  </div>
+                  </article>
                 </CarouselItem>
               ))}
             </CarouselContent>
