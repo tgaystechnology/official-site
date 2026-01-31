@@ -5674,6 +5674,7 @@ span.angle-down-arrow, span.angle-down-arrow.nw {
  .phone-mail-sec ul li a{
      display: flex;
      align-items: center;
+    color: #fff;
 }
  .phone-mail-sec ul li a span{
      font-size: 18px;

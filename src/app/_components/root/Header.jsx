@@ -244,8 +244,8 @@ const handleToggleMenu = (e) => {
             <div className="phone-mail-sec">
               <ul>
                 <li>
-                  <a title="">
-                    <span>
+                  <a href="mailto:info@tgaystechnology.com" aria-label="Email TGAYS Technology">
+                    <span aria-hidden="true">
                       <ion-icon name="mail-open-outline" role="img" className="md hydrated"></ion-icon>
                     </span>
                     info@tgaystechnology.com
@@ -259,7 +259,10 @@ const handleToggleMenu = (e) => {
                     height={15}
                     className="img-fluid"
                   />
-                  <a title="">(+91) 9211827216</a>
+                  <a href="tel:+919211827216"
+                      aria-label="Call TGAYS Technology India"
+                  >
+                    (+91) 9211827216</a>
                 </li>  
               </ul>
             </div>
@@ -272,20 +275,21 @@ const handleToggleMenu = (e) => {
             <div className="site-logo">
               <a 
                 className="" 
-                href="#" 
+                href="/" 
                 onClick={(e) => handleNavigation('/', e)}
+                aria-label="TGAYS Technology Home"
               >
                 <Image 
                   src="/img/logo-tgys.png" 
-                  alt="techsgeeks" 
+                  alt="TGAYS Technology – IT Solutions & Software Development Company" 
                   width={150}
                   height={50}
                   priority
                 />
               </a>
             </div>
-            <nav id="primary-menu" className="primary-menu">
-              <button className="navbar-toggler react-toggle" type="button" onClick={handleToggleMenu}>
+            <nav id="primary-menu" className="primary-menu" aria-label="Primary Navigation" >
+              <button className="navbar-toggler react-toggle" type="button" onClick={handleToggleMenu} aria-expanded={isMenuOpen} aria-controls="primary-menu-list" aria-label="Toggle navigation menu">
                 <span className="navbar-toggler-icon">
                   <i className="fa fa-bars" aria-hidden="true"></i>
                 </span>
@@ -301,7 +305,7 @@ const handleToggleMenu = (e) => {
                 {/* <li><a href="/blog">Blog</a></li> */}
                 <li><a href="https://blog.tgaystechnology.com/">Blog</a></li>
                 <li className="top-head-social-icon">
-                  <a href="/contact-us" className="btn top_header_btn">Consult Our Experts</a>
+                  <a href="/contact-us" className="btn top_header_btn" aria-label="Consult IT experts at TGAYS Technology">Consult Our Experts</a>
                 </li>
               </ul>
             </nav>
