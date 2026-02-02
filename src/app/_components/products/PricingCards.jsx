@@ -6,74 +6,50 @@ import './PricingCards.css';
 const PricingCards = () => {
   const [isClient, setIsClient] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  // Form refs to capture user input
+  const nameRef = React.useRef(null);
+  const emailRef = React.useRef(null);
+  const phoneRef = React.useRef(null);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
   const [selectedPlan, setSelectedPlan] = useState({
     name: 'Basic Plan',
     price: '₹ 20,000',
-    amount: '20,000',
+    amount: '20000', // numeric string for API
     iconColor: '#333',
     iconLetter: 'B'
   });
 
-  const plans = [
-    {
-      type: 'basic',
-      img: '/img/education-banner.png',
-      price: '20,000',
-      title: 'Startup Management',
-      btnClass: 'btn-basic',
-      bubbleClass: 'basic-bubble',
-      gradVar: 'var(--basic-grad)',
-      letter: 'S',
-      features: [
-        { text: 'Manage Lead', active: true },
-        { text: 'Databases', active: true },
-        { text: 'Email', active: false },
-        { text: 'Unlimited Traffic', active: false }
-      ]
-    },
-    {
-      type: 'standard',
-      img: '/img/gymforest.png',
-      price: '15,000',
-      title: 'Startup Management',
-      btnClass: 'btn-standard',
-      bubbleClass: 'standard-bubble',
-      gradVar: 'var(--standard-grad)',
-      letter: 'S',
-      features: [
-        { text: 'Manage Lead', active: true },
-        { text: 'Databases', active: true },
-        { text: 'Email', active: true },
-        { text: 'Unlimited Traffic', active: false }
-      ]
-    },
-    {
-      type: 'premium',
-      img: '/img/sip-calculator.png',
-      price: '30,000',
-      title: '10 minutes delivery app',
-      btnClass: 'btn-premium',
-      bubbleClass: 'premium-bubble',
-      gradVar: 'var(--premium-grad)',
-      letter: 'D',
-      features: [
-        { text: 'Free Support 24/7', active: true },
-        { text: 'Databases', active: true },
-        { text: 'Email', active: true },
-        { text: 'Unlimited Traffic', active: true }
-      ]
-    }
-  ];
+  const [plans, setPlans] = useState([]);
+
+  useEffect(() => {
+    const fetchPlans = async () => {
+      try {
+        const response = await fetch('/api/pricing');
+        if (response.ok) {
+          const data = await response.json();
+          setPlans(data);
+        } else {
+          console.error('Failed to fetch pricing plans');
+        }
+      } catch (error) {
+        console.error('Error fetching pricing plans:', error);
+      }
+    };
+
+    fetchPlans();
+  }, []);
 
   const handleBuyNow = (plan) => {
     setSelectedPlan({
       name: plan.title,
       price: `₹ ${plan.price}`,
-      amount: plan.price,
+      amount: plan.amount,
       iconColor: plan.gradVar,
       iconLetter: plan.letter
     });
@@ -81,6 +57,134 @@ const PricingCards = () => {
   };
 
   const closeModal = () => setModalOpen(false);
+
+  const loadRazorpay = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
+  const handlePayment = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const res = await loadRazorpay();
+
+    if (!res) {
+      // alert('Razorpay SDK failed to load. Are you online?');
+      setLoading(false);
+      return;
+    }
+
+    // Capture form data
+    const name = nameRef.current.value;
+    const email = emailRef.current.value;
+    const phone = phoneRef.current.value;
+
+    if (!name || !email || !phone) {
+      // alert('Please fill in all fields');
+      setLoading(false);
+      return;
+    }
+
+    // Create Order
+    const result = await fetch('/api/payment/create-order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        amount: selectedPlan.amount,
+        currency: 'INR',
+        receipt: `receipt_${Date.now()}`
+      }),
+    });
+
+    const data = await result.json();
+
+    if (!data.orderId) {
+      // alert(data.error || 'Server error. Are you online?');
+      setLoading(false);
+      return;
+    }
+
+    const key = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+
+    if (!key) {
+      // alert("Error: Razorpay Key ID is not defined. Please check your .env file and restart the server.");
+      setLoading(false);
+      return;
+    }
+
+    // Open Razorpay
+    const options = {
+      key: key, // Use NEXT_PUBLIC for frontend
+      amount: data.amount,
+      currency: "INR",
+      name: "TGAYS Technology",
+      description: `Payment for ${selectedPlan.name}`,
+      order_id: data.orderId,
+      handler: function (response) {
+        // SUCCESS HANDLER
+        const paymentData = {
+          order_id: response.razorpay_order_id,
+          payment_id: response.razorpay_payment_id,
+          signature: response.razorpay_signature,
+          customer_name: name,
+          customer_email: email,
+          customer_phone: phone,
+          plan_name: selectedPlan.name,
+          amount: selectedPlan.amount,
+          currency: 'INR',
+          payment_status: 'success'
+        };
+
+        // Save payment data to database via API
+        fetch('/api/payment/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(paymentData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('Payment saved successfully:', data);
+            // alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
+        })
+        .catch((error) => {
+            console.error('Error saving payment:', error);
+            // Still alert success for the user as the payment itself worked
+            // alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
+        })
+        .finally(() => {
+            closeModal();
+            setLoading(false);
+        });
+      },
+      prefill: {
+        name: name,
+        email: email,
+        contact: phone,
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+
+    paymentObject.on('payment.failed', function (response){
+        // alert("Payment Failed: " + response.error.description);
+        setLoading(false);
+    });
+  };
 
   return (
     <div className="pricing-wrapper">
@@ -132,9 +236,21 @@ const PricingCards = () => {
       {/* Checkout Modal */}
       {modalOpen && isClient && createPortal(
         <>
-          <div className="modal-backdrop fade show" style={{ zIndex: 1050 }}></div>
-          <div className="modal fade show pricing-modal" id="paymentModal" tabIndex="-1" aria-labelledby="paymentModalLabel" aria-modal="true" role="dialog" style={{ display: 'block', zIndex: 1055 }}>
-            <div className="modal-dialog modal-xl modal-dialog-centered">
+          <div className="modal-backdrop show" style={{ zIndex: 1050, opacity: 0.5 }}></div>
+          <div 
+            className="modal show pricing-modal" 
+            id="paymentModal" 
+            tabIndex="-1" 
+            aria-labelledby="paymentModalLabel" 
+            aria-modal="true" 
+            role="dialog" 
+            style={{ display: 'block', zIndex: 1055, opacity: 1 }}
+            onClick={closeModal}
+          >
+            <div 
+              className="modal-dialog modal-xl modal-dialog-centered"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="modal-content border-0 shadow-lg checkout-modal">
                 <div className="modal-body p-0">
                   <div className="row g-0">
@@ -144,19 +260,27 @@ const PricingCards = () => {
                         <h3 className="fw-bold m-0">Checkout</h3>
                       </div>
 
-                      <form id="checkoutForm">
+                      <form id="checkoutForm" onSubmit={handlePayment}>
                         {/* Shipping Details Section */}
                         <h6 className="section-label mb-4">SHIPPING DETAILS</h6>
 
                         <div className="mb-3">
-                          <input type="email" className="form-control" placeholder="Enter Your email" required />
+                          <input type="text" className="form-control" placeholder="Full Name" required ref={nameRef} />
+                        </div>
+                        <div className="mb-3">
+                          <input type="email" className="form-control" placeholder="Enter Your email" required ref={emailRef} />
                         </div>
                         <div className="mb-4">
-                          <input type="text" className="form-control" placeholder="Phone No" required />
+                          <input type="text" className="form-control" placeholder="Phone No" required ref={phoneRef} />
                         </div>
 
-                        <button type="button" className="btn btn-purchase w-100 py-3 text-uppercase fw-bold mt-2" id="payButton">
-                          SUBMIT
+                        <button 
+                          type="submit" 
+                          className="btn btn-purchase w-100 py-3 text-uppercase fw-bold mt-2" 
+                          id="payButton"
+                          disabled={loading}
+                        >
+                          {loading ? 'Processing...' : 'SUBMIT'}
                         </button>
                       </form>
                     </div>

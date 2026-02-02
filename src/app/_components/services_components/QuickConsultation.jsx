@@ -120,14 +120,7 @@ const QuickConsultation = () => {
     setSubmitMessage('');
 
     try {
-      // const response = await fetch('/api/quote-request', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(formData),
-      // });
-      const response = await fetch('https://api.tgaystechnology.com/api_v1/service-enquiry', {
+      const response = await fetch('/api/quick-consultation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

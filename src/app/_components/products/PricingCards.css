@@ -237,3 +237,9 @@
     text-align: right;
     color: #999;
 }
+
+@media (min-width: 1200px) {
+    .pricing-modal .modal-xl {
+        max-width: 900px !important;
+    }
+}

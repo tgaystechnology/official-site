@@ -74,8 +74,7 @@ const Header = () => {
   useEffect(() => {
   const fetchMenuData = async () => {
     try {
-      const response = await fetch('https://api.tgaystechnology.com/api_v1/menus');
-      // const response = await fetch('/api/menu');
+      const response = await fetch('/api/header');
       if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
       const data = await response.json();
       console.log("Fetched menu data:", data); // 👈 check here

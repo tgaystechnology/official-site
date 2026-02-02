@@ -26,6 +26,7 @@
     "mysql2": "^3.14.3",
     "next": "^16.1.1",
     "radix-ui": "^1.4.2",
+    "razorpay": "^2.9.6",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-icons": "^5.5.0",
