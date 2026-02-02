@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "./_components/root/Header";
 import Footer from "./_components/root/Footer";
 import BottomNavigationWrapper from './../components/ui/BottomNavigationWrapper';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -377,6 +378,7 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-0QD6J1K87W');
           `}
         </Script>
+        <SpeedInsights />
       </body>
     </html>
   );
