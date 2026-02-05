@@ -1,71 +1,92 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { createPortal } from 'react-dom';
 import './PricingCards.css';
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogContainer,
+  DialogImage,
+  DialogTitle,
+  DialogSubtitle,
+  DialogDescription,
+  DialogClose,
+} from '@/components/uilayouts/linear-modal';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
+import { motion, AnimatePresence } from 'motion/react';
 
-const PricingCards = () => {
-  const [isClient, setIsClient] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  // Form refs to capture user input
-  const nameRef = React.useRef(null);
-  const emailRef = React.useRef(null);
-  const phoneRef = React.useRef(null);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  const [selectedPlan, setSelectedPlan] = useState({
-    name: 'Basic Plan',
-    price: '₹ 20,000',
-    amount: '20000', // numeric string for API
-    iconColor: '#333',
-    iconLetter: 'B'
+const loadRazorpay = () => {
+  return new Promise((resolve) => {
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
   });
+};
 
-  const [plans, setPlans] = useState([]);
+import PaymentStatusModal from './PaymentStatusModal';
 
+// ... (loadRazorpay function remains same)
+
+const PricingModal = ({ plan }) => {
+  const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [modalState, setModalState] = useState({ isOpen: false, type: 'success' });
+  const [api, setApi] = useState(null);
+  const [current, setCurrent] = useState(0);
+
+  // Form refs
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
+  
+  // Added useEffect for carousel API
   useEffect(() => {
-    const fetchPlans = async () => {
-      try {
-        const response = await fetch('/api/pricing');
-        if (response.ok) {
-          const data = await response.json();
-          setPlans(data);
-        } else {
-          console.error('Failed to fetch pricing plans');
-        }
-      } catch (error) {
-        console.error('Error fetching pricing plans:', error);
-      }
-    };
+    if (!api) return;
 
-    fetchPlans();
-  }, []);
+    setCurrent(api.selectedScrollSnap());
 
-  const handleBuyNow = (plan) => {
-    setSelectedPlan({
-      name: plan.title,
-      price: `₹ ${plan.price}`,
-      amount: plan.amount,
-      iconColor: plan.gradVar,
-      iconLetter: plan.letter
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
     });
-    setModalOpen(true);
+  }, [api]);
+
+  // Added handleThumbnailClick function
+  const handleThumbnailClick = (index) => {
+    api?.scrollTo(index);
   };
 
-  const closeModal = () => setModalOpen(false);
+  // Added slides array
+  const slides = [
+    { src: plan.img, alt: plan.title },
+    { src: "https://images.unsplash.com/photo-1759395073808-17782f3d8d66?q=80&w=1471&auto=format&fit=crop", alt: "Slide 2" },
+    { src: "https://images.unsplash.com/photo-1759434192768-fe3facebd5f6?q=80&w=1471&auto=format&fit=crop", alt: "Slide 3" },
+    { src: "https://images.unsplash.com/photo-1618220649687-ba860f3176e7?q=80&w=1474&auto=format&fit=crop", alt: "Slide 4" },
+  ];
 
-  const loadRazorpay = () => {
-    return new Promise((resolve) => {
-      const script = document.createElement('script');
-      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-      script.onload = () => resolve(true);
-      script.onerror = () => resolve(false);
-      document.body.appendChild(script);
-    });
+  const [isSupportChecked, setIsSupportChecked] = useState(true);
+  const SUPPORT_COST = 3000;
+
+  const totalAmount = isSupportChecked 
+      ? (Number(plan.amount) + SUPPORT_COST) 
+      : Number(plan.amount);
+
+  const displayTotal = isSupportChecked
+      ? (Number(plan.price.replace(/,/g, '')) + SUPPORT_COST).toLocaleString('en-IN')
+      : plan.price;
+
+  const closeModal = () => {
+    setModalState(prev => ({ ...prev, isOpen: false }));
+    if (modalState.type === 'success') {
+         window.location.reload(); // Reload after success modal closed
+    }
   };
 
   const handlePayment = async (e) => {
@@ -75,286 +96,465 @@ const PricingCards = () => {
     const res = await loadRazorpay();
 
     if (!res) {
-      // alert('Razorpay SDK failed to load. Are you online?');
+      alert('Razorpay SDK failed to load. Are you online?');
       setLoading(false);
       return;
     }
 
-    // Capture form data
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     const phone = phoneRef.current.value;
 
     if (!name || !email || !phone) {
-      // alert('Please fill in all fields');
+      alert('Please fill in all fields');
       setLoading(false);
       return;
     }
 
-    // Create Order
-    const result = await fetch('/api/payment/create-order', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        amount: selectedPlan.amount,
-        currency: 'INR',
-        receipt: `receipt_${Date.now()}`
-      }),
-    });
-
-    const data = await result.json();
-
-    if (!data.orderId) {
-      // alert(data.error || 'Server error. Are you online?');
-      setLoading(false);
-      return;
-    }
-
-    const key = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
-
-    if (!key) {
-      // alert("Error: Razorpay Key ID is not defined. Please check your .env file and restart the server.");
-      setLoading(false);
-      return;
-    }
-
-    // Open Razorpay
-    const options = {
-      key: key, // Use NEXT_PUBLIC for frontend
-      amount: data.amount,
-      currency: "INR",
-      name: "TGAYS Technology",
-      description: `Payment for ${selectedPlan.name}`,
-      order_id: data.orderId,
-      handler: function (response) {
-        // SUCCESS HANDLER
-        const paymentData = {
-          order_id: response.razorpay_order_id,
-          payment_id: response.razorpay_payment_id,
-          signature: response.razorpay_signature,
-          customer_name: name,
-          customer_email: email,
-          customer_phone: phone,
-          plan_name: selectedPlan.name,
-          amount: selectedPlan.amount,
+    try {
+      // Create Order
+      const result = await fetch('/api/payment/create-order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: totalAmount, // Use calculated total amount
           currency: 'INR',
-          payment_status: 'success'
-        };
+          receipt: `receipt_${Date.now()}`
+        }),
+      });
 
-        // Save payment data to database via API
-        fetch('/api/payment/save', {
+      const data = await result.json();
+
+      if (!data.orderId) {
+        throw new Error(data.error || 'Server error');
+      }
+
+      const key = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+
+      if (!key) {
+        throw new Error("Razorpay Key ID missing");
+      }
+
+      const options = {
+        key: key,
+        amount: data.amount,
+        currency: "INR",
+        name: "TGAYS Technology",
+        description: `Payment for ${plan.title} ${isSupportChecked ? '+ 3 Months Support' : ''}`,
+        order_id: data.orderId,
+        handler: function (response) {
+          const paymentData = {
+            order_id: response.razorpay_order_id,
+            payment_id: response.razorpay_payment_id,
+            signature: response.razorpay_signature,
+            customer_name: name,
+            customer_email: email,
+            customer_phone: phone,
+            plan_name: plan.title,
+            amount: totalAmount,
+            currency: 'INR',
+            payment_status: 'success'
+          };
+
+          fetch('/api/payment/save', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(paymentData)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log('Payment saved successfully:', data);
-            // alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
-        })
-        .catch((error) => {
-            console.error('Error saving payment:', error);
-            // Still alert success for the user as the payment itself worked
-            // alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
-        })
-        .finally(() => {
-            closeModal();
-            setLoading(false);
-        });
-      },
-      prefill: {
-        name: name,
-        email: email,
-        contact: phone,
-      },
-      theme: {
-        color: "#3399cc",
-      },
-    };
+          })
+          .then(res => res.json())
+          .then(() => {
+             setLoading(false);
+             setModalState({ isOpen: true, type: 'success' });
+          })
+          .catch(err => console.error(err));
+        },
+        prefill: {
+          name: name,
+          email: email,
+          contact: phone,
+        },
+        theme: {
+          color: "#3399cc",
+        },
+        modal: {
+            ondismiss: function() {
+                setLoading(false);
+                setModalState({ isOpen: true, type: 'failure' });
+            }
+        }
+      };
 
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
-
-    paymentObject.on('payment.failed', function (response){
-        // alert("Payment Failed: " + response.error.description);
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+      
+      paymentObject.on('payment.failed', function (response){
         setLoading(false);
-    });
+        setModalState({ isOpen: true, type: 'failure' });
+      });
+
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+      setModalState({ isOpen: true, type: 'failure' });
+    }
   };
 
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+     setMounted(true);
+  }, []);
+
   return (
-    <div className="pricing-wrapper">
-      <div className="container py-5">
-        <div className="row text-center align-items-center justify-content-center header-row pb-5">
-          <div className="col-12">
-            <h2 className="text-uppercase fw-bold text-dark mb-2">Our Products</h2>
-          </div>
-        </div>
-
-        <div className="row gap-4 gap-md-0">
-          {plans.map((plan, index) => (
-            <div key={index} className="col-md-4 col-lg-4 mb-4 mb-md-0">
-              <div className={`pricing-card ${plan.type}-card`}>
-                <div className="card-header-img">
-                  <img src={plan.img} alt={`${plan.type} Plan`} className="img-fluid" />
-                </div>
-                <div className={`price-bubble ${plan.bubbleClass}`}>
-                  <span className="currency">₹</span><span className="amount">{plan.price}</span>
-                  <div className="period">PER MONTH</div>
-                </div>
-                <div className="card-body pt-5 pb-4 px-3">
-                  <h3 className="plan-title text-uppercase fw-bold mb-4 mt-4">{plan.title}</h3>
-
-                  <div className="mb-3 fw-bold text-start ps-3">Product Highlights:</div>
-
-                  <ul className="list-unstyled feature-list text-start mx-auto feature-list-items">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className={feature.active ? '' : 'disabled'}>
-                        <i className={`fas ${feature.active ? 'fa-check text-success' : 'fa-times text-danger'} me-2`}></i>
-                        {feature.text}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <button 
-                    className={`btn btn-primary btn-round ${plan.btnClass} mt-4`}
-                    onClick={() => handleBuyNow(plan)}
-                  >
-                    Buy Now
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Checkout Modal */}
-      {modalOpen && isClient && createPortal(
-        <>
-          <div className="modal-backdrop show" style={{ zIndex: 1050, opacity: 0.5 }}></div>
-          <div 
-            className="modal show pricing-modal" 
-            id="paymentModal" 
-            tabIndex="-1" 
-            aria-labelledby="paymentModalLabel" 
-            aria-modal="true" 
-            role="dialog" 
-            style={{ display: 'block', zIndex: 1055, opacity: 1 }}
-            onClick={closeModal}
+    <>
+      <Dialog 
+          transition={{
+              type: "spring",
+              bounce: 0.05,
+              duration: 0.25,
+          }}
+      >
+        <DialogTrigger className="pricing-trigger-wrapper">
+          <button className={`btn btn-primary btn-round ${plan.btnClass} pricing-trigger-btn-override`}>
+            Quick Preview
+          </button>
+        </DialogTrigger>
+        
+        <DialogContainer>
+          <DialogContent
+              className="pricing-modal-content"
           >
-            <div 
-              className="modal-dialog modal-xl modal-dialog-centered"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="modal-content border-0 shadow-lg checkout-modal">
-                <div className="modal-body p-0">
-                  <div className="row g-0">
-                    {/* Left Column: Details */}
-                    <div className="col-lg-7 p-5 left-panel">
-                      <div className="d-flex justify-content-between align-items-center mb-5">
-                        <h3 className="fw-bold m-0">Checkout</h3>
+            {/* Close Button */}
+            <DialogClose className="pricing-modal-close">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </DialogClose>
+            
+            <div className="pricing-modal-layout">
+              {/* Left/Top Panel: Carousel / Dark Side */}
+              <div className="pricing-modal-left">
+                  <div className="pricing-modal-left-bg" />
+                  <div className="pricing-modal-left-content">
+                      <div className="pricing-modal-carousel-wrapper">
+                          <Carousel setApi={setApi} opts={{ loop: false }} className="pricing-carousel">
+                              <CarouselContent className="pricing-carousel-content">
+                                  {slides.map((slide, index) => (
+                                      <CarouselItem key={index} className="pricing-carousel-item">
+                                          <div 
+                                            className="pricing-carousel-item-wrapper"
+                                            onClick={() => setSelectedImage(slide.src)}
+                                          >
+                                            <img
+                                                src={slide.src}
+                                                alt={slide.alt}
+                                                className="pricing-carousel-img"
+                                            />
+                                          </div>
+                                      </CarouselItem>
+                                  ))}
+                              </CarouselContent>
+                              
+                              {/* Manual Thumbnail Slider */}
+                              <div className="pricing-thumbnail-container">
+                                  {slides.map((slide, index) => (
+                                      <button
+                                          key={index}
+                                          onClick={() => handleThumbnailClick(index)}
+                                          className={`pricing-thumbnail-btn ${
+                                              current === index 
+                                              ? 'active' 
+                                              : ''
+                                          }`}
+                                      >
+                                          <img 
+                                              src={slide.src} 
+                                              alt={`Thumbnail ${index + 1}`}
+                                              className="pricing-thumbnail-img"
+                                          />
+                                      </button>
+                                  ))}
+                              </div>
+                          </Carousel>
+                          
                       </div>
-
-                      <form id="checkoutForm" onSubmit={handlePayment}>
-                        {/* Shipping Details Section */}
-                        <h6 className="section-label mb-4">SHIPPING DETAILS</h6>
-
-                        <div className="mb-3">
-                          <input type="text" className="form-control" placeholder="Full Name" required ref={nameRef} />
-                        </div>
-                        <div className="mb-3">
-                          <input type="email" className="form-control" placeholder="Enter Your email" required ref={emailRef} />
-                        </div>
-                        <div className="mb-4">
-                          <input type="text" className="form-control" placeholder="Phone No" required ref={phoneRef} />
-                        </div>
-
-                        <button 
-                          type="submit" 
-                          className="btn btn-purchase w-100 py-3 text-uppercase fw-bold mt-2" 
-                          id="payButton"
-                          disabled={loading}
-                        >
-                          {loading ? 'Processing...' : 'SUBMIT'}
-                        </button>
-                      </form>
-                    </div>
-
-                    {/* Right Column: Order Summary */}
-                    <div className="col-lg-5 p-5 right-panel bg-light">
-                      <h6 className="section-label mb-5 text-muted">YOUR ORDER </h6>
-
-                      {/* Order Item */}
-                      <div className="d-flex align-items-center justify-content-between mb-4 order-item">
-                        <div className="d-flex align-items-center">
-                          <div 
-                            className="item-square me-3 d-flex align-items-center justify-content-center text-white fw-bold shadow-sm"
-                            id="planIcon"
-                            style={{ background: selectedPlan.iconColor }}
-                          >
-                            {selectedPlan.iconLetter}
-                          </div>
-                          <div>
-                            <h6 className="mb-0 fw-bold" id="orderPlanName">{selectedPlan.name}</h6>
-                            <small className="text-muted">Monthly Subscription</small>
-                          </div>
-                        </div>
-                        <div className="fw-bold" id="orderPlanPrice">{selectedPlan.price}</div>
-                      </div>
-
-                      {/* Static Upsell Items */}
-                      <div className="d-flex align-items-center justify-content-between mb-4 order-item opacity-50">
-                        <div className="d-flex align-items-center">
-                          <div className="item-square me-3 bg-success d-flex align-items-center justify-content-center text-white fw-bold shadow-sm">
-                            S
-                          </div>
-                          <div>
-                            <h6 className="mb-0 fw-bold">Support Add-on</h6>
-                            <small className="text-muted">24/7 Priority</small>
-                          </div>
-                        </div>
-                        <div className="fw-bold">₹ 0.00</div>
-                      </div>
-
-                      <hr className="my-4 border-secondary opacity-25" />
-
-                      <div className="d-flex justify-content-between mb-2">
-                        <span className="fw-bold small">Total Price</span>
-                        <span className="fw-bold" id="orderTotal">{selectedPlan.price}</span>
-                      </div>
-                      <div className="d-flex justify-content-between mb-2 text-muted small">
-                        <span>Shipping</span>
-                        <span>₹0.00</span>
-                      </div>
-                      <div className="d-flex justify-content-between mb-5 fw-bold">
-                        <span>Total</span>
-                        <span id="orderFinalTotal">{selectedPlan.price}</span>
-                      </div>
-
-                    </div>
-
-                    {/* Close Button Absolute */}
-                    <button 
-                      type="button" 
-                      className="btn-close position-absolute top-0 end-0 m-4" 
-                      aria-label="Close"
-                      onClick={closeModal}
-                    ></button>
                   </div>
-                </div>
+              </div>
+
+              {/* Right/Bottom Panel: Content */}
+              <div className="pricing-modal-right">
+                  <AnimatePresence mode='wait'>
+                      {step === 1 ? (
+                          <motion.div 
+                              key="step1"
+                              initial={{ opacity: 0, x: 20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: -20 }}
+                              className="pricing-modal-step"
+                          >
+                              <div 
+                                  className="flex-1 overflow-y-auto scrollbar-hide"
+                                  style={{ padding: '3rem 3rem 2rem 2rem' }} 
+                              >
+                                  <DialogTitle className="pricing-modal-title">
+                                      {plan.title}
+                                  </DialogTitle>
+                                  
+                                  <div className="pricing-modal-price-row">
+                                    <span className="pricing-modal-price-val">{plan.price}</span>
+                                    <span className="pricing-modal-price-period">/mo</span>
+                                  </div>
+
+                                  <DialogDescription className="pricing-modal-desc">
+                                      Unlock full potential with the {plan.title}. Includes {plan.features[0]?.text}, priority support, and all premium features designed to help you scale.
+                                  </DialogDescription>
+                              </div>
+
+                              {/* Footer Button Area */}
+                              <div className="pricing-modal-footer">
+                                  <button 
+                                      onClick={() => setStep(2)}
+                                      className="pricing-modal-cta-btn"
+                                  >
+                                      Get Started
+                                  </button>
+                              </div>
+                          </motion.div>
+                      ) : (
+                          <motion.div 
+                              key="step2"
+                              initial={{ opacity: 0, x: 20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: -20 }}
+                              className="pricing-modal-step"
+                          >
+                              <div 
+                                  className="flex-1 overflow-y-auto scrollbar-hide"
+                                  style={{ padding: '3rem 3rem 2rem 2rem' }} 
+                              >
+                                  <div className="pricing-modal-step2-header">
+                                      <button 
+                                          onClick={() => setStep(1)}
+                                          className="pricing-modal-back-btn"
+                                      >
+                                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                              <path d="M15 18l-6-6 6-6"/>
+                                          </svg>
+                                      </button>
+                                      <h3 className="pricing-modal-step2-title">Contact Details</h3>
+                                  </div>
+
+                                  <form onSubmit={handlePayment} className="pricing-modal-form">
+                                      <div className="pricing-form-group">
+                                          <input 
+                                              ref={nameRef}
+                                              type="text" 
+                                              required
+                                              className="pricing-form-input"
+                                              placeholder="Full Name"
+                                          />
+                                      </div>
+                                      <div className="pricing-form-group">
+                                          <input 
+                                              ref={emailRef}
+                                              type="email" 
+                                              required
+                                              className="pricing-form-input"
+                                              placeholder="Email Address"
+                                          />
+                                      </div>
+                                      <div className="pricing-form-group">
+                                          <input 
+                                              ref={phoneRef}
+                                              type="tel" 
+                                              required
+                                              className="pricing-form-input"
+                                              placeholder="Phone Number"
+                                          />
+                                      </div>
+
+                                      {/* Support Checkbox */}
+                                      {/* Support Checkbox */}
+                                      <div className="pricing-support-wrapper">
+                                          <label className="pricing-support-label">
+                                              <div className="pricing-support-check-area">
+                                                  <input 
+                                                      type="checkbox"
+                                                      checked={isSupportChecked}
+                                                      onChange={(e) => setIsSupportChecked(e.target.checked)}
+                                                      className="pricing-support-checkbox" 
+                                                  />
+                                              </div>
+                                              <div className="pricing-support-content">
+                                                  <div className="pricing-support-header">
+                                                      <span className="pricing-support-title">3 Months Support</span>
+                                                      <span className="pricing-support-badge">Recommended</span>
+                                                  </div>
+                                                  <p className="pricing-support-text">
+                                                      Get dedicated support and maintenance for your website for 3 months.
+                                                  </p>
+                                              </div>
+                                              <div className="pricing-support-gradient" />
+                                          </label>
+                                      </div>
+
+                                      {/* Total Amount Display */}
+                                      <div className="pricing-total-row">
+                                          <span className="pricing-total-label">Total Amount:</span>
+                                          <span className="pricing-total-amount">
+                                            ₹{displayTotal}
+                                          </span>
+                                      </div>
+
+                                      {/* Hidden submit trigger logic if needed, but we use the footer button */}
+                                  </form>
+                              </div>
+
+                              {/* Footer Button Area */}
+                              <div className="pricing-modal-footer">
+                                  <button 
+                                      onClick={(e) => {
+                                          handlePayment(e);
+                                      }}
+                                      disabled={loading}
+                                      className="pricing-modal-cta-btn"
+                                  >
+                                      {loading ? (
+                                          <span className="loading-text-wrapper">
+                                              <svg className="spinner" viewBox="0 0 24 24" fill="none">
+                                                  <circle className="spinner-circle" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                  <path className="spinner-path" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                              </svg>
+                                              Processing...
+                                          </span>
+                                      ) : (
+                                          `Make Payment • ₹${displayTotal}`
+                                      )}
+                                  </button>
+                              </div>
+                          </motion.div>
+                      )}
+                  </AnimatePresence>
               </div>
             </div>
-          </div>
-        </>,
+          </DialogContent>
+        </DialogContainer>
+      </Dialog>
+      
+      {/* Custom Lightbox Overlay */}
+      {mounted && createPortal(
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, zIndex: 999 }}
+              className="lightbox-overlay"
+              onClick={() => setSelectedImage(null)}
+            >
+              <button 
+                className="lightbox-close-btn"
+                onClick={() => setSelectedImage(null)}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+              <motion.img 
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                src={selectedImage} 
+                alt="Full screen view" 
+                className="lightbox-img"
+                onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>,
         document.body
       )}
-    </div>
+
+      {/* Payment Status Modal */}
+      <PaymentStatusModal 
+        type={modalState.type}
+        isOpen={modalState.isOpen}
+        onClose={closeModal}
+      />
+    </>
   );
+};
+
+const PricingCards = () => {
+    const [plans, setPlans] = useState([]);
+
+    useEffect(() => {
+        const fetchPlans = async () => {
+            try {
+                const response = await fetch('/api/pricing');
+                if (response.ok) {
+                    const data = await response.json();
+                    setPlans(data);
+                } else {
+                    console.error('Failed to fetch pricing plans');
+                }
+            } catch (error) {
+                console.error('Error fetching pricing plans:', error);
+            }
+        };
+        fetchPlans();
+    }, []);
+
+    return (
+        <div className="pricing-wrapper">
+            <div className="container py-5">
+                <div className="row text-center align-items-center justify-content-center header-row pb-5">
+                    <div className="col-12">
+                        <h2 className="text-uppercase fw-bold text-dark mb-2">Our Products</h2>
+                    </div>
+                </div>
+
+                <div className="row gap-4 gap-md-0">
+                    {plans.map((plan, index) => (
+                        <div key={index} className="col-md-4 col-lg-4 mb-4 mb-md-0">
+                            <div className={`pricing-card ${plan.type}-card`}>
+                                <div className="card-header-img">
+                                    <img src={plan.img} alt={`${plan.type} Plan`} className="img-fluid" />
+                                </div>
+                                <div className={`price-bubble ${plan.bubbleClass}`}>
+                                    <span className="currency">₹</span><span className="amount">{plan.price}</span>
+                                    <div className="period">PER MONTH</div>
+                                </div>
+                                <div className="card-body pt-5 pb-4 px-3">
+                                    <h3 className="plan-title text-uppercase fw-bold mb-4 mt-4">{plan.title}</h3>
+
+                                    <div className="mb-3 fw-bold text-start ps-3">Product Highlights:</div>
+
+                                    <ul className="list-unstyled feature-list text-start mx-auto feature-list-items">
+                                        {plan.features.map((feature, idx) => (
+                                            <li key={idx} className={feature.active ? '' : 'disabled'}>
+                                                <i className={`fas ${feature.active ? 'fa-check text-success' : 'fa-times text-danger'} me-2`}></i>
+                                                {feature.text}
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    {/* Modal Trigger */}
+                                    <PricingModal plan={plan} />
+                                    
+                                    <Link href={`/products/pricing/${plan.type}`} className={`btn btn-outline-primary btn-round mt-3 w-100`}>
+                                        View Details
+                                    </Link>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default PricingCards;

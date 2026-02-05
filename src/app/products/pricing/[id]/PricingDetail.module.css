@@ -1,0 +1,419 @@
+/* Main Container */
+.container {
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #1e293b; /* slate-800 */
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin-top: 100px;
+}
+
+.wrapper {
+    max-width: 80rem; /* 7xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 640px) {
+    .wrapper {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .wrapper {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+    }
+}
+
+/* Back Button */
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+    margin-bottom: 2rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.backButton:hover {
+    color: #0f172a;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.backIcon {
+    margin-right: 0.5rem;
+    height: 1rem;
+    width: 1rem;
+}
+
+/* Layout */
+.layoutGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+    .layoutGrid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr; /* More space for left column */
+        align-items: start;
+        gap: 3rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .layoutGrid {
+        gap: 5rem;
+    }
+}
+
+/* Left Column (Scrollable Content) */
+.mediaWrapper {
+    width: 100%;
+}
+
+/* Carousel */
+.carouselContainer {
+    background-color: #f8fafc;
+    border-radius: 2rem; /* Soft roundness */
+    overflow: hidden;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01); /* Premium soft shadow */
+}
+
+.carouselItemBox {
+    aspect-ratio: 4/3;
+    width: 100%;
+    position: relative;
+    background-color: #f1f5f9;
+    cursor: zoom-in;
+}
+
+.carouselImage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carouselItemBox:hover .carouselImage {
+    transform: scale(1.03);
+}
+
+.carouselOverlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.carouselItemBox:hover .carouselOverlay {
+    background-color: rgba(0, 0, 0, 0.05);
+    opacity: 1;
+}
+
+.zoomIcon {
+    width: 3rem;
+    height: 3rem;
+    color: white;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+/* Thumbnails */
+.thumbnails {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+}
+.thumbnails::-webkit-scrollbar {
+    display: none;
+}
+
+.thumbnailBtn {
+    position: relative;
+    flex-shrink: 0;
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+    background: #f1f5f9;
+    padding: 0;
+}
+
+.thumbnailImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbActive {
+    border-color: #2563eb;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+    transform: translateY(-2px);
+}
+
+.thumbInactive {
+    opacity: 0.6;
+}
+.thumbInactive:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+/* Product Content Left */
+.productDescSection {
+    /* margin-top: 4rem; */
+    /* padding-top: 2rem; */
+}
+
+.sectionHeading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 1.25rem;
+    margin-top: 3rem;
+    letter-spacing: -0.01em;
+}
+
+.descText {
+    color: #475569;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+.bulletList {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0;
+    list-style: none;
+    color: #475569;
+    font-weight: 500;
+}
+
+@media (min-width: 640px) {
+    .bulletList {
+        grid-template-columns: 1fr 1fr; /* 2-column list for better readability */
+    }
+}
+
+.bulletList li {
+    display: flex;
+    align-items: center;
+}
+
+.bulletList li::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #2563eb;
+    margin-right: 12px;
+}
+
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.tagChip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 9999px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #475569;
+    background-color: #f8fafc;
+    transition: all 0.2s;
+    cursor: default;
+}
+
+.tagChip:hover {
+    border-color: #cbd5e1;
+    background-color: white;
+    color: #0f172a;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Right Column (Sticky) */
+.detailsWrapper {
+    height: auto;
+}
+
+@media (min-width: 1024px) {
+    .detailsWrapper {
+        position: sticky;
+        top: 2rem; /* Sticks 2rem from top of viewport (adjusted for marginTop) */
+        /* Since marginTop is 132px, we might need top: calc(132px + 2rem) if it wasn't scroll padding... 
+           Actually, the margin is on .container, so viewport top is fine. 
+        */
+        top: 2rem; 
+        z-index: 10;
+    }
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .title {
+        font-size: 2.5rem;
+    }
+}
+
+.priceContainer {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #2563eb;
+    letter-spacing: -0.03em;
+}
+
+.period {
+    margin-left: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #94a3b8;
+}
+
+.description {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Payment Section */
+.paymentSection {
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    /* User logic has padding override, but this base styling is robust */
+}
+
+@media (min-width: 1024px) {
+    .paymentSection {
+        padding: 2.5rem;
+    }
+}
+
+.checkoutTitle {
+    font-size: 1.125rem; /* lg */
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkoutTitle::before {
+    content: "🔒";
+    font-size: 0.9em;
+}
+
+.secureText {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+}
+
+/* Lightbox */
+.lightboxOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95); /* Light Theme: White Overlay */
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Override for dark mode preference in lightbox if desired, but user asked for Light Theme */
+
+.lightboxCloseBtn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    padding: 0.75rem;
+    color: #64748b;
+    background-color: #f1f5f9;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    z-index: 101;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.lightboxCloseBtn:hover {
+    color: #0f172a;
+    background-color: #e2e8f0;
+    transform: scale(1.1);
+}
+
+.lightboxImage {
+    max-height: 85vh;
+    max-width: 85vw;
+    object-fit: contain;
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
