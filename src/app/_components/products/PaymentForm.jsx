@@ -29,24 +29,33 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
         }
     };
 
+    const [errors, setErrors] = useState({});
+
     const handlePayment = async (e) => {
         e.preventDefault();
         setLoading(true);
+        setErrors({});
+
+        // Validate first
+        const name = nameRef.current.value;
+        const email = emailRef.current.value;
+        const phone = phoneRef.current.value;
+
+        const newErrors = {};
+        if (!name) newErrors.name = true;
+        if (!email) newErrors.email = true;
+        if (!phone) newErrors.phone = true;
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            setLoading(false);
+            return;
+        }
 
         const res = await loadRazorpay();
 
         if (!res) {
             alert('Razorpay SDK failed to load. Are you online?'); // Keep alert for system error
-            setLoading(false);
-            return;
-        }
-
-        const name = nameRef.current.value;
-        const email = emailRef.current.value;
-        const phone = phoneRef.current.value;
-
-        if (!name || !email || !phone) {
-            alert('Please fill in all fields');
             setLoading(false);
             return;
         }
@@ -148,27 +157,45 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                     <input
                         ref={nameRef}
                         type="text"
-                        required
-                        className="w-full px-4 py-3 bg-slate-50 border-0 ring-1 ring-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-black focus:bg-white outline-none transition-all"
+                        className={`w-full px-4 py-3 bg-slate-50 border-0 ring-1 rounded-xl text-slate-900 placeholder:text-slate-400 outline-none transition-all ${
+                            errors.name 
+                                ? 'ring-red-500 focus:ring-2 focus:ring-red-500 focus:bg-white' 
+                                : 'ring-slate-200 focus:ring-2 focus:ring-black focus:bg-white'
+                        }`}
                         placeholder="Full Name"
+                        onChange={() => {
+                            if (errors.name) setErrors(prev => ({ ...prev, name: false }));
+                        }}
                     />
                 </div>
                 <div className="space-y-1.5">
                     <input
                         ref={emailRef}
                         type="email"
-                        required
-                        className="w-full px-4 py-3 bg-slate-50 border-0 ring-1 ring-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-black focus:bg-white outline-none transition-all"
+                        className={`w-full px-4 py-3 bg-slate-50 border-0 ring-1 rounded-xl text-slate-900 placeholder:text-slate-400 outline-none transition-all ${
+                            errors.email 
+                                ? 'ring-red-500 focus:ring-2 focus:ring-red-500 focus:bg-white' 
+                                : 'ring-slate-200 focus:ring-2 focus:ring-black focus:bg-white'
+                        }`}
                         placeholder="Email Address"
+                        onChange={() => {
+                            if (errors.email) setErrors(prev => ({ ...prev, email: false }));
+                        }}
                     />
                 </div>
                 <div className="space-y-1.5">
                     <input
                         ref={phoneRef}
                         type="tel"
-                        required
-                        className="w-full px-4 py-3 bg-slate-50 border-0 ring-1 ring-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-black focus:bg-white outline-none transition-all"
+                        className={`w-full px-4 py-3 bg-slate-50 border-0 ring-1 rounded-xl text-slate-900 placeholder:text-slate-400 outline-none transition-all ${
+                            errors.phone 
+                                ? 'ring-red-500 focus:ring-2 focus:ring-red-500 focus:bg-white' 
+                                : 'ring-slate-200 focus:ring-2 focus:ring-black focus:bg-white'
+                        }`}
                         placeholder="Phone Number"
+                        onChange={() => {
+                            if (errors.phone) setErrors(prev => ({ ...prev, phone: false }));
+                        }}
                     />
                 </div>
 

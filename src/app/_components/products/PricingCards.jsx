@@ -64,11 +64,19 @@ const PricingModal = ({ plan }) => {
   };
 
   // Added slides array
-  const slides = [
-    { src: plan.img, alt: plan.title },
-    { src: "https://images.unsplash.com/photo-1759395073808-17782f3d8d66?q=80&w=1471&auto=format&fit=crop", alt: "Slide 2" },
-    { src: "https://images.unsplash.com/photo-1759434192768-fe3facebd5f6?q=80&w=1471&auto=format&fit=crop", alt: "Slide 3" },
-    { src: "https://images.unsplash.com/photo-1618220649687-ba860f3176e7?q=80&w=1474&auto=format&fit=crop", alt: "Slide 4" },
+  // Use dynamic slides from plan or fallback
+  const slides = plan.sliderImages || [
+    // { src: plan.img, alt: plan.title },
+    { src: "/img/admin-dashboard.png", alt: "Admin Dashboard" },
+    { src: "/img/admin-dashboard-2.png", alt: "Admin Dashboard 2" },
+    { src: "/img/class-schedule.png", alt: "Class Schedule" },
+    { src: "/img/instructor.png", alt: "Instructor" },
+    { src: "/img/language-selection.png", alt: "Language Selection" },
+    { src: "/img/quiz-selection.png", alt: "Quiz Selection" },
+    { src: "/img/student-home-page.png", alt: "Student Home Page" },
+    { src: "/img/quiz-protector.png", alt: "Quiz Protector" },
+    { src: "/img/ai-hints.png", alt: "AI Hints" },
+    { src: "/img/quiz-servilance.png", alt: "Quiz Surveillance" },
   ];
 
   const [isSupportChecked, setIsSupportChecked] = useState(true);
@@ -89,24 +97,32 @@ const PricingModal = ({ plan }) => {
     }
   };
 
+  const [errors, setErrors] = useState({});
+
   const handlePayment = async (e) => {
     e.preventDefault();
     setLoading(true);
-
-    const res = await loadRazorpay();
-
-    if (!res) {
-      alert('Razorpay SDK failed to load. Are you online?');
-      setLoading(false);
-      return;
-    }
+    setErrors({}); // Clear previous errors
 
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     const phone = phoneRef.current.value;
 
-    if (!name || !email || !phone) {
-      alert('Please fill in all fields');
+    const newErrors = {};
+    if (!name) newErrors.name = true;
+    if (!email) newErrors.email = true;
+    if (!phone) newErrors.phone = true;
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setLoading(false);
+      return;
+    }
+
+    const res = await loadRazorpay();
+
+    if (!res) {
+      alert('Razorpay SDK failed to load. Are you online?');
       setLoading(false);
       return;
     }
@@ -255,25 +271,38 @@ const PricingModal = ({ plan }) => {
                                   ))}
                               </CarouselContent>
                               
-                              {/* Manual Thumbnail Slider */}
-                              <div className="pricing-thumbnail-container">
-                                  {slides.map((slide, index) => (
-                                      <button
-                                          key={index}
-                                          onClick={() => handleThumbnailClick(index)}
-                                          className={`pricing-thumbnail-btn ${
-                                              current === index 
-                                              ? 'active' 
-                                              : ''
-                                          }`}
-                                      >
-                                          <img 
-                                              src={slide.src} 
-                                              alt={`Thumbnail ${index + 1}`}
-                                              className="pricing-thumbnail-img"
-                                          />
-                                      </button>
-                                  ))}
+                              {/* Draggable Thumbnail Slider */}
+                              <div className="pricing-thumbnail-carousel-wrapper">
+                                  <Carousel
+                                      setApi={() => {}}
+                                      opts={{ 
+                                          align: "start", 
+                                          dragFree: true,
+                                          containScroll: "trimSnaps" 
+                                      }}
+                                      className="pricing-thumbnail-carousel"
+                                  >
+                                      <CarouselContent className="pricing-thumbnail-content">
+                                          {slides.map((slide, index) => (
+                                              <CarouselItem key={index} className="pricing-thumbnail-item">
+                                                  <button
+                                                      onClick={() => handleThumbnailClick(index)}
+                                                      className={`pricing-thumbnail-btn ${
+                                                          current === index 
+                                                          ? 'active' 
+                                                          : ''
+                                                      }`}
+                                                  >
+                                                      <img 
+                                                          src={slide.src} 
+                                                          alt={`Thumbnail ${index + 1}`}
+                                                          className="pricing-thumbnail-img"
+                                                      />
+                                                  </button>
+                                              </CarouselItem>
+                                          ))}
+                                      </CarouselContent>
+                                  </Carousel>
                               </div>
                           </Carousel>
                           
@@ -349,27 +378,33 @@ const PricingModal = ({ plan }) => {
                                           <input 
                                               ref={nameRef}
                                               type="text" 
-                                              required
-                                              className="pricing-form-input"
+                                              className={`pricing-form-input ${errors.name ? 'error' : ''}`}
                                               placeholder="Full Name"
+                                              onChange={() => {
+                                                  if (errors.name) setErrors(prev => ({ ...prev, name: false }));
+                                              }}
                                           />
                                       </div>
                                       <div className="pricing-form-group">
                                           <input 
                                               ref={emailRef}
                                               type="email" 
-                                              required
-                                              className="pricing-form-input"
+                                              className={`pricing-form-input ${errors.email ? 'error' : ''}`}
                                               placeholder="Email Address"
+                                              onChange={() => {
+                                                  if (errors.email) setErrors(prev => ({ ...prev, email: false }));
+                                              }}
                                           />
                                       </div>
                                       <div className="pricing-form-group">
                                           <input 
                                               ref={phoneRef}
                                               type="tel" 
-                                              required
-                                              className="pricing-form-input"
+                                              className={`pricing-form-input ${errors.phone ? 'error' : ''}`}
                                               placeholder="Phone Number"
+                                              onChange={() => {
+                                                  if (errors.phone) setErrors(prev => ({ ...prev, phone: false }));
+                                              }}
                                           />
                                       </div>
 

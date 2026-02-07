@@ -70,15 +70,9 @@
 @media (min-width: 1024px) {
     .layoutGrid {
         display: grid;
-        grid-template-columns: 1.6fr 1fr; /* More space for left column */
+        grid-template-columns: 65% 30%;
         align-items: start;
-        gap: 3rem;
-    }
-}
-
-@media (min-width: 1280px) {
-    .layoutGrid {
-        gap: 5rem;
+        gap: 5%;
     }
 }
 
@@ -140,24 +134,38 @@
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
 }
 
-/* Thumbnails */
-.thumbnails {
-    display: flex;
-    gap: 1rem;
+/* Thumbnails Carousel */
+.thumbnailCarouselWrapper {
     margin-top: 1.5rem;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-    scrollbar-width: none;
+    width: 100%;
 }
-.thumbnails::-webkit-scrollbar {
-    display: none;
+
+.thumbnailContent {
+    margin-left: -1rem; /* Negative margin to counteract item padding if needed, or adjust gap logic */
+    /* Embla carousel content logic */
+}
+
+.thumbnailItem {
+    padding-left: 1rem; /* Gap between items */
+    flex-basis: 25%; /* Show approx 4 items */
+}
+
+@media (min-width: 640px) {
+    .thumbnailItem {
+        flex-basis: 20%; /* Show approx 5 items on tablet */
+    }
+}
+
+@media (min-width: 1024px) {
+    .thumbnailItem {
+        flex-basis: 18%; /* Show approx 5-6 items on desktop */
+    }
 }
 
 .thumbnailBtn {
     position: relative;
-    flex-shrink: 0;
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 100%;
+    aspect-ratio: 1; /* Square thumbnails */
     border-radius: 1rem;
     overflow: hidden;
     border: 2px solid transparent;
@@ -165,6 +173,7 @@
     cursor: pointer;
     background: #f1f5f9;
     padding: 0;
+    display: block;
 }
 
 .thumbnailImg {
@@ -188,9 +197,9 @@
 }
 
 /* Product Content Left */
+/* .productDescSection removed as it was empty */
 .productDescSection {
-    /* margin-top: 4rem; */
-    /* padding-top: 2rem; */
+    margin-top: 5rem;
 }
 
 .sectionHeading {
@@ -416,4 +425,63 @@
     object-fit: contain;
     border-radius: 1rem;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Feature Sections Layout */
+.sectionsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+}
+
+.sectionItem {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.sectionImageWrapper {
+    width: 100%;
+    flex: 1;
+}
+
+.sectionImage {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.sectionContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+    .sectionItem {
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .sectionReverse {
+        flex-direction: row-reverse;
+    }
+    
+    .sectionTitle {
+        font-size: 1.75rem;
+    }
 }

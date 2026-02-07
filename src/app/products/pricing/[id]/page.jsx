@@ -21,56 +21,89 @@ const formatCurrency = (amount) => {
 };
 
 const PLAN_DETAILS = {
+    'quiz-master-lms-plan': {
+        sections: [
+            {
+                image: "/img/student-home-page.png",
+                title: "Comprehensive LMS Solution",
+                description: "Quiz Master LMS is a comprehensive learning management system built to streamline online education while delivering a secure, intelligent, and user-friendly experience for administrators, instructors, and students."
+            },
+            {
+                image: "/img/admin-dashboard.png",
+                title: "Super Admin Dashboard",
+                description: "The platform features a powerful Super Admin Dashboard that provides centralized control over users, class schedules, quizzes, payments, and overall system performance, along with built-in revenue tracking to monitor financial growth in real time."
+            },
+            {
+                image: "/img/instructor.png",
+                title: "Instructor Empowerment",
+                description: "Instructors are supported through a dedicated dashboard that enables them to manage classes, select and assign quizzes, evaluate student performance, and provide structured study materials efficiently."
+            },
+            {
+                image: "/img/student-home-page.png",
+                title: "Student Success Center",
+                description: "Students benefit from a personalized dashboard that displays their progress, class schedules, and assessments, enhanced with AI-powered hints during quizzes to promote learning without compromising assessment integrity."
+            },
+            {
+                image: "/img/quiz-servilance.png",
+                title: "Secure & Intelligent Assessments",
+                description: "The system also includes quiz surveillance to ensure fair and secure examinations, an AI-driven practice quiz generator that allows students to create their own custom quizzes, secure payment processing, automated payment reminders, and transparent transaction tracking, making Quiz Master LMS a reliable and scalable solution for modern digital education."
+            }
+        ],
+        features: [
+            "Super Admin, Instructor & Student Dashboards",
+            "AI-Powered Quiz Hints & Practice Quiz Generator",
+            "Quiz Surveillance for Secure Assessments",
+            "Class Scheduling & Study Material Management",
+            "Secure Payments with Automated Reminders",
+            "Real-Time Revenue Tracking & Analytics"
+        ],
+        files: ["Adobe XD", "Figma", "Notes"],
+        tags: ["LMS", "Education", "AI", "Quiz", "Dashboard", "Learning", "Assessment", "Online Platform", "EdTech", "Management System"]
+    },
+    // Fallback/Legacy
     basic: {
-        description: "Hy-Shop UI Ecommerce Design is a Ecommerce Design created for Adobe Figma and XD. Full of nice UI elements, placed in 32+ modern screens.",
+        description: "Quiz Master LMS is a comprehensive learning management system built to streamline online education...",
         features: [
-            "Vector based & well organized",
-            "Modern & Clean Design",
-            "Compatible with Adobe XD, Figma",
-            "32+ Screens",
-            "Easily Scalable & Customizable",
-            "Use Free Font"
+            "Super Admin, Instructor & Student Dashboards",
+            "AI-Powered Quiz Hints & Practice Quiz Generator",
+            "Quiz Surveillance for Secure Assessments",
+            "Class Scheduling & Study Material Management",
+            "Secure Payments with Automated Reminders",
+            "Real-Time Revenue Tracking & Analytics"
         ],
         files: ["Adobe XD", "Figma", "Notes"],
-        tags: ["Mobile", "App", "Ui", "Ux", "Kits", "Illustration", "Clean", "Branding", "Application", "Icons", "Template", "Corporate", "Business", "Screen", "Ecommerce"]
+        tags: ["LMS", "Education", "AI", "Quiz", "Dashboard", "Learning", "Assessment", "Online Platform", "EdTech", "Management System"]
     },
-    standard: {
-        description: "Hy-Shop UI Ecommerce Design is a Ecommerce Design created for Adobe Figma and XD. Full of nice UI elements, placed in 32+ modern screens.",
-        features: [
-            "Vector based & well organized",
-            "Modern & Clean Design",
-            "Compatible with Adobe XD, Figma",
-            "32+ Screens",
-            "Easily Scalable & Customizable",
-            "Use Free Font"
-        ],
-        files: ["Adobe XD", "Figma", "Notes"],
-        tags: ["Mobile", "App", "Ui", "Ux", "Kits", "Illustration", "Clean", "Branding", "Application", "Icons", "Template", "Corporate", "Business", "Screen", "Ecommerce"]
-    },
-    premium: {
-        description: "Hy-Shop UI Ecommerce Design is a Ecommerce Design created for Adobe Figma and XD. Full of nice UI elements, placed in 32+ modern screens.",
-        features: [
-            "Vector based & well organized",
-            "Modern & Clean Design",
-            "Compatible with Adobe XD, Figma",
-            "32+ Screens",
-            "Easily Scalable & Customizable",
-            "Use Free Font"
-        ],
-        files: ["Adobe XD", "Figma", "Notes"],
-        tags: ["Mobile", "App", "Ui", "Ux", "Kits", "Illustration", "Clean", "Branding", "Application", "Icons", "Template", "Corporate", "Business", "Screen", "Ecommerce"]
-    }
 };
 
 const ProductDescription = ({ planType }) => {
-    const details = PLAN_DETAILS[planType] || PLAN_DETAILS.basic;
+    const details = PLAN_DETAILS[planType] || PLAN_DETAILS['quiz-master-lms-plan'] || PLAN_DETAILS.basic;
 
     return (
         <div className={styles.productDescSection}>
-            <div className={styles.sectionHeading}>Description</div>
-            <p className={styles.descText}>
-                {details.description}
-            </p>
+            {/* Dynamic Sections Layout */}
+            {details.sections ? (
+                <div className={styles.sectionsWrapper}>
+                    {details.sections.map((section, idx) => (
+                        <div key={idx} className={`${styles.sectionItem} ${idx % 2 !== 0 ? styles.sectionReverse : ''}`}>
+                            <div className={styles.sectionImageWrapper}>
+                                <img src={section.image} alt={section.title} className={styles.sectionImage} />
+                            </div>
+                            <div className={styles.sectionContent}>
+                                <h3 className={styles.sectionTitle}>{section.title}</h3>
+                                <p className={styles.descText}>{section.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <>
+                    <div className={styles.sectionHeading}>Description</div>
+                    <p className={styles.descText}>
+                        {details.description}
+                    </p>
+                </>
+            )}
 
             <div className={styles.sectionHeading}>Features</div>
             <ul className={styles.bulletList}>
@@ -179,13 +212,8 @@ const PricingDetailPage = () => {
         : Number(plan.amount);
 
 
-    const slides = [
-        { src: plan.img, alt: plan.title },
-        // Placeholder images as per original file
-        { src: "https://images.unsplash.com/photo-1759395073808-17782f3d8d66?q=80&w=1471&auto=format&fit=crop", alt: "Slide 2" },
-        { src: "https://images.unsplash.com/photo-1759434192768-fe3facebd5f6?q=80&w=1471&auto=format&fit=crop", alt: "Slide 3" },
-        { src: "https://images.unsplash.com/photo-1618220649687-ba860f3176e7?q=80&w=1474&auto=format&fit=crop", alt: "Slide 4" },
-    ];
+    // Use dynamic slides from plan or fallback
+    const slides = plan.sliderImages 
 
     return (
         <div className={styles.container}>
@@ -234,25 +262,38 @@ const PricingDetailPage = () => {
                                 </Carousel>
                             </div>
                             
-                            {/* Thumbnails */}
-                            <div className={styles.thumbnails}>
-                                {slides.map((slide, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => api?.scrollTo(index)}
-                                        className={`${styles.thumbnailBtn} ${
-                                            current === index 
-                                            ? styles.thumbActive 
-                                            : styles.thumbInactive
-                                        }`}
-                                    >
-                                        <img 
-                                            src={slide.src} 
-                                            alt={`View ${index + 1}`} 
-                                            className={styles.thumbnailImg}
-                                        />
-                                    </button>
-                                ))}
+                            {/* Thumbnails Carousel */}
+                            <div className={styles.thumbnailCarouselWrapper}>
+                                <Carousel 
+                                    setApi={() => {}} // We don't necessarily need the API for this one unless for sync, but simple click works
+                                    opts={{ 
+                                        align: "start",
+                                        dragFree: true,
+                                        containScroll: "trimSnaps"
+                                    }} 
+                                    className="w-full"
+                                >
+                                    <CarouselContent className={styles.thumbnailContent}>
+                                        {slides.map((slide, index) => (
+                                            <CarouselItem key={index} className={styles.thumbnailItem}>
+                                                <button
+                                                    onClick={() => api?.scrollTo(index)}
+                                                    className={`${styles.thumbnailBtn} ${
+                                                        current === index 
+                                                        ? styles.thumbActive 
+                                                        : styles.thumbInactive
+                                                    }`}
+                                                >
+                                                    <img 
+                                                        src={slide.src} 
+                                                        alt={`View ${index + 1}`} 
+                                                        className={styles.thumbnailImg}
+                                                    />
+                                                </button>
+                                            </CarouselItem>
+                                        ))}
+                                    </CarouselContent>
+                                </Carousel>
                             </div>
                             </div>
 

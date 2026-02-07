@@ -394,14 +394,24 @@
     transform: scale(1.05);
 }
 
-/* Thumbnails */
-.pricing-thumbnail-container {
-    display: flex;
-    gap: 0.5rem;
+/* Thumbnails Carousel */
+.pricing-thumbnail-carousel-wrapper {
     margin-top: 1rem;
+    width: 100%;
     padding: 0 0.25rem;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
+}
+
+.pricing-thumbnail-content {
+    /* Override Carousel.module.css defaults */
+    margin-left: -0.25rem !important; 
+    display: flex;
+}
+
+.pricing-thumbnail-item {
+    /* Override Carousel.module.css defaults */
+    padding-left: 0.25rem !important;
+    padding-top: 0 !important; /* Ensure vertical padding doesn't interfere */
+    flex-basis: auto; 
 }
 
 /* Hide scrollbar for thumbnails */
@@ -636,6 +646,17 @@
 .pricing-form-input:focus {
     box-shadow: 0 0 0 2px #000000; /* focus:ring-black */
     background-color: #ffffff;
+}
+
+/* Error State */
+.pricing-form-input.error {
+    box-shadow: 0 0 0 1px #ef4444; /* red-500 */
+    border-color: #ef4444;
+}
+
+.pricing-form-input.error:focus {
+    box-shadow: 0 0 0 2px #ef4444;
+    border-color: #ef4444;
 }
 
 /* Support Checkbox */
