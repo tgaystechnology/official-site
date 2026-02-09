@@ -544,9 +544,45 @@
     position: relative;
 }
 
+@media (min-width: 320px) and (max-width: 400px) {
+  
+    .pricing-modal-content {
+        max-width: 300px;
+    }
+  
+}
+
+@media (min-width: 401px) and (max-width: 550px) {
+  
+    .pricing-modal-content {
+        max-width: 380px;
+    }
+  
+}
+
+@media (min-width: 551px) and (max-width: 639px) {
+  
+    .pricing-modal-content {
+        max-width: 450px;
+    }
+  
+}
+
+@media (min-width: 768px) and (max-width: 950px) {
+  
+    .pricing-modal-content {
+        max-width: 750px;
+    }
+  
+}
+
 @media (min-width: 768px) {
     .pricing-modal-footer {
         padding: 1.5rem 3rem 2rem;
+    }
+
+    .text-white.pricing-modal-close {
+        color: #52525b !important;
     }
 }
 
@@ -865,4 +901,8 @@
 .pricing-carousel-item {
     padding-left: 0;
     width: 100%;
+}
+
+.Carousel-module__YELpsa__carouselItem{
+    flex-basis: auto !important;
 }

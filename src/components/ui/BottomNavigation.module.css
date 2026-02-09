@@ -51,9 +51,10 @@
 /* Modern Floating Highlight Indicator */
 .highlightIndicator {
   position: absolute;
-  top: 50%;
+  /* top: 50%; */
   transform: translateY(-50%);
-  height: 48px;
+  /* height: 48px; */
+  height: 60px;
   background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
   border-radius: 24px;
   z-index: 1;
