@@ -63,34 +63,40 @@ const MeetProfessionals = () => {
   ];
 
   return (
-    <section className="medium-padding100 meet-team-section">
+    <section 
+    className="medium-padding100 meet-team-section" 
+    role="region"
+    aria-labelledby="meet-our-team-heading"
+    >
       <div className="container">
         <div className="row">
           <div className="col-lg-12 col-md-12 col-12 col-xxl-12">
             <div className="crumina-module crumina-heading align-center">
-              <h2 className="heading-title">Meet <span className="c-primary">Our Team</span></h2>
+              <h2  id="meet-our-team-heading" className="heading-title">Meet <span className="c-primary">Our Team</span></h2>
             </div>
           </div>
 
           {teamMembers.map((member) => (
-            <div key={member.id} className="col-lg-4 col-md-6 col-12 col-xxl-4">
+            <div key={member.id} className="col-lg-4 col-md-6 col-12 col-xxl-4" itemScope
+          itemType="https://schema.org/Person">
               <div className="team-info">
                 <div className="inner-box">
                   <div className="info-box">
-                    <h5 className="name">
+                    <h3 className="name">
                       <Link href="#">{member.name}</Link>
-                    </h5>
-                    <span className="designation">{member.designation}</span>
+                    </h3>
+                    <span className="designation" itemProp="jobTitle">{member.designation}</span>
                   </div>
                   <div className="image-box">
                     <figure className="image">
-                      <Link href="#">
+                      <Link href={member.profileUrl || "/about-us/company"} aria-label={`View ${member.name} profile`}>
                         <Image 
                           src={member.image} 
-                          alt={member.alt}
+                          alt={`${member.name}, ${member.designation} at TGAYS Technology`}
                           width={300}
                           height={300}
                           className="team-member-image"
+                          itemProp="image"
                         />
                       </Link>
                     </figure>

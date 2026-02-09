@@ -4,14 +4,14 @@ import Image from 'next/image';
 
 const AboutUsSection = () => {
   return (
-    <section className="background-contain pt100 hm-about-sec company-about-us">
+    <section className="background-contain pt100 hm-about-sec company-about-us" aria-labelledby="about-company-heading">
       <div className="container">
         <div className="row">
           {/* Left Column - Content */}
           <div className="col-xl-6 col-lg-6 about-us-sec">
             <div className="crumina-module crumina-heading">
               <div className="about-us-hedding">
-                <h2 className="heading-title">Our <span className="c-primary">Story</span></h2>
+                <h2 id="about-company-heading" className="heading-title">Our <span className="c-primary">Story</span></h2>
               </div>
               <p className="heading-text">
                 Welcome to TGAYS Technology, your premier partner in digital innovation and technology solutions. 
@@ -27,7 +27,11 @@ const AboutUsSection = () => {
               </p>
             </div>
 
-            <Link href="/about-us/company" className="read-more-link">
+            <Link 
+              href="/about-us/company" 
+              className="read-more-link" 
+              aria-label="Read more about TGAYS Technology company profile"
+              >
               <span className="title">READ MORE</span>
             </Link>
 
@@ -40,14 +44,14 @@ const AboutUsSection = () => {
                       <div className="tech-about-content-admin-img">
                         <Image 
                           src="/img/najish.png" 
-                          alt="Jamal Ashraf"
+                          alt="Jamal Ashraf, CEO and Director of TGAYS Technology"
                           width={80}
                           height={80}
                           className="team-member-img"
                         />
                       </div>
                       <div className="tech-about-content-admin-info">
-                        <h4 className="tech-about-admin-title">Jamal Ashraf</h4>
+                        <h3 className="tech-about-admin-title">Jamal Ashraf</h3>
                         <span>CEO & Director</span>
                       </div>
                     </div>
@@ -61,14 +65,14 @@ const AboutUsSection = () => {
                       <div className="tech-about-content-admin-img">
                         <Image 
                           src="/img/vikash.png" 
-                          alt="Vikash Kumar"
+                          alt="Vikash Kumar, Technical Head and Director at TGAYS Technology"
                           width={80}
                           height={80}
                           className="team-member-img"
                         />
                       </div>
                       <div className="tech-about-content-admin-info">
-                        <h4 className="tech-about-admin-title">Vikash Kumar</h4>
+                        <h3 className="tech-about-admin-title">Vikash Kumar</h3>
                         <span>Technical Head & Director</span>
                       </div>
                     </div>
@@ -85,7 +89,7 @@ const AboutUsSection = () => {
                 <div className="about-img-1">
                   <Image
                     src="/img/about-5.png"
-                    alt="TGAYS Technology"
+                    alt="TGAYS Technology office environment and digital innovation workspace"
                     width={300}
                     height={300}
                     className="about-image"
@@ -96,7 +100,7 @@ const AboutUsSection = () => {
                 <div className="about-img-1 girl_img">
                   <Image
                     src="/img/about_1.png"
-                    alt="TGAYS Technology Team"
+                    alt="TGAYS Technology development team working on IT solutions"
                     width={300}
                     height={300}
                     className="about-image"

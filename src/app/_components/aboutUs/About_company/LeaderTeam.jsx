@@ -13,6 +13,8 @@ const LeaderTeam = () => {
   return (
     <section 
       className="team-details bg-cover" 
+      role="region"
+      aria-labelledby="chairman-heading"
       style={{ 
         backgroundImage: 'url(/img/faq782-bg.png)',
         backgroundSize: 'cover',
@@ -24,17 +26,20 @@ const LeaderTeam = () => {
           <div className="row">
             {/* Left Column - Content */}
             <div className="col-xl-8 col-lg-8">
-              <div className="team-details__top-right">
+              <article className="team-details__top-right">
                 <div className="team-details__top-content">
-                  <h3 className="team-details__top-name">Jamal Ashraf</h3>
+                  <h2 id="chairman-heading" className="team-details__top-name">Jamal Ashraf</h2>
                   <p className="team-details__top-title">Chairman & Director</p>
                   
-                  <div className="team-details__social">
+                  <div className="team-details__social" aria-label="Chairman social media profiles">
                     {socialLinks.map((social, index) => (
                       <Link 
                         key={index} 
                         href={social.url}
                         className="social-link"
+                        aria-label={`Visit Jamal Ashraf on ${social.name}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <i className={`fa ${social.icon}`} aria-hidden="true"></i>
                       </Link>
@@ -53,23 +58,24 @@ const LeaderTeam = () => {
                     the emotional commitment that they have to us and our mission.
                   </p>
                 </div>
-              </div>
+              </article>
             </div>
 
             {/* Right Column - Image */}
             <div className="col-xl-4 col-lg-4">
-              <div className="team-details__top-left">
+              <figure className="team-details__top-left">
                 <div className="team-details__top-img">
                   <Image
                     src="/img/jamal.jpg"
-                    alt="Jamal Ashraf - Chairman & Director"
+                    alt="Jamal Ashraf, Chairman and Director of TGAYS Technology IT Company"
                     width={400}
                     height={500}
                     className="team-member-image"
+                    priority
                   />
                   <div className="team-details__big-text"></div>
                 </div>
-              </div>
+              </figure>
             </div>
           </div>
         </div>

@@ -5,35 +5,21 @@ import Lottie from 'lottie-react';
 
 const OurMission = () => {
   return (
-    <section className="medium-padding100 our-mission-box-sec">
+    <section className="medium-padding100 our-mission-box-sec" role="region" aria-labelledby="mission-vision-heading">
       <div className="container">
         <div className="row">
           {/* Left Column - Images */}
           <div className="image-column col-lg-5 col-md-6 col-sm-12 col-xs-12">
             <div className="inner-column">
               <figure className="image-1">
-                {/* <Image 
-                  src="/img/our-mission-1.jpg" 
-                  alt="Our Mission Illustration"
-                  width={400}
-                  height={500}
-                  className="mission-image"
-                /> */}
+                
                 <Lottie
                   path="/lottie/Business Goal _ Target illustration.json" // Direct path from public folder
                   loop
                   autoplay
                   style={{ width: 400, height: 'auto' }}
+                  aria-hidden="true"
                 />
-              </figure>
-              <figure className="image-2">
-                {/* <Image 
-                  src="/img/our-mission-2.jpg" 
-                  alt="Our Team Working"
-                  width={400}
-                  height={300}
-                  className="mission-image"
-                /> */}
               </figure>
             </div>
           </div>
@@ -41,7 +27,7 @@ const OurMission = () => {
           {/* Right Column - Content */}
           <div className="col-lg-7 col-md-12 col-sm-12 col-xs-12">
             <div className="crumina-module crumina-heading">
-              <h2 className="heading-title hire-heading">Mission</h2>
+              <h2 id="mission-vision-heading" className="heading-title hire-heading">Mission</h2>
             </div>
             <p>
               Our mission is to create innovative and user-friendly web and mobile applications 

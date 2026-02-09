@@ -52,25 +52,25 @@ const   OurSuccessNumbers = () => {
   }, []);
 
   return (
-    <section className="our-success-numbers-sec">
+    <section className="our-success-numbers-sec" role="region" aria-labelledby="our-success-heading">
       <div className="container">
         <div className="number-box">
           <div className="row">
             <div className="col-lg-12 col-md-12 col-12 col-xxl-12">
               <div className="crumina-module crumina-heading align-center">
-                <h6>Our Success</h6>
-                <h2 className="heading-title">Transforming Ideas Into Digital Reality </h2>
+                <p>Our Success</p>
+                <h2 id="our-success-heading" className="heading-title">Transforming Ideas Into Digital Reality </h2>
               </div>
             </div>
 
             {stats.map((stat, index) => (
               <div key={index} className="col-lg-4 col-md-4 col-12 col-xxl-4">
                 <div className="fact-one__item">
-                  <div className="fact-one__count">
+                  <div className="fact-one__count" aria-label={`${stat.title} count`}>
                     <span className="count-box counted">
-                      <span id={stat.id} className="count-text">0</span>
+                      <span id={stat.id} className="count-text" aria-live="polite">0</span>
                     </span>
-                    <span className="count-box-postfix">+</span>
+                    <span className="count-box-postfix" aria-hidden="true">+</span>
                   </div>
                   <h3 className="fact-one__title">{stat.title}</h3>
                 </div>

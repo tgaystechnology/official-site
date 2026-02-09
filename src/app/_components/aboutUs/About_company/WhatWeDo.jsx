@@ -65,19 +65,19 @@ const WhatWeDo = () => {
   ];
 
   return (
-    <section className="who-we-are-sec what-we-do-sec">
+    <section className="who-we-are-sec what-we-do-sec" aria-labelledby="what-we-do-heading">
       <div className="container">
         <div className="who-we-are-area">
           <div className="row">
             <div className="col-12 col-md-12">
               <div className="who-we-are-list-area">
                 <div className="who-we-are-text-area align-center">
-                  <h3 className="h5 info-box-title">What We Do</h3>
-                  <ul className="list-unstyled video-one__list what-we-do-list">
+                  <h2 id="what-we-do-heading" className="h5 info-box-title">What We Do</h2>
+                  <ul className="list-unstyled video-one__list what-we-do-list" aria-label="IT services offered by TGAYS Technology">
                     {services.map((service, index) => (
-                      <li key={index} className={service.className}>
+                      <li key={index} className={service.className} itemScop itemType="https://schema.org/Service">
                         <ion-icon name={service.icon}></ion-icon>
-                        <span>{service.name}</span>
+                        <span itemProp="name">{service.name}</span>
                       </li>
                     ))}
                   </ul>
