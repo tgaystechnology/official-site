@@ -54,7 +54,7 @@ const WeServeIndustries = () => {
   ];
 
   return (
-    <section className="industry-list relative py-20 bg-gray-50 overflow-hidden">
+    <section className="industry-list relative py-20 bg-gray-50 overflow-hidden" role="region" aria-labelledby="industries-heading">
       {/* Background Patterns */}
       <div className="shape-instry-1 absolute top-0 left-0 w-1/3 opacity-10">
         <Image 
@@ -63,6 +63,7 @@ const WeServeIndustries = () => {
           width={500}
           height={500}
           layout="responsive"
+          aria-hidden="true"
         />
       </div>
       <div className="shape-instry-2 absolute bottom-0 right-0 w-1/3 opacity-10">
@@ -72,12 +73,13 @@ const WeServeIndustries = () => {
           width={500}
           height={500}
           layout="responsive"
+          aria-hidden="true"
         />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="crumina-module crumina-heading hm-easy_title text-center mb-16">
-          <h2 className="heading-title text-4xl font-bold text-gray-900 mb-4">
+          <h2 id="industries-heading" className="heading-title text-4xl font-bold text-gray-900 mb-4">
             Industries We Serve
           </h2>
           <p className="subheading text-xl text-gray-600">
@@ -89,16 +91,16 @@ const WeServeIndustries = () => {
           <div className="col-12 col-md-12">
             <div className="row">
               {industries.map((industry) => (
-                <div key={industry.id} className="col-sm-6 col-md-6">
+                <div key={industry.id} className="col-sm-6 col-md-6" itemScope itemType="https://schema.org/Industry">
                   <div className="rs-icon-info-3 bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 h-full">
-                    <div className="info-icon text-blue-600 text-4xl mb-6">
+                    <div className="info-icon text-blue-600 text-4xl mb-6" aria-hidden="true">
                       <ion-icon name={industry.icon}></ion-icon>
                     </div>
                     <div className="info-text">
-                      <h4 className="text-black mb-4 text-2xl font-semibold">
+                      <h3 className="text-black mb-4 text-2xl font-semibold" itemProp="name">
                         {industry.title}
-                      </h4>
-                      <p className="text-gray-600 leading-relaxed">
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed" itemProp="description">
                         {industry.description}
                       </p>
                     </div>

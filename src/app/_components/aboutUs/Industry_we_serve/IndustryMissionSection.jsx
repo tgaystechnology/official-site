@@ -28,21 +28,12 @@ const IndustryMissionSection = () => {
     height = 350;
   }
   return (
-    <section className="medium-padding100 our-mission-box-sec serve-section">
+    <section className="medium-padding100 our-mission-box-sec serve-section" role="region" aria-labelledby="industry-solution-heading">
       <div className="container">
         <div className="row">
           <div className="image-column col-lg-5 col-md-6 col-sm-12 col-xs-12">
             <div className="inner-column">
               <figure className="image-1">
-                {/* <Image 
-                  src="/img/shape-sec-img.png" 
-                  alt="Digital transformation illustration"
-                  width={500} // Set appropriate width
-                  height={500} // Set appropriate height
-                  layout="responsive" // or "intrinsic", "fixed", "fill" depending on your needs
-                  quality={100}
-                  priority={false}
-                /> */}
                 <Lottie
                   path='/lottie/coding.json'  // always prepends /lottie/
                   loop
@@ -52,30 +43,33 @@ const IndustryMissionSection = () => {
                     height: height,
                     margin: "0 auto",
                   }}
+                  aria-hidden="true"
                 />
               </figure>
             </div>
           </div>
           <div className="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-            <div className="crumina-module crumina-heading">
-              <h2 className="heading-title hire-heading">Innovate. Automate. Transform.</h2>
-            </div>
-            <p>
-              At <strong>TGAYS Technology Pvt. Ltd.</strong>, we don't just develop software—we create customized digital 
-              ecosystems that solve real business problems. Whether you're a startup ready to scale or an 
-              enterprise looking to innovate, we deliver smart, efficient, and user-friendly solutions 
-              tailored to your industry.
-            </p>
-            <p>
-              Our core focus lies in building AI-driven automation systems, intuitive mobile and web 
-              applications, and scalable CRMs that make operations smoother and more intelligent. 
-              From retail to healthcare, our technology adapts to your needs—so you can focus on 
-              what you do best.
-            </p>
-            <p>
-              We believe that great technology should feel simple, be secure, and create impact. 
-              And that's exactly what we deliver—across every industry we serve.
-            </p>
+            <article>
+              <div className="crumina-module crumina-heading">
+                <h2 id="industry-solution-heading" className="heading-title hire-heading">Innovate. Automate. Transform.</h2>
+              </div>
+              <p>
+                At <strong>TGAYS Technology Pvt. Ltd.</strong>, we don't just develop software—we create customized digital 
+                ecosystems that solve real business problems. Whether you're a startup ready to scale or an 
+                enterprise looking to innovate, we deliver smart, efficient, and user-friendly solutions 
+                tailored to your industry.
+              </p>
+              <p>
+                Our core focus lies in building AI-driven automation systems, intuitive mobile and web 
+                applications, and scalable CRMs that make operations smoother and more intelligent. 
+                From retail to healthcare, our technology adapts to your needs—so you can focus on 
+                what you do best.
+              </p>
+              <p>
+                We believe that great technology should feel simple, be secure, and create impact. 
+                And that's exactly what we deliver—across every industry we serve.
+              </p>
+            </article>
           </div>
         </div>
       </div>

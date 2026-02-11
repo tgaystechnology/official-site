@@ -5,8 +5,8 @@ export async function GET() {
     {
       type: 'quiz-master-lms-plan',
       img: '/img/student-home-page.png',
-      price: '20,000',
-      amount: 20000,
+      price: '49,999',
+      amount: 49999,
       title: 'Quiz Master LMS',
       btnClass: 'btn-basic',
       bubbleClass: 'basic-bubble',

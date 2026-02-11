@@ -314,7 +314,7 @@ const PricingDetailPage = () => {
                                 <span className={styles.price}>
                                     ₹{plan.price}
                                 </span>
-                                <span className={styles.period}>/month</span>
+                                <span className={styles.period}></span>
                             </div>
                             <p className={styles.description}>
                                 Get started with our {plan.title}. Includes premium features, dedicated resources, and everything you need to scale your business effectively.

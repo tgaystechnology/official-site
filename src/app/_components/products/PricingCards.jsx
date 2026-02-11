@@ -331,7 +331,7 @@ const PricingModal = ({ plan }) => {
                                   
                                   <div className="pricing-modal-price-row">
                                     <span className="pricing-modal-price-val">{plan.price}</span>
-                                    <span className="pricing-modal-price-period">/mo</span>
+                                    <span className="pricing-modal-price-period"></span>
                                   </div>
 
                                   <DialogDescription className="pricing-modal-desc">
@@ -559,7 +559,7 @@ const PricingCards = () => {
                                 </div>
                                 <div className={`price-bubble ${plan.bubbleClass}`}>
                                     <span className="currency">₹</span><span className="amount">{plan.price}</span>
-                                    <div className="period">PER MONTH</div>
+                                    <div className="period"></div>
                                 </div>
                                 <div className="card-body pt-5 pb-4 px-3">
                                     <h3 className="plan-title text-uppercase fw-bold mb-4 mt-4">{plan.title}</h3>
