@@ -29,7 +29,7 @@ const PLAN_DETAILS = {
                 description: "Quiz Master LMS is a comprehensive learning management system built to streamline online education while delivering a secure, intelligent, and user-friendly experience for administrators, instructors, and students."
             },
             {
-                image: "/img/admin-dashboard.png",
+                image: "/img/admin-dashboard-2.png",
                 title: "Super Admin Dashboard",
                 description: "The platform features a powerful Super Admin Dashboard that provides centralized control over users, class schedules, quizzes, payments, and overall system performance, along with built-in revenue tracking to monitor financial growth in real time."
             },
@@ -46,7 +46,7 @@ const PLAN_DETAILS = {
             {
                 image: "/img/quiz-servilance.png",
                 title: "Secure & Intelligent Assessments",
-                description: "The system also includes quiz surveillance to ensure fair and secure examinations, an AI-driven practice quiz generator that allows students to create their own custom quizzes, secure payment processing, automated payment reminders, and transparent transaction tracking, making Quiz Master LMS a reliable and scalable solution for modern digital education."
+                description: "Quiz Master LMS features quiz surveillance for secure exams, an AI-powered quiz generator, secure payments, automated reminders, and transparent transaction tracking, ensuring a reliable and scalable solution for modern digital education."
             }
         ],
         features: [
@@ -76,28 +76,31 @@ const PLAN_DETAILS = {
     },
 };
 
+import StackingCards from '@/app/_components/products/StackingCards';
+
 const ProductDescription = ({ planType }) => {
     const details = PLAN_DETAILS[planType] || PLAN_DETAILS['quiz-master-lms-plan'] || PLAN_DETAILS.basic;
 
+    // Transform sections to cards data if available
+    const cardsData = details.sections?.map((section, idx) => ({
+        title: section.title,
+        description: section.description,
+        src: section.image,
+        // Assign colors cyclically or fixed palette
+        // Light Theme: Use white cards with shadows (handled in CSS), or very subtle pastels if needed.
+        // For clean light theme, let's use all white (#ffffff) or maybe just slightly different shades.
+        // But since CSS has a border and shadow, white works effectively.
+        color: '#ffffff', 
+        url: "#" // No specific link in current data
+    })) || [];
+
     return (
         <div className={styles.productDescSection}>
-            {/* Dynamic Sections Layout */}
-            {details.sections ? (
-                <div className={styles.sectionsWrapper}>
-                    {details.sections.map((section, idx) => (
-                        <div key={idx} className={`${styles.sectionItem} ${idx % 2 !== 0 ? styles.sectionReverse : ''}`}>
-                            <div className={styles.sectionImageWrapper}>
-                                <img src={section.image} alt={section.title} className={styles.sectionImage} />
-                            </div>
-                            <div className={styles.sectionContent}>
-                                <h3 className={styles.sectionTitle}>{section.title}</h3>
-                                <p className={styles.descText}>{section.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+            {/* Stacking Cards Section */}
+            {cardsData.length > 0 ? (
+                <StackingCards data={cardsData} />
             ) : (
-                <>
+                 <>
                     <div className={styles.sectionHeading}>Description</div>
                     <p className={styles.descText}>
                         {details.description}
@@ -105,27 +108,29 @@ const ProductDescription = ({ planType }) => {
                 </>
             )}
 
-            <div className={styles.sectionHeading}>Features</div>
-            <ul className={styles.bulletList}>
-                {details.features.map((feature, idx) => (
-                    <li key={idx}>{feature}</li>
-                ))}
-            </ul>
+            <div style={{ backgroundColor: 'white', padding: '2rem 0' }}>
+                <div className={styles.sectionHeading}>Features</div>
+                <ul className={styles.bulletList}>
+                    {details.features.map((feature, idx) => (
+                        <li key={idx}>{feature}</li>
+                    ))}
+                </ul>
 
-            <div className={styles.sectionHeading}>Include Files</div>
-            <ul className={styles.bulletList}>
-                {details.files.map((file, idx) => (
-                    <li key={idx}>{file}</li>
-                ))}
-            </ul>
+                <div className={styles.sectionHeading}>Include Files</div>
+                <ul className={styles.bulletList}>
+                    {details.files.map((file, idx) => (
+                        <li key={idx}>{file}</li>
+                    ))}
+                </ul>
 
-            <div className={styles.sectionHeading}>Item Tags</div>
-            <div className={styles.tagsContainer}>
-                {details.tags.map((tag, idx) => (
-                    <span key={idx} className={styles.tagChip}>
-                        {tag}
-                    </span>
-                ))}
+                <div className={styles.sectionHeading}>Item Tags</div>
+                <div className={styles.tagsContainer}>
+                    {details.tags.map((tag, idx) => (
+                        <span key={idx} className={styles.tagChip}>
+                            {tag}
+                        </span>
+                    ))}
+                </div>
             </div>
         </div>
     );

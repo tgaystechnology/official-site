@@ -1,0 +1,173 @@
+.main {
+    background-color: #ffffff;
+    position: relative;
+    width: 100%;
+}
+
+.introSection {
+    height: 50vh;
+    width: 100%;
+    background-color: #f8fafc; /* slate-50 */
+    display: grid;
+    place-content: center;
+    color: #0f172a; /* slate-900 */
+    position: relative;
+    overflow: hidden;
+}
+
+.introBackground {
+    position: absolute;
+    inset: 0;
+    /* Light theme grid pattern (subtle gray) */
+    background-image: 
+        linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+        linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+}
+
+.introTitle {
+    font-size: 3rem;
+    line-height: 1.2;
+    text-align: center;
+    font-weight: 600;
+    z-index: 10;
+    padding: 0 20px;
+    color: #0f172a;
+}
+
+.cardsListSection {
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    /* padding-bottom: 20vh; */
+}
+
+/* Card Component */
+.cardContainer {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 50px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -25%; 
+    height: 500px;
+    width: 1000px;
+    max-width: 90%;
+    border-radius: 25px;
+    padding: 50px;
+    transform-origin: top;
+    /* Stronger/Different shadow for light theme depth */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.cardHeader {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1e293b; /* slate-800 */
+}
+
+.cardBody {
+    display: flex;
+    height: 100%;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.cardTextContent {
+    width: 40%;
+    position: relative;
+    top: 10%;
+    color: #475569; /* slate-600 */
+}
+
+.cardDescription {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.cardLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    cursor: pointer;
+    color: inherit;
+}
+
+.cardImageWrapper {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #f1f5f9; /* Image placeholder bg */
+}
+
+.cardImageInner {
+    width: 100%;
+    height: 100%;
+}
+
+.cardImage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .card {
+        padding: 30px;
+        height: 450px;
+    }
+    
+    .cardBody {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .introTitle {
+        font-size: 2rem;
+    }
+
+    .card {
+        height: auto;
+        min-height: 500px;
+        padding: 20px;
+        top: -5% !important; /* Less offset on mobile */
+    }
+
+    .cardBody {
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+    .cardTextContent, .cardImageWrapper {
+        width: 100%;
+    }
+    
+    .cardImageWrapper {
+        height: 200px;
+    }
+
+    .cardHeader {
+        font-size: 1.5rem;
+    }
+}
