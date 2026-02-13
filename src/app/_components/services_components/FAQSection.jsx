@@ -43,20 +43,13 @@ const FAQSection = ({ faqs = [] }) => {
 
 
   return (
-    <section id="faq" className="faqs-section style-two bg-cover">
+    <section id="faq" className="faqs-section style-two bg-cover" role="region" aria-labelledby="ai-faq-heading">
       <div className="container">
         <div className="row">
           {/* Image Column */}
           <div className="image-column col-xl-6 col-lg-12 col-md-12">
             <div className="inner-column">
               <figure className="image ml-5">
-                {/* <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={image.width}
-                  height={image.height}
-                  className="img-fluid"
-                /> */}
                 <div className="ns-custom-img">
                   <div className="lottie-container faq-svg">
                     <Lottie
@@ -86,12 +79,12 @@ const FAQSection = ({ faqs = [] }) => {
           <div className="faq-column col-xl-6 col-lg-12 col-md-12">
             <div className="inner-column">
               <div className="tech-section mb-25">
-                <h1 className="tech-section-title mb-15">{heading}</h1>
+                <h2 id="ai-faq-heading" className="tech-section-title mb-15">{heading}</h2 >
               </div>
               <div className="accordion" id="accordionExample">
                 {faqs.map((item, index) => (
                   <div className="accordion-item" key={index}>
-                    <h2 className="accordion-header" id={item.id}>
+                    <h3 className="accordion-header" id={item.id}>
                       <button
                         className="accordion-button collapsed"
                         type="button"
@@ -102,7 +95,7 @@ const FAQSection = ({ faqs = [] }) => {
                       >
                         {item.question}
                       </button>
-                    </h2>
+                    </h3>
                     <div
                       id={item.target}
                       className="accordion-collapse collapse"

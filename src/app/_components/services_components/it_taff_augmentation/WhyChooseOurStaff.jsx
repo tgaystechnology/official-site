@@ -59,7 +59,7 @@ const WhyChooseOurStaff = () => {
   ];
 
   return (
-    <section className="ai-step it-staff-step it-staff-why-choose">
+    <section className="ai-step it-staff-step it-staff-why-choose" role="region" aria-labelledby="why-choose-it-staff-heading">
       <div className="container">
         <div className="ai-shape">
           <Image 
@@ -71,20 +71,14 @@ const WhyChooseOurStaff = () => {
         </div>
 
         <div className="crumina-module crumina-heading text-center">
-          <h2 className="heading-title">Why Choose Us</h2>
+          <h2 id="why-choose-it-staff-heading" className="heading-title">Why Choose Us</h2>
         </div>
 
         <div className="row">
           <div className="col-lg-6">
             <div className="ai-work-image">
-              <figure className="image-anime reveal">
-                {/* <Image 
-                  src="/img/it-staff-why-choose.png" 
-                  alt="Why Choose Us Illustration"
-                  width={600}
-                  height={500}
-                /> */}
-                <Lottie
+              <figure className="image-anime reveal" aria-hidden="true">                
+              <Lottie
                   path="/lottie/Contact Us.json"
                   loop
                   autoplay
@@ -95,11 +89,11 @@ const WhyChooseOurStaff = () => {
           </div>
 
           <div className="col-lg-6">
-            <div className="ai-work-content">
+            <div className="ai-work-content why-choose-item-content">
               {/* Benefits list */}
               {benefits.map(benefit => (
-                <div key={benefit.id} className="ai-work-item">
-                  <div className="icon-box">
+                <div key={benefit.id} className="ai-work-item why-choose-item">
+                  <div className="icon-box" aria-hidden="true">
                     <ion-icon name={benefit.icon}></ion-icon>
                   </div>
                   <div className="ai-work-item-content">
@@ -114,7 +108,7 @@ const WhyChooseOurStaff = () => {
                 {stats.map((stat, index) => (
                   <div key={index} className="col-md-6">
                     <div className="done-project-sec">
-                      <h1>{stat.value}</h1>
+                      <h4>{stat.value}</h4>
                       <p>{stat.label}</p>
                     </div>
                   </div>

@@ -66,13 +66,13 @@ const DigitalMarketingJobOne = () => {
   ];
 
   return (
-    <div className="post-content">
+    <div className="post-content" itemScope itemType="https://schema.org/JobPosting">
       <div className="career-top-section">
         <div className="row">
           <div className="col-lg-12 col-md-12 col-12 col-xxl-12">
             <div className="left-box-sec align-center">
               <div className="crumina-module crumina-heading">
-                <h2 className="heading-title">
+                <h2 className="heading-title" itemProp="title">
                   1. Job Title: <br />
                   <span className="c-primary">{jobDetails.title}</span>
                 </h2>
@@ -81,11 +81,19 @@ const DigitalMarketingJobOne = () => {
           </div>
           <div className="col-lg-12 col-md-12 col-12 col-xxl-12">
             <div className="right-box-sec">
-              <p><strong>Date of Opening: </strong>{jobDetails.date}</p>
-              <p><strong>Job Status: </strong>{jobDetails.status}</p>
+              <p><strong>Date of Opening: </strong><time itemProp="datePosted" dateTime={jobDetails.date}> {jobDetails.date} </time></p>
+              <p><strong>Job Status: </strong> <span itemProp="employmentType">{jobDetails.status}</span></p>
               <p><strong>No of Positions:</strong>{jobDetails.positions}</p>
-              <p><strong>Pay Grade:</strong>{jobDetails.salary}</p>
-              <p><strong>Work Location: </strong>{jobDetails.location}</p>
+              <p><strong>Pay Grade:</strong><span itemProp="baseSalary">{jobDetails.salary} </span></p>
+              <p><strong>Work Location: </strong>
+                <span
+                  itemProp="jobLocation"
+                  itemScope
+                  itemType="https://schema.org/Place"
+                > 
+                  <span itemProp="addressLocality">{jobDetails.location}</span>
+                </span>
+              </p>
               <p><strong>Working Days &amp; Hours:</strong>{jobDetails.hours}</p>
               <p><strong>Qualification:</strong>{jobDetails.qualification}</p>
               <p><strong>Experience:</strong>{jobDetails.experience}</p>
@@ -94,12 +102,12 @@ const DigitalMarketingJobOne = () => {
         </div>
       </div>
 
-      <section id="testo" class="career-sec-1">
+      <section id="testo" class="career-sec-1" role="region" aria-labelledby="job-requirements-heading">
         <div className="container">
           <div className="row testo_section">
             {sections.map((section, index) => (
               <div key={index} className="col-md-6 testimonials_box">
-                <div className="icon">
+                <div className="icon" aria-hidden="true">
                   <Image 
                     src={section.icon} 
                     alt={`${section.title} icon`}
@@ -108,7 +116,7 @@ const DigitalMarketingJobOne = () => {
                   />
                 </div>
                 <div className="testimonial_shadow">
-                  <div className="border-img">
+                  <div className="border-img" aria-hidden="true">
                     <Image 
                       src="/img/left_border.png" 
                       alt="border-left"
@@ -116,7 +124,7 @@ const DigitalMarketingJobOne = () => {
                       height={10}
                     />
                   </div>
-                  <h4>{section.title}:</h4>
+                  <h3>{section.title}:</h3>
                   <ul className="skill-list">
                     {section.items.map((item, i) => (
                       <li key={i}>

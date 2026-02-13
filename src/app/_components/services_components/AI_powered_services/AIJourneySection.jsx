@@ -28,7 +28,7 @@ const AIJourneySection = () => {
     height = 350;
   }
   return (
-    <section className="ai-step">
+    <section className="ai-step" role="region" aria-labelledby="ai-development-process-heading">
       <div className="container">
         <div className="ai-shape">
           <Image 
@@ -40,7 +40,7 @@ const AIJourneySection = () => {
           />
         </div>
         
-        <div className="crumina-module crumina-heading text-center">
+        <div className="crumina-module crumina-heading text-center" id="ai-development-process-heading">
           <h2 className="heading-title">Your AI Journey, One Smart Step at a Time</h2>
           <p className="subheading">From strategy to scalable execution — we guide you through every stage of AI adoption</p>
         </div>
@@ -96,7 +96,7 @@ const AIJourneySection = () => {
           
           <div className="col-lg-6">
             <div className="ai-work-image">
-              <figure className="image-anime reveal">
+              <figure className="image-anime reveal" aria-hidden="true">
                 <Lottie
                   path='/lottie/AI intelligence.json'  // always prepends /lottie/
                   loop

@@ -120,7 +120,14 @@ const QuickConsultation = () => {
     setSubmitMessage('');
 
     try {
-      const response = await fetch('/api/quick-consultation', {
+      // const response = await fetch('/api/quote-request', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
+      const response = await fetch('https://api.tgaystechnology.com/api_v1/service-enquiry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -152,7 +159,7 @@ const QuickConsultation = () => {
   };
 
   return (
-    <section id="contact-form">
+    <section id="contact-form" role="region" aria-labelledby="ai-contact-heading">
       <div className="container">
         <div className="row">
           {/* Contact Info Column */}
@@ -161,7 +168,7 @@ const QuickConsultation = () => {
               <div className="title-column col-lg-12">
                 <div className="inner-column">
                   <div className="sec-title">
-                    <h2>
+                    <h2 id="ai-contact-heading">
                       Building Next-Generation Web & Mobile Solutions for Your Business Growth
                     </h2>
                   </div>
@@ -171,11 +178,11 @@ const QuickConsultation = () => {
             
             <div className="address_box">
               <div className="cont-info call-mail-sec">
-                <h4>For Quick Consultation, Contact:</h4>
+                <h3>For Quick Consultation, Contact:</h3>
                 
                 {contactInfo.map((info, index) => (
                   <div className="address-sec" key={index}>
-                    <span>
+                    <span aria-hidden="true">
                       <ion-icon name={info.icon} role="img" className="md hydrated"></ion-icon>
                     </span>
                     <h5>{info.text}</h5>
@@ -212,7 +219,7 @@ const QuickConsultation = () => {
                   </div>
                 )}
                 
-                <form onSubmit={handleSubmit} id="anotherForm">
+                <form onSubmit={handleSubmit} id="anotherForm" aria-label="AI consultation request form">
                   <div className="row">
                     <div className="col-12 col-md-12 col-lg-6">
                       <div className="control-input">
@@ -225,6 +232,7 @@ const QuickConsultation = () => {
                           placeholder="Full Name" 
                           value={formData.name}
                           onChange={handleInputChange}
+                          aria-label="Full Name"
                           // required 
                         />
                       </div>
@@ -241,6 +249,7 @@ const QuickConsultation = () => {
                           placeholder="Email" 
                           value={formData.email}
                           onChange={handleInputChange}
+                          aria-label="Full Name"
                           // required 
                         />
                       </div>
@@ -257,6 +266,7 @@ const QuickConsultation = () => {
                           placeholder="Phone Number" 
                           value={formData.phone_no}
                           onChange={handleInputChange}
+                          aria-label="Phone Number"
                           // required 
                         />
                       </div>
@@ -271,6 +281,7 @@ const QuickConsultation = () => {
                           id="InputService"
                           value={formData.project_requirement}
                           onChange={handleInputChange}
+                          aria-label="Select AI Service"
                           // required
                         >
                           <option value="" disabled>
@@ -296,6 +307,7 @@ const QuickConsultation = () => {
                           placeholder="Describe your requirement" 
                           value={formData.message}
                           onChange={handleInputChange}
+                          aria-label="Project Description"
                           // required
                         ></textarea>
                       </div>

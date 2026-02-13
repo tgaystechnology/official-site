@@ -48,7 +48,7 @@ const SocialMediaServices = () => {
   ];
 
   return (
-    <section className="social-service">
+    <section className="social-service" role="region" aria-labelledby="social-media-services-heading">
       <div className="container">
         <div className="crumina-module crumina-heading align-center">
           <h2 className="heading-title">Our <span className="c-primary">Top Social Media Services</span></h2>
@@ -62,7 +62,7 @@ const SocialMediaServices = () => {
                   {service.layout === "right" ? (
                     <>
                       <div className="sociol-text">
-                        <h3>{service.title}</h3>
+                        <h2 id="social-media-services-heading">{service.title}</h2>
                         <p>{service.description}</p>
                         <Link href="/contact-us">{service.linkText}</Link>
                       </div>
@@ -101,7 +101,7 @@ const SocialMediaServices = () => {
                     <div className="sociol-text">
                       <h3>{service.title}</h3>
                       <p>{service.description}</p>
-                      <Link href="/contact-us">{service.linkText}</Link>
+                      <Link href="/contact-us" aria-label={`Learn more about ${service.title}`}>{service.linkText}</Link>
                     </div>
                   )}
                 </div>

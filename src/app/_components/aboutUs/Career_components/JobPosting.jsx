@@ -2,33 +2,39 @@ import Image from 'next/image';
 
 const JobPosting = () => {
   return (
-    <div className="post-content">
+    <div className="post-content" itemScope itemType="https://schema.org/JobPosting">
       <div className="career-top-section">
         <div className="row">
           <div className="col-lg-12 col-md-12 col-12 col-xxl-12">
             <div className="left-box-sec align-center">
               <div className="crumina-module crumina-heading">
-                <h2 className="heading-title">
+                <h2 className="heading-title" itemProp="title">
                   2. Job Title: <br />
                   <span className="c-primary">Digital Branding Executive</span>
                 </h2>
-                <p className="align-left">
-                  We are looking for someone who can help us build our brand and raise brand awareness. You'll work across all levels and departments of our organization to find
-                  what makes us unique and communicate it to the world. Digital Brand Executives are the people who shape a company's outward image. To do that, you'll need to uncover consumer insights and
-                  deliver innovative marketing campaigns. We'll turn to you to learn what can attract our customers and prospects and how we can improve customer experience.
-                </p>
-                <p className="align-left">If you're creative and possess a strategic mind, we'd like to meet you.</p>
-                <p className="align-left">Ultimately, you'll help us improve our company's reputation and drive growth.</p>
+                <div className="job-description" itemProp="description">
+                  <p className="align-left">
+                    We are looking for someone who can help us build our brand and raise brand awareness. You'll work across all levels and departments of our organization to find
+                    what makes us unique and communicate it to the world. Digital Brand Executives are the people who shape a company's outward image. To do that, you'll need to uncover consumer insights and
+                    deliver innovative marketing campaigns. We'll turn to you to learn what can attract our customers and prospects and how we can improve customer experience.
+                  </p>
+                  <p className="align-left">If you're creative and possess a strategic mind, we'd like to meet you.</p>
+                  <p className="align-left">Ultimately, you'll help us improve our company's reputation and drive growth.</p>
+                </div>
               </div>
             </div>
           </div>
           <div className="col-lg-12 col-md-12 col-12 col-xxl-12">
             <div className="right-box-sec">
-              <p><strong>Date of Opening:</strong> 20-02-2023</p>
+              <p><strong>Date of Opening:</strong><time itemProp="datePosted" dateTime="2023-02-20"> 20-02-2023</time></p>
               <p><strong>Job Status: </strong>Close</p>
               <p><strong>No of Positions:</strong> 1</p>
               <p><strong>Pay Grade:</strong> Rs. 10,000 per month + Internet Cost</p>
-              <p><strong>Work Location:</strong> Work from Home(Should have a Laptop or a Computer)</p>
+              <p><strong>Work Location:</strong>
+                  <span itemProp="jobLocation" itemScope itemType="https://schema.org/Place"> 
+                  Work from Home(Should have a Laptop or a Computer)
+                  </span>
+             3</p>
               <p><strong>Working Days &amp; Hours:</strong> 5.5 days a week, (44 hours per week)</p>
               <p><strong>Qualification: </strong> Graduation / Pursuing Graduation in any stream like BCom, BBA, BSc, BCA, BA or MA, MCom, MBA</p>
               <p><strong>Experience:</strong> Fresher, a 2 weeks training will be provided.</p>
@@ -36,11 +42,11 @@ const JobPosting = () => {
           </div>
         </div>
       </div>
-      <section id="testo" class="career-sec-2">
+      <section id="testo" class="career-sec-2" role="region" aria-labelledby="job-requirements-heading">
         <div className="container">
           <div className="row testo_section">
             <div className="col-md-6 testimonials_box">
-              <div className="icon">
+              <div className="icon" aria-hidden="true">
                 <Image 
                   src="/img/skill-icon.png" 
                   alt="testimonial" 
@@ -51,7 +57,7 @@ const JobPosting = () => {
               <div className="testimonial_shadow">
                 <div className="border-img">
                 </div>
-                <h4>Skills:</h4>
+                <h3 id="job-requirements-heading">Skills:</h3>
                 <ul className="skill-list">
                   <li>
                     <ion-icon name="checkmark-outline" role="img" className="md hydrated"></ion-icon>
@@ -81,7 +87,7 @@ const JobPosting = () => {
               </div>
             </div>
             <div className="col-md-6 testimonials_box">
-              <div className="icon">
+              <div className="icon" aria-hidden="true">
                 <Image 
                   src="/img/attitude-icon-real.png" 
                   alt="testimonial" 
@@ -92,7 +98,7 @@ const JobPosting = () => {
               <div className="testimonial_shadow">
                 <div className="border-img">
                 </div>
-                <h4>Attitude:</h4>
+                <h3>Attitude:</h3>
                 <ul className="skill-list">
                   <li>
                     <ion-icon name="checkmark-outline" role="img" className="md hydrated"></ion-icon>
@@ -118,7 +124,7 @@ const JobPosting = () => {
               </div>
             </div>
             <div className="col-md-12 testimonials_box">
-              <div className="icon">
+              <div className="icon" aria-hidden="true">
                 <Image 
                   src="/img/Job-Responsibility.png" 
                   alt="testimonial" 
@@ -127,7 +133,7 @@ const JobPosting = () => {
                 />
               </div>
               <div className="testimonial_shadow">
-                <div className="border-img">
+                <div className="border-img" aria-hidden="true">
                   <Image 
                     src="/img/left_border.png" 
                     alt="border-left" 
@@ -135,7 +141,7 @@ const JobPosting = () => {
                     height={50}
                   />
                 </div>
-                <h4>Job Responsibility:</h4>
+                <h3>Job Responsibility:</h3>
                 <ul className="skill-list">
                   <li>
                     <ion-icon name="checkmark-outline" role="img" className="md hydrated"></ion-icon>
@@ -153,13 +159,7 @@ const JobPosting = () => {
                     <ion-icon name="checkmark-outline" role="img" className="md hydrated"></ion-icon>
                     <span>Social Media Marketing/Advertising</span>
                   </li>
-                  {/* <form className="career-form">
-                    <input type="checkbox" id="" name="" value="" checked disabled /><label> Promotion of our Services/Products</label><br />
-                    <input type="checkbox" id="" name="" value="" checked disabled /><label>Promoting Landing Pages</label><br />
-                    <input type="checkbox" id="" name="" value="" checked disabled /><label> Promoting Blogs</label><br />
-                    <input type="checkbox" id="" name="" value="" checked disabled /><label>Promoting Youtube Videos</label><br />
-                    <input type="checkbox" id="" name="" value="" checked disabled /><label> Promoting Client's Testimonials</label><br />
-                  </form> */}
+                  
 
                   <div class="career-form-built">
                     <ul>
@@ -214,7 +214,7 @@ const JobPosting = () => {
               </div>
             </div>
             <div className="col-md-6 testimonials_box">
-              <div className="icon">
+              <div className="icon" aria-hidden="true">
                 <Image 
                   src="/img/Goals.png" 
                   alt="testimonial" 
@@ -223,7 +223,7 @@ const JobPosting = () => {
                 />
               </div>
               <div className="testimonial_shadow">
-                <div className="border-img">
+                <div className="border-img" aria-hidden="true">
                   <Image 
                     src="/img/left_border.png" 
                     alt="border-left" 
@@ -231,7 +231,7 @@ const JobPosting = () => {
                     height={50}
                   />
                 </div>
-                <h4>Top 5 Goals:</h4>
+                <h3>Top 5 Goals:</h3>
                 <ul className="skill-list">
                   <li>
                     <ion-icon name="checkmark-outline" role="img" className="md hydrated"></ion-icon>

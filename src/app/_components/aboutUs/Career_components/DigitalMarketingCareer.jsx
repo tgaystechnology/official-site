@@ -5,8 +5,10 @@ import JobPosting from './JobPosting';
 
 const DigitalMarketingCareer = () => {
   return (
-    <div 
+    <section 
       className="process content-wrapper career-page bg-cover" 
+      role="region"
+      aria-labelledby="career-opportunities-heading"
       style={{ 
         // backgroundImage: 'url(/img/pattern-8.png)',
         backgroundSize: 'cover',
@@ -19,7 +21,7 @@ const DigitalMarketingCareer = () => {
             <JobPosting/>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

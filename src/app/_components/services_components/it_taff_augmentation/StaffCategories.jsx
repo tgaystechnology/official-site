@@ -49,10 +49,10 @@ const StaffCategories = () => {
   ];
 
   return (
-    <section className="staff-categories">
+    <section className="staff-categories" role="region" aria-labelledby="it-staff-categories-heading">
       <div className="container">
         <div className="crumina-module crumina-heading hm-easy_title text-center">
-          <h2 className="heading-title">Staff Categories</h2>
+          <h2 id="it-staff-categories-heading" className="heading-title">Staff Categories</h2>
           <p>Explore our pool of industry-ready professionals available for immediate deployment.</p>
         </div>
 
@@ -61,14 +61,7 @@ const StaffCategories = () => {
             <div key={category.id} className="col-lg-3 col-md-6 col-sm-12 service-block">
               <div className="service-block-one">
                 <div className="inner-box">
-                  <figure className="image-box">
-                    {/* <Image 
-                      src={category.image} 
-                      alt={category.alt}
-                      width={300}
-                      height={200}
-                      className="img-fluid"
-                    /> */}
+                  <figure className="image-box" aria-hidden="true">
                     <Lottie
                       path={`/lottie/${category.image}`}
                       loop

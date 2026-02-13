@@ -5,13 +5,13 @@ import Lottie from 'lottie-react';
 
 const AISolutionsSection = () => {
   return (
-    <section className="background-contain pt100 web-solution-section ai-power-two-sec">
+    <section className="background-contain pt100 web-solution-section ai-power-two-sec" role="region" aria-labelledby="ai-solutions-overview-heading">
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 about-us-sec">
             <div className="crumina-module crumina-heading">
               <div className="about-us-hedding">
-                <h2 className="heading-title">
+                <h2 id="ai-solutions-overview-heading" className="heading-title">
                   <span className="c-primary">AI</span> Solutions That Drive Innovation
                 </h2>
               </div>
@@ -26,13 +26,7 @@ const AISolutionsSection = () => {
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div className="crumina-module">
               <div className="img-thumb">
-                {/* <Image 
-                  src="/img/ai-about-us-image.jpg" 
-                  alt="app-developmen" 
-                  width={600} 
-                  height={400}
-                  className="img-responsive"
-                /> */}
+                
                 <Lottie
                   path="/lottie/Robot Futuristic Ai animated.json"
                   loop

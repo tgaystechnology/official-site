@@ -5,20 +5,20 @@ import Lottie from 'lottie-react';
 
 const OurValuesSection = () => {
   return (
-    <section className="our-values drive-by-innova-sec">
+    <section className="our-values drive-by-innova-sec" role="region" aria-labelledby="ai-expertise-heading">
       <div className="container">
         <div className="row">
           <div className="col-lg-6">
             <div className="our-value-content">
               <div className="section-title">
-                <h2>Driven by Innovation, Backed by Experience</h2>
+                <h2 id="ai-expertise-heading">Driven by Innovation, Backed by Experience</h2>
               </div>
               <div className="value-box-list">
                 {/* Box 1 */}
                 <div className="value-box-item">
                   <div className="value-box-header">
-                    <h2><span className="counter">50</span>+</h2>
-                    <p>AI Projects Delivered</p>
+                    <p className="stat-number"><span className="counter">50</span>+</p>
+                    <p>AI Projects Successfully Delivered</p>
                   </div>
                   <div className="value-box-body">
                     <p>From chatbots to intelligent automation, we've built scalable AI solutions that enhance performance and reduce manual tasks.</p>
@@ -41,7 +41,7 @@ const OurValuesSection = () => {
                 {/* Box 2 */}
                 <div className="value-box-item">
                   <div className="value-box-header">
-                    <h2><span className="counter">20</span>+</h2>
+                    <p className="stat-number"><span className="counter">20</span>+</p>
                     <p>Industries Served</p>
                   </div>
                   <div className="value-box-body">
@@ -67,14 +67,7 @@ const OurValuesSection = () => {
           </div>
           <div className="col-lg-6">
             <div className="value-image">
-              <figure className="image-anime reveal">
-                {/* <Image 
-                  src="/img/value-image.jpg" 
-                  alt="Our values" 
-                  width={600} 
-                  height={400}
-                  className="img-fluid"
-                /> */}
+              <figure className="image-anime reveal" aria-hidden="true">
                 <Lottie
                   path="/lottie/Artificial intelligence digital technology.json"
                   loop

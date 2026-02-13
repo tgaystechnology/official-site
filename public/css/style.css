@@ -917,7 +917,8 @@
  .mobile-app-banner .btn + .btn, .website-service-page .btn + .btn {
      margin-left: 10px;
 }
- .web-solution-section h6 {
+ .web-solution-section h6,
+  .web-solution-section p {
      line-height: 1.55;
      font-size: 16px;
      text-align: left;
@@ -5918,13 +5919,16 @@ span.angle-down-arrow, span.angle-down-arrow.nw {
  .tech-management-content-icon .fa{
      margin-top: 7px;
 }
+
 .tech-management-content-info h5,
+.tech-management-content-info h3,
 .tech-management-content-info .tech-benefit-title  {
      font-size: 19px;
      color: #000;
      margin-bottom: 10px;
      font-weight: 600;
 }
+
  .tech-management-content ul li p{
      font-weight: 400;
      font-size: 16px;
@@ -7062,7 +7066,8 @@ span.angle-down-arrow, span.angle-down-arrow.nw {
      margin-top: 10px;
      margin-bottom: 25px;
 }
- .testo_section h4 {
+ .testo_section h4,
+ .testo_section h3 {
      font-size: 21px;
      color: #000;
      font-family: "Inter", sans-serif;
@@ -8767,7 +8772,8 @@ span.angle-down-arrow, span.angle-down-arrow.nw {
  .value-box-header {
      margin-bottom: 0;
 }
- .value-box-header h2 {
+ .value-box-header h2,
+ .value-box-header p.stat-number {
      display: inline-block;
      font-size: 48px;
      color: #fff;
@@ -8935,7 +8941,8 @@ span.angle-down-arrow, span.angle-down-arrow.nw {
   color: #fff;
 } 
 
-.key-text h5{
+.key-text h5,
+.key-text h3{
   font-size: 20px;
   font-weight: 800;
   color: #333;
@@ -9110,7 +9117,9 @@ span.angle-down-arrow, span.angle-down-arrow.nw {
 }
 
 .right-social h3,
-.left-social h3{
+.left-social h3,
+.right-social h2,
+.left-social h2{
   margin-block-end: 20px;
   color: #333;
   font-weight: 700;
@@ -9178,7 +9187,8 @@ padding: 25px 0;
 border-radius: 5px;
 }
 
-.done-project-sec h1{
+.done-project-sec h1,
+.done-project-sec h4{
     font-size: 25px;
     color: #0083ff;
     font-weight: 800;
@@ -10022,7 +10032,8 @@ only screen and (min-width: 1200px) and (max-width: 1399px) {
     z-index: -1;
 }
 
-.gym-erp-tech .tech-management-content-info h5 {
+.gym-erp-tech .tech-management-content-info h5,
+.gym-erp-tech .tech-management-content-info h3 {
     font-size: 22px;
     color: #fff;
     margin-bottom: 10px;
@@ -12090,7 +12101,8 @@ h4.highlight-title{
     line-height: 26px;
 }
 
-#contact-form .map-column .cont-info.call-mail-sec h4{
+#contact-form .map-column .cont-info.call-mail-sec h4,
+#contact-form .map-column .cont-info.call-mail-sec h3{
     font-size: 21px;
     color: #000;
     font-weight: 700;

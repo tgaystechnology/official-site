@@ -24,7 +24,7 @@ const ServiceTechStack = ({
   };
 
   return (
-    <section className="background-contain bg-13 medium-padding100 pricing-tab-sec">
+    <section className="background-contain bg-13 medium-padding100 pricing-tab-sec" role="region" aria-labelledby="ai-engagement-models-heading">
       <div className="container">
         <div className="row">
           <div className="col-12">
@@ -49,7 +49,7 @@ const ServiceTechStack = ({
               >
                 <div className="crumina-module crumina-pricing-tables-item pricing-tables-item-standard">
                   <div className="main-pricing-content">
-                    <h2 className="h1 rate">{card.title}</h2>
+                    <h3 className="h1 rate">{card.title}</h3>
                     <ul className="pricing-tables-position">
                       {itemsWithHidden.map((item, idx) => (
                         <li 
@@ -58,7 +58,7 @@ const ServiceTechStack = ({
                         >
                           {!item.hidden && (
                             <>
-                              <span>
+                              <span aria-hidden="true">
                                 <ion-icon name={item.icon || 'ellipsis-horizontal-outline'}></ion-icon>
                               </span>
                               {item.text}
@@ -69,7 +69,7 @@ const ServiceTechStack = ({
                       ))}
                     </ul>
                     {card.ctaLink && (
-                      <Link href={card.ctaLink} className="pincing-read-more">
+                      <Link href={card.ctaLink} className="pincing-read-more" aria-label={`Request AI development pricing for ${card.title}`}>
                         {card.ctaText || 'Consult Now'}
                       </Link>
                     )}

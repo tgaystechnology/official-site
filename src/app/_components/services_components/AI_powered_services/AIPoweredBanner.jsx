@@ -5,6 +5,8 @@ const AIPoweredBanner = () => {
   return (
     <section 
       className="testomonial-banner bg-cover hero-section"
+      role="banner"
+      aria-labelledby="ai-services-heading"
       style={{ 
         backgroundImage: 'url(/img/ai-power-banner.png)',
         backgroundSize: 'cover',
@@ -13,12 +15,12 @@ const AIPoweredBanner = () => {
     >
       <div className="container">
         <div className="banner-text">
-          <h3>AI Powered Services</h3>
+          <h1 id="ai-services-heading">AI Powered Services</h1>
           <p>
             Leverage the power of Artificial Intelligence to transform your business. 
             From automation to smart decision-making — we build solutions that deliver real results.
           </p>
-          <Link href="/contact-us" className="first-tag">
+          <Link href="/contact-us" className="first-tag" aria-label="Consult with TGAYS Technology AI Experts">
             Talk to Our AI Experts
           </Link>
         </div>

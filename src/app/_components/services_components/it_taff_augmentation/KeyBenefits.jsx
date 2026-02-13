@@ -25,24 +25,24 @@ const KeyBenefits = () => {
 
   return (
     <>
-      <section className="staff-key-benefits">
+      <section className="staff-key-benefits" role="region" aria-labelledby="it-staff-benefits-heading">
         <div className="crumina-module crumina-heading hm-easy_title text-center">
-          <h2 className="heading-title">Key Benefits</h2>
+          <h2 id="it-staff-benefits-heading" className="heading-title">Key Benefits</h2>
           <p>Here's why businesses choose us to strengthen their teams with highly capable tech talent.</p>
         </div>
       </section>
 
-      <section className="key-list">
+      <section className="key-list" role="region" aria-labelledby="it-staff-advantages-heading">
         <div className="container">
           <div className="row">
             {benefits.map((benefit) => (
               <div key={benefit.id} className="col-sm-12 col-md-12 col-lg-4">
                 <div className="key-wrap">
-                  <div className="key-icon">
+                  <div className="key-icon" aria-hidden="true">
                     <span><ion-icon name={benefit.icon}></ion-icon></span>
                   </div>
                   <div className="key-text">
-                    <h5>{benefit.title}</h5>
+                    <h3 className="benefit-title">{benefit.title}</h3>
                     <p>{benefit.description}</p>
                   </div>
                 </div>

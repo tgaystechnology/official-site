@@ -10,12 +10,14 @@ const PricingSection = ({
   return (
     <section
       className="service-pricing bg-cover"
+      role="region"
+      aria-labelledby="ai-pricing-heading"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="container">
         <div className="crumina-module crumina-heading align-center">
           <h6>{subtitle}</h6>
-          <h2 className="heading-title">{title}</h2>
+          <h2 id="ai-pricing-heading" className="heading-title">{title}</h2>
         </div>
 
         <div className="row">
@@ -52,7 +54,7 @@ const PricingSection = ({
                       </div>
 
                       <div className="princing-button">
-                        <Link href={plan.ctaLink || '/contact-us'} className="btn top_header_btn">
+                        <Link href={plan.ctaLink || '/contact-us'} className="btn top_header_btn" aria-label={`Request pricing details for ${plan.name}`}>
                           {plan.ctaText || 'Contact Us'}
                         </Link>
                       </div>

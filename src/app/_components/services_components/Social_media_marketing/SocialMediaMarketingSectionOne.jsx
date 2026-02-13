@@ -5,19 +5,12 @@ import Lottie from 'lottie-react';
 
 const SocialMediaMarketingSectionOne = () => {
   return (
-    <section className="background-contain pt100 web-solution-section social-md-sec">
+    <section className="background-contain pt100 web-solution-section social-md-sec" role="region" aria-labelledby="social-marketing-overview-heading">
       <div className="container">
         <div className="row">
           <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
             <div className="crumina-module">
-              <div className="img-thumb">
-                {/* <Image 
-                  src="/img/-Social Media-ero_image.png" 
-                  alt="app-developmen"
-                  width={600}
-                  height={400}
-                  className="img-responsive"
-                /> */}
+              <div className="img-thumb" aria-hidden="true">
                 <Lottie
                   path="/lottie/Social Media Customers.json"
                   loop
@@ -30,7 +23,7 @@ const SocialMediaMarketingSectionOne = () => {
           <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12 about-us-sec">
             <div className="crumina-module crumina-heading">
               <div className="about-us-hedding">
-                <h2 className="heading-title">
+                <h2 id="social-marketing-overview-heading" className="heading-title">
                   Results-Driven<span className="c-primary"> Social Media Marketing</span>
                 </h2>
               </div>
