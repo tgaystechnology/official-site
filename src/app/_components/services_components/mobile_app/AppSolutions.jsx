@@ -69,13 +69,13 @@ const AppSolutions = () => {
 
   return (
     <>
-      <div className="container our_mobile_app_sol_section">
+      <div className="container our_mobile_app_sol_section" role="region" aria-labelledby="mobile-app-solutions-heading">
         <div className="crumina-module crumina-heading">
-          <h2 className="heading-title">OUR <span className="c-primary">MOBILE APP</span> SOLUTIONS</h2>
+          <h2 id="mobile-app-solutions-heading" className="heading-title">OUR <span className="c-primary">MOBILE APP</span> SOLUTIONS</h2>
         </div>
       </div>
       
-      <section className="bg-9 background-contain medium-padding220 mobile_app_item_section">
+      <section className="bg-9 background-contain medium-padding220 mobile_app_item_section" role="region" aria-labelledby="mobile-app-services-heading">
         <div className="container">
           <div className="row">
             <div className="display-flex info-boxes">
@@ -93,7 +93,7 @@ const AppSolutions = () => {
                       />
                     </div>
                     <div className="info-box-content">
-                      <h5 className="info-box-title">{service.title}</h5>
+                      <h3 className="info-box-title">{service.title}</h3>
                       <p className="info-box-text" dangerouslySetInnerHTML={{ __html: service.description }}></p>
                     </div>
                   </div>
@@ -119,7 +119,7 @@ const AppSolutions = () => {
                       />
                     </div>
                     <div className="info-box-content">
-                      <h5 className="info-box-title">{service.title}</h5>
+                      <h3 className="info-box-title">{service.title}</h3>
                       {Array.isArray(service.description) ? (
                         service.description.map((item, index) => (
                           <p key={index} className="info-box-text" dangerouslySetInnerHTML={{ __html: item }}></p>

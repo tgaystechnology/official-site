@@ -27,21 +27,15 @@ const ProductDevelopmentSectionOne = () => {
     height = 350;
   }
   return (
-    <section className="background-contain pt100 web-solution-section product-secont-sec">
+    <section className="background-contain pt100 web-solution-section product-secont-sec" role="region"
+  aria-labelledby="Product-development-heading"
+>
       <div className="container">
         <div className="row">
           {/* Image Column */}
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div className="crumina-module">
               <div className="img-thumb">
-                {/* <Image 
-                  src="/img/dev-product-image.png" 
-                  alt="Product Development"
-                  width={600}
-                  height={400}
-                  className="img-responsive"
-                /> */}
-
                 <div className="lottie-container product-dev-svg">
                     <Lottie
                       path="/lottie/Software Development.json"
@@ -58,7 +52,7 @@ const ProductDevelopmentSectionOne = () => {
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 about-us-sec">
             <div className="crumina-module crumina-heading">
               <div className="about-us-hedding">
-                <h2 className="heading-title">Product <span className="c-primary">Development</span></h2>
+                <h2 id="product-development-heading" className="heading-title">Product <span className="c-primary">Development</span></h2>
               </div>
               <h6 className="slider-content-text">
                 At TGAYS Technology, we specialize in turning ambitious ideas into powerful digital products. 

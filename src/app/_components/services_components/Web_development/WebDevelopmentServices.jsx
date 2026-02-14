@@ -115,12 +115,12 @@ const WebDevelopmentServices = () => {
   ];
 
   return (
-    <section className="wp-service-area-2 pb-25 p-relative">
+    <section className="wp-service-area-2 pb-25 p-relative" role="region" aria-labelledby="web-development-services-heading">
       <div className="container">
         <div className="row">
           <div className="col-12">
             <div className="wp-section text-center">
-              <h2 className="wp-section-title mb-0">
+              <h2 id="web-development-services-heading" className="wp-section-title mb-0">
                 Our <span className="c-primary">Web Development</span> Services
               </h2>
             </div>
@@ -130,16 +130,8 @@ const WebDevelopmentServices = () => {
         <div className="row">
           {services.map((service) => (
             <div key={service.id} className="col-xl-3 col-lg-3 col-md-6">
-              <div className="wp-service-item wp-service-item-2 mb-30">
-                <div className="wp-service-img wp-service-img-2 w_img">
-                  {/* <Link href={service.link}> */}
-                      {/* <Image 
-                        src={service.image}
-                        alt={service.alt}
-                        width={300}
-                        height={200}
-                        className="img-fluid"
-                      /> */}
+              <div className=" web-service-cardwp-service-item wp-service-item-2 mb-30">
+                <div className="wp-service-img service-media wp-service-img-2 w_img" aria-hidden="true">
                       <Lottie
                         path={`/lottie/${service.image}`}  // always prepends /lottie/
                         loop
@@ -156,9 +148,9 @@ const WebDevelopmentServices = () => {
                   </div>
                 </div>
                 <div className="wp-service-content wp-service-content-2">
-                  <h4 className="wp-service-content-title wp-service-content-title-2">
+                  <h3 className="wp-service-content-title wp-service-content-title-2">
                     {service.title}
-                  </h4>
+                  </h3>
                 </div>
               </div>
             </div>

@@ -5,6 +5,8 @@ const ProductDevelopmentBanner = () => {
   return (
     <section 
       className="testomonial-banner bg-cover hero-section"
+      role="banner"
+      aria-labelledby="product-development-heading"
       style={{ 
         backgroundImage: 'url(/img/product-dev-banner.png)',
         backgroundSize: 'cover',
@@ -13,7 +15,7 @@ const ProductDevelopmentBanner = () => {
     >
       <div className="container">
         <div className="banner-text">
-          <h3>Product Development</h3>
+          <h1 id="product-development-heading">Product Development</h1>
           <p>
             Building a competitive advantage for your projects, ensuring they are 
             laser-focused on delivering exceptional results.

@@ -87,11 +87,12 @@ const MobileAppSolutions = () => {
   ];
 
   return (
-    <div className="process section-padding bg-img bg-fixed pos-re text-center was_section">
+    <section className="process section-padding bg-img bg-fixed pos-re text-center was_section" role="region"
+  aria-labelledby="web-app-solutions-heading">
       <div className="container">
         <div className="row">
           <div className="crumina-module crumina-heading">
-            <h2 className="heading-title">Our Web Application <span className="c-primary">Solutions</span></h2>
+            <h2 id="web-app-solutions-heading" className="heading-title">Our Web Application <span className="c-primary">Solutions</span></h2>
           </div>
           <div className="full-width clearfix"></div>
           
@@ -101,7 +102,7 @@ const MobileAppSolutions = () => {
                 {solution.arrow && (
                   <Image 
                     src="/img/arrow.png" 
-                    alt="" 
+                    alt="arrow" 
                     width={50} 
                     height={20}
                     className="tobotm"
@@ -109,7 +110,7 @@ const MobileAppSolutions = () => {
                 )}
                 <h3 className="icon icon-basic-lightbulb">{solution.number}</h3>
                 <div className={solution.id <= 4 ? "cont f_for" : "cont"}>
-                  <h6>{solution.title}</h6>
+                  <h3>{solution.title}</h3>
                   <p>{solution.description}</p>
                 </div>
               </div>
@@ -119,7 +120,7 @@ const MobileAppSolutions = () => {
       </div>
       <div className="curve curve-gray-t curve-top"></div>
       <div className="curve curve-bottom"></div>
-    </div>
+    </section>
   );
 };
 

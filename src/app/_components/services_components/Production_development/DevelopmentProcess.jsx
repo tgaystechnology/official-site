@@ -39,7 +39,7 @@ const DevelopmentProcess = () => {
   ];
 
   return (
-    <section className="ai-step it-staff-step derv-process-section">
+    <section className="ai-step it-staff-step derv-process-section" role="region" aria-labelledby="development-process-heading">
       <div className="container">
         <div className="ai-shape">
           <Image 
@@ -51,13 +51,13 @@ const DevelopmentProcess = () => {
         </div>
 
         <div className="crumina-module crumina-heading text-center">
-          <h2 className="heading-title">Our <span className="c-primary">Development</span> Process</h2>
+          <h2 id="development-process-heading" className="heading-title">Our <span className="c-primary">Development</span> Process</h2>
         </div>
 
         <div className="row">
           <div className="col-lg-6">
             <div className="ai-work-image">
-              <figure className="image-anime reveal">
+              <figure className="image-anime reveal" aria-hidden="true">
                 <Lottie
                   path="/lottie/Web Development_2.json"
                   loop
@@ -72,7 +72,7 @@ const DevelopmentProcess = () => {
             <div className="ai-work-content dev-process-ai">
               {processSteps.map(step => (
                 <div key={step.id} className="ai-work-item">
-                  <div className="icon-box">
+                  <div className="icon-box" aria-hidden="true">
                     <ion-icon name={step.icon}></ion-icon>
                   </div>
                   <div className="ai-work-item-content">

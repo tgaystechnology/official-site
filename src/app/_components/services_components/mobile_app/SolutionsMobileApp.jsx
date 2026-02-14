@@ -63,11 +63,11 @@ const SolutionMobileApp = () => {
   ];
 
   return (
-    <div className="process section-padding bg-img bg-fixed pos-re text-center was_section">
+    <section className="process section-padding bg-img bg-fixed pos-re text-center was_section" aria-labelledby="mobile-app-solutions-heading">
       <div className="container">
         <div className="row">
           <div className="crumina-module crumina-heading">
-            <h2 className="heading-title">Our Mobile App <span className="c-primary">Solutions</span></h2>
+            <h2 id="mobile-app-solutions-heading" className="heading-title">Our Mobile App <span className="c-primary">Solutions</span></h2>
           </div>
           <div className="full-width clearfix"></div>
           
@@ -83,9 +83,9 @@ const SolutionMobileApp = () => {
                     className="tobotm"
                   />
                 )}
-                <h3 className="icon icon-basic-lightbulb">{solution.number}</h3>
+                <h3 className="icon icon-basic-lightbulb" mobile-solution-card>{solution.number}</h3>
                 <div className={solution.id <= 4 ? "cont f_for" : "cont"}>
-                  <h6>{solution.title}</h6>
+                  <h3>{solution.title}</h3>
                   <p>{solution.description}</p>
                 </div>
               </div>
@@ -95,7 +95,7 @@ const SolutionMobileApp = () => {
       </div>
       <div className="curve curve-gray-t curve-top"></div>
       <div className="curve curve-bottom"></div>
-    </div>
+    </section>
   );
 };
 

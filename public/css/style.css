@@ -907,6 +907,7 @@
  .info-box--standard-round .info-box-title {
      font-weight: 600;
      color: #000;
+     font-size: 20px;
 }
  .mobile-app-banner a.get-btn, .website-service-page a.get-btn {
      border-radius: 25px;
@@ -1031,7 +1032,8 @@
  .process .manage-botm img {
      top: 62px;
 }
- .process h6 {
+ .process h6,
+ .process h3 {
      line-height: 1.55;
      font-weight: 700;
      color: #000;
@@ -6605,7 +6607,8 @@ span.angle-down-arrow, span.angle-down-arrow.nw {
  .process.features-high-section.suceess-story-ecommerce-box .item .cont, .process.features-high-section.service-seccess-box .item .cont{
      text-align: left;
 }
- .process.features-high-section.suceess-story-ecommerce-box .item .cont .process h6{
+ .process.features-high-section.suceess-story-ecommerce-box .item .cont .process h6,
+ .process.features-high-section.suceess-story-ecommerce-box .item .cont .process h3{
      font-size: 18px;
 }
  .process .item .cont, .process.features-high-section.service-seccess-box .item .cont{
@@ -6615,7 +6618,7 @@ span.angle-down-arrow, span.angle-down-arrow.nw {
      background-position: initial !important;
      background-attachment: initial !important;
 }
- .process h6, .process.features-high-section.service-seccess-box .item .cont h6{
+ .process h6, .process h3, .process.features-high-section.service-seccess-box .item .cont h6{
      margin-top: 0 !important;
      font-size: 18px !important;
 }
