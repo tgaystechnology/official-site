@@ -51,7 +51,7 @@ const DigitalMarketingBenefits = () => {
   }
 
   return (
-    <section className="ai-step it-staff-step benefit-digi-mkt-solution-sec">
+    <section className="ai-step it-staff-step benefit-digi-mkt-solution-sec" aria-labelledby="digital-marketing-benefits-heading">
       <div className="container">
         {/* Decorative Shape */}
         <div className="ai-shape">
@@ -65,20 +65,16 @@ const DigitalMarketingBenefits = () => {
 
         {/* Section Heading */}
         <div className="crumina-module crumina-heading text-center">
-          <h2 className="heading-title">Benefits of Digital Marketing Solutions</h2>
+          <h2 id="digital-marketing-benefits-heading" className="heading-title">Benefits of Digital Marketing Solutions</h2>
         </div>
 
         <div className="row">
           {/* Image Column */}
           <div className="col-lg-6">
             <div className="ai-work-image">
-              <figure className="image-anime reveal">
-                {/* <Image 
-                  src="/img/Digital-Marketing-left-img.png" 
-                  alt="Digital Marketing Benefits"
-                  width={600}
-                  height={450}
-                /> */}
+              <figure className="image-anime reveal"
+                role="img"
+                aria-label="Digital marketing growth, social media engagement, and online customer acquisition illustration">
                 <Lottie
                   path="/lottie/Social Media Customers.json"
                   loop
@@ -98,7 +94,7 @@ const DigitalMarketingBenefits = () => {
             <div className="ai-work-content">
               {benefits.map(benefit => (
                 <div key={benefit.id} className="ai-work-item">
-                  <div className="icon-box">
+                  <div className="icon-box" aria-hidden="true">
                     <ion-icon name={benefit.icon}></ion-icon>
                   </div>
                   <div className="ai-work-item-content">

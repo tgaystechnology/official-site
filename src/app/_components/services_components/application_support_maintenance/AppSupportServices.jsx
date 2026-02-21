@@ -30,26 +30,26 @@ const AppSupportServices = () => {
 
   return (
     <>
-      <section className="staff-key-benefits">
+      <section className="staff-key-benefits" aria-labelledby="platform-expertise-heading">
         <div className="crumina-module crumina-heading hm-easy_title text-center">
-          <h2 className="heading-title">Expertise Across Platforms & Technologies</h2>
+          <h2 id="platform-expertise-heading" className="heading-title">Expertise Across Platforms & Technologies</h2>
           <p>We deliver robust support strategies tailored to your unique application environment — from cloud-native to enterprise-scale systems.</p>
         </div>
       </section>
       
-      <section className="key-list">
+      <section className="key-list" aria-labelledby="platform-expertise-key-list-heading">
         <div className="container">
           <div className="row">
             {services.map(service => (
               <div key={service.id} className="col-sm-12 col-md-12 col-lg-3">
                 <div className="key-wrap">
-                  <div className="key-icon">
+                  <div className="key-icon" aria-hidden="true">
                     <span>
                       <ion-icon name={service.icon}></ion-icon>
                     </span>
                   </div>
                   <div className="key-text">
-                    <h5>{service.title}</h5>
+                    <h3>{service.title}</h3>
                     <p>{service.description}</p>
                   </div>
                 </div>

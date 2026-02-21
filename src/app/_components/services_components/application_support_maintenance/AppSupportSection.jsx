@@ -26,13 +26,13 @@ const AppSupportSection = () => {
     height = 350;
   }
   return (
-    <section className="background-contain pt100 web-solution-section e-to-e-application-care-sec">
+    <section className="background-contain pt100 web-solution-section e-to-e-application-care-sec" aria-labelledby="end-to-end-application-care-heading">
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 about-us-sec e-to-e-application-care-sec">
             <div className="crumina-module crumina-heading">
               <div className="about-us-hedding">
-                <h2 className="heading-title">End-to-End Application Care That Grows With You</h2>
+                <h2 id="end-to-end-application-care-heading" className="heading-title">End-to-End Application Care That Grows With You</h2>
               </div>
               <p className="slider-content-text">
                 Our Application Support & Maintenance services are designed to empower your business with round-the-clock stability, rapid issue resolution, and performance optimization. We don't just fix bugs — we proactively prevent them, ensuring your apps evolve with changing technologies and user expectations.
@@ -44,13 +44,9 @@ const AppSupportSection = () => {
           </div>
           <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div className="crumina-module">
-              <div className="img-thumb">
-                {/* <Image 
-                  src="/img/it-staff-img.png" 
-                  alt="Application Support Illustration"
-                  width={600} 
-                  height={400}
-                /> */}
+              <div className="img-thumb" role="img"
+              aria-label="Enterprise application monitoring, maintenance, and performance optimization illustration">
+                
                 <Lottie
                   path="/lottie/Mobile Apps Features.json"
                   loop

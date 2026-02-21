@@ -32,27 +32,27 @@ const DigitalMarketingServicesSecondSection = () => {
   return (
     <>
       {/* Services Header Section */}
-      <section className="staff-key-benefits">
+      <section className="staff-key-benefits" aria-labelledby="digital-marketing-services-heading">
         <div className="crumina-module crumina-heading hm-easy_title text-center">
-          <h2 className="heading-title">Our Digital Marketing Services</h2>
+          <h2 id="digital-marketing-services-heading" className="heading-title">Our Digital Marketing Services</h2>
           <p>Here's why businesses choose us to strengthen their digital teams with proven strategies.</p>
         </div>
       </section>
 
       {/* Services Grid Section */}
-      <section className="key-list">
+      <section className="key-list" aria-labelledby="digital-marketing-key-list-services-heading">
         <div className="container">
           <div className="row">
             {services.map(service => (
               <div key={service.id} className="col-sm-12 col-md-12 col-lg-3">
                 <div className="key-wrap">
-                  <div className="key-icon">
+                  <div className="key-icon" aria-hidden="true">
                     <span>
                       <ion-icon name={service.icon}></ion-icon>
                     </span>
                   </div>
                   <div className="key-text">
-                    <h5>{service.title}</h5>
+                    <h3>{service.title}</h3>
                     <p>{service.description}</p>
                   </div>
                 </div>

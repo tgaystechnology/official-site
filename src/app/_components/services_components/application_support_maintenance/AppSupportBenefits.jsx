@@ -49,7 +49,7 @@ const AppSupportBenefits = () => {
   }
 
   return (
-    <section className="ai-step it-staff-step why-app-main-supprt-sec">
+    <section className="ai-step it-staff-step why-app-main-supprt-sec" aria-labelledby="why-application-support-heading">
       <div className="container">
         <div className="ai-shape">
           <Image 
@@ -61,7 +61,7 @@ const AppSupportBenefits = () => {
         </div>
 
         <div className="crumina-module crumina-heading text-center">
-          <h2 className="heading-title">Why Application Support is Critical for Modern Businesses</h2>
+          <h2 id="why-application-support-heading" className="heading-title">Why Application Support is Critical for Modern Businesses</h2>
         </div>
 
         <div className="row">
@@ -69,7 +69,7 @@ const AppSupportBenefits = () => {
             <div className="ai-work-content">
               {benefits.map(benefit => (
                 <div key={benefit.id} className="ai-work-item">
-                  <div className="icon-box">
+                  <div className="icon-box" aria-hidden="true">
                     <ion-icon name={benefit.icon}></ion-icon>
                   </div>
                   <div className="ai-work-item-content">
@@ -83,13 +83,8 @@ const AppSupportBenefits = () => {
 
           <div className="col-lg-6">
             <div className="ai-work-image">
-              <figure className="image-anime reveal">
-                {/* <Image 
-                  src="/img/application-support-img.png" 
-                  alt="Application Support Benefits"
-                  width={600}
-                  height={450}
-                /> */}
+              <figure className="image-anime reveal" role="img"
+            aria-label="Enterprise application monitoring and business continuity illustration">
                 <Lottie
                   path="/lottie/For Business.json"
                   loop

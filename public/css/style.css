@@ -1033,6 +1033,7 @@
      top: 62px;
 }
  .process h6,
+ .process h4,
  .process h3 {
      line-height: 1.55;
      font-weight: 700;
@@ -6608,6 +6609,7 @@ span.angle-down-arrow, span.angle-down-arrow.nw {
      text-align: left;
 }
  .process.features-high-section.suceess-story-ecommerce-box .item .cont .process h6,
+ .process.features-high-section.suceess-story-ecommerce-box .item .cont .process h4,
  .process.features-high-section.suceess-story-ecommerce-box .item .cont .process h3{
      font-size: 18px;
 }
@@ -6618,7 +6620,7 @@ span.angle-down-arrow, span.angle-down-arrow.nw {
      background-position: initial !important;
      background-attachment: initial !important;
 }
- .process h6, .process h3, .process.features-high-section.service-seccess-box .item .cont h6{
+ .process h6, .process h4, .process h3, .process.features-high-section.service-seccess-box .item .cont h6{
      margin-top: 0 !important;
      font-size: 18px !important;
 }
@@ -11192,8 +11194,9 @@ h4.highlight-title{
         
          .home_banner_slider_sec .carousel-item a,
          .hero-section a{
-            font-size: 16px !important;
-            padding: 11px 12px !important;
+            font-size: 14px !important;
+/*             padding: 11px 12px !important; */
+            padding: 11px 10px !important;
         }
 
         .carousel-item img{

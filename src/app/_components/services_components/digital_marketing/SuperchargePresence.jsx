@@ -71,11 +71,11 @@ const SuperchargePresence = () => {
   ];
 
   return (
-    <div className="process section-padding bg-img bg-fixed pos-re text-center was_section super-charge-digi-sec">
+    <div className="process section-padding bg-img bg-fixed pos-re text-center was_section super-charge-digi-sec" aria-labelledby="seo-strategy-heading">
       <div className="container">
         <div className="row">
           <div className="crumina-module crumina-heading">
-            <h2 className="heading-title">
+            <h2 id="seo-strategy-heading" className="heading-title">
               Supercharge Your Online Presence With Our Holistic SEO <span className="c-primary">Strategies</span>
             </h2>
             <p>We deliver both fast gains and long‑term growth. Here's how our end‑to‑end approach elevates your brand:</p>
@@ -88,15 +88,16 @@ const SuperchargePresence = () => {
                 {solution.arrow && (
                   <Image 
                     src="/img/arrow.png" 
-                    alt="" 
+                    alt="arrow" 
                     width={50} 
                     height={20}
+                    aria-hidden="true"
                     className="tobotm"
                   />
                 )}
                 <h3 className="icon icon-basic-lightbulb">{solution.number}</h3>
                 <div className={solution.id <= 4 ? "cont f_for" : "cont"}>
-                  <h6>{solution.title}</h6>
+                  <h4>{solution.title}</h4>
                   <p>{solution.description}</p>
                 </div>
               </div>
@@ -104,8 +105,8 @@ const SuperchargePresence = () => {
           ))}
         </div>
       </div>
-      <div className="curve curve-gray-t curve-top"></div>
-      <div className="curve curve-bottom"></div>
+      <div className="curve curve-gray-t curve-top" aria-hidden="true"></div>
+      <div className="curve curve-bottom" aria-hidden="true"></div>
     </div>
   );
 };

@@ -5,6 +5,8 @@ const DigitalMarketingBanner = () => {
   return (
     <section 
       className="testomonial-banner bg-cover hero-section"
+      role="banner"
+      aria-labelledby="digital-marketing-hero-heading"
       style={{ 
         backgroundImage: 'url(/img/digital-marketing.png)',
         backgroundSize: 'cover',
@@ -13,13 +15,13 @@ const DigitalMarketingBanner = () => {
     >
       <div className="container">
         <div className="banner-text">
-          <h3>Digital Marketing (SEO, SEM, PPC) Services</h3>
+          <h1 id="digital-marketing-hero-heading">Digital Marketing (SEO, SEM, PPC) Services</h1>
           <p>
             Go beyond off-the-shelf. Unlock smarter customer relationships with 
             CRM solutions built just for your business needs.
           </p>
-          <Link href="/contact-us" className="first-tag">
-            Contact Us
+          <Link href="/contact-us" className="first-tag" aria-label="Schedule a consultation for digital marketing services including SEO, SEM, and PPC">
+            Schedule a Marketing Consultation
           </Link>
         </div>
       </div>
