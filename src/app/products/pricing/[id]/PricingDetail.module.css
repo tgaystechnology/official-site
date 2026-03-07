@@ -286,13 +286,8 @@
 
 @media (min-width: 1024px) {
     .detailsWrapper {
-        position: sticky;
-        top: 2rem; /* Sticks 2rem from top of viewport (adjusted for marginTop) */
-        /* Since marginTop is 132px, we might need top: calc(132px + 2rem) if it wasn't scroll padding... 
-           Actually, the margin is on .container, so viewport top is fine. 
-        */
-        top: 2rem; 
-        z-index: 10;
+        /* position: sticky removed to allow normal scrolling */
+        position: relative;
     }
 }
 

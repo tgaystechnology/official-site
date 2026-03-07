@@ -22,6 +22,7 @@ const formatCurrency = (amount) => {
 
 const PLAN_DETAILS = {
     'quiz-master-lms-plan': {
+        showQuizMasterDetails: true,
         sections: [
             {
                 image: "/img/student-home-page.png",
@@ -77,6 +78,7 @@ const PLAN_DETAILS = {
 };
 
 import StackingCards from '@/app/_components/products/StackingCards';
+import QuizMasterDetails from '@/app/_components/products/QuizMasterDetails';
 
 const ProductDescription = ({ planType }) => {
     const details = PLAN_DETAILS[planType] || PLAN_DETAILS['quiz-master-lms-plan'] || PLAN_DETAILS.basic;
@@ -107,6 +109,8 @@ const ProductDescription = ({ planType }) => {
                     </p>
                 </>
             )}
+
+            {details.showQuizMasterDetails && <QuizMasterDetails />}
 
             <div style={{ backgroundColor: 'white', padding: '2rem 0' }}>
                 <div className={styles.sectionHeading}>Features</div>
