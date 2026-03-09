@@ -112,30 +112,7 @@ const ProductDescription = ({ planType }) => {
 
             {details.showQuizMasterDetails && <QuizMasterDetails />}
 
-            <div style={{ backgroundColor: 'white', padding: '2rem 0' }}>
-                <div className={styles.sectionHeading}>Features</div>
-                <ul className={styles.bulletList}>
-                    {details.features.map((feature, idx) => (
-                        <li key={idx}>{feature}</li>
-                    ))}
-                </ul>
-
-                <div className={styles.sectionHeading}>Include Files</div>
-                <ul className={styles.bulletList}>
-                    {details.files.map((file, idx) => (
-                        <li key={idx}>{file}</li>
-                    ))}
-                </ul>
-
-                <div className={styles.sectionHeading}>Item Tags</div>
-                <div className={styles.tagsContainer}>
-                    {details.tags.map((tag, idx) => (
-                        <span key={idx} className={styles.tagChip}>
-                            {tag}
-                        </span>
-                    ))}
-                </div>
-            </div>
+            {/* Features, Included Files, and Tags moved to the right column */}
         </div>
     );
 };
@@ -321,7 +298,7 @@ const PricingDetailPage = () => {
                             </h1>
                             <div className={styles.priceContainer}>
                                 <span className={styles.price}>
-                                    ₹{plan.price}
+                                    ₹{plan.price} <span className="text-xl font-normal text-slate-500">/ Year</span>
                                 </span>
                                 <span className={styles.period}></span>
                             </div>
@@ -347,8 +324,42 @@ const PricingDetailPage = () => {
                             />
                             
                             <p className={styles.secureText}>
-                                Secure payment via Razorpay. Cancel anytime.
+                                Secure payment. Cancel anytime.
                             </p>
+                        </div>
+
+                        {/* Moved Features, Files, and Tags Section */}
+                        <div className={styles.paymentSection} style={{ padding: '20px', marginTop: '20px' }}>
+                            <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Features</div>
+                            <ul className={styles.bulletList} style={{ fontSize: '0.9rem', marginBottom: '20px' }}>
+                                {PLAN_DETAILS[plan.type]?.features?.map((feature, idx) => (
+                                    <li key={idx} style={{ marginBottom: '8px' }}>{feature}</li>
+                                )) || PLAN_DETAILS.basic.features.map((feature, idx) => (
+                                    <li key={idx} style={{ marginBottom: '8px' }}>{feature}</li>
+                                ))}
+                            </ul>
+
+                            <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Included Files</div>
+                            <ul className={styles.bulletList} style={{ fontSize: '0.9rem', marginBottom: '20px' }}>
+                                {PLAN_DETAILS[plan.type]?.files?.map((file, idx) => (
+                                    <li key={idx} style={{ marginBottom: '8px' }}>{file}</li>
+                                )) || PLAN_DETAILS.basic.files.map((file, idx) => (
+                                    <li key={idx} style={{ marginBottom: '8px' }}>{file}</li>
+                                ))}
+                            </ul>
+
+                            <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Item Tags</div>
+                            <div className={styles.tagsContainer} style={{ fontSize: '0.8rem' }}>
+                                {PLAN_DETAILS[plan.type]?.tags?.map((tag, idx) => (
+                                    <span key={idx} className={styles.tagChip} style={{ padding: '4px 8px', margin: '0 4px 4px 0' }}>
+                                        {tag}
+                                    </span>
+                                )) || PLAN_DETAILS.basic.tags.map((tag, idx) => (
+                                    <span key={idx} className={styles.tagChip} style={{ padding: '4px 8px', margin: '0 4px 4px 0' }}>
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
 
                     </div>

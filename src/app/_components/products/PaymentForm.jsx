@@ -1,16 +1,6 @@
 "use client";
 import React, { useState, useRef } from 'react';
 
-const loadRazorpay = () => {
-    return new Promise((resolve) => {
-        const script = document.createElement('script');
-        script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-        script.onload = () => resolve(true);
-        script.onerror = () => resolve(false);
-        document.body.appendChild(script);
-    });
-};
-
 import PaymentStatusModal from './PaymentStatusModal';
 
 const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount, displayTotal }) => {
@@ -52,97 +42,35 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
             return;
         }
 
-        const res = await loadRazorpay();
-
-        if (!res) {
-            alert('Razorpay SDK failed to load. Are you online?'); // Keep alert for system error
-            setLoading(false);
-            return;
-        }
-
         try {
-            // Create Order
-            const result = await fetch('/api/payment/create-order', {
+            // Send the user's data directly to the /api/contact-experts endpoint as a lead
+            const result = await fetch('/api/contact-experts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    amount: totalAmount,
-                    currency: 'INR',
-                    receipt: `receipt_${Date.now()}`
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    subject: `Product Lead: ${plan?.title || 'Unknown Plan'}`,
+                    message: `Interested in the ${plan?.title || 'Unknown Plan'} (Yearly Subscription)`,
+                    project_type: 'Others',
+                    industry: 'Education',
+                    project_duration: 'More than 1 year',
+                    website: ''
                 }),
             });
 
             const data = await result.json();
 
-            if (!data.orderId) {
-                throw new Error(data.error || 'Server error');
+            if (!result.ok) {
+                console.error("DEBUG: API Response Error Details:", data);
+                throw new Error(data.error || 'Failed to submit lead');
             }
 
-            const key = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
-
-            if (!key) {
-                throw new Error("Razorpay Key ID missing");
-            }
-
-            const options = {
-                key: key,
-                amount: data.amount,
-                currency: "INR",
-                name: "TGAYS Technology",
-                description: `Payment for ${plan.title} ${isSupportChecked ? '+ 3 Months Support' : ''}`,
-                order_id: data.orderId,
-                handler: function (response) {
-                    const paymentData = {
-                        order_id: response.razorpay_order_id,
-                        payment_id: response.razorpay_payment_id,
-                        signature: response.razorpay_signature,
-                        customer_name: name,
-                        customer_email: email,
-                        customer_phone: phone,
-                        plan_name: plan.title,
-                        amount: totalAmount,
-                        currency: 'INR',
-                        payment_status: 'success'
-                    };
-
-                    fetch('/api/payment/save', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(paymentData)
-                    })
-                        .then(res => res.json())
-                        .then(() => {
-                            setLoading(false);
-                            setModalState({ isOpen: true, type: 'success' });
-                        })
-                        .catch(err => console.error(err));
-                },
-                prefill: {
-                    name: name,
-                    email: email,
-                    contact: phone,
-                },
-                theme: {
-                    color: "#3399cc",
-                },
-                modal: {
-                    ondismiss: function() {
-                        setLoading(false);
-                        setModalState({ isOpen: true, type: 'failure' });
-                    }
-                }
-            };
-
-            const paymentObject = new window.Razorpay(options);
-            paymentObject.open();
-
-            paymentObject.on('payment.failed', function (response) {
-                setLoading(false);
-                setModalState({ isOpen: true, type: 'failure' });
-            });
-
+            setLoading(false);
+            setModalState({ isOpen: true, type: 'success' });
         } catch (error) {
             console.error(error);
             setLoading(false);
@@ -200,6 +128,7 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                 </div>
 
                 {/* Support Checkbox */}
+                {/* 
                 <div className="pt-2">
                     <label className="flex items-start gap-3 p-4 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer hover:border-slate-300 transition-colors relative overflow-hidden group">
                         <div className="relative flex items-center mt-0.5">
@@ -222,14 +151,17 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                         <div className="absolute right-0 top-0 h-full w-1 bg-gradient-to-b from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </label>
                 </div>
+                */}
 
                 {/* Total Amount Display */}
+                {/* 
                 <div className="flex items-center justify-between pt-2 border-t border-slate-200 mt-4">
                     <span className="text-sm font-medium text-slate-500">Total Amount:</span>
                     <span className="text-2xl font-bold text-slate-900 tracking-tight">
                         ₹{displayTotal}
                     </span>
                 </div>
+                */}
                 
                  {/* Footer Button Area */}
                   <div className="pt-6">
@@ -247,7 +179,7 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                                 Processing...
                             </span>
                         ) : (
-                            `Make Payment • ₹${displayTotal}`
+                            `Submit Interest`
                         )}
                     </button>
                 </div>

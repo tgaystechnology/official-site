@@ -21,19 +21,9 @@ import {
 } from '@/components/ui/carousel';
 import { motion, AnimatePresence } from 'motion/react';
 
-const loadRazorpay = () => {
-  return new Promise((resolve) => {
-    const script = document.createElement('script');
-    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-    script.onload = () => resolve(true);
-    script.onerror = () => resolve(false);
-    document.body.appendChild(script);
-  });
-};
-
 import PaymentStatusModal from './PaymentStatusModal';
 
-// ... (loadRazorpay function remains same)
+// Removed loadRazorpay function
 
 const PricingModal = ({ plan }) => {
   const [step, setStep] = useState(1);
@@ -119,96 +109,35 @@ const PricingModal = ({ plan }) => {
       return;
     }
 
-    const res = await loadRazorpay();
-
-    if (!res) {
-      alert('Razorpay SDK failed to load. Are you online?');
-      setLoading(false);
-      return;
-    }
-
     try {
-      // Create Order
-      const result = await fetch('/api/payment/create-order', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          amount: totalAmount, // Use calculated total amount
-          currency: 'INR',
-          receipt: `receipt_${Date.now()}`
-        }),
+      // Send the user's data directly to the /api/contact-experts endpoint as a lead
+      const result = await fetch('/api/contact-experts', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              name: name,
+              email: email,
+              phone: phone,
+              subject: `Product Lead: ${plan?.title || 'Unknown Plan'}`,
+              message: `Interested in the ${plan?.title || 'Unknown Plan'} (Quick Preview Lead)`,
+              project_type: 'Others',
+              industry: 'Education',
+              project_duration: 'More than 1 year',
+              website: ''
+          }),
       });
 
       const data = await result.json();
 
-      if (!data.orderId) {
-        throw new Error(data.error || 'Server error');
+      if (!result.ok) {
+          console.error("DEBUG: API Response Error Details:", data);
+          throw new Error(data.error || 'Failed to submit lead');
       }
 
-      const key = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
-
-      if (!key) {
-        throw new Error("Razorpay Key ID missing");
-      }
-
-      const options = {
-        key: key,
-        amount: data.amount,
-        currency: "INR",
-        name: "TGAYS Technology",
-        description: `Payment for ${plan.title} ${isSupportChecked ? '+ 3 Months Support' : ''}`,
-        order_id: data.orderId,
-        handler: function (response) {
-          const paymentData = {
-            order_id: response.razorpay_order_id,
-            payment_id: response.razorpay_payment_id,
-            signature: response.razorpay_signature,
-            customer_name: name,
-            customer_email: email,
-            customer_phone: phone,
-            plan_name: plan.title,
-            amount: totalAmount,
-            currency: 'INR',
-            payment_status: 'success'
-          };
-
-          fetch('/api/payment/save', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(paymentData)
-          })
-          .then(res => res.json())
-          .then(() => {
-             setLoading(false);
-             setModalState({ isOpen: true, type: 'success' });
-          })
-          .catch(err => console.error(err));
-        },
-        prefill: {
-          name: name,
-          email: email,
-          contact: phone,
-        },
-        theme: {
-          color: "#3399cc",
-        },
-        modal: {
-            ondismiss: function() {
-                setLoading(false);
-                setModalState({ isOpen: true, type: 'failure' });
-            }
-        }
-      };
-
-      const paymentObject = new window.Razorpay(options);
-      paymentObject.open();
-      
-      paymentObject.on('payment.failed', function (response){
-        setLoading(false);
-        setModalState({ isOpen: true, type: 'failure' });
-      });
+      setLoading(false);
+      setModalState({ isOpen: true, type: 'success' });
 
     } catch (error) {
       console.error(error);
@@ -331,7 +260,7 @@ const PricingModal = ({ plan }) => {
                                   
                                   <div className="pricing-modal-price-row">
                                     <span className="pricing-modal-price-val">{plan.price}</span>
-                                    <span className="pricing-modal-price-period"></span>
+                                    <span className="pricing-modal-price-period">/ Year</span>
                                   </div>
 
                                   <DialogDescription className="pricing-modal-desc">
@@ -409,7 +338,7 @@ const PricingModal = ({ plan }) => {
                                       </div>
 
                                       {/* Support Checkbox */}
-                                      {/* Support Checkbox */}
+                                      {/* 
                                       <div className="pricing-support-wrapper">
                                           <label className="pricing-support-label">
                                               <div className="pricing-support-check-area">
@@ -432,14 +361,17 @@ const PricingModal = ({ plan }) => {
                                               <div className="pricing-support-gradient" />
                                           </label>
                                       </div>
+                                      */}
 
                                       {/* Total Amount Display */}
+                                      {/* 
                                       <div className="pricing-total-row">
                                           <span className="pricing-total-label">Total Amount:</span>
                                           <span className="pricing-total-amount">
                                             ₹{displayTotal}
                                           </span>
                                       </div>
+                                      */}
 
                                       {/* Hidden submit trigger logic if needed, but we use the footer button */}
                                   </form>
@@ -463,7 +395,7 @@ const PricingModal = ({ plan }) => {
                                               Processing...
                                           </span>
                                       ) : (
-                                          `Make Payment • ₹${displayTotal}`
+                                          `Submit Interest`
                                       )}
                                   </button>
                               </div>
@@ -559,7 +491,7 @@ const PricingCards = () => {
                                 </div>
                                 <div className={`price-bubble ${plan.bubbleClass}`}>
                                     <span className="currency">₹</span><span className="amount">{plan.price}</span>
-                                    <div className="period"></div>
+                                    <div className="period" style={{ fontSize: '1rem', marginTop: '4px' }}>/ Year</div>
                                 </div>
                                 <div className="card-body pt-5 pb-4 px-3">
                                     <h3 className="plan-title text-uppercase fw-bold mb-4 mt-4">{plan.title}</h3>

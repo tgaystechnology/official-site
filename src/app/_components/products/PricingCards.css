@@ -667,6 +667,7 @@
     padding: 0.75rem 1rem;
     background-color: #f8fafc; /* slate-50 */
     border: 0;
+    margin-bottom: 5px !important;
     box-shadow: 0 0 0 1px #e2e8f0; /* ring-1 ring-slate-200 */
     border-radius: 0.75rem; /* rounded-xl */
     color: #0f172a; /* slate-900 */

@@ -23,20 +23,20 @@ const PaymentStatusModal = ({ type, isOpen, onClose }) => {
                 </div>
 
                 <h2 className={styles.title}>
-                    {isSuccess ? 'Payment Successful!' : 'Payment Failed'}
+                    {isSuccess ? 'Interest Submitted!' : 'Submission Failed'}
                 </h2>
 
                 <p className={styles.message}>
                     {isSuccess 
-                        ? "Congratulations! Your purchase has been successful. We will send you the download link via email shortly."
-                        : "Unfortunately, your payment could not be processed. Please try again or use a different payment method."}
+                        ? "Thank you for showing interest in our product. Our team will contact you shortly."
+                        : "Unfortunately, your details could not be submitted. Please try again or contact us directly."}
                 </p>
 
                 <button 
                     onClick={onClose} 
                     className={`${styles.button} ${isSuccess ? styles.successBtn : styles.failureBtn}`}
                 >
-                    {isSuccess ? 'Continue' : 'Try Again'}
+                    {isSuccess ? 'Close' : 'Try Again'}
                 </button>
             </div>
         </div>,

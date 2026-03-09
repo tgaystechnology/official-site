@@ -20,8 +20,13 @@ export async function POST(request) {
     const body = await request.json();
     const { name, email, phone, subject, message, project_type, industry, project_duration, website } = body;
 
+    console.log('--- Incoming /api/contact Payload ---');
+    console.log(body);
+
     // Basic validation
     if (!name || !email || !phone || !message || !project_type || !industry || !project_duration) {
+      console.log('Validation Error: Missing required fields');
+      console.log({ name, email, phone, message, project_type, industry, project_duration });
       return NextResponse.json(
         { error: 'Please fill in all required fields' },
         { status: 400 }
@@ -31,6 +36,7 @@ export async function POST(request) {
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
+      console.log('Validation Error: Invalid email', email);
       return NextResponse.json(
         { error: 'Please enter a valid email address' },
         { status: 400 }
@@ -40,6 +46,7 @@ export async function POST(request) {
     // Phone validation (basic)
     const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
     if (!phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''))) {
+      console.log('Validation Error: Invalid phone number', phone);
       return NextResponse.json(
         { error: 'Please enter a valid phone number' },
         { status: 400 }
