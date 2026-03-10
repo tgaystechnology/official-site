@@ -2,6 +2,7 @@
 import React, { useState, useRef } from 'react';
 
 import PaymentStatusModal from './PaymentStatusModal';
+import styles from './PaymentForm.module.css';
 
 const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount, displayTotal }) => {
     const [loading, setLoading] = useState(false);
@@ -80,46 +81,34 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
 
     return (
         <React.Fragment>
-             <form onSubmit={handlePayment} className="space-y-4">
-                <div className="space-y-1.5">
+             <form onSubmit={handlePayment} className={styles.form}>
+                <div className={styles.inputGroup}>
                     <input
                         ref={nameRef}
                         type="text"
-                        className={`w-full px-4 py-3 bg-slate-50 border-0 ring-1 rounded-xl text-slate-900 placeholder:text-slate-400 outline-none transition-all ${
-                            errors.name 
-                                ? 'ring-red-500 focus:ring-2 focus:ring-red-500 focus:bg-white' 
-                                : 'ring-slate-200 focus:ring-2 focus:ring-black focus:bg-white'
-                        }`}
+                        className={`${styles.input} ${errors.name ? styles.inputError : ''}`}
                         placeholder="Full Name"
                         onChange={() => {
                             if (errors.name) setErrors(prev => ({ ...prev, name: false }));
                         }}
                     />
                 </div>
-                <div className="space-y-1.5">
+                <div className={styles.inputGroup}>
                     <input
                         ref={emailRef}
                         type="email"
-                        className={`w-full px-4 py-3 bg-slate-50 border-0 ring-1 rounded-xl text-slate-900 placeholder:text-slate-400 outline-none transition-all ${
-                            errors.email 
-                                ? 'ring-red-500 focus:ring-2 focus:ring-red-500 focus:bg-white' 
-                                : 'ring-slate-200 focus:ring-2 focus:ring-black focus:bg-white'
-                        }`}
+                        className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
                         placeholder="Email Address"
                         onChange={() => {
                             if (errors.email) setErrors(prev => ({ ...prev, email: false }));
                         }}
                     />
                 </div>
-                <div className="space-y-1.5">
+                <div className={styles.inputGroup}>
                     <input
                         ref={phoneRef}
                         type="tel"
-                        className={`w-full px-4 py-3 bg-slate-50 border-0 ring-1 rounded-xl text-slate-900 placeholder:text-slate-400 outline-none transition-all ${
-                            errors.phone 
-                                ? 'ring-red-500 focus:ring-2 focus:ring-red-500 focus:bg-white' 
-                                : 'ring-slate-200 focus:ring-2 focus:ring-black focus:bg-white'
-                        }`}
+                        className={`${styles.input} ${errors.phone ? styles.inputError : ''}`}
                         placeholder="Phone Number"
                         onChange={() => {
                             if (errors.phone) setErrors(prev => ({ ...prev, phone: false }));
@@ -164,22 +153,22 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                 */}
                 
                  {/* Footer Button Area */}
-                  <div className="pt-6">
+                  <div className={styles.footer}>
                     <button 
                         type="submit"
                         disabled={loading}
-                        className="w-full py-4 text-white bg-[#0F111A] rounded-xl font-medium text-xl hover:bg-black/90 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
+                        className={styles.submitBtn}
                     >
                         {loading ? (
-                            <span className="flex items-center gap-2">
-                                <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
-                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            <span className={styles.loadingWrapper}>
+                                <svg className={styles.spinner} viewBox="0 0 24 24">
+                                    <circle className={styles.spinnerCircle} cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                    <path className={styles.spinnerPath} fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
                                 Processing...
                             </span>
                         ) : (
-                            `Submit Interest`
+                            `Book Your Demo`
                         )}
                     </button>
                 </div>

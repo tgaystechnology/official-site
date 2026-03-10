@@ -79,6 +79,7 @@ const PLAN_DETAILS = {
 
 import StackingCards from '@/app/_components/products/StackingCards';
 import QuizMasterDetails from '@/app/_components/products/QuizMasterDetails';
+import SubscriptionOptions from '@/app/_components/products/SubscriptionOptions';
 
 const ProductDescription = ({ planType }) => {
     const details = PLAN_DETAILS[planType] || PLAN_DETAILS['quiz-master-lms-plan'] || PLAN_DETAILS.basic;
@@ -112,7 +113,6 @@ const ProductDescription = ({ planType }) => {
 
             {details.showQuizMasterDetails && <QuizMasterDetails />}
 
-            {/* Features, Included Files, and Tags moved to the right column */}
         </div>
     );
 };
@@ -286,6 +286,40 @@ const PricingDetailPage = () => {
 
                          {/* Product Description Section */}
                          <ProductDescription planType={plan.type} />
+
+                         {/* Moved Features, Files, and Tags Section */}
+                         <div className={styles.paymentSection} style={{ padding: '20px', marginTop: '20px' }}>
+                            <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px', marginTop: '0' }}>Features</div>
+                            <ul className={styles.bulletList} style={{ fontSize: '0.9rem', marginBottom: '20px' }}>
+                                {PLAN_DETAILS[plan.type]?.features?.map((feature, idx) => (
+                                    <li key={idx} style={{ marginBottom: '8px' }}>{feature}</li>
+                                )) || PLAN_DETAILS.basic.features.map((feature, idx) => (
+                                    <li key={idx} style={{ marginBottom: '8px' }}>{feature}</li>
+                                ))}
+                            </ul>
+
+                            <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px', marginTop: '0' }}>Included Files</div>
+                            <ul className={styles.bulletList} style={{ fontSize: '0.9rem', marginBottom: '20px' }}>
+                                {PLAN_DETAILS[plan.type]?.files?.map((file, idx) => (
+                                    <li key={idx} style={{ marginBottom: '8px' }}>{file}</li>
+                                )) || PLAN_DETAILS.basic.files.map((file, idx) => (
+                                    <li key={idx} style={{ marginBottom: '8px' }}>{file}</li>
+                                ))}
+                            </ul>
+
+                            <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px', marginTop: '0' }}>Item Tags</div>
+                            <div className={styles.tagsContainer} style={{ fontSize: '0.8rem' }}>
+                                {PLAN_DETAILS[plan.type]?.tags?.map((tag, idx) => (
+                                    <span key={idx} className={styles.tagChip} style={{ padding: '4px 8px', margin: '0 4px 4px 0' }}>
+                                        {tag}
+                                    </span>
+                                )) || PLAN_DETAILS.basic.tags.map((tag, idx) => (
+                                    <span key={idx} className={styles.tagChip} style={{ padding: '4px 8px', margin: '0 4px 4px 0' }}>
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
                     {/* Right Column: Details & Checkout */}
@@ -296,12 +330,6 @@ const PricingDetailPage = () => {
                             <h1 className={styles.title}>
                                 {plan.title}
                             </h1>
-                            <div className={styles.priceContainer}>
-                                <span className={styles.price}>
-                                    ₹{plan.price} <span className="text-xl font-normal text-slate-500">/ Year</span>
-                                </span>
-                                <span className={styles.period}></span>
-                            </div>
                             <p className={styles.description}>
                                 Get started with our {plan.title}. Includes premium features, dedicated resources, and everything you need to scale your business effectively.
                             </p>
@@ -312,7 +340,7 @@ const PricingDetailPage = () => {
                         {/* Payment Section (Card-like container) */}
                         <div className={styles.paymentSection} style={{ padding: '20px' }}>
                             <h2 className={styles.checkoutTitle}>
-                                Complete your subscription
+                                Book Your Demo
                             </h2>
                             
                             <PaymentForm 
@@ -328,42 +356,16 @@ const PricingDetailPage = () => {
                             </p>
                         </div>
 
-                        {/* Moved Features, Files, and Tags Section */}
-                        <div className={styles.paymentSection} style={{ padding: '20px', marginTop: '20px' }}>
-                            <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Features</div>
-                            <ul className={styles.bulletList} style={{ fontSize: '0.9rem', marginBottom: '20px' }}>
-                                {PLAN_DETAILS[plan.type]?.features?.map((feature, idx) => (
-                                    <li key={idx} style={{ marginBottom: '8px' }}>{feature}</li>
-                                )) || PLAN_DETAILS.basic.features.map((feature, idx) => (
-                                    <li key={idx} style={{ marginBottom: '8px' }}>{feature}</li>
-                                ))}
-                            </ul>
 
-                            <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Included Files</div>
-                            <ul className={styles.bulletList} style={{ fontSize: '0.9rem', marginBottom: '20px' }}>
-                                {PLAN_DETAILS[plan.type]?.files?.map((file, idx) => (
-                                    <li key={idx} style={{ marginBottom: '8px' }}>{file}</li>
-                                )) || PLAN_DETAILS.basic.files.map((file, idx) => (
-                                    <li key={idx} style={{ marginBottom: '8px' }}>{file}</li>
-                                ))}
-                            </ul>
-
-                            <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Item Tags</div>
-                            <div className={styles.tagsContainer} style={{ fontSize: '0.8rem' }}>
-                                {PLAN_DETAILS[plan.type]?.tags?.map((tag, idx) => (
-                                    <span key={idx} className={styles.tagChip} style={{ padding: '4px 8px', margin: '0 4px 4px 0' }}>
-                                        {tag}
-                                    </span>
-                                )) || PLAN_DETAILS.basic.tags.map((tag, idx) => (
-                                    <span key={idx} className={styles.tagChip} style={{ padding: '4px 8px', margin: '0 4px 4px 0' }}>
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
 
                     </div>
                 </div>
+                
+                {/* Subscription Options (Full Width) */}
+                <SubscriptionOptions 
+                    basePrice={numericPrice} 
+                    features={PLAN_DETAILS[plan.type]?.features || PLAN_DETAILS.basic.features} 
+                />
             </div>
             
             {/* Lightbox Overlay */}

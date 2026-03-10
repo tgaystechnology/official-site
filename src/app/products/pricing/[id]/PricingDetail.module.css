@@ -81,6 +81,14 @@
     width: 100%;
 }
 
+@media (min-width: 1024px) {
+    .mediaWrapper {
+        position: sticky;
+        top: 100px;
+        height: max-content;
+    }
+}
+
 /* Carousel */
 .carouselContainer {
     background-color: #f8fafc;
@@ -286,8 +294,9 @@
 
 @media (min-width: 1024px) {
     .detailsWrapper {
-        /* position: sticky removed to allow normal scrolling */
-        position: relative;
+        position: sticky;
+        top: 130px;
+        height: max-content;
     }
 }
 
