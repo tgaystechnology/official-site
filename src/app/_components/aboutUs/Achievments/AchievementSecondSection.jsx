@@ -1,85 +1,50 @@
 import React from 'react';
 import Image from 'next/image';
+import styles from './achievements.module.css';
 
 const AchievementSecondSection = () => {
-  return (
-    <section className="our-achievement-second">
-      <div className="container">
-        <div className="row">
-          {/* Left Column - Content */}
-          <div className="col-md-12 col-lg-6">
-            <div className="our-achived-title">
-              <div className="crumina-module crumina-heading">
-                <h2 className="heading-title">
-                  Organized Vibrant Bihar-{' '}
-                  <span className="c-primary">
-                    Entrepreneurship Global Summit
-                  </span>
-                </h2>
-              </div>
-              <p>
-                In co-ordination with a few more companies and Lets Inspire Bihar,
-                TGAYS Technology have facilitated and helped in organizing an
-                Entreperenueship Global Summit on 5th June 2022 at Hotel Maurya in
-                Patna. The aim of organizing this Global Summit was to revolutionize
-                industrialization, entrepreneurship eco-system and better skill
-                development in Bihar. The Entrepreneurs from all over the world
-                attended this event making it a grand success. More than 110 start-ups
-                attended this event to try their luck and potential for investment by
-                50+ angel investors.
-              </p>
-            </div>
-          </div>
+    return (
+        <section className={`py-5 position-relative overflow-hidden ${styles.ourSkillSection}`}>
+            <div className="container position-relative z-2">
+                <div className="row align-items-center g-5">
+                    {/* Left Content */}
+                    <div className="col-lg-6">
+                        <div className={`pe-lg-5 ${styles.skillContent}`}>
+                            <h2 className={`display-5 fw-bolder mb-4 text-dark ${styles.titleSkill}`}>
+                                Collaboration with <span>KIAGTS LLC, A Dubai based Company</span>
+                            </h2>
 
-          {/* Right Column - Main Image */}
-          <div className="col-md-12 col-lg-6">
-            <div className="box-img">
-              <figure>
-                <Image
-                  src="/img/jama-lib.jpg"
-                  alt="Vibrant Bihar Entrepreneurship Summit"
-                  width={600}
-                  height={400}
-                />
-              </figure>
-            </div>
-          </div>
+                            <p className={`text-muted mb-2 ${styles.leadP}`}>
+                                Our company had a collaboration with Dubai based company KIAGTS LLC as their technology partner. Mr. Francis Wills, the managing partner of the Company from Dubai visited our office in Noida to have a discussion about this collaboration process and the memorandum of understanding (MOU).
+                            </p>
+                            <p className={`text-muted ${styles.leadP}`}>
+                                During the meeting, both companies discussed future technology initiatives, project opportunities, and long-term cooperation. This collaboration aimed to strengthen our global presence and create new possibilities for delivering innovative technology solutions to international clients.
+                            </p>
+                        </div>
+                    </div>
 
-          {/* Bottom Row - Additional Images */}
-          <div className="col-md-4 col-lg-4">
-            <figure>
-              <Image
-                src="/img/lib-event-organizers.png"
-                alt="Event organizers at Vibrant Bihar Summit"
-                width={400}
-                height={300}
-              />
-            </figure>
-          </div>
-          <div className="col-md-4 col-lg-4">
-            <figure>
-              <Image
-                src="/img/jamal-speaker.jpg"
-                alt="Jamal Ashraf speaking at the summit"
-                width={400}
-                height={300}
-              />
-            </figure>
-          </div>
-          <div className="col-md-4 col-lg-4">
-            <figure>
-              <Image
-                src="/img/vikash-speaker.jpg"
-                alt="Vikash Kumar speaking at the summit"
-                width={400}
-                height={300}
-              />
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+                    {/* Right Images Redesign (v2) */}
+                    <div className="col-lg-6 mt-5 mt-lg-0">
+                        <div className={`position-relative ${styles.skillImagesV2}`}>
+                            {/* Orange Accents */}
+                            <div className={`${styles.skillOrangeAccent} ${styles.accent1}`}></div>
+                            <div className={`${styles.skillOrangeAccent} ${styles.accent2}`}></div>
+
+                            {/* Top Image */}
+                            <div className={`${styles.skillImgV2} ${styles.topImg} shadow`}>
+                                <Image src="/img/kiagts2.jpg" alt="KIAGTS LLC partnership signing" width={600} height={400} className="img-fluid w-100 h-100 object-fit-cover" style={{objectFit: 'cover'}}/>
+                            </div>
+
+                            {/* Bottom Image Overlapping */}
+                            <div className={`${styles.skillImgV2} ${styles.bottomImg} shadow`}>
+                                <Image src="/img/kiagts1.jpg" alt="KIAGTS LLC collaboration meeting" width={600} height={400} className="img-fluid w-100 h-100 object-fit-cover" style={{objectFit: 'cover'}} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 };
 
 export default AchievementSecondSection;

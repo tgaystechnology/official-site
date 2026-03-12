@@ -1,0 +1,1756 @@
+.textDark {
+    color: #212529;
+}
+
+.title {
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+}
+
+.ourAchievementFirst h2,
+.trustedPartnerSection.ourAchievementSecond h2.titleTrusted {
+    font-size: 34px;
+    color: #333 !important;
+    font-weight: 800 !important;
+    font-family: Nunito, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-bottom: 10px !important;
+}
+
+.celebrationSection h2 {
+    font-size: 34px;
+    color: #fff !important;
+    font-weight: 800 !important;
+    font-family: Nunito, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-bottom: 10px !important;
+}
+
+.leadP {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Images Container background dots pattern */
+.imagesContainer {
+    padding-left: 10px;
+    z-index: 1;
+}
+
+/* About Image Grid Styles moved to end or kept here */
+
+/* Play Button Overlay */
+.playButton {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #212529;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.playButton:hover {
+    background: #0083ff;
+    color: #fff;
+}
+
+.playButton i {
+    margin-left: 4px;
+}
+
+/* Rotating Explore Badge */
+.exploreBadge {
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    z-index: 10;
+}
+
+.exploreBadge .badgeInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #0083ff;
+    box-shadow: 0px 0px 10px 0px rgba(21, 21, 21, 0.3);
+}
+
+.exploreBadge svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: rotateText 10s linear infinite;
+}
+
+.exploreBadge path {
+    fill: none;
+}
+
+.exploreBadge text {
+    fill: #333;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.exploreBadge .arrowIcon {
+    font-size: 20px;
+    color: #0083ff;
+    z-index: 2;
+}
+
+@keyframes rotateText {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* About Image Grid */
+.aboutImgGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 15px;
+    position: relative;
+}
+
+.aboutImgGrid .imgItem {
+    overflow: hidden;
+    position: relative;
+}
+
+.aboutImgGrid .imgItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.aboutImgGrid .img1 {
+    grid-column: 1 / span 2;
+    border-radius: 15px 15px 15px 0;
+    aspect-ratio: 16/7;
+}
+
+.aboutImgGrid .img2 {
+    grid-column: 1 / span 1;
+    border-radius: 15px 0 15px 15px;
+    aspect-ratio: 1/1;
+}
+
+.aboutImgGrid .img2 img {
+    width: 100%;
+    height: 190px;
+}
+
+.aboutImgGrid .img3 {
+    grid-column: 2 / span 1;
+    border-radius: 0 15px 15px 15px;
+    aspect-ratio: 1/1;
+}
+
+/* Fixed Bottom Scroll Progress Indicator */
+.scrollProgress {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: conic-gradient(var(--orange) 12%, #333 12%);
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 99;
+}
+
+.scrollProgress::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background: #212529;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.scrollProgress .value {
+    font-size: 13px;
+}
+
+/* Media Queries for full Responsiveness */
+@media (max-width: 991px) {
+    .experienceBadge {
+        bottom: -70px;
+    }
+
+    .aboutContent {
+        text-align: center;
+        margin-top: 80px !important;
+    }
+
+    .subtitle {
+        justify-content: center;
+    }
+
+    .rowG4>div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .leadP {
+        padding-right: 0 !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .mainImg {
+        aspect-ratio: auto;
+        height: 300px;
+    }
+
+    .subImg {
+        aspect-ratio: auto;
+        height: 140px;
+    }
+
+    .imgWrap {
+        border-radius: 40px 0 40px 0;
+        padding: 5px;
+    }
+
+    .imgWrap img {
+        border-radius: calc(40px - 5px) 0 calc(40px - 5px) 0;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .exploreBadge {
+        left: 50%;
+        top: 50%;
+    }
+
+    .ourAchievementFirst h2,
+    .trustedPartnerSection.ourAchievementSecond h2.titleTrusted,
+    .ourSkillSection h2,
+    .celebrationSection h2 {
+        font-size: 27px !important;
+    }
+
+    .ourAchievementFirst p,
+    .trustedPartnerSection.ourAchievementSecond p,
+    .ourSkillSection p,
+    .celebrationSection p {
+        font-size: 16px !important;
+    }
+
+    .aboutSection.ourAchievementFirst .aboutContent {
+        margin-top: 0px !important;
+    }
+
+    .aboutSection.py5.ourAchievementFirst {
+        padding-bottom: 0rem !important;
+    }
+
+    .trustedPartnerSection.ourAchievementSecond {
+        padding: 40px 0 0 !important;
+    }
+
+    .trustedImagesWrap.mt4 {
+        margin-top: 0 !important;
+    }
+
+    .ourSkillSection.py5 {
+        padding-top: 60px !important;
+        padding-bottom: 90px !important;
+    }
+
+    .ourSkillSection .container.my5 {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .ourSkillSection p.mb5.leadP {
+        margin-bottom: 0rem !important;
+    }
+
+    .trustedContent,
+    .ourSkillSection .skillContent,
+    .celebrationSection h2,
+    .celebrationSection p {
+        text-align: center;
+    }
+
+    .homeAboutus .homeAboutusInner .homeAboutRight .aboutContent {
+        margin-top: 0px !important;
+    }
+
+    .softwareProgrammingSection {
+        padding: 10px 0 !important;
+    }
+
+    .softwareProgrammingSection .imageWrapper {
+        margin-bottom: 0 !important;
+    }
+
+    .conferenceGallery {
+        padding-top: 0 !important;
+    }
+}
+
+@media (max-width: 425px) and (min-width: 320px) {
+
+    .ourAchievementFirst h2,
+    .trustedPartnerSection.ourAchievementSecond h2.titleTrusted,
+    .ourSkillSection h2,
+    .celebrationSection h2 {
+        font-size: 25px !important;
+    }
+}
+
+/* --- Our Skill Section --- */
+.ourSkillSection {
+    background-color: #011031;
+    background-image: url(/img/fact-bg-1-1.png);
+    background-position: center center;
+    padding: 100px 0 50px !important;
+}
+
+.ourSkillSection h2 {
+    color: #fff !important;
+}
+
+.skillContent .leadP {
+    color: #fff !important;
+}
+
+/* Diagonal Background Pattern */
+.bgPattern {
+    background: repeating-linear-gradient(-45deg,
+            rgba(200, 200, 200, 0.05),
+            rgba(200, 200, 200, 0.05) 60px,
+            transparent 60px,
+            transparent 120px);
+    z-index: 0;
+}
+
+.lineOrange {
+    display: inline-block;
+    width: 35px;
+    height: 1.5px;
+    background-color: #0083ff;
+}
+
+.bgOrange {
+    background-color: #0083ff !important;
+}
+
+.titleSkill {
+    font-size: 34px;
+    letter-spacing: -1px;
+    font-family: Nunito, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 800 !important;
+    color: #333 !important;
+    margin-bottom: 10px !important;
+}
+
+.progress {
+    background-color: #f1f1f1 !important;
+    border-radius: 0 !important;
+}
+
+.mainImgBorder {
+    width: 80%;
+    border-radius: 12px;
+    z-index: 1;
+}
+
+.mainImgInner {
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+}
+
+.mainImgInner img {
+    transition: transform 0.5s ease;
+}
+
+.mainImgInner:hover img {
+    transform: scale(1.05);
+}
+
+/* Redesigned Skill Images v2 */
+.skillImagesV2 {
+    height: 550px;
+    width: 100%;
+    z-index: 1;
+}
+
+.skillDotsPattern {
+    position: absolute;
+    bottom: -30px;
+    left: -40px;
+    width: 250px;
+    height: 250px;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px);
+    background-size: 18px 18px;
+    z-index: 0;
+}
+
+.skillOrangeAccent {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    background-color: #0d6efd;
+    border-radius: 40px;
+    z-index: 1;
+}
+
+.skillOrangeAccent.accent1 {
+    top: 50px;
+    left: 20px;
+}
+
+.skillOrangeAccent.accent2 {
+    bottom: 80px;
+    right: 20px;
+}
+
+.skillImgV2 {
+    position: absolute;
+    border-radius: 35px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.skillImgV2.topImg {
+    top: 0;
+    right: 0;
+    width: 78%;
+    height: 400px;
+    z-index: 2;
+}
+
+.skillImgV2.bottomImg {
+    bottom: 0px;
+    left: 0;
+    width: 68%;
+    height: 320px;
+    z-index: 3;
+    border: 10px solid #011031;
+}
+
+.skillImgV2 img {
+    transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.skillImgV2:hover img {
+    transform: scale(1.08);
+}
+
+.progressBar {
+    transition: width 1.5s ease-in-out;
+}
+
+.trustedPartnerSection.ourAchievementSecond {
+    padding: 30px 0 90px;
+}
+
+/* Media Queries for Our Skill Section Redesign v2 */
+@media (max-width: 991px) {
+    .skillImagesV2 {
+        height: 450px;
+        margin-top: 50px;
+    }
+
+    .skillImgV2.topImg {
+        width: 85%;
+        height: 320px;
+    }
+
+    .skillImgV2.bottomImg {
+        width: 75%;
+        height: 250px;
+    }
+
+    .skillOrangeAccent {
+        width: 100px;
+        height: 100px;
+        border-radius: 25px;
+    }
+}
+
+@media (max-width: 767px) {
+    .skillImagesV2 {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding-bottom: 40px;
+        margin-top: 0px !important;
+    }
+
+    .skillImgV2.topImg,
+    .skillImgV2.bottomImg {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 300px;
+        border-radius: 25px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .skillImgV2.bottomImg {
+        margin-top: -120px;
+        width: 90%;
+        align-self: flex-start;
+        border-width: 6px;
+    }
+
+    .skillOrangeAccent,
+    .skillDotsPattern {
+        display: none;
+    }
+}
+
+/* --- Trusted Partner Section Redesign --- */
+
+.py100 {
+    padding: 100px 0;
+}
+
+.trustedPartnerSection .btnOrange {
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+    font-weight: 500 !important;
+}
+
+.trustedPartnerSection .btnOrange:hover {
+    background: linear-gradient(90deg, rgb(0 109 255) 0%, rgb(29 84 159) 100%);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Image Collage Styles */
+.trustedImageCollage {
+    padding-left: 40px;
+}
+
+.mainCollageImg {
+    position: relative;
+    z-index: 2;
+    border-radius: 5px;
+    height: 500px;
+    width: 100%;
+}
+
+.trophyBadge {
+    position: absolute;
+    bottom: -95px;
+    right: 0;
+    width: 102px;
+    height: 85px;
+    background-color: #0d6efd;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    z-index: 5;
+    border-radius: 5px;
+}
+
+.circularBadgeImg {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    width: 80%;
+    height: 230px;
+    z-index: 10;
+    background: #fff;
+}
+
+.decorativeBarOrange {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 70%;
+    background-color: #0d6efd;
+    z-index: 1;
+}
+
+.collageBgCircle {
+    position: absolute;
+    bottom: -20px;
+    left: -60px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Text Content Styles */
+.subtitleLine {
+    display: inline-block;
+    width: 25px;
+    height: 2px;
+    background-color: #0d6efd;
+}
+
+.featuredSolutionBox {
+    background: #f8f9fa;
+    border-left: 5px solid #0d6efd;
+}
+
+.boxOverlayImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/lib-event-organizers.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.iconCircle {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.subFeatureIcon .iconCircleSm {
+    transition: all 0.3s ease;
+    color: #fff !important;
+}
+
+.subFeature:hover .iconCircleSm {
+    transform: rotate(360deg);
+    background-color: #0d6efd !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .py100 {
+        padding: 60px 0;
+    }
+
+    .trustedImageCollage {
+        padding-right: 0;
+        margin-bottom: 80px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mainCollageImg {
+        width: 100%;
+        height: 400px;
+    }
+
+    .circularBadgeImg {
+        width: 90%;
+        height: 160px;
+        bottom: -50px;
+        left: 0;
+    }
+
+    .trophyBadge {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+        top: -20px;
+        left: 20px;
+    }
+
+    .decorativeBarOrange {
+        right: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .trustedTextContent {
+        text-align: center;
+        padding-left: 0 !important;
+    }
+
+    .sectionSubtitle {
+        justify-content: center;
+    }
+
+    .subFeature {
+        flex-direction: column;
+        align-items: center !important;
+        text-align: center;
+    }
+
+    .subFeatureIcon {
+        margin-right: 0 !important;
+        margin-bottom: 15px;
+    }
+}
+
+/* --- Celebration Section --- */
+.bgDarkCustom {
+    background-color: #1a1a1a;
+}
+
+.celebrationSection {
+    margin-top: 150px;
+    background: linear-gradient(79deg, rgba(42, 123, 155, 1) 0%, rgba(23, 163, 194, 1) 50%, rgba(45, 134, 161, 1) 100%);
+}
+
+.celebrationImgLeft {
+    margin-top: -120px;
+    height: 480px;
+    background-color: #fff;
+}
+
+.celebrationImgRight {
+    height: 320px;
+    margin-top: 40px;
+    background-color: #fff;
+}
+
+.celebrationImgLeft img,
+.celebrationImgRight img {
+    object-position: center;
+}
+
+.celebrationTitle {
+    font-size: 2.3rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+.celebrationText {
+    color: #fff;
+    line-height: 1.8;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+@media (max-width: 991px) {
+    .celebrationImgLeft {
+        height: 380px;
+        margin-top: -80px;
+    }
+
+    .celebrationSection {
+        margin-top: 100px;
+    }
+
+    .orangeDot {
+        right: 15%;
+    }
+}
+
+@media (max-width: 767px) {
+    .celebrationImgLeft {
+        height: 300px;
+        margin-top: -50px;
+    }
+
+    .celebrationImgRight {
+        height: 220px;
+        margin-top: 20px;
+    }
+
+    .celebrationSection {
+        margin-top: 80px;
+    }
+
+    .celebrationTitle {
+        font-size: 1.6rem;
+    }
+}
+
+/* --- Software Programming Section --- */
+
+.softwareProgrammingSection .btnOrange {
+    background-color: #0083ff;
+    color: #fff;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 500 !important;
+}
+
+.softwareProgrammingSection .sectionHeader h2 {
+    font-size: 34px;
+    color: #333 !important;
+    font-weight: 800 !important;
+    font-family: Nunito, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-bottom: 10px !important;
+}
+
+.softwareProgrammingSection .sectionHeader p {
+    color: var(--bs-secondary-color) !important;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.softwareProgrammingSection .btnOrange:hover {
+    background: linear-gradient(90deg, rgb(0 109 255) 0%, rgb(29 84 159) 100%);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 131, 255, 0.3);
+}
+
+.softwareProgrammingSection {
+    position: relative;
+    padding: 100px 0;
+}
+
+.softwareProgrammingSection .titleLine {
+    width: 60px;
+    height: 2px;
+    background-color: #0083ff;
+    display: inline-block;
+}
+
+.softwareProgrammingSection .imageWrapper {
+    padding: 20px;
+}
+
+.softwareProgrammingSection .teamAi {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.softwareProgrammingSection .mainImageContainer {
+    position: relative;
+    z-index: 2;
+    border: 15px solid #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.softwareProgrammingSection .frameAccent {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 150px;
+    height: 200px;
+    border: 3px solid #0083ff;
+    z-index: 1;
+}
+
+.softwareProgrammingSection .experienceBadge {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #0083ff;
+    color: #fff;
+    padding: 20px;
+    min-width: 140px;
+    text-align: center;
+    z-index: 3;
+}
+
+.softwareProgrammingSection .experienceBadge h2 {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.softwareProgrammingSection .experienceBadge p {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.softwareProgrammingSection .experienceBadge p span {
+    font-size: 24px;
+}
+
+.softwareProgrammingSection .featureItem {
+    font-weight: 500;
+    color: #212529;
+}
+
+.softwareProgrammingSection .checkIcon {
+    color: #0083ff;
+    font-size: 1.2rem;
+}
+
+.softwareProgrammingSection .phoneIconBox {
+    width: 50px;
+    height: 50px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0083ff;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 991px) {
+    .softwareProgrammingSection {
+        padding: 60px 0;
+    }
+
+    .softwareProgrammingSection .frameAccent {
+        display: none;
+    }
+
+    .softwareProgrammingSection .imageWrapper {
+        padding: 0;
+        margin-bottom: 50px;
+    }
+
+    .softwareProgrammingSection .sectionHeader h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .softwareProgrammingSection .experienceBadge {
+        padding: 10px;
+        min-width: 100px;
+    }
+
+    .softwareProgrammingSection .experienceBadge h2 {
+        font-size: 30px;
+    }
+}
+
+/* --- Business Conference Section --- */
+
+.businessConferenceSection {
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(23, 163, 194, 1) 50%, rgba(45, 134, 161, 1) 100%);
+    overflow: hidden;
+    padding: 70px 0;
+}
+
+.conferenceBadge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.conferenceBadge .badgeText {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.conferenceHeader h2 {
+    font-size: 34px;
+    color: #fff !important;
+    font-weight: 800 !important;
+    font-family: Nunito, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-bottom: 10px !important;
+}
+
+.conferenceHeader {
+    text-align: center;
+}
+
+.conferenceHeader p {
+    color: #fff;
+    line-height: 1.8;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.secureBadgeWrapper {
+    position: relative;
+    z-index: 10;
+    margin-bottom: -100px;
+}
+
+.secureBadge {
+    width: 250px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.secureBadge p {
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    font-weight: 700;
+    font-family: Nunito, Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.secureBadge h3 {
+    font-size: 48px;
+    font-weight: 800;
+}
+
+/* Gallery Styles */
+.conferenceGallery {
+    padding-top: 50px;
+}
+
+.galleryWrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    justify-content: center;
+}
+
+.galleryItem {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.galleryItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery1 {
+    height: 450px;
+}
+
+.gallery2 {
+    height: 350px;
+}
+
+.gallery3 {
+    height: 220px;
+}
+
+.gallery4 {
+    height: 350px;
+}
+
+.gallery5 {
+    height: 450px;
+}
+
+.galleryItem:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 991px) {
+    .conferenceTitle {
+        font-size: 2.5rem;
+    }
+
+    .secureBadgeWrapper {
+        margin-bottom: 20px;
+    }
+
+    .secureBadge {
+        width: 180px;
+        height: 180px;
+    }
+
+    .secureBadge h3 {
+        font-size: 32px;
+    }
+
+    .galleryWrapper {
+        flex-wrap: wrap;
+    }
+
+    .galleryItem {
+        flex: 0 0 calc(50% - 20px);
+        height: 250px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .galleryItem {
+        flex: 0 0 100%;
+    }
+
+    .conferenceTitle {
+        font-size: 2rem;
+    }
+}
+
+/* --- Industries Section (Dark Theme) --- */
+
+.aiSummitIndustriesHeader h2 {
+    font-size: 34px;
+    color: #333 !important;
+    font-weight: 800 !important;
+    font-family: Nunito, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-bottom: 10px !important;
+}
+
+.aiSummitIndustriesHeader p {
+    color: var(--bs-secondary-color) !important;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.aiSummitIndustriesSection {
+    pointer-events: none;
+    background-image: url(/img/teeth-ortho_bg.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.aiSummitIndustriesTitle {
+    line-height: 1.1;
+    letter-spacing: -1px;
+    font-weight: 800;
+}
+
+.aiSummitIndustriesDesc {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #212529
+}
+
+.orangeAccentBarLeft {
+    position: absolute;
+    top: 13%;
+    left: -7px;
+    width: 7px;
+    height: 75%;
+    background-color: #0083ff;
+    z-index: 3;
+}
+
+.featureImgWrap {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.aspectSquare {
+    aspect-ratio: 1 / 1;
+}
+
+.galleryCard {
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.galleryCard:hover {
+    transform: scale(1.05);
+    border-color: #ff9800;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.galleryCard img {
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.galleryCard:hover img {
+    filter: grayscale(0%);
+}
+
+@media (max-width: 991px) {
+    .aiSummitIndustriesTitle {
+        font-size: 2.2rem;
+    }
+
+    .orangeAccentBarLeft {
+        left: 10px;
+    }
+}
+
+/*WORKSHOP CSS*/
+
+.homeAboutus .homeAboutusInner {
+    display: grid;
+    grid-template-columns: 25% auto;
+}
+
+.homeAboutus .homeAboutusInner .aboutGallary {
+    text-align: right;
+}
+
+.homeAboutus .homeAboutusInner .aboutGallary .figureRoundBorder {
+    margin-bottom: 10px;
+}
+
+.figureRoundBorder {
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.figureRoundBorder img {
+    border-radius: 25px;
+    height: auto;
+    max-width: 100%;
+    vertical-align: top;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight {
+    padding-left: 10px;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutContent {
+    display: flex;
+    align-items: center;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutContent .aboutTopRightImg {
+    margin-top: 56px;
+    margin-bottom: 10px;
+    flex-basis: 30%;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutContent .sectionHead {
+    flex-basis: 70%;
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.sectionSubTitle {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.2;
+    display: inline-block;
+    color: #0083ff;
+}
+
+.sectionHead .sectionTitle {
+    margin-bottom: 5px;
+    font-family: "Nunito", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: #333;
+}
+
+.sectionHead .sectionParagraph {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: #000;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail {
+    display: flex;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail .aboutBottomRightImg {
+    flex-basis: 35%;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail .aboutDetailInner {
+    flex-basis: 65%;
+    padding-left: 70px;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail .aboutDetailInner .aboutList {
+    border-radius: 25px;
+    border-bottom: 3px solid rgb(0 131 255);
+    background-color: #f8f8f8;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail .aboutDetailInner .aboutList ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail .aboutDetailInner .aboutList ul li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail .aboutDetailInner .aboutList ul li span {
+    color: #333;
+    padding-left: 20px;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail .aboutDetailInner .authorContent {
+    display: flex;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail .aboutDetailInner .authorContent .authorDetail .authorName {
+    margin-bottom: 2px;
+    margin-top: 8px;
+    font-size: 19px;
+    color: #000;
+    font-weight: 600;
+}
+
+.homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail .aboutDetailInner .authorContent .authorDetail .authorProf {
+    font-size: 13px;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+.homeAboutusInner {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.workshopCourseOneTitleColumn {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.workshopCourseOneTitleOuter {
+    position: relative;
+}
+
+.secTitle {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 45px;
+}
+
+.secTitleHeading {
+    margin-top: 15px;
+    color: #000;
+    text-transform: capitalize;
+    font-family: "Nunito", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.workshopCourseImage {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.workshopCourseImage img {
+    position: relative;
+    width: 100%;
+    display: block;
+    border-radius: 25px;
+}
+
+.workshopCourseOneContentColumn {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.workshopCourseOneContentOuter {
+    position: relative;
+    padding-left: 40px;
+}
+
+.workshopCourseOne {
+    padding: 20px 0 25px;
+}
+
+.workshopCourseOne .content {
+    position: relative;
+    padding: 40px 0px 40px;
+}
+
+.workshopCourseOne .content p {
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.certificateTwoTitleColumn {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.certificateTwoImage {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.certificateTwoImage img {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.certificateTwoContentColumn {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.certificateTwo .secTitle {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 45px;
+}
+
+.certificateTwo .secTitleHeading {
+    margin-top: 15px;
+    color: #000;
+    text-transform: capitalize;
+    font-family: "Nunito", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.certificateTwoText {
+    position: relative;
+    font-size: 18px;
+    line-height: 32px;
+    margin-bottom: 30px;
+}
+
+.certificateOneList li::before {
+    position: absolute;
+    content: '\f560';
+    left: 0px;
+    top: 0px;
+    font-weight: 700;
+    color: #0083ff;
+    font-family: 'Font Awesome 6 Free';
+}
+
+.certificateOneList li {
+    position: relative;
+    padding-left: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #000;
+    text-transform: capitalize;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .workshopCourseImage img {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .workshopCourseOne .content {
+        padding: 0 !important;
+    }
+
+    .certificateTwo .secTitle {
+        margin-bottom: 20px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .homeAboutus .homeAboutusInner .homeAboutRight .aboutContent .sectionHead {
+        text-align: center;
+    }
+
+    .homeAboutus .homeAboutusInner .homeAboutRight .aboutContent .sectionHead p {
+        text-align: left;
+    }
+
+    .sectionHead .sectionTitle,
+    .secTitle h2 {
+        font-size: 27px !important;
+    }
+
+    .certificateTwo .secTitleHeading {
+        font-size: 27px !important;
+        text-align: center;
+    }
+
+    .homeAboutus .homeAboutusInner,
+    .homeAboutus .homeAboutusInner .homeAboutRight .aboutContent {
+        display: block;
+    }
+
+    .homeAboutus .homeAboutusInner .aboutGallary {
+        text-align: initial;
+    }
+
+    .homeAboutus .homeAboutusInner .aboutGallary,
+    .homeAboutus .homeAboutusInner .homeAboutRight .aboutContent .aboutTopRightImg,
+    .homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail .aboutBottomRightImg {
+        display: none;
+    }
+
+    .homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail {
+        margin-top: 30px;
+    }
+
+    .homeAboutus .homeAboutusInner .homeAboutRight .aboutDetail .aboutDetailInner {
+        flex-basis: 100% !important;
+        padding-left: 0 !important;
+    }
+
+    .homeAboutusInner {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+
+    .workshopCourseOne {
+        padding: 10px 0 0 !important;
+    }
+
+    .workshopCourseOne .secTitle {
+        margin-bottom: 15px !important;
+        text-align: center !important;
+    }
+
+    .workshopCourseOne .content {
+        padding: 25px 0px 20px !important;
+    }
+
+    .certificateTwoTitleColumn {
+        margin-bottom: 15px !important;
+    }
+
+    .certificateTwoImage,
+    .workshopCourseImage {
+        margin-bottom: 20px !important;
+    }
+
+    .certificateTwo .secTitle {
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .workshopCourseOneContentOuter {
+        padding-left: 0px;
+    }
+}
+
+/* HECKATHON SECTION */
+.aboutEdukationSection {
+    padding: 0px 0 40px;
+    background-color: #fff;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Right Content */
+.aboutEdukationSection .aboutEdukationContent {
+    padding-left: 30px;
+}
+
+.aboutEdukationSection .aboutEdukationContent .sectionSubTitle {
+    color: #ffaa17;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.aboutEdukationSection .aboutEdukationContent .sectionSubTitle i {
+    margin-right: 8px;
+}
+
+.aboutEdukationSection .aboutEdukationContent .sectionTitle {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.aboutEdukationSection .aboutEdukationContent .sectionTitle .highlight {
+    color: #ffaa17;
+}
+
+.aboutEdukationSection .aboutEdukationContent .description {
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.aboutEdukationSection .featureList {
+    margin-bottom: 30px;
+}
+
+.aboutEdukationSection .featureItem {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.aboutEdukationSection .featureItem .iconBox {
+    width: 60px;
+    height: 60px;
+    background-color: #c0d8f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0083ff;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.aboutEdukationSection .featureItem .textBox h5 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #1a1a1a;
+}
+
+.aboutEdukationSection .featureItem .textBox p {
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+}
+
+.aboutEdukationSection .sectionHead {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 991px) {
+    .aboutEdukationSection .aboutEdukationContent .sectionTitle {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 767px) {
+    .aboutEdukationSection .sectionHead {
+        margin-bottom: 20px;
+    }
+
+    .aboutEdukationSection {
+        padding-bottom: 0;
+    }
+
+    .aboutEdukationSection .aboutEdukationContent {
+        padding-left: 0;
+        margin-top: 15px;
+    }
+
+    .aboutEdukationSection .featureItem .textBox h5 {
+        margin-bottom: 10px !important;
+    }
+
+    .aboutEdukationSection .speakersBox h5,
+    .aboutEdukationSection .featureList h5 {
+        margin-bottom: 20px !important;
+    }
+}
+
+/* Feature Grid 2x2 */
+.aboutEdukationSection .featureList.grid2Columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Speakers Box */
+.aboutEdukationSection .speakersBox {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border-left: 5px solid #0083ff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.aboutEdukationSection .speakersBox.moveForwardBox {
+    border-bottom: 5px solid #0083ff;
+    border-left: none !important;
+}
+
+.aboutEdukationSection .speakersBox h5,
+.featureList h5 {
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.aboutEdukationSection .speakersBox h5 i {
+    color: #0083ff;
+}
+
+.aboutEdukationSection .speakersList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.aboutEdukationSection .speakersList li {
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #555;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.aboutEdukationSection .speakersList li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.aboutEdukationSection .speakersList li strong {
+    color: #1a1a1a;
+    font-size: 16px;
+    display: block;
+}
+
+.aboutEdukationSection .speakersList li span {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-top: 2px;
+}
+
+.aboutEdukationSection .speakersBox p {
+    font-size: 15px;
+    color: #333;
+    display: block;
+    margin-top: 20px;
+}
+
+@media (max-width: 575px) {
+    .aboutEdukationSection .featureList.grid2Columns {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutEdukationSection .featureItem {
+        display: block !important;
+    }
+
+    .aboutEdukationSection .featureItem .iconBox {
+        margin-bottom: 20px;
+    }
+}
+
+.textSecondary{
+    color: #212529
+}
