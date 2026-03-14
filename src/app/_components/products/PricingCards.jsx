@@ -254,14 +254,9 @@ const PricingModal = ({ plan }) => {
                                   className="flex-1 overflow-y-auto scrollbar-hide"
                                   style={{ padding: '3rem 3rem 2rem 2rem' }} 
                               >
-                                  <DialogTitle className="pricing-modal-title">
+                                  <DialogTitle className="pricing-modal-title mb-4">
                                       {plan.title}
                                   </DialogTitle>
-                                  
-                                  <div className="pricing-modal-price-row">
-                                    <span className="pricing-modal-price-val">{plan.price}</span>
-                                    <span className="pricing-modal-price-period">/ Year</span>
-                                  </div>
 
                                   <DialogDescription className="pricing-modal-desc">
                                       Unlock full potential with the {plan.title}. Includes {plan.features[0]?.text}, priority support, and all premium features designed to help you scale.
@@ -487,16 +482,12 @@ const PricingCards = () => {
                         <div key={index} className="col-md-4 col-lg-4 mb-4 mb-md-0">
                             <div className={`pricing-card ${plan.type}-card`}>
                                 <div className="card-header-img">
-                                    <img src={plan.img} alt={`${plan.type} Plan`} className="img-fluid" />
+                                    <img src={plan.img} alt={`${plan.type} Plan`} className="img-fluid w-100 rounded-top" style={{ objectFit: 'cover' }} />
                                 </div>
-                                <div className={`price-bubble ${plan.bubbleClass}`}>
-                                    <span className="currency">₹</span><span className="amount">{plan.price}</span>
-                                    <div className="period" style={{ fontSize: '1rem', marginTop: '4px' }}>/ Year</div>
-                                </div>
-                                <div className="card-body pt-5 pb-4 px-3">
-                                    <h3 className="plan-title text-uppercase fw-bold mb-4 mt-4">{plan.title}</h3>
+                                <div className="card-body pt-4 pb-4 px-4">
+                                    <h3 className="plan-title fw-bold mb-3">{plan.title}</h3>
 
-                                    <div className="mb-3 fw-bold text-start ps-3">Product Highlights:</div>
+                                    <div className="mb-3 fw-bold text-start ps-2 text-muted">Product Highlights:</div>
 
                                     <ul className="list-unstyled feature-list text-start mx-auto feature-list-items">
                                         {plan.features.map((feature, idx) => (
@@ -508,7 +499,7 @@ const PricingCards = () => {
                                     </ul>
 
                                     {/* Modal Trigger */}
-                                    <PricingModal plan={plan} />
+                                    {/* <PricingModal plan={plan} /> */}
                                     
                                     <Link href={`/products/pricing/${plan.type}`} className={`btn btn-outline-primary btn-round mt-3 w-100`}>
                                         View Details

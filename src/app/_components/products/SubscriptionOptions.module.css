@@ -139,7 +139,7 @@
   position: absolute;
   top: 22px;
   right: -40px;
-  background: linear-gradient(135deg, #d53f8c, #9f7aea);
+  background: linear-gradient(135deg, #037CFE, #0769d1);
   color: white;
   padding: 5px 45px;
   font-size: 0.65rem;
@@ -151,13 +151,13 @@
 }
 
 .btnHighlighted {
-  background: linear-gradient(135deg, #d53f8c, #9f7aea);
+  background: linear-gradient(135deg, #037CFE, #0769d1);
   color: white;
   border: none;
-  box-shadow: 0 4px 15px rgba(213, 63, 140, 0.4);
+  box-shadow: 0 4px 15px rgba(51, 69, 233, 0.4);
 }
 
 .btnHighlighted:hover {
-  background: linear-gradient(135deg, #b83280, #805ad5);
-  box-shadow: 0 6px 20px rgba(213, 63, 140, 0.6);
+  background: linear-gradient(135deg, #037CFE, #0769d1);
+  box-shadow: 0 6px 20px rgba(51, 69, 233, 0.6);
 }

@@ -43,13 +43,13 @@ const AchievementFifthSection = () => {
                                         <li>
                                             <i aria-hidden="true" className="fa-solid fa-circle-check text-primary"></i>
                                             <span>
-                                                Lusto tenetur temporibus repellendus aspernatur, blandit ullam cupidatat quisquam lacinia.
+                                                Gain practical skills through interactive, project-based learning.
                                             </span>
                                         </li>
                                         <li>
                                             <i aria-hidden="true" className="fa-solid fa-circle-check text-primary"></i>
                                             <span>
-                                                Minima mattis laudantium nobis odit explicabo sapien nunc. Reprehenderit molestiae.
+                                                Learn directly from industry experts with years of experience in the field.
                                             </span>
                                         </li>
                                     </ul>

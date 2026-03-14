@@ -51,6 +51,14 @@ const SubscriptionOptions = ({ basePrice, features }) => {
         }
     ];
 
+    const handleSelectClick = () => {
+        const nameInput = document.getElementById('payment-name-input');
+        if (nameInput) {
+            nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => nameInput.focus(), 500); // Small delay to allow scroll to complete
+        }
+    };
+
     return (
         <div className={styles.containerWrapper}>
             <div className={styles.container}>
@@ -75,7 +83,10 @@ const SubscriptionOptions = ({ basePrice, features }) => {
                             <div className={styles.period}>{plan.period}</div>
                         </div>
                         
-                        <button className={`${styles.selectBtn} ${plan.isHighlighted ? styles.btnHighlighted : ''}`}>
+                        <button 
+                            className={`${styles.selectBtn} ${plan.isHighlighted ? styles.btnHighlighted : ''}`}
+                            onClick={handleSelectClick}
+                        >
                             {plan.buttonText}
                         </button>
                     </div>

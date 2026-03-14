@@ -4,7 +4,7 @@ import styles from './achievements.module.css';
 
 const AchievementTenthSection = () => {
     return (
-        <section className={`py-5 position-relative text-white ${styles.aiSummitIndustriesSection}`}>
+        <section className={`py-5 position-relative text-dark ${styles.aiSummitIndustriesSection}`}>
             {/* Tech Pattern Background */}
             <div className={styles.techPatternCircles}></div>
             <div className="container position-relative z-2">
@@ -12,10 +12,10 @@ const AchievementTenthSection = () => {
                 <div className="row align-items-center mb-5 pb-lg-4">
                     <div className="col-lg-7">
                         <div className={`pe-lg-5 ${styles.aiSummitIndustriesHeader}`}>
-                            <h2 className={`display-4 fw-bolder mb-4 text-white ${styles.aiSummitIndustriesTitle}`}>
+                            <h2 className={`display-4 fw-bolder mb-4 ${styles.aiSummitIndustriesTitle}`}>
                                 We're Dedicated to<br />Serve you All Time
                             </h2>
-                            <p className={`${styles.aiSummitIndustriesDesc, styles.textSecondary}`}>
+                            <p className={`text-dark ${styles.aiSummitIndustriesDesc}`}>
                                 During the summit, our team actively engaged in meaningful discussions on AI-driven business transformation, automation, and the practical implementation of intelligent systems for startups and enterprises. We also showcased our expertise in building AI-enabled web and mobile applications, scalable SaaS platforms, and automation-focused solutions designed to help businesses grow faster and smarter.
                             </p>
                         </div>

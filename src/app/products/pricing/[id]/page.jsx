@@ -58,7 +58,7 @@ const PLAN_DETAILS = {
             "Secure Payments with Automated Reminders",
             "Real-Time Revenue Tracking & Analytics"
         ],
-        files: ["Adobe XD", "Figma", "Notes"],
+        technology: ["Django", "MySQL", "HTML", "CSS", "JavaScript",'Bootstrap','Jquery','React','OpenAI API'],
         tags: ["LMS", "Education", "AI", "Quiz", "Dashboard", "Learning", "Assessment", "Online Platform", "EdTech", "Management System"]
     },
     // Fallback/Legacy
@@ -72,7 +72,7 @@ const PLAN_DETAILS = {
             "Secure Payments with Automated Reminders",
             "Real-Time Revenue Tracking & Analytics"
         ],
-        files: ["Adobe XD", "Figma", "Notes"],
+        technology: ["Django", "MySQL", "HTML", "CSS", "JavaScript",'Bootstrap','Jquery','React','OpenAI API'],
         tags: ["LMS", "Education", "AI", "Quiz", "Dashboard", "Learning", "Assessment", "Online Platform", "EdTech", "Management System"]
     },
 };
@@ -298,11 +298,11 @@ const PricingDetailPage = () => {
                                 ))}
                             </ul>
 
-                            <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px', marginTop: '0' }}>Included Files</div>
+                            <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px', marginTop: '0' }}>Technologies Used</div>
                             <ul className={styles.bulletList} style={{ fontSize: '0.9rem', marginBottom: '20px' }}>
-                                {PLAN_DETAILS[plan.type]?.files?.map((file, idx) => (
+                                {PLAN_DETAILS[plan.type]?.technology?.map((file, idx) => (
                                     <li key={idx} style={{ marginBottom: '8px' }}>{file}</li>
-                                )) || PLAN_DETAILS.basic.files.map((file, idx) => (
+                                )) || PLAN_DETAILS.basic.technology.map((file, idx) => (
                                     <li key={idx} style={{ marginBottom: '8px' }}>{file}</li>
                                 ))}
                             </ul>

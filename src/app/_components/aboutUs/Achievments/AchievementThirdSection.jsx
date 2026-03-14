@@ -16,16 +16,16 @@ const AchievementThirdSection = () => {
                             </h2>
 
                             {/* Description */}
-                            <p className={`text-muted mb-4 ${styles.leadP}`}>
+                                <p className={`text-muted mb-5 mb-md-4 ${styles.leadP}`}>
                                 In co-ordination with a few more companies and Lets Inspire Bihar, TGAYS Technology have facilitated and helped in organizing an Entreperenueship Global Summit on 5th June 2022 at Hotel Maurya in Patna.
                             </p>
 
                             {/* Featured Solution Box */}
-                            <div className={`position-relative p-4 mb-4 rounded-3 overflow-hidden shadow-sm ${styles.featuredSolutionBox}`}>
+                            <div className={`position-relative p-4 mb-4 rounded-3 overflow-hidden shadow-sm text-center text-md-start ${styles.featuredSolutionBox}`}>
                                 <div className={styles.boxOverlayImg}></div>
-                                <div className="d-flex align-items-center position-relative z-2">
-                                    <div className={`me-3 ${styles.boxIcon}`}>
-                                        <div className={`bg-dark text-white rounded-circle d-flex align-items-center justify-content-center ${styles.iconCircle}`} style={{ width: '50px', height: '50px' }}>
+                                <div className="d-flex flex-column flex-md-row align-items-center position-relative z-2">
+                                    <div className={`me-md-3 mb-3 mb-md-0 ${styles.boxIcon}`}>
+                                        <div className={`bg-dark text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mx-md-0 ${styles.iconCircle}`} style={{ width: '50px', height: '50px' }}>
                                             <i className="fa-solid fa-users-gear"></i>
                                         </div>
                                     </div>
@@ -38,10 +38,10 @@ const AchievementThirdSection = () => {
 
                             {/* Sub Features */}
                             <div className="row g-4 mb-5">
-                                <div className="col-md-6">
-                                    <div className={`d-flex align-items-start ${styles.subFeature}`}>
-                                        <div className={`me-3 mt-1 ${styles.subFeatureIcon}`}>
-                                            <div className={`bg-dark text-warning rounded-circle d-flex align-items-center justify-content-center ${styles.iconCircleSm}`} style={{ width: '35px', height: '35px', fontSize: '0.8rem' }}>
+                                <div className="col-md-6 text-center text-md-start">
+                                    <div className={`d-flex flex-column flex-md-row align-items-center align-items-md-start ${styles.subFeature}`}>
+                                        <div className={`me-md-3 mb-2 mb-md-0 mt-md-1 ${styles.subFeatureIcon}`}>
+                                            <div className={`bg-dark text-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mx-md-0 ${styles.iconCircleSm}`} style={{ width: '35px', height: '35px', fontSize: '0.8rem' }}>
                                                 <i className="fa-solid fa-microchip"></i>
                                             </div>
                                         </div>
@@ -51,10 +51,10 @@ const AchievementThirdSection = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-md-6">
-                                    <div className={`d-flex align-items-start ${styles.subFeature}`}>
-                                        <div className={`me-3 mt-1 ${styles.subFeatureIcon}`}>
-                                            <div className={`bg-dark text-warning rounded-circle d-flex align-items-center justify-content-center ${styles.iconCircleSm}`} style={{ width: '35px', height: '35px', fontSize: '0.8rem' }}>
+                                <div className="col-md-6 text-center text-md-start">
+                                    <div className={`d-flex flex-column flex-md-row align-items-center align-items-md-start ${styles.subFeature}`}>
+                                        <div className={`me-md-3 mb-2 mb-md-0 mt-md-1 ${styles.subFeatureIcon}`}>
+                                            <div className={`bg-dark text-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mx-md-0 ${styles.iconCircleSm}`} style={{ width: '35px', height: '35px', fontSize: '0.8rem' }}>
                                                 <i className="fa-solid fa-lightbulb"></i>
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@ const AchievementThirdSection = () => {
                             </div>
 
                             {/* CTA Button */}
-                            <a href="#" className={`btn px-4 py-3 fw-bold text-uppercase shadow-sm ${styles.btnOrange}`} style={{ borderRadius: '5px', fontSize: '0.9rem' }}>Discover More</a>
+                            <a href="/contact-us" className={`btn px-4 py-3 fw-bold text-uppercase shadow-sm ${styles.btnOrange}`} style={{ borderRadius: '5px', fontSize: '0.9rem' }}>Contact Us</a>
                         </div>
                     </div>
 

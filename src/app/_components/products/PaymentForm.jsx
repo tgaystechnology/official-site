@@ -12,6 +12,7 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
     const nameRef = useRef(null);
     const emailRef = useRef(null);
     const phoneRef = useRef(null);
+    const descriptionRef = useRef(null);
 
     const closeModal = () => {
         setModalState(prev => ({ ...prev, isOpen: false }));
@@ -31,6 +32,7 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
         const name = nameRef.current.value;
         const email = emailRef.current.value;
         const phone = phoneRef.current.value;
+        const description = descriptionRef.current.value;
 
         const newErrors = {};
         if (!name) newErrors.name = true;
@@ -55,7 +57,9 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                     email: email,
                     phone: phone,
                     subject: `Product Lead: ${plan?.title || 'Unknown Plan'}`,
-                    message: `Interested in the ${plan?.title || 'Unknown Plan'} (Yearly Subscription)`,
+                    message: description ? 
+                        `Interested in the ${plan?.title || 'Unknown Plan'} (Yearly Subscription).\n\nUser Description:\n${description}` : 
+                        `Interested in the ${plan?.title || 'Unknown Plan'} (Yearly Subscription)`,
                     project_type: 'Others',
                     industry: 'Education',
                     project_duration: 'More than 1 year',
@@ -84,6 +88,7 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
              <form onSubmit={handlePayment} className={styles.form}>
                 <div className={styles.inputGroup}>
                     <input
+                        id="payment-name-input"
                         ref={nameRef}
                         type="text"
                         className={`${styles.input} ${errors.name ? styles.inputError : ''}`}
@@ -114,6 +119,15 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                             if (errors.phone) setErrors(prev => ({ ...prev, phone: false }));
                         }}
                     />
+                </div>
+                <div className={styles.inputGroup}>
+                    <textarea
+                        ref={descriptionRef}
+                        className={`${styles.input} ${styles.textarea}`}
+                        placeholder="Additional Description (Optional)"
+                        rows="3"
+                        style={{ height: 'auto', paddingTop: '12px', paddingBottom: '12px', resize: 'vertical' }}
+                    ></textarea>
                 </div>
 
                 {/* Support Checkbox */}

@@ -13,11 +13,11 @@ const PricingPage = () => {
       <PricingBanner />
       <PricingCards />
       <section className="container pt-50 pb-70">
-        <div className="text-center">
+        {/* <div className="text-center">
              <p className="mt-2 text-gray-600">
                 For custom enterprise solutions, please contact us.
             </p>
-        </div>
+        </div> */}
       </section>
     </div>
   );

@@ -5,7 +5,7 @@ import styles from './achievements.module.css';
 const AchievementSecondSection = () => {
     return (
         <section className={`py-5 position-relative overflow-hidden ${styles.ourSkillSection}`}>
-            <div className="container position-relative z-2">
+            <div className="container mt-5 position-relative z-2">
                 <div className="row align-items-center g-5">
                     {/* Left Content */}
                     <div className="col-lg-6">

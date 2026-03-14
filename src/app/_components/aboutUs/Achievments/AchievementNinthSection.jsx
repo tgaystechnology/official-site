@@ -37,43 +37,43 @@ const AchievementNinthSection = () => {
                             <div className="col-sm-6 mb-3">
                                 <div className={`d-flex align-items-center ${styles.featureItem}`}>
                                     <span className={`me-2 ${styles.checkIcon}`}><i className="fa-solid fa-circle-check"></i></span>
-                                    <span>Nullam vel orci ac</span>
+                                    <span>Advanced AI Integration</span>
                                 </div>
                             </div>
                             <div className="col-sm-6 mb-3">
                                 <div className={`d-flex align-items-center ${styles.featureItem}`}>
                                     <span className={`me-2 ${styles.checkIcon}`}><i className="fa-solid fa-circle-check"></i></span>
-                                    <span>Maecenas id libero</span>
+                                    <span>Scalable Cloud Solutions</span>
                                 </div>
                             </div>
                             <div className="col-sm-6 mb-3">
                                 <div className={`d-flex align-items-center ${styles.featureItem}`}>
                                     <span className={`me-2 ${styles.checkIcon}`}><i className="fa-solid fa-circle-check"></i></span>
-                                    <span>Donec eu arcu non</span>
+                                    <span>Predictive Analytics</span>
                                 </div>
                             </div>
                             <div className="col-sm-6 mb-3">
                                 <div className={`d-flex align-items-center ${styles.featureItem}`}>
                                     <span className={`me-2 ${styles.checkIcon}`}><i className="fa-solid fa-circle-check"></i></span>
-                                    <span>Proin mattis purus</span>
+                                    <span>Ethical AI Development</span>
                                 </div>
                             </div>
                             <div className="col-sm-6 mb-3">
                                 <div className={`d-flex align-items-center ${styles.featureItem}`}>
                                     <span className={`me-2 ${styles.checkIcon}`}><i className="fa-solid fa-circle-check"></i></span>
-                                    <span>Donec eu arcu non</span>
+                                    <span>Real-time Data Processing</span>
                                 </div>
                             </div>
                             <div className="col-sm-6 mb-3">
                                 <div className={`d-flex align-items-center ${styles.featureItem}`}>
                                     <span className={`me-2 ${styles.checkIcon}`}><i className="fa-solid fa-circle-check"></i></span>
-                                    <span>Proin mattis purus</span>
+                                    <span>Cross-Industry Innovation</span>
                                 </div>
                             </div>
                         </div>
 
                         <div className="d-flex flex-wrap align-items-center">
-                            <a href="#" className={`btn btn-lg px-5 py-3 text-uppercase fw-bold me-4 mb-3 ${styles.btnOrange}`}>Discover More</a>
+                            <a href="/contact-us" className={`btn btn-lg px-5 py-3 text-uppercase fw-bold me-4 mb-3 ${styles.btnOrange}`}>Contact Us</a>
                             <div className="d-flex align-items-center mb-3">
                                 <div className={`me-3 ${styles.phoneIconBox}`}>
                                     <i className="fa-solid fa-phone"></i>
