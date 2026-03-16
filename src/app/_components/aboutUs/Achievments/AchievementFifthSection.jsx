@@ -29,7 +29,7 @@ const AchievementFifthSection = () => {
                                     About Us
                                 </h3>
                                 <p className={styles.sectionParagraph}>
-                                    Consequat sociosqu sem officiis aute ridiculus repellat in aliquip at, metus sociosqu veritatis cubilia ac soluta? Faucibus ipsam, incidunt cras.
+                                    At TGAYS Technology, we believe in the power of practical education. Our workshops are intensive, hands-on experiences designed to bridge the gap between academic theory and real-world application.
                                 </p>
                             </div>
                         </div>
