@@ -285,6 +285,14 @@ const PricingDetailPage = () => {
 
 
                          {/* Product Description Section */}
+                         <div className={styles.header}>
+                            <h1 className={styles.title}>
+                                {plan.title}
+                            </h1>
+                            <p className={styles.description}>
+                                Get started with our {plan.title}. Includes premium features, dedicated resources, and everything you need to scale your business effectively.
+                            </p>
+                        </div>
                          <ProductDescription planType={plan.type} />
 
                          {/* Moved Features, Files, and Tags Section */}
@@ -326,14 +334,14 @@ const PricingDetailPage = () => {
                     <div className={styles.detailsWrapper}>
                         
                         {/* Header */}
-                        <div className={styles.header}>
+                        {/* <div className={styles.header}>
                             <h1 className={styles.title}>
                                 {plan.title}
                             </h1>
                             <p className={styles.description}>
                                 Get started with our {plan.title}. Includes premium features, dedicated resources, and everything you need to scale your business effectively.
                             </p>
-                        </div>
+                        </div> */}
 
 
 
@@ -351,9 +359,9 @@ const PricingDetailPage = () => {
                                 displayTotal={displayTotal}
                             />
                             
-                            <p className={styles.secureText}>
+                            {/* <p className={styles.secureText}>
                                 Secure payment. Cancel anytime.
-                            </p>
+                            </p> */}
                         </div>
 
 
