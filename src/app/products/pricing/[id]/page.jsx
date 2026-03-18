@@ -127,6 +127,9 @@ const PricingDetailPage = () => {
     const [api, setApi] = useState(null);
     const [current, setCurrent] = useState(0);
     const [isSupportChecked, setIsSupportChecked] = useState(true);
+    const [selectedSubscription, setSelectedSubscription] = useState("6 Months");
+
+
 
     const SUPPORT_COST = 3000;
 
@@ -357,6 +360,7 @@ const PricingDetailPage = () => {
                                 setIsSupportChecked={setIsSupportChecked}
                                 totalAmount={finalPaymentAmount}
                                 displayTotal={displayTotal}
+                                selectedSubscription={selectedSubscription}
                             />
                             
                             {/* <p className={styles.secureText}>
@@ -373,7 +377,10 @@ const PricingDetailPage = () => {
                 <SubscriptionOptions 
                     basePrice={numericPrice} 
                     features={PLAN_DETAILS[plan.type]?.features || PLAN_DETAILS.basic.features} 
+                    setSelectedSubscription={setSelectedSubscription}
+                    selectedSubscription={selectedSubscription}
                 />
+
             </div>
             
             {/* Lightbox Overlay */}

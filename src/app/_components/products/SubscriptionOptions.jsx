@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './SubscriptionOptions.module.css';
 
-const SubscriptionOptions = ({ basePrice, features }) => {
+const SubscriptionOptions = ({ basePrice, features, setSelectedSubscription, selectedSubscription }) => {
     // Assuming basePrice is the yearly price.
     // Let's create sensible pricing options based on the base price.
     const monthlyPrice = Math.round(basePrice / 12);
@@ -24,7 +24,7 @@ const SubscriptionOptions = ({ basePrice, features }) => {
             period: "per month",
             features: displayFeatures.slice(0, 3).map(f => ({ text: f, type: '✓' })),
             isHighlighted: false,
-            buttonText: "SELECT"
+            buttonText: "BOOK YOUR DEMO"
         },
         {
             title: "6 Months",
@@ -36,7 +36,7 @@ const SubscriptionOptions = ({ basePrice, features }) => {
             ],
             isHighlighted: true,
             badgeText: "BEST OFFER!",
-            buttonText: "SELECT"
+            buttonText: "BOOK YOUR DEMO"
         },
         {
             title: "12 Months",
@@ -47,11 +47,14 @@ const SubscriptionOptions = ({ basePrice, features }) => {
                 { text: "Yearly Plan Benefits", type: '+' }
             ],
             isHighlighted: false,
-            buttonText: "SELECT"
+            buttonText: "BOOK YOUR DEMO"
         }
     ];
 
-    const handleSelectClick = () => {
+    const handleSelectClick = (planTitle) => {
+        if (setSelectedSubscription) {
+            setSelectedSubscription(planTitle);
+        }
         const nameInput = document.getElementById('payment-name-input');
         if (nameInput) {
             nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -59,11 +62,12 @@ const SubscriptionOptions = ({ basePrice, features }) => {
         }
     };
 
+
     return (
         <div className={styles.containerWrapper}>
             <div className={styles.container}>
                 {plans.map((plan, idx) => (
-                    <div key={idx} className={`${styles.card} ${plan.isHighlighted ? styles.cardHighlighted : ''}`}>
+                    <div key={idx} className={`${styles.card} ${plan.isHighlighted || selectedSubscription === plan.title ? styles.cardHighlighted : ''}`}>
                         {plan.isHighlighted && <div className={styles.badge}>{plan.badgeText}</div>}
                         
                         <div className={styles.titleWrapper}>
@@ -84,8 +88,8 @@ const SubscriptionOptions = ({ basePrice, features }) => {
                         </div>
                         
                         <button 
-                            className={`${styles.selectBtn} ${plan.isHighlighted ? styles.btnHighlighted : ''}`}
-                            onClick={handleSelectClick}
+                            className={`${styles.selectBtn} ${plan.isHighlighted || selectedSubscription === plan.title ? styles.btnHighlighted : ''}`}
+                            onClick={() => handleSelectClick(plan.title)}
                         >
                             {plan.buttonText}
                         </button>

@@ -110,37 +110,34 @@ const PricingModal = ({ plan }) => {
     }
 
     try {
-      // Send the user's data directly to the /api/contact-experts endpoint as a lead
-      const result = await fetch('/api/contact-experts', {
+      // Send the user's data to the new lead collection endpoint
+      const leadData = {
+          full_name: name,
+          email: email,
+          phone: phone,
+          note: `Interested in the ${plan?.title || 'Unknown Plan'} (Quick Preview Lead)`
+      };
+
+      const result = await fetch('https://lmsadmin.tgaystechnology.com/api/leads/collect/', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-              name: name,
-              email: email,
-              phone: phone,
-              subject: `Product Lead: ${plan?.title || 'Unknown Plan'}`,
-              message: `Interested in the ${plan?.title || 'Unknown Plan'} (Quick Preview Lead)`,
-              project_type: 'Others',
-              industry: 'Education',
-              project_duration: 'More than 1 year',
-              website: ''
-          }),
+          body: JSON.stringify(leadData),
       });
 
       const data = await result.json();
 
       if (!result.ok) {
           console.error("DEBUG: API Response Error Details:", data);
-          throw new Error(data.error || 'Failed to submit lead');
+          throw new Error(data.message || data.error || 'Failed to submit lead');
       }
 
       setLoading(false);
       setModalState({ isOpen: true, type: 'success' });
 
     } catch (error) {
-      console.error(error);
+      console.error('Error submitting lead:', error);
       setLoading(false);
       setModalState({ isOpen: true, type: 'failure' });
     }
