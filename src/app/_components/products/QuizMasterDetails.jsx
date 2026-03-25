@@ -7,14 +7,14 @@ const QuizMasterDetails = () => (
         {/* Intro Section */}
         <section className={styles.section}>
             <h2 className={styles.sectionTitle}>
-                Quiz Master – Comprehensive Platform Overview
+                Vidya AI LMS – Comprehensive Platform Overview
             </h2>
             <div className={styles.prose}>
                 <p className={styles.boldText}>
-                    Quiz Master is a full-scale AI-powered Learning Management System (LMS) designed to operate as a complete digital education ecosystem rather than just a repository of educational videos.
+                    Vidya AI LMS is a full-scale AI-powered Learning Management System (LMS) designed to operate as a complete digital education ecosystem rather than just a repository of educational videos.
                 </p>
                 <p>
-                    Traditional LMS platforms mainly store course videos and documents. Quiz Master, however, integrates AI assistance, automated operations, learning analytics, secure access control, and competitive learning tools to create a fully interactive learning environment.
+                    Traditional LMS platforms mainly store course videos and documents. Vidya AI LMS, however, integrates AI assistance, automated operations, learning analytics, secure access control, and competitive learning tools to create a fully interactive learning environment.
                 </p>
             </div>
             
@@ -45,7 +45,7 @@ const QuizMasterDetails = () => (
         {/* Pathways Section */}
         <section className={styles.section}>
             <h3 className={styles.pathwaySubtitle}>Primary Learning Pathways</h3>
-            <p className={styles.pathwayDesc}>Quiz Master supports two primary learning pathways that mirror real-world education models:</p>
+            <p className={styles.pathwayDesc}>Vidya AI LMS supports two primary learning pathways that mirror real-world education models:</p>
             
             <div className={styles.pathwaysGrid}>
                 {/* Pathway 1 */}

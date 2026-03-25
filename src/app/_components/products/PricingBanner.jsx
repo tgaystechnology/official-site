@@ -13,13 +13,12 @@ const PricingBanner = () => {
     >
       <div className="container">
         <div className="banner-text">
-          <h3>Plans & Pricing</h3>
+          <h3>Our Products</h3>
           <p>
-            Transparent pricing for scalable solutions. Choose the plan that fits your business needs 
-            and start your journey towards digital transformation today.
+            Explore Our Powerful Ready-To-Use Products Built To Streamline Your Operations and Automate them.
           </p>
           <Link href="/contact-us" className="first-tag">
-            Get a Quote
+            Book a Demo
           </Link>
         </div>
       </div>

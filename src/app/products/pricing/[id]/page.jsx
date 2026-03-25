@@ -27,7 +27,7 @@ const PLAN_DETAILS = {
             {
                 image: "/img/student-home-page.png",
                 title: "Comprehensive LMS Solution",
-                description: "Quiz Master LMS is a comprehensive learning management system built to streamline online education while delivering a secure, intelligent, and user-friendly experience for administrators, instructors, and students."
+                description: "Vidya AI LMS is a comprehensive learning management system built to streamline online education while delivering a secure, intelligent, and user-friendly experience for administrators, instructors, and students."
             },
             {
                 image: "/img/admin-dashboard-2.png",
@@ -47,7 +47,7 @@ const PLAN_DETAILS = {
             {
                 image: "/img/quiz-servilance.png",
                 title: "Secure & Intelligent Assessments",
-                description: "Quiz Master LMS features quiz surveillance for secure exams, an AI-powered quiz generator, secure payments, automated reminders, and transparent transaction tracking, ensuring a reliable and scalable solution for modern digital education."
+                description: "Vidya AI LMS features quiz surveillance for secure exams, an AI-powered quiz generator, secure payments, automated reminders, and transparent transaction tracking, ensuring a reliable and scalable solution for modern digital education."
             }
         ],
         features: [
@@ -63,7 +63,7 @@ const PLAN_DETAILS = {
     },
     // Fallback/Legacy
     basic: {
-        description: "Quiz Master LMS is a comprehensive learning management system built to streamline online education...",
+        description: "Vidya AI LMS is a comprehensive learning management system built to streamline online education...",
         features: [
             "Super Admin, Instructor & Student Dashboards",
             "AI-Powered Quiz Hints & Practice Quiz Generator",
@@ -80,6 +80,7 @@ const PLAN_DETAILS = {
 import StackingCards from '@/app/_components/products/StackingCards';
 import QuizMasterDetails from '@/app/_components/products/QuizMasterDetails';
 import SubscriptionOptions from '@/app/_components/products/SubscriptionOptions';
+import ProductHighlights from '@/app/_components/products/ProductHighlights';
 
 const ProductDescription = ({ planType }) => {
     const details = PLAN_DETAILS[planType] || PLAN_DETAILS['quiz-master-lms-plan'] || PLAN_DETAILS.basic;
@@ -112,6 +113,8 @@ const ProductDescription = ({ planType }) => {
             )}
 
             {details.showQuizMasterDetails && <QuizMasterDetails />}
+
+            {planType === 'quiz-master-lms-plan' && <ProductHighlights />}
 
         </div>
     );
