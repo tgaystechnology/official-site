@@ -104,27 +104,111 @@
     font-size: 1.4rem;
 }
 
-.pricing-wrapper .feature-list-items {
-    max-width: 285px;
-    /* Center align list items */
+/* Role Tabs Styles */
+.role-tabs-container {
+    padding: 4px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
-.pricing-wrapper .feature-list li {
-    margin-bottom: 12px;
-    font-size: 0.9rem;
-    color: #666;
+.role-tabs-nav {
+    display: flex;
+    gap: 4px;
+}
+
+.role-tab-btn {
+    flex: 1;
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 4px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+    transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
-.pricing-wrapper .feature-list li.disabled {
-    color: #aaa;
-    text-decoration: line-through;
+.role-tab-btn:hover {
+    color: var(--active-color);
+    background: rgba(0, 0, 0, 0.02);
 }
 
-.pricing-wrapper .feature-list li i {
-    width: 20px;
+.role-tab-btn.active {
+    background: #ffffff;
+    color: #1e293b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+
+.role-tab-btn i, .role-tab-btn svg {
+    opacity: 0.8;
+}
+
+.role-tab-btn.active svg {
+    color: var(--active-color);
+}
+
+/* Role Features Styles */
+.role-features-content {
+    min-height: 380px;
+    text-align: left;
+}
+
+.role-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.role-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.role-feature-item:hover {
+    background: #f8fafc;
+    transform: translateX(4px);
+}
+
+.role-feature-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.role-feature-info {
+    flex: 1;
+}
+
+.role-feature-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 2px;
+}
+
+.role-feature-desc {
+    font-size: 0.75rem;
+    color: #64748b;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* ========================================= */
 
 
 /* Buttons */

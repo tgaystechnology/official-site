@@ -7,9 +7,12 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
+    CarouselPrevious,
+    CarouselNext,
 } from '@/components/ui/carousel';
 import PaymentForm from '@/app/_components/products/PaymentForm';
 import styles from './PricingDetail.module.css';
+import Autoplay from "embla-carousel-autoplay";
 
 // Helper to format currency
 const formatCurrency = (amount) => {
@@ -21,7 +24,7 @@ const formatCurrency = (amount) => {
 };
 
 const PLAN_DETAILS = {
-    'quiz-master-lms-plan': {
+    'vidya-ai-lms': {
         showQuizMasterDetails: true,
         sections: [
             {
@@ -83,7 +86,7 @@ import SubscriptionOptions from '@/app/_components/products/SubscriptionOptions'
 import ProductHighlights from '@/app/_components/products/ProductHighlights';
 
 const ProductDescription = ({ planType }) => {
-    const details = PLAN_DETAILS[planType] || PLAN_DETAILS['quiz-master-lms-plan'] || PLAN_DETAILS.basic;
+    const details = PLAN_DETAILS[planType] || PLAN_DETAILS['vidya-ai-lms'] || PLAN_DETAILS.basic;
 
     // Transform sections to cards data if available
     const cardsData = details.sections?.map((section, idx) => ({
@@ -114,7 +117,7 @@ const ProductDescription = ({ planType }) => {
 
             {details.showQuizMasterDetails && <QuizMasterDetails />}
 
-            {planType === 'quiz-master-lms-plan' && <ProductHighlights />}
+            {planType === 'vidya-ai-lms' && <ProductHighlights />}
 
         </div>
     );
@@ -229,7 +232,19 @@ const PricingDetailPage = () => {
                     <div className={styles.mediaWrapper}>
                         <div className={styles.stickyWrapper}>
                             <div className={styles.carouselContainer}>
-                                <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
+                                <div className={`${styles.gradientEdge} ${styles.gradientLeft}`} />
+                                <div className={`${styles.gradientEdge} ${styles.gradientRight}`} />
+                                
+                                <Carousel 
+                                    setApi={setApi} 
+                                    opts={{ loop: true }} 
+                                    plugins={[
+                                        Autoplay({
+                                            delay: 4000,
+                                        }),
+                                    ]}
+                                    className="w-full"
+                                >
                                     <CarouselContent>
                                         {slides.map((slide, index) => (
                                             <CarouselItem key={index}>
@@ -251,6 +266,8 @@ const PricingDetailPage = () => {
                                             </CarouselItem>
                                         ))}
                                     </CarouselContent>
+                                    <CarouselPrevious className={`${styles.navArrow} ${styles.navArrowPrev}`} />
+                                    <CarouselNext className={`${styles.navArrow} ${styles.navArrowNext}`} />
                                 </Carousel>
                             </div>
                             

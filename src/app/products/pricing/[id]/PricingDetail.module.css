@@ -142,6 +142,83 @@
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
 }
 
+/* Carousel Hover Effects */
+.carouselContainer {
+    position: relative;
+    background-color: #f8fafc;
+    border-radius: 2rem;
+    overflow: hidden;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+}
+
+.gradientEdge {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gradientLeft {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2), transparent);
+}
+
+.gradientRight {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent);
+}
+
+.carouselContainer:hover .gradientEdge {
+    opacity: 1;
+}
+
+/* Custom Navigation Arrow Styles */
+.navArrow {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 20 !important;
+    background: transparent !important; /* Removed white background */
+    border: none !important;
+    width: 60px !important;
+    height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    opacity: 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+.navArrow:hover {
+    transform: translateY(-50%) scale(1.2) !important;
+}
+
+.navArrowPrev {
+    left: 0.5rem !important;
+}
+
+.navArrowNext {
+    right: 0.5rem !important;
+}
+
+.carouselContainer:hover .navArrow {
+    opacity: 1 !important;
+}
+
+/* Ensure the icon inside is white or high contrast since there's no background */
+.navArrow :global(svg) {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    color: #ffffff !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+}
+
 /* Thumbnails Carousel */
 .thumbnailCarouselWrapper {
     margin-top: 1.5rem;

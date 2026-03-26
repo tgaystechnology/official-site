@@ -17,7 +17,7 @@ const PricingBanner = () => {
           <p>
             Explore Our Powerful Ready-To-Use Products Built To Streamline Your Operations and Automate them.
           </p>
-          <Link href="/contact-us" className="first-tag">
+          <Link href="/products/pricing/vidya-ai-lms" className="first-tag">
             Book a Demo
           </Link>
         </div>

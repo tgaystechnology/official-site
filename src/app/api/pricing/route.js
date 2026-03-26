@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   const plans = [
     {
-      type: 'quiz-master-lms-plan',
+      type: 'vidya-ai-lms',
       img: '/img/student-home-page.png',
       price: '49,999',
       amount: 49999,
@@ -11,7 +11,7 @@ export async function GET() {
       btnClass: 'btn-basic',
       bubbleClass: 'basic-bubble',
       gradVar: 'var(--basic-grad)',
-      letter: 'Q',
+      letter: 'V',
       features: [
         { text: 'Super Admin Dashboard & Revenue Tracking', active: true },
         { text: 'Schedule Online Classes in Batches', active: true },

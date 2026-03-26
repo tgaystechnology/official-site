@@ -19,9 +19,73 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
+import { 
+  Users, 
+  GraduationCap, 
+  ShieldCheck, 
+  CalendarCheck2, 
+  Award, 
+  BookOpen, 
+  ClipboardCheck, 
+  Trophy, 
+  MessageSquareQuote,
+  LayoutDashboard,
+  FileText,
+  BrainCircuit,
+  History,
+  TrendingUp,
+  Zap,
+  CheckCircle2
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 import PaymentStatusModal from './PaymentStatusModal';
+
+const INTERFACES = [
+    {
+        id: 'instructor',
+        label: 'Instructor',
+        icon: GraduationCap,
+        color: '#3b82f6', // blue
+        features: [
+            { title: "Batch Scheduling", description: "Schedule online classes in batches with ease.", icon: CalendarCheck2 },
+            { title: "Performance Evaluation", description: "In-depth tools to evaluate student academic progress.", icon: TrendingUp },
+            { title: "Quiz Creation", description: "Easily design and assign interactive quizzes.", icon: ClipboardCheck },
+            { title: "Competitive Hackathons", description: "Conduct time-restricted competitive coding events.", icon: Trophy },
+            { title: "Material Sharing", description: "Share study resources and documents instantly.", icon: BookOpen },
+            { title: "Attendance Tracking", description: "Automated student attendance capturing system.", icon: Users },
+            { title: "Live Class Notes", description: "AI-powered generation of live class highlights.", icon: FileText }
+        ]
+    },
+    {
+        id: 'student',
+        label: 'Student',
+        icon: Users,
+        color: '#10b981', // emerald
+        features: [
+            { title: "Real-time Live Classes", description: "Join live interactive sessions with instructors.", icon: Zap },
+            { title: "Personalized Dashboard", description: "Track progress, schedules, and assessments.", icon: LayoutDashboard },
+            { title: "AI-Assisted Quizzes", description: "Take quizzes with help from an AI Avatar.", icon: BrainCircuit },
+            { title: "Gamified Hackathons", description: "Engage in timed contests with AI assistance.", icon: Award },
+            { title: "Curated Courses", description: "Browse and enroll in high-quality learning paths.", icon: BookOpen },
+            { title: "Progress Analytics", description: "Visualize your learning journey and growth.", icon: History },
+            { title: "Gamified Engagement", description: "Learn better with points, badges, and rewards.", icon: Trophy },
+            { title: "AI Learning Mentor", description: "Personalized assistance tailored to your needs.", icon: MessageSquareQuote }
+        ]
+    },
+    {
+        id: 'superadmin',
+        label: 'Superadmin',
+        icon: ShieldCheck,
+        color: '#8b5cf6', // purple
+        features: [
+            { title: "Revenue Analytics", description: "Centralized tracking of revenue and platform growth.", icon: TrendingUp },
+            { title: "System Analytics", description: "Monitor global platform usage and performance.", icon: LayoutDashboard },
+            { title: "User Management", description: "Complete control over all platform participants.", icon: Users },
+            { title: "Global Security", description: "Advanced protection for all academic data.", icon: ShieldCheck }
+        ]
+    }
+];
 
 // Removed loadRazorpay function
 
@@ -447,6 +511,7 @@ const PricingModal = ({ plan }) => {
 
 const PricingCards = () => {
     const [plans, setPlans] = useState([]);
+    const [activeRoleTab, setActiveRoleTab] = useState(INTERFACES[0].id);
 
     useEffect(() => {
         const fetchPlans = async () => {
@@ -482,26 +547,58 @@ const PricingCards = () => {
                                     <img src={plan.img} alt={`${plan.type} Plan`} className="img-fluid w-100 rounded-top" style={{ objectFit: 'cover' }} />
                                 </div>
                                 <div className="card-body pt-4 pb-4 px-4">
-                                    <h3 className="plan-title fw-bold mb-3">{plan.title}</h3>
+                                    <h3 className="plan-title fw-bold mb-4">{plan.title}</h3>
 
-                                    <div className="mb-3 fw-bold text-start ps-2 text-muted">Product Highlights:</div>
+                                    <div className="role-tabs-container mb-4">
+                                        <div className="role-tabs-nav">
+                                            {INTERFACES.map((item) => (
+                                                <button
+                                                    key={item.id}
+                                                    onClick={() => setActiveRoleTab(item.id)}
+                                                    className={`role-tab-btn ${activeRoleTab === item.id ? 'active' : ''}`}
+                                                    style={{ '--active-color': item.color }}
+                                                >
+                                                    <item.icon size={18} />
+                                                    <span>{item.label}</span>
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
 
-                                    <ul className="list-unstyled feature-list text-start mx-auto feature-list-items">
-                                        {plan.features.map((feature, idx) => (
-                                            <li key={idx} className={feature.active ? '' : 'disabled'}>
-                                                <i className={`fas ${feature.active ? 'fa-check text-success' : 'fa-times text-danger'} me-2`}></i>
-                                                {feature.text}
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    <div className="role-features-content">
+                                        <AnimatePresence mode="wait">
+                                            <motion.div
+                                                key={activeRoleTab}
+                                                initial={{ opacity: 0, x: 10 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                exit={{ opacity: 0, x: -10 }}
+                                                transition={{ duration: 0.2 }}
+                                                className="role-feature-list"
+                                            >
+                                                {INTERFACES.find(i => i.id === activeRoleTab).features.map((feature, idx) => (
+                                                    <div key={idx} className="role-feature-item">
+                                                        <div 
+                                                            className="role-feature-icon"
+                                                            style={{ 
+                                                                backgroundColor: `${INTERFACES.find(i => i.id === activeRoleTab).color}15`, 
+                                                                color: INTERFACES.find(i => i.id === activeRoleTab).color 
+                                                            }}
+                                                        >
+                                                            <feature.icon size={16} />
+                                                        </div>
+                                                        <div className="role-feature-info">
+                                                            <h4 className="role-feature-title">{feature.title}</h4>
+                                                            <p className="role-feature-desc">{feature.description}</p>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </motion.div>
+                                        </AnimatePresence>
+                                    </div>
 
-                                    {/* Modal Trigger */}
-                                    {/* <PricingModal plan={plan} /> */}
-                                    
-                                    <Link href={`/products/pricing/${plan.type}`} className={`btn btn-outline-primary btn-round mt-3 w-100`}>
+                                    <Link href={`/products/pricing/${plan.type}`} className={`btn btn-outline-primary btn-round mt-4 w-100`}>
                                         View Details
                                     </Link>
-                                    
                                 </div>
                             </div>
                         </div>
