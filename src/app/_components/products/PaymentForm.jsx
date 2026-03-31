@@ -52,8 +52,8 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                 email: email,
                 phone: phone,
                 note: description ? 
-                    `${plan?.title || 'Unknown Plan'} (${selectedSubscription || 'Unknown'} Subscription). \n\n Description: ${description}` : 
-                    `${plan?.title || 'Unknown Plan'} (${selectedSubscription || 'Unknown'} Subscription)`
+                    `${plan?.title} ${selectedSubscription}.\n\n${description}` : 
+                    `${plan?.title} ${selectedSubscription}`
             };
 
 
