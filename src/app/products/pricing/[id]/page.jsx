@@ -133,7 +133,7 @@ const PricingDetailPage = () => {
     const [api, setApi] = useState(null);
     const [current, setCurrent] = useState(0);
     const [isSupportChecked, setIsSupportChecked] = useState(true);
-    const [selectedSubscription, setSelectedSubscription] = useState("6 Months");
+    const [selectedSubscription, setSelectedSubscription] = useState("");
 
 
 
