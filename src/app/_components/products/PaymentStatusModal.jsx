@@ -23,7 +23,7 @@ const PaymentStatusModal = ({ type, isOpen, onClose }) => {
                 </div>
 
                 <h2 className={styles.title}>
-                    {isSuccess ? 'Interest Submitted!' : 'Submission Failed'}
+                    {isSuccess ? 'Request Submitted!' : 'Submission Failed'}
                 </h2>
 
                 <p className={styles.message}>
