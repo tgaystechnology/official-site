@@ -52,8 +52,9 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                 email: email,
                 phone: phone,
                 note: description ? 
-                    `${plan?.title} ${selectedSubscription}.\n\n${description}` : 
-                    `${plan?.title} ${selectedSubscription}`
+                    // `${plan?.title} ${selectedSubscription}.\n\n${description}` : 
+                    // `${plan?.title} ${selectedSubscription}`
+                    `${description}` : ``
             };
 
 
