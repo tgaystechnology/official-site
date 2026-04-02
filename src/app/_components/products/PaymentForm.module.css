@@ -44,19 +44,23 @@
   box-shadow: 0 0 0 1px #ef4444;
 }
 
-/* .footer {
-  padding-top: 1.5rem;
-} */
+.footer {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  width: 100%;
+}
 
 .submitBtn {
-  width: 100%;
-  padding: 1rem;
+  flex: 1;
+  height: 3.5rem;
+  padding: 0 1rem;
   color: #ffffff;
   background-color: #0F111A;
   border: none;
   border-radius: 0.75rem;
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   cursor: pointer;
   transition: all 200ms ease-in-out;
   display: flex;
@@ -103,4 +107,97 @@
 
 .spinnerPath {
   opacity: 0.75;
+}
+
+.pkgDropdownContainer {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+  outline: none;
+}
+
+.pkgDropdownContainer:hover,
+.pkgDropdownContainer[data-state='open'] {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.pkgDropdownContainer:focus-visible {
+  border-color: #000;
+  box-shadow: 0 0 0 1px #000;
+}
+
+.pkgIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #64748b;
+}
+
+.dropdownContent {
+  min-width: 200px;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+.dropdownLabel {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  color: #1e293b;
+  cursor: pointer;
+  border-radius: 0.625rem;
+  outline: none;
+  transition: all 150ms ease;
+  user-select: none;
+}
+
+.dropdownItem:hover,
+.dropdownItem[data-highlighted] {
+  background-color: #f8fafc;
+  color: #000;
+}
+
+.dropdownItem[data-state='checked'] {
+  background-color: #f1f5f9;
+  font-weight: 500;
+  color: #000;
+}
+
+.checkIcon {
+  width: 1rem;
+  height: 1rem;
+  color: #000;
+}
+
+@media (max-width: 480px) {
+  .footer {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+  }
 }

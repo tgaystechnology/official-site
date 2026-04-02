@@ -1,5 +1,8 @@
 "use client";
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Package, Check } from 'lucide-react';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import PaymentStatusModal from './PaymentStatusModal';
 import styles from './PaymentForm.module.css';
@@ -7,6 +10,9 @@ import styles from './PaymentForm.module.css';
 const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount, displayTotal, selectedSubscription }) => {
     const [loading, setLoading] = useState(false);
     const [modalState, setModalState] = useState({ isOpen: false, type: 'success' });
+    const [pkgNames, setPkgNames] = useState([]);
+    const [selectedPkgForNote, setSelectedPkgForNote] = useState("");
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     
     // Form refs
     const nameRef = useRef(null);
@@ -20,6 +26,21 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
              window.location.reload(); // Reload after success modal closed
         }
     };
+
+    useEffect(() => {
+        const fetchPackages = async () => {
+            try {
+                const response = await fetch('https://lmsadmin.tgaystechnology.com/api/packages/');
+                if (response.ok) {
+                    const data = await response.json();
+                    setPkgNames(data.map(item => item.name));
+                }
+            } catch (err) {
+                console.error("Error fetching packages for footer dropdown:", err);
+            }
+        };
+        fetchPackages();
+    }, []);
 
     const [errors, setErrors] = useState({});
 
@@ -52,9 +73,8 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                 email: email,
                 phone: phone,
                 note: description ? 
-                    `${plan?.title} ${selectedSubscription}.\n${description}` : 
-                    `${plan?.title} ${selectedSubscription}`
-                    // `${description}` : ``
+                    `${plan?.title} ${selectedSubscription}.\nPackage: ${selectedPkgForNote}\n${description}` : 
+                    `${plan?.title} ${selectedSubscription}.\nPackage: ${selectedPkgForNote}`
             };
 
 
@@ -167,6 +187,55 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                 
                  {/* Footer Button Area */}
                   <div className={styles.footer}>
+                    <DropdownMenu.Root open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
+                        <DropdownMenu.Trigger asChild>
+                            <div className={styles.pkgDropdownContainer} role="button" aria-label="Select Subscription Package">
+                                <Package className={styles.pkgIcon} />
+                            </div>
+                        </DropdownMenu.Trigger>
+
+                        <AnimatePresence>
+                            {isDropdownOpen && (
+                                <DropdownMenu.Portal forceMount>
+                                    <DropdownMenu.Content 
+                                        asChild 
+                                        sideOffset={8} 
+                                        align="start"
+                                        className={styles.dropdownContent}
+                                    >
+                                        <motion.div
+                                            initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                                            exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                                            transition={{ duration: 0.2, ease: "easeOut" }}
+                                        >
+                                            <DropdownMenu.Label className={styles.dropdownLabel}>
+                                                Choose Package
+                                            </DropdownMenu.Label>
+                                            
+                                            <DropdownMenu.RadioGroup 
+                                                value={selectedPkgForNote} 
+                                                onValueChange={setSelectedPkgForNote}
+                                            >
+                                                {pkgNames.map((pkg, idx) => (
+                                                    <DropdownMenu.RadioItem 
+                                                        key={idx} 
+                                                        value={pkg}
+                                                        className={styles.dropdownItem}
+                                                    >
+                                                        <span className={styles.itemText}>{pkg}</span>
+                                                        <DropdownMenu.ItemIndicator>
+                                                            <Check className={styles.checkIcon} />
+                                                        </DropdownMenu.ItemIndicator>
+                                                    </DropdownMenu.RadioItem>
+                                                ))}
+                                            </DropdownMenu.RadioGroup>
+                                        </motion.div>
+                                    </DropdownMenu.Content>
+                                </DropdownMenu.Portal>
+                            )}
+                        </AnimatePresence>
+                    </DropdownMenu.Root>
                     <button 
                         type="submit"
                         disabled={loading}
