@@ -374,6 +374,32 @@
         position: sticky;
         top: 130px;
         height: max-content;
+        display: block;
+    }
+}
+
+@media (max-width: 1023px) {
+    .detailsWrapper {
+        display: block; /* Keep visible for tablet as per user request */
+    }
+}
+
+@media (max-width: 767px) {
+    .detailsWrapper {
+        display: none; /* Hide at the bottom for mobile */
+    }
+}
+
+/* Mobile Payment Container */
+.mobilePaymentContainer {
+    display: none;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+    .mobilePaymentContainer {
+        display: block;
     }
 }
 

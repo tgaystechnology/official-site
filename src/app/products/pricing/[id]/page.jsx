@@ -304,8 +304,24 @@ const PricingDetailPage = () => {
                                     </CarouselContent>
                                 </Carousel>
                             </div>
-                            </div>
+                        </div>
 
+                        {/* Mobile Payment Form - Only visible on small screens */}
+                        <div className={styles.mobilePaymentContainer}>
+                            <div className={styles.paymentSection} style={{ padding: '20px' }}>
+                                <h2 className={styles.checkoutTitle}>
+                                    Book Your Demo
+                                </h2>
+                                <PaymentForm 
+                                    plan={plan}
+                                    isSupportChecked={isSupportChecked}
+                                    setIsSupportChecked={setIsSupportChecked}
+                                    totalAmount={finalPaymentAmount}
+                                    displayTotal={displayTotal}
+                                    selectedSubscription={selectedSubscription}
+                                />
+                            </div>
+                        </div>
 
                          {/* Product Description Section */}
                          <div className={styles.header}>

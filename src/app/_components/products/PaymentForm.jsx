@@ -13,6 +13,7 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
     const [pkgNames, setPkgNames] = useState([]);
     const [selectedPkgForNote, setSelectedPkgForNote] = useState("");
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [showTooltip, setShowTooltip] = useState(false);
     
     // Form refs
     const nameRef = useRef(null);
@@ -189,8 +190,29 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                   <div className={styles.footer}>
                     <DropdownMenu.Root open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
                         <DropdownMenu.Trigger asChild>
-                            <div className={styles.pkgDropdownContainer} role="button" aria-label="Select Subscription Package">
+                            <div 
+                                className={styles.pkgDropdownContainer} 
+                                role="button" 
+                                aria-label="Select Subscription Package"
+                                onMouseEnter={() => setShowTooltip(true)}
+                                onMouseLeave={() => setShowTooltip(false)}
+                            >
                                 <Package className={styles.pkgIcon} />
+                                
+                                <AnimatePresence>
+                                    {showTooltip && !isDropdownOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            transition={{ duration: 0.2, ease: "easeOut" }}
+                                            className={styles.tooltipContent}
+                                        >
+                                            Choose Package
+                                            <div className={styles.tooltipArrow} />
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
                         </DropdownMenu.Trigger>
 
