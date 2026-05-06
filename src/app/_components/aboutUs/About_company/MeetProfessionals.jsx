@@ -8,21 +8,21 @@ const MeetProfessionals = () => {
       id: 1,
       name: "Mohan Kumar Jha",
       designation: "Business Development Consultant",
-      image: "/img/user-placeholder.png",
+      image: "/img/user-placeholder.jpg",
       alt: "Mohan Kumar Jha - Business Development Consultant"
     },
     {
       id: 2,
       name: "Zarqa Khanam",
       designation: "Digital Marketing Associate",
-      image: "/img/user-placeholder.png",
+      image: "/img/user-placeholder.jpg",
       alt: "Zarqa Khanam - Digital Marketing Associate"
     },
     {
       id: 3,
       name: "Zainab Khanam",
       designation: "Project Lead - Web & Mobile App",
-      image: "/img/user-placeholder.png",
+      image: "/img/user-placeholder.jpg",
       alt: "Zainab Khanam - Digital Marketing Associate"
     },
     {
