@@ -21,7 +21,7 @@ const MeetProfessionals = () => {
     {
       id: 3,
       name: "Zainab Khanam",
-      designation: "Project Lead - Web & Mobile App",
+      designation: "Digital Marketing Associate",
       image: "/img/user-placeholder.jpg",
       alt: "Zainab Khanam - Digital Marketing Associate"
     },
