@@ -6,55 +6,76 @@ const MeetProfessionals = () => {
   const teamMembers = [
     {
       id: 1,
+      name: "Mohan Kumar Jha",
+      designation: "Business Development Consultant",
+      image: "/img/user-placeholder.png",
+      alt: "Mohan Kumar Jha - Business Development Consultant"
+    },
+    {
+      id: 2,
+      name: "Zarqa Khanam",
+      designation: "Digital Marketing Associate",
+      image: "/img/user-placeholder.png",
+      alt: "Zarqa Khanam - Digital Marketing Associate"
+    },
+    {
+      id: 3,
+      name: "Zainab Khanam",
+      designation: "Project Lead - Web & Mobile App",
+      image: "/img/user-placeholder.png",
+      alt: "Zainab Khanam - Digital Marketing Associate"
+    },
+    {
+      id: 4,
       name: "Prince Singh",
       designation: "Project Lead - Web & Mobile App",
       image: "/img/prince-dev.png",
       alt: "Prince Singh - Project Lead"
     },
     {
-      id: 2,
+      id: 5,
       name: "Gaurav Kumar",
       designation: "Senior Web Designer",
       image: "/img/gaurav.png",
       alt: "Gaurav Kumar - Senior Web Designer"
     },
     {
-      id: 3,
+      id: 6,
       name: "Md. Najish",
       designation: "Web Developer",
       image: "/img/najish-khan.png",
       alt: "Md. Najish - Web Developer"
     },
     {
-      id: 4,
+      id: 7,
       name: "S K Sarfaraz",
       designation: "Web Developer",
       image: "/img/sarfaraz-dev.png",
       alt: "S K Sarfaraz - Web Developer"
     },
     {
-      id: 5,
+      id: 8,
       name: "Vijay Pandey",
       designation: "Sr. Web Developer",
       image: "/img/vijay-sr-web-developer.png",
       alt: "Vijay Pandey - Sr. Web Developer"
     },
     {
-      id: 6,
+      id: 9,
       name: "Tanuj",
       designation: "Business Development Executive",
       image: "/img/tanuj-bds.png",
       alt: "Tanuj - Business Development Executive"
     },
     {
-      id: 7,
+      id: 10,
       name: "Vansh Lalawat",
       designation: "Business Development Associate",
       image: "/img/vansh.png",
       alt: "Vansh Lalawat - Business Development Associate"
     },
     {
-      id: 8,
+      id: 11,
       name: "Sana Ashraf",
       designation: "HR & Marketing Associate",
       image: "/img/sana.png",
