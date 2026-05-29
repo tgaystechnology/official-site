@@ -98,8 +98,8 @@ export default function RootLayout({ children }) {
         />
 
         {/* Google Fonts */}
-        <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700,900" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700,900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Lustria&family=Pacifico&family=Roboto:wght@700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet" />
 
@@ -150,7 +150,6 @@ export default function RootLayout({ children }) {
 
 
         {/* Local JS Files */}
-        <Script src="/js/bootstrap.js" strategy="afterInteractive" />
         <Script src="/js/bootstrap.min.js" strategy="afterInteractive" />
         <Script src="/js/jquery-3.3.1.js" strategy="afterInteractive" />
         <Script src="/js/js-plugins/crum-mega-menu.js" strategy="lazyOnload" />
@@ -161,9 +160,7 @@ export default function RootLayout({ children }) {
         <Script src="/js/js-plugins/jquery.magnific-popup.js" strategy="lazyOnload" />
         <Script src="/js/js-plugins/jquery.matchHeight.js" strategy="lazyOnload" />
         <Script src="/js/js-plugins/smooth-scroll.js" strategy="lazyOnload" />
-        <Script src="/js/js-plugins/bootstrap.js" strategy="lazyOnload" />
         <Script src="/js/js-plugins/ion.rangeSlider.js" strategy="lazyOnload" />
-        <Script src="/js/slick.js" strategy="lazyOnload" />
         <Script src="/js/slick.min.js" strategy="lazyOnload" />
         <Script src="/js/custom.js" strategy="afterInteractive" />
         <Script src="/js/main.js" strategy="afterInteractive" />
@@ -186,18 +183,7 @@ export default function RootLayout({ children }) {
           }}
         /> */}
 
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C86Y1VFR37"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-C86Y1VFR37');
-            `,
-          }}
-        />
+        {/* Cleaned duplicate blocking Google Analytics */}
 
         {/* Custom JavaScript */}
         <script
