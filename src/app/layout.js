@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 // import 'bootstrap/dist/css/bootstrap.min.css'
-import Header from "./_components/root/Header";
+import HeaderServer from "./_components/root/HeaderServer";
 import Footer from "./_components/root/Footer";
 import BottomNavigationWrapper from './../components/ui/BottomNavigationWrapper';
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -362,7 +362,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Header/>
+        <HeaderServer />
         {children}
         <Footer/>
         <BottomNavigationWrapper />
