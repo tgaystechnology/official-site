@@ -11,19 +11,34 @@ export async function generateMetadata({ params, searchParams }) {
       };
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    const apiSlug = slug.startsWith('/') ? slug.substring(1) : slug;
+    let cleanSlug = slug;
+    if (typeof cleanSlug === 'string') {
+      cleanSlug = cleanSlug.replace(/^\/+|\/+$/g, '');
+    } else if (Array.isArray(cleanSlug)) {
+      cleanSlug = cleanSlug.join('/');
+    }
 
-    const response = await fetch(
-      `https://api.tgaystechnology.com/api_v1/seo-pages/${apiSlug}`,
-      {
-        cache: 'force-cache',
-        next: { revalidate: 3600 }
-      }
-    );
+    const segments = cleanSlug.split('/').filter(Boolean);
+    let apiUrl = '';
+
+    if (segments.length === 1) {
+      apiUrl = `https://admin.tgaystechnology.com/api/api_v1/seo/page/${cleanSlug}`;
+    } else if (segments.length >= 2) {
+      apiUrl = `https://admin.tgaystechnology.com/api/api_v1/seo/subpage/${cleanSlug}`;
+    } else {
+      return {
+        title: 'Default Title | Technology',
+        description: 'Default description for the website.',
+        keywords: ['tech', 'solutions', 'services'],
+      };
+    }
+
+    const response = await fetch(apiUrl, {
+      cache: 'force-cache',
+      next: { revalidate: 3600 }
+    });
 
     if (!response.ok) {
-      // console.warn(`SEO data not found for slug: ${slug}`);
       return {
         title: 'Default Title | Technology',
         description: 'Default description for the website.',
@@ -32,10 +47,11 @@ export async function generateMetadata({ params, searchParams }) {
     }
 
     const seoData = await response.json();
-    // console.log('seo data: ', seoData);
 
-    // ✅ Safely take the first object
-    const seo = Array.isArray(seoData) && seoData.length > 0 ? seoData[0] : null;
+    // The API might return an array or a single object directly. Let's handle both.
+    const seo = Array.isArray(seoData)
+      ? (seoData.length > 0 ? seoData[0] : null)
+      : seoData;
 
     if (!seo) {
       return {
@@ -45,20 +61,35 @@ export async function generateMetadata({ params, searchParams }) {
       };
     }
 
+    // Helper to strip HTML tags if present (e.g. <p>About</p> -> About)
+    const cleanText = (str) => {
+      if (!str) return '';
+      return str.replace(/<\/?[^>]+(>|$)/g, '').trim();
+    };
+
+    const title = seo.seo_title || seo.page_seo_title || 'Default Title | Technology';
+    const description = cleanText(seo.meta_description) || 'Default description for the website.';
+    const keywords = seo.meta_keyword ? seo.meta_keyword.split(',').map(k => k.trim()) : ['tech', 'solutions', 'services'];
+    
     return {
-      title: seo.seo_title || seo.page_seo_title || 'Default Title | Technology',
-      description: seo.meta_description || 'Default description for the website.',
-      keywords: seo.meta_keyword ? seo.meta_keyword.split(',').map(k => k.trim()) : ['tech', 'solutions', 'services'],
+      title,
+      description,
+      keywords,
       openGraph: {
-        title: seo.seo_title || seo.page_seo_title,
-        description: seo.meta_description,
+        title: seo.og_title || title,
+        description: cleanText(seo.og_description) || description,
+        images: seo.og_image ? [{ url: seo.og_image }] : [],
         type: 'website',
       },
       twitter: {
         card: 'summary_large_image',
-        title: seo.seo_title || seo.page_seo_title,
-        description: seo.meta_description,
+        title: seo.og_title || title,
+        description: cleanText(seo.og_description) || description,
       },
+      robots: seo.robots || 'index,follow',
+      alternates: {
+        canonical: seo.canonical_url || undefined,
+      }
     };
 
   } catch (error) {
@@ -71,3 +102,4 @@ export async function generateMetadata({ params, searchParams }) {
     };
   }
 }
+

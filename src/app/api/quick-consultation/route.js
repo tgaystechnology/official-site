@@ -12,19 +12,34 @@ export async function POST(request) {
       );
     }
 
-    const externalApiResponse = await fetch('https://api.tgaystechnology.com/api_v1/service-enquiry', {
+    const externalApiResponse = await fetch('https://admin.tgaystechnology.com/api/api_v1/service-enquiry', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
       },
       body: JSON.stringify(body),
     });
 
-    const result = await externalApiResponse.json();
+    const responseText = await externalApiResponse.text();
+    let result;
+    try {
+      result = JSON.parse(responseText);
+    } catch (e) {
+      console.error('External API returned non-JSON response:', responseText);
+      return NextResponse.json(
+        { error: 'External API returned an invalid response.' },
+        { status: externalApiResponse.status || 500 }
+      );
+    }
 
     if (!externalApiResponse.ok) {
+      console.error('External API failed with status:', externalApiResponse.status, 'Response:', result);
       return NextResponse.json(
-        { error: result.error || 'Failed to submit enquiry' },
+        { 
+          error: result?.error || result?.message || 'Failed to submit enquiry',
+          details: result 
+        },
         { status: externalApiResponse.status }
       );
     }

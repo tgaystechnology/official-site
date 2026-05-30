@@ -127,15 +127,23 @@ const QuickConsultation = () => {
       //   },
       //   body: JSON.stringify(formData),
       // });
-      const response = await fetch('https://api.tgaystechnology.com/api_v1/service-enquiry', {
+      const response = await fetch('https://admin.tgaystechnology.com/api/api_v1/service-enquiry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
+      const responseText = await response.text();
+      let result;
+      try {
+        result = JSON.parse(responseText);
+      } catch (e) {
+        console.error('External API returned non-JSON response:', responseText);
+        result = { error: 'External API returned an invalid response.' };
+      }
 
       if (response.ok) {
         setSubmitMessage('Thank you! Your quote request has been submitted successfully. We will contact you soon.');

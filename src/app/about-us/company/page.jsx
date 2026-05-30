@@ -22,7 +22,7 @@ import React from 'react'
 // }
 export async function generateMetadata() {
   return await generateDynamicMetadata({ 
-    params: { slug: '/about-us/company' } // This should match exactly what's in your database
+    params: { slug: '	/about-us/company' } // This should match exactly what's in your database
   });
 }
 
