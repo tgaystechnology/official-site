@@ -30,7 +30,7 @@ const Footer = () => {
     { href: "/about-us/company", text: "About Company" },
     { href: "/privacy-policy", text: "Privacy Policy" },
     // { href: "/blog", text: "Blogs" },
-    { href: "https://blog.tgaystechnology.com/", text: "Blogs" },
+    { href: "https://admin.tgaystechnology.com/blog", text: "Blogs" },
     { href: "/contact-us", text: "Contact Us" },
     { href: "/about-us/career", text: "Career" }
   ];

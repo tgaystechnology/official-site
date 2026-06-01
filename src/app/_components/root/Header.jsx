@@ -229,7 +229,7 @@ const Header = ({ menuData = [] }) => {
                 
                 {/* Static menu items */}
                 {/* <li><a href="/blog">Blog</a></li> */}
-                <li><a href="https://blog.tgaystechnology.com/">Blog</a></li>
+                <li><a href="https://admin.tgaystechnology.com/blog">Blog</a></li>
                 <li className="top-head-social-icon">
                   <a href="/contact-us" className="btn top_header_btn" aria-label="Consult IT experts at TGAYS Technology">Consult Our Experts</a>
                 </li>
