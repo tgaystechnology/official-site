@@ -421,6 +421,67 @@ const caseStudyData = {
       },
     ],
   },
+  'anvo-autos': {
+    images: {
+      mobile: "/img/school-Our-Solutions-1.png",
+      desktop: "/img/school-Our-Solutions.png",
+    },
+    heading: {
+      main: "Our",
+      highlight: "Solutions",
+    },
+    solutions: [
+      {
+        title: "1. Robust Driver Availability State Machine",
+        points: [
+          "Strict, backend-controlled state machine that decouples driver availability from transient socket connections.",
+          "A background health cron job (DriverHealthJob) monitors heartbeats and automatically offlines drivers after 30 seconds of inactivity to protect matching engine integrity.",
+        ],
+      },
+      {
+        title: "2. Geospatial Ingestion with Redis GEO & PostGIS",
+        points: [
+          "Active driver locations are cached instantly in memory using Redis GEO for high-frequency writes.",
+          "On the frontend, a smoothing filter ignores movement under 10 meters, filtering out GPS jitter and reducing server overhead.",
+        ],
+      },
+      {
+        title: "3. Double-Entry Ledger & Lock-Secured Wallet",
+        points: [
+          "Replaced traditional direct-balance updates with an immutable wallet ledger.",
+          "Every transaction utilizes Row-Level Locking (SELECT FOR UPDATE) within atomic Prisma transactions, ensuring absolute consistency and preventing double-debits.",
+        ],
+      },
+      {
+        title: "4. PostGIS LineString & Route Deviation Engine",
+        points: [
+          "Planned paths are fetched from the Google Routes API (v2) and stored as PostGIS LineString geometry in PostgreSQL.",
+          "The backend compares active driver GPS points against this path using the ST_Distance spatial query, triggering real-time deviation alerts via Socket.IO if they veer off-track by more than 500 meters.",
+        ],
+      },
+      {
+        title: "5. Argon2 OTP-Based Ride Verification",
+        points: [
+          "Secure OTP verification flow to prevent drivers from starting trips without the rider onboard.",
+          "When the driver arrives, a 4-digit OTP is generated, hashed using Argon2, and sent to the rider. The driver must input this OTP to start the trip, with a limit of 3 failed attempts before regeneration.",
+        ],
+      },
+      {
+        title: "6. High-Entropy, Zero-PII Trip Sharing",
+        points: [
+          "Allows riders to generate a secure, 64-character token to share their live trip.",
+          "The public tracking API strips away all user PII, returning only status, coordinates, ETA, and the route polyline. Socket.IO forwards real-time tracking to a read-only room to prevent unauthorized mutations.",
+        ],
+      },
+      {
+        title: "7. Resilient Delayed Queuing with BullMQ",
+        points: [
+          "Orchestrated scheduled rides using BullMQ background workers for reliable delayed job execution.",
+          "Implemented a custom Redis outage fallback scheduler that keeps a secondary localized copy, guaranteeing zero missed trips during infrastructure resets.",
+        ],
+      },
+    ],
+  },
 };
 
 const OurSolutionsCaseStudy = ({ slug }) => {

@@ -47,6 +47,14 @@ const CaseStudyCarousel = () => {
       description: "Inventory, Warehouse, Sales & POS Management System",
       link: "/case-study/martwat",
     },
+    {
+      id: 5,
+      image: "/img/SJRS-cst-list.png",
+      alt: "Anvo Autos Case Study",
+      title: "Anvo Autos",
+      description: "High-Concurrency, Real-Time Ride-Hailing Backend Engine",
+      link: "/case-study/anvo-autos",
+    },
   ];
 
   // autoplay effect

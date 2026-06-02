@@ -436,6 +436,62 @@ const ProjectChallenges = ({ slug }) => {
         layout: "right"
       },
     ],
+    'anvo-autos': [
+      {
+        id: 1,
+        title: "1",
+        description: `
+          <p><strong>High-Concurrency Driver Availability & Heartbeats:</strong> Managing thousands of drivers shifting between Online, Offline, On Trip, and Paused states simultaneously creates extreme database lock contention. Stale driver states lead to poor matching efficiency and lost revenue.</p>
+        `,
+        image: "/img/case-study-banner.png",
+        layout: "left"
+      },
+      {
+        id: 2,
+        title: "2",
+        description: `
+          <p><strong>Sub-Second GPS Ingestion & Network Jitter:</strong> Processing GPS coordinates emitted by drivers every few seconds is computationally expensive. Writing every ping directly to PostgreSQL causes write-bottlenecks, while network drops leave riders staring at lagging car icons.</p>
+        `,
+        image: "/img/case-study-banner.png",
+        layout: "right"
+      },
+      {
+        id: 3,
+        title: "3",
+        description: `
+          <p><strong>Secure and Tamper-Proof Wallet Transactions:</strong> In high-volume scenarios (e.g., peak surge times), concurrent balance debits, promo code applications, and trip refunds can trigger race conditions, resulting in duplicate charges or financial loss.</p>
+        `,
+        image: "/img/case-study-banner.png",
+        layout: "left"
+      },
+      {
+        id: 4,
+        title: "4",
+        description: `
+          <p><strong>Real-Time Fraud & Route Deviation Detection:</strong> Riders frequently complain about drivers taking longer routes to artificially inflate fares. Detecting when a driver departs from the planned route in real-time requires continuous geospatial analysis without degrading server performance.</p>
+        `,
+        image: "/img/case-study-banner.png",
+        layout: "right"
+      },
+      {
+        id: 5,
+        title: "5",
+        description: `
+          <p><strong>Rider Privacy & Safe Trip Sharing:</strong> Passengers need the ability to share their live trip progress with family members. However, sharing direct database IDs or raw API payloads exposes sensitive driver/rider identities (PII) to the public web.</p>
+        `,
+        image: "/img/case-study-banner.png",
+        layout: "left"
+      },
+      {
+        id: 6,
+        title: "6",
+        description: `
+          <p><strong>Bulletproof Scheduled Rides & Queue Resiliency:</strong> When riders book trips hours or days in advance, the system must guarantee the matching engine triggers at the exact minute—even if the main server restarts or the Redis caching layer experiences a temporary outage.</p>
+        `,
+        image: "/img/case-study-banner.png",
+        layout: "right"
+      }
+    ],
     // ✅ Add more slug data here
   };
 

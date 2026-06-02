@@ -246,6 +246,36 @@ const ImpactOnBusinessCaseStudy = ({ slug }) => {
         height: 500,
       },
     },
+    'anvo-autos': {
+      heading: (
+        <>
+          Impact On <span className="c-primary">Business</span>
+        </>
+      ),
+      paragraphs: [
+        <p key="1">
+          <strong>Zero Financial Discrepancies:</strong> High-concurrency ledger operations with row-level locks completely eliminated race conditions and double-spending of promo credits.
+        </p>,
+        <p key="2">
+          <strong>99.9% Scheduled Booking Reliability:</strong> The dual-layered BullMQ and localized backup scheduler ensured scheduled bookings are dispatched seamlessly under all circumstances.
+        </p>,
+        <p key="3">
+          <strong>Sub-Second Live Tracking & Low Cost:</strong> Intelligently caching route calculations in Redis for 10 minutes slashed external Maps API costs by over 45% while keeping ETA deviations highly precise.
+        </p>,
+        <p key="4">
+          <strong>100% Secure Public Sharing:</strong> Cryptographically random, high-entropy tokens protected passenger identities, generating zero data-leak incidents since deployment.
+        </p>,
+        <p key="5">
+          <strong>Dynamic Analytics & Insights:</strong> Automated geohash location aggregation allows administrators to map peak demand hotspots, helping fleet operators position vehicles in real-time.
+        </p>,
+      ],
+      image: {
+        src: "/img/school-Impact-Business.png",
+        alt: "Anvo Autos Business Impact",
+        width: 600,
+        height: 500,
+      },
+    },
   };
 
   // Select data based on slug

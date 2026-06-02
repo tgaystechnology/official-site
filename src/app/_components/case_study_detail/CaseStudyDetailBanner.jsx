@@ -73,6 +73,15 @@ const CaseStudyDetailBanner = ({ slug }) => {
         { label: 'Technology Stack', value: 'Laravel, HTML5, CSS3, Bootstrap, Ajax, Datatable, JavaScript, PayPal Payment Integration, XML, JSON, SMS Gateway' },
       ],
     },
+    'anvo-autos': {
+      image: '/img/case-study-banner.png',
+      heading: 'Anvo Autos — High-Concurrency, Real-Time Ride-Hailing Backend Engine',
+      details: [
+        { label: 'Client Location', value: 'Global / USA' },
+        { label: 'Technology Stack', value: 'Node.js, Fastify, TypeScript, PostgreSQL (PostGIS), Redis, Socket.IO, BullMQ, Prisma ORM, Argon2, Prometheus' },
+        { label: 'Platforms Served', value: 'Android (Rider & Driver App), iOS (Rider & Driver App), Web Admin Dashboard' },
+      ],
+    },
     // ✅ Add more slugs here as needed
   };
 

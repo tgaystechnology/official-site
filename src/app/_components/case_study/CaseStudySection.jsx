@@ -12,6 +12,7 @@ const CaseStudySection = () => {
     { img: 'img/taskity-cst-list.png', title: "Taskity", category: "Business Sales & Marketing Automation Platform.", url: 'taskity' },
     { img: 'img/martwat-cst-list.png', title: "MartWat", category: "Inventory, Warehouse, Sales & POS Management System.", url: 'martwat' },
     { img: 'img/SJRS-cst-list.png', title: "SJRS School ERP", category: "Comprehensive School Management System.", url: 'sjrs-school-erp' },
+    { img: 'img/SJRS-cst-list.png', title: "Anvo Autos", category: "High-Concurrency, Real-Time Ride-Hailing Backend Engine.", url: 'anvo-autos' },
   ];
 
   return (

@@ -333,6 +333,46 @@ const caseStudyTechnologies = {
       },
     ],
   },
+  'anvo-autos': {
+    description: (
+      <p>
+        For a highly concurrent, real-time platform like Anvo Autos, choosing the right technologies was critical to ensure low latency and high availability. We built a robust backend powered by Node.js and Fastify, using PostgreSQL with PostGIS extension for accurate spatial tracking and Redis for sub-second location caching and job queues. This combination enables the system to comfortably handle extreme traffic and high-frequency writes.
+      </p>
+    ),
+    image: "/img/school-Technologies-Used.png",
+    technologies: [
+      {
+        id: 1,
+        title: "Runtime & Core",
+        icon: "git-network-outline",
+        items: ["Node.js", "Fastify", "TypeScript"],
+      },
+      {
+        id: 2,
+        title: "Database & ORM",
+        icon: "layers-outline",
+        items: ["PostgreSQL (PostGIS)", "Prisma ORM"],
+      },
+      {
+        id: 3,
+        title: "Real-Time & Queue",
+        icon: "desktop-outline",
+        items: ["Socket.IO", "Redis", "BullMQ"],
+      },
+      {
+        id: 4,
+        title: "Security & APIs",
+        icon: "key-outline",
+        items: ["Argon2", "Google Routes API (v2)"],
+      },
+      {
+        id: 5,
+        title: "Monitoring",
+        icon: "cog-outline",
+        items: ["Prometheus", "/metrics endpoint"],
+      },
+    ],
+  },
 };
 
 const TechnologiesUsedCaseStudy = ({ slug }) => {

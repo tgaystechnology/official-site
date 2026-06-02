@@ -83,6 +83,14 @@ const ExecutiveSummary = ({ slug }) => {
         <p>By integrating <strong>Razorpay payment processing, SMS notifications</strong>  and advanced reporting, SJRS School ERP enables schools to operate more efficiently, improve transparency, and enhance the learning experience for students and parents alike.</p>
       `,
     },
+    'anvo-autos': {
+      title: "Executive Summary",
+      content: `
+        <p>In the fast-paced ride-hailing industry, latency, data integrity, and real-time reliability can make or break user trust. This case study details the architecture and engineering behind <strong>Anvo Autos</strong>—a state-of-the-art backend platform designed to power seamless passenger-driver matching, high-concurrency financial operations, and sub-second location tracking.</p>
+
+        <p>By leveraging a robust stack of Fastify, PostgreSQL (PostGIS), Redis, and Socket.IO, the platform guarantees 100% consistency for digital wallet transactions via double-entry ledgers, prevents fraud through real-time route deviation alerts, and ensures rider safety with zero-PII (Personally Identifiable Information) trip sharing links.</p>
+      `,
+    },
   };
 
   // Fallback if slug not found

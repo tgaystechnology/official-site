@@ -59,6 +59,13 @@ const ConclusionSectionCaseStudy = ({ slug }) => {
         `By automating daily operations and providing actionable insights, the ERP has empowered schools to operate more efficiently, engage parents effectively, and foster better learning outcomes.`,
       ],
     },
+    'anvo-autos': {
+      heading: "Conclusion",
+      paragraphs: [
+        `The Anvo Autos project demonstrates TGAYS Technology's ability to deliver <strong>high-performance, high-concurrency real-time backend engines</strong> that are highly resilient, scalable, and secure. By integrating robust state management, advanced geospatial algorithms, double-entry financial ledgering, and resilient background queues, we helped our client build a solid backend foundation that handles massive traffic with ease.`,
+        `Today, Anvo Autos stands as a prime example of how state-of-the-art backend engineering can power a secure, lightning-fast, and cost-effective mobile ride-hailing experience.`,
+      ],
+    },
   };
 
   const currentData = conclusionData[slug] || {
