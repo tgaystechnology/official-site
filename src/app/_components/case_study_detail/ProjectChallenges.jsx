@@ -441,7 +441,7 @@ const ProjectChallenges = ({ slug }) => {
         id: 1,
         title: "1",
         description: `
-          <p><strong>High-Concurrency Driver Availability & Heartbeats:</strong> Managing thousands of drivers shifting between Online, Offline, On Trip, and Paused states simultaneously creates extreme database lock contention. Stale driver states lead to poor matching efficiency and lost revenue.</p>
+          <p><strong>Availability Bottlenecks:</strong> High database lock contention when managing thousands of simultaneous online/offline driver state transitions.</p>
         `,
         image: "/img/case-study-banner.png",
         layout: "left"
@@ -450,7 +450,7 @@ const ProjectChallenges = ({ slug }) => {
         id: 2,
         title: "2",
         description: `
-          <p><strong>Sub-Second GPS Ingestion & Network Jitter:</strong> Processing GPS coordinates emitted by drivers every few seconds is computationally expensive. Writing every ping directly to PostgreSQL causes write-bottlenecks, while network drops leave riders staring at lagging car icons.</p>
+          <p><strong>GPS Jitter & Lag:</strong> High database write-overhead from frequent driver location updates, coupled with socket lag during weak network signals.</p>
         `,
         image: "/img/case-study-banner.png",
         layout: "right"
@@ -459,7 +459,7 @@ const ProjectChallenges = ({ slug }) => {
         id: 3,
         title: "3",
         description: `
-          <p><strong>Secure and Tamper-Proof Wallet Transactions:</strong> In high-volume scenarios (e.g., peak surge times), concurrent balance debits, promo code applications, and trip refunds can trigger race conditions, resulting in duplicate charges or financial loss.</p>
+          <p><strong>Financial Race Conditions:</strong> Concurrently debiting wallets and applying promo codes during peak hours caused duplicate charges.</p>
         `,
         image: "/img/case-study-banner.png",
         layout: "left"
@@ -468,7 +468,7 @@ const ProjectChallenges = ({ slug }) => {
         id: 4,
         title: "4",
         description: `
-          <p><strong>Real-Time Fraud & Route Deviation Detection:</strong> Riders frequently complain about drivers taking longer routes to artificially inflate fares. Detecting when a driver departs from the planned route in real-time requires continuous geospatial analysis without degrading server performance.</p>
+          <p><strong>Route Deviation & Fraud:</strong> Detecting when drivers take longer, unauthorized routes to inflate trip fares, in real-time.</p>
         `,
         image: "/img/case-study-banner.png",
         layout: "right"
@@ -477,7 +477,7 @@ const ProjectChallenges = ({ slug }) => {
         id: 5,
         title: "5",
         description: `
-          <p><strong>Rider Privacy & Safe Trip Sharing:</strong> Passengers need the ability to share their live trip progress with family members. However, sharing direct database IDs or raw API payloads exposes sensitive driver/rider identities (PII) to the public web.</p>
+          <p><strong>PII Data Exposure:</strong> Sharing live trip locations with third parties risked leaking sensitive customer and driver identities.</p>
         `,
         image: "/img/case-study-banner.png",
         layout: "left"
@@ -486,7 +486,7 @@ const ProjectChallenges = ({ slug }) => {
         id: 6,
         title: "6",
         description: `
-          <p><strong>Bulletproof Scheduled Rides & Queue Resiliency:</strong> When riders book trips hours or days in advance, the system must guarantee the matching engine triggers at the exact minute—even if the main server restarts or the Redis caching layer experiences a temporary outage.</p>
+          <p><strong>Unreliable Scheduled Bookings:</strong> Missing scheduled rides due to sudden server restarts or cache layer outages.</p>
         `,
         image: "/img/case-study-banner.png",
         layout: "right"

@@ -75,11 +75,11 @@ const CaseStudyDetailBanner = ({ slug }) => {
     },
     'anvo-autos': {
       image: '/img/case-study-banner.png',
-      heading: 'Anvo Autos — High-Concurrency, Real-Time Ride-Hailing Backend Engine',
+      heading: 'Anvo Autos — Real-Time Ride-Hailing Engine',
       details: [
         { label: 'Client Location', value: 'Global / USA' },
-        { label: 'Technology Stack', value: 'Node.js, Fastify, TypeScript, PostgreSQL (PostGIS), Redis, Socket.IO, BullMQ, Prisma ORM, Argon2, Prometheus' },
-        { label: 'Platforms Served', value: 'Android (Rider & Driver App), iOS (Rider & Driver App), Web Admin Dashboard' },
+        { label: 'Technology Stack', value: 'Node.js, Fastify, PostgreSQL (PostGIS), Redis, Socket.IO, BullMQ' },
+        { label: 'Platforms Served', value: 'Android, iOS, Web Admin' },
       ],
     },
     // ✅ Add more slugs here as needed

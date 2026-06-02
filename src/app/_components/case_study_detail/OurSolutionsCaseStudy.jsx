@@ -432,52 +432,39 @@ const caseStudyData = {
     },
     solutions: [
       {
-        title: "1. Robust Driver Availability State Machine",
+        title: "1. Driver Health State Machine",
         points: [
-          "Strict, backend-controlled state machine that decouples driver availability from transient socket connections.",
-          "A background health cron job (DriverHealthJob) monitors heartbeats and automatically offlines drivers after 30 seconds of inactivity to protect matching engine integrity.",
+          "Decoupled availability states from sockets, with a 30s auto-offline cron fallback for inactive drivers.",
         ],
       },
       {
-        title: "2. Geospatial Ingestion with Redis GEO & PostGIS",
+        title: "2. Redis GEO & GPS Smoothing",
         points: [
-          "Active driver locations are cached instantly in memory using Redis GEO for high-frequency writes.",
-          "On the frontend, a smoothing filter ignores movement under 10 meters, filtering out GPS jitter and reducing server overhead.",
+          "Stored real-time location pings in Redis GEO and filtered out minor movement under 10m to block GPS jitter.",
         ],
       },
       {
-        title: "3. Double-Entry Ledger & Lock-Secured Wallet",
+        title: "3. Ledger Wallets with Row-Locking",
         points: [
-          "Replaced traditional direct-balance updates with an immutable wallet ledger.",
-          "Every transaction utilizes Row-Level Locking (SELECT FOR UPDATE) within atomic Prisma transactions, ensuring absolute consistency and preventing double-debits.",
+          "Built an immutable ledger using row-level locking (SELECT FOR UPDATE) to eliminate double-spending and race conditions.",
         ],
       },
       {
-        title: "4. PostGIS LineString & Route Deviation Engine",
+        title: "4. PostGIS Route Deviation Alerts",
         points: [
-          "Planned paths are fetched from the Google Routes API (v2) and stored as PostGIS LineString geometry in PostgreSQL.",
-          "The backend compares active driver GPS points against this path using the ST_Distance spatial query, triggering real-time deviation alerts via Socket.IO if they veer off-track by more than 500 meters.",
+          "Encoded planned routes into PostGIS LineStrings, comparing real-time driver locations to alert users of >500m deviations.",
         ],
       },
       {
-        title: "5. Argon2 OTP-Based Ride Verification",
+        title: "5. Secure Argon2 OTP Verification",
         points: [
-          "Secure OTP verification flow to prevent drivers from starting trips without the rider onboard.",
-          "When the driver arrives, a 4-digit OTP is generated, hashed using Argon2, and sent to the rider. The driver must input this OTP to start the trip, with a limit of 3 failed attempts before regeneration.",
+          "Secured ride starts with a rider-shared, 4-digit OTP hashed via Argon2, restricting attempts to 3 to prevent brute-forcing.",
         ],
       },
       {
-        title: "6. High-Entropy, Zero-PII Trip Sharing",
+        title: "6. High-Entropy Token Sharing",
         points: [
-          "Allows riders to generate a secure, 64-character token to share their live trip.",
-          "The public tracking API strips away all user PII, returning only status, coordinates, ETA, and the route polyline. Socket.IO forwards real-time tracking to a read-only room to prevent unauthorized mutations.",
-        ],
-      },
-      {
-        title: "7. Resilient Delayed Queuing with BullMQ",
-        points: [
-          "Orchestrated scheduled rides using BullMQ background workers for reliable delayed job execution.",
-          "Implemented a custom Redis outage fallback scheduler that keeps a secondary localized copy, guaranteeing zero missed trips during infrastructure resets.",
+          "Generated cryptographically random tracking tokens displaying zero PII inside read-only Socket.IO rooms.",
         ],
       },
     ],

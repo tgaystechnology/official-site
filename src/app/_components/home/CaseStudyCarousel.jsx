@@ -52,7 +52,7 @@ const CaseStudyCarousel = () => {
       image: "/img/SJRS-cst-list.png",
       alt: "Anvo Autos Case Study",
       title: "Anvo Autos",
-      description: "High-Concurrency, Real-Time Ride-Hailing Backend Engine",
+      description: "Real-Time Ride-Hailing Engine",
       link: "/case-study/anvo-autos",
     },
   ];

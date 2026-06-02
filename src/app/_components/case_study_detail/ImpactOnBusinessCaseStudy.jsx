@@ -254,19 +254,16 @@ const ImpactOnBusinessCaseStudy = ({ slug }) => {
       ),
       paragraphs: [
         <p key="1">
-          <strong>Zero Financial Discrepancies:</strong> High-concurrency ledger operations with row-level locks completely eliminated race conditions and double-spending of promo credits.
+          <strong>0% Ledger Discrepancies:</strong> Immutable database ledgers eliminated race conditions and double-debits.
         </p>,
         <p key="2">
-          <strong>99.9% Scheduled Booking Reliability:</strong> The dual-layered BullMQ and localized backup scheduler ensured scheduled bookings are dispatched seamlessly under all circumstances.
+          <strong>45% Map API Savings:</strong> Intelligently cached dynamic ETA routing in Redis to lower mapping operational costs.
         </p>,
         <p key="3">
-          <strong>Sub-Second Live Tracking & Low Cost:</strong> Intelligently caching route calculations in Redis for 10 minutes slashed external Maps API costs by over 45% while keeping ETA deviations highly precise.
+          <strong>99.9% Booking Reliability:</strong> BullMQ worker queues with localized backup fallbacks ensured zero missed scheduled rides.
         </p>,
         <p key="4">
-          <strong>100% Secure Public Sharing:</strong> Cryptographically random, high-entropy tokens protected passenger identities, generating zero data-leak incidents since deployment.
-        </p>,
-        <p key="5">
-          <strong>Dynamic Analytics & Insights:</strong> Automated geohash location aggregation allows administrators to map peak demand hotspots, helping fleet operators position vehicles in real-time.
+          <strong>Complete Data Privacy:</strong> High-entropy tokenized links successfully shared thousands of trips without a single PII data-leak.
         </p>,
       ],
       image: {

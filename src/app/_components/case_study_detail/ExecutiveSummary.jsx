@@ -86,9 +86,7 @@ const ExecutiveSummary = ({ slug }) => {
     'anvo-autos': {
       title: "Executive Summary",
       content: `
-        <p>In the fast-paced ride-hailing industry, latency, data integrity, and real-time reliability can make or break user trust. This case study details the architecture and engineering behind <strong>Anvo Autos</strong>—a state-of-the-art backend platform designed to power seamless passenger-driver matching, high-concurrency financial operations, and sub-second location tracking.</p>
-
-        <p>By leveraging a robust stack of Fastify, PostgreSQL (PostGIS), Redis, and Socket.IO, the platform guarantees 100% consistency for digital wallet transactions via double-entry ledgers, prevents fraud through real-time route deviation alerts, and ensures rider safety with zero-PII (Personally Identifiable Information) trip sharing links.</p>
+        <p>Anvo Autos is a high-concurrency, real-time backend platform built to power seamless ride-hailing operations. The engine guarantees 100% financial consistency using immutable ledger wallets, prevents fare fraud via real-time PostGIS route deviation alerts, and ensures rider safety with secure, zero-PII live tracking links.</p>
       `,
     },
   };
