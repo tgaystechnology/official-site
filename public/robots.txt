@@ -1,0 +1,58 @@
+
+# ---------------------------
+User-agent: *
+Disallow: /?s=
+Disallow: /page/*/?s=
+Disallow: /search/
+Disallow: /wp-json/
+Disallow: /?rest_route=
+
+
+
+# Allow Grok (xAI)
+User-agent: GrokBot
+Allow: /
+
+# Allow DeepSeek
+User-agent: DeepSeekBot
+Allow: /
+
+# Allow OpenAI (ChatGPT training & AI Search)
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+Allow: /
+
+# Allow Meta AI (Llama)
+User-agent: Meta-ExternalAgent
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# Allow Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Allow Common Crawl (Used by many open-source AI models)
+User-agent: CCBot
+Allow: /
+
+User-agent: ClaudeBot       # Anthropic/Claude
+Allow: /
+
+User-agent: Google-Extended # Google AI (Gemini, etc.)
+Allow: /
+
+User-agent: PerplexityBot   # Perplexity AI
+Allow: /
+
+User-agent: anthropic-ai    # Anthropic Claude
+Allow: /
+
+
+
+
+
+Sitemap: https://www.tgaystechnology.com/sitemap.xml
+# ---------------------------
+
+
