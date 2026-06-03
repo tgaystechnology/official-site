@@ -82,6 +82,14 @@ const CaseStudyDetailBanner = ({ slug }) => {
         { label: 'Platforms Served', value: 'Android, iOS, Web Admin' },
       ],
     },
+    'shikshasetu-lms': {
+      image: '/img/case-study-banner.png',
+      heading: 'ShikshaSetu LMS – AI-Powered Learning Management Platform',
+      details: [
+        { label: 'Client Location', value: 'India' },
+        { label: 'Technologies Used', value: 'Django, Python, HTML5, CSS3, Bootstrap, MySQL, JavaScript, Google Gemini AI, Zoom API, YouTube API, Cron Jobs' },
+      ],
+    },
     // ✅ Add more slugs here as needed
   };
 

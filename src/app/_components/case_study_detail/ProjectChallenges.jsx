@@ -492,6 +492,62 @@ const ProjectChallenges = ({ slug }) => {
         layout: "right"
       }
     ],
+    'shikshasetu-lms': [
+      {
+        id: 1,
+        title: "1",
+        description: `
+          <p><strong>Managing Live Cohort-Based Learning:</strong> Traditional LMS solutions struggled to manage scheduled live classes, batch-based enrollments, attendance tracking, and session access control.</p>
+        `,
+        image: "/img/case-study-banner.png",
+        layout: "left"
+      },
+      {
+        id: 2,
+        title: "2",
+        description: `
+          <p><strong>Preventing Unauthorized Session Access:</strong> Students frequently shared meeting links with others, leading to revenue leakage and unauthorized participation in paid training sessions.</p>
+        `,
+        image: "/img/case-study-banner.png",
+        layout: "right"
+      },
+      {
+        id: 3,
+        title: "3",
+        description: `
+          <p><strong>Lack of Accurate Progress Tracking:</strong> Many platforms relied on manual completion marking, making progress reports unreliable and reducing the credibility of certifications.</p>
+        `,
+        image: "/img/case-study-banner.png",
+        layout: "left"
+      },
+      {
+        id: 4,
+        title: "4",
+        description: `
+          <p><strong>High Operational Workload:</strong> Administrators spent significant time sending reminders, coordinating sessions, tracking attendance, and managing learner communication.</p>
+        `,
+        image: "/img/case-study-banner.png",
+        layout: "right"
+      },
+      {
+        id: 5,
+        title: "5",
+        description: `
+          <p><strong>Expensive AI Resource Consumption:</strong> Generating AI notes and assessments for every lesson in advance would dramatically increase operational API costs.</p>
+        `,
+        image: "/img/case-study-banner.png",
+        layout: "left"
+      },
+      {
+        id: 6,
+        title: "6",
+        description: `
+          <p><strong>Limited Student Engagement:</strong> Most online learning systems lacked interactive elements, competitive learning experiences, and personalized feedback mechanisms.</p>
+        `,
+        image: "/img/case-study-banner.png",
+        layout: "right"
+      }
+    ],
     // ✅ Add more slug data here
   };
 

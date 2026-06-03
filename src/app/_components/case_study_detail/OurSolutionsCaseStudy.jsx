@@ -469,6 +469,62 @@ const caseStudyData = {
       },
     ],
   },
+  'shikshasetu-lms': {
+    images: {
+      mobile: "/img/school-Our-Solutions-1.png",
+      desktop: "/img/school-Our-Solutions.png",
+    },
+    heading: {
+      main: "Our",
+      highlight: "Solutions",
+    },
+    solutions: [
+      {
+        title: "1. Hybrid Learning Ecosystem",
+        points: [
+          "Developed separate learning pathways for Live Cohort-Based Training and Recorded Self-Paced Courses.",
+          "Created a structured learning experience without dashboard clutter."
+        ],
+      },
+      {
+        title: "2. Secure Live Session Management",
+        points: [
+          "Implemented controlled session access where students can join classes only during scheduled time windows.",
+          "Features include scheduled batch management, session calendar, automated attendance recording, and secure classroom access."
+        ],
+      },
+      {
+        title: "3. Smart Learning Dashboard",
+        points: [
+          "Created a dedicated student learning center featuring course progress tracking, completion monitoring, and learning history."
+        ],
+      },
+      {
+        title: "4. AI-Powered Learning Assistance",
+        points: [
+          "Integrated Google Gemini AI to provide study notes, AI-generated quizzes, and lesson summaries on-demand to optimize resource consumption."
+        ],
+      },
+      {
+        title: "5. Assessment & Competitive Learning Engine",
+        points: [
+          "Designed a flexible assessment framework supporting practice quizzes, competitive hackathons, and real-time leaderboards."
+        ],
+      },
+      {
+        title: "6. AI Mentor & Analytics System",
+        points: [
+          "Built an intelligent analytics engine that evaluates learning progress, quiz performance, completion trends, and accuracy patterns to provide personalized recommendations."
+        ],
+      },
+      {
+        title: "7. Operational Automation",
+        points: [
+          "Automated critical administrative processes including session reminders, tutor notifications, attendance tracking, and learning progress updates."
+        ],
+      },
+    ],
+  },
 };
 
 const OurSolutionsCaseStudy = ({ slug }) => {

@@ -273,6 +273,39 @@ const ImpactOnBusinessCaseStudy = ({ slug }) => {
         height: 500,
       },
     },
+    'shikshasetu-lms': {
+      heading: (
+        <>
+          Impact On <span className="c-primary">Business</span>
+        </>
+      ),
+      paragraphs: [
+        <p key="1">
+          <strong>Reduced Administrative Effort:</strong> Automated workflows eliminated repetitive manual coordination, allowing operations teams to focus fully on learner support.
+        </p>,
+        <p key="2">
+          <strong>Improved Student Engagement:</strong> On-demand AI mentoring, team hackathons, leaderboards, and immediate reviews produced higher participation levels.
+        </p>,
+        <p key="3">
+          <strong>Better Learning Outcomes:</strong> Precise completion monitoring and custom AI feedback helped students focus on weaknesses and improve test scores.
+        </p>,
+        <p key="4">
+          <strong>Increased Operational Scalability:</strong> The platform easily supports growing student bodies and courses without inflating admin overhead costs.
+        </p>,
+        <p key="5">
+          <strong>Cost-Efficient AI Utilization:</strong> On-demand AI generation slashed API costs while maintaining highly personal, customized assistance features.
+        </p>,
+        <p key="6">
+          <strong>Stronger Revenue Protection:</strong> Secure session validation and link-sharing blockades mitigated unpaid access, securing proprietary learning assets.
+        </p>,
+      ],
+      image: {
+        src: "/img/school-Impact-Business.png",
+        alt: "ShikshaSetu LMS Business Impact",
+        width: 600,
+        height: 500,
+      },
+    },
   };
 
   // Select data based on slug

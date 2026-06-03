@@ -66,6 +66,13 @@ const ConclusionSectionCaseStudy = ({ slug }) => {
         `Today, Anvo Autos stands as a prime example of how state-of-the-art backend engineering can power a secure, lightning-fast, and cost-effective mobile ride-hailing experience.`,
       ],
     },
+    'shikshasetu-lms': {
+      heading: "Conclusion",
+      paragraphs: [
+        `ShikshaSetu LMS successfully transformed traditional online education into an <strong>intelligent, scalable, and automation-driven learning ecosystem</strong>.`,
+        `By combining live learning, self-paced education, AI-powered mentorship, analytics, assessments, and operational automation, the platform delivers a modern educational experience that benefits both learners and educational organizations. The result is a future-ready learning platform that improves engagement, streamlines operations, enhances learning outcomes, and supports long-term business growth.`,
+      ],
+    },
   };
 
   const currentData = conclusionData[slug] || {

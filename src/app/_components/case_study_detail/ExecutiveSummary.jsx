@@ -89,6 +89,14 @@ const ExecutiveSummary = ({ slug }) => {
         <p>Anvo Autos is a high-concurrency, real-time backend platform built to power seamless ride-hailing operations. The engine guarantees 100% financial consistency using immutable ledger wallets, prevents fare fraud via real-time PostGIS route deviation alerts, and ensures rider safety with secure, zero-PII live tracking links.</p>
       `,
     },
+    'shikshasetu-lms': {
+      title: "Executive Summary",
+      content: `
+        <p>ShikshaSetu LMS is a next-generation learning management platform developed to bridge the gap between traditional online education systems and modern AI-powered learning experiences.</p>
+        <p>The platform combines live instructor-led training, self-paced recorded courses, AI-assisted learning tools, automated operational workflows, and advanced performance analytics into a single ecosystem.</p>
+        <p>Unlike conventional LMS platforms that focus only on content delivery, ShikshaSetu creates an interactive learning environment where students receive personalized support, real-time progress tracking, and intelligent recommendations throughout their learning journey.</p>
+      `,
+    },
   };
 
   // Fallback if slug not found

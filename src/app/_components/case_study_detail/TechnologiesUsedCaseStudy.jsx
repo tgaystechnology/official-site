@@ -367,6 +367,46 @@ const caseStudyTechnologies = {
       },
     ],
   },
+  'shikshasetu-lms': {
+    description: (
+      <p>
+        ShikshaSetu LMS utilizes a modern, robust, and AI-enabled technology stack. We coupled Python and Django for a secure, scalable backend, with MySQL for reliable data storage. On the frontend, Bootstrap and JavaScript ensure a fast, responsive user experience, while dynamic API integrations with Zoom, YouTube, Vimeo, and Google Gemini AI power live classes and intelligent on-demand learning content.
+      </p>
+    ),
+    image: "/img/school-Technologies-Used.png",
+    technologies: [
+      {
+        id: 1,
+        title: "Backend Framework",
+        icon: "git-network-outline",
+        items: ["Python", "Django", "----", "----"],
+      },
+      {
+        id: 2,
+        title: "Frontend UI",
+        icon: "desktop-outline",
+        items: ["HTML5", "CSS3", "Bootstrap", "JavaScript"],
+      },
+      {
+        id: 3,
+        title: "Database & Automation",
+        icon: "layers-outline",
+        items: ["MySQL", "Cron Jobs", "----"],
+      },
+      {
+        id: 4,
+        title: "AI & Integrations",
+        icon: "bulb-outline",
+        items: ["Google Gemini AI", "Zoom API", "YouTube API", "Vimeo API"],
+      },
+      {
+        id: 5,
+        title: "Automation Engine",
+        icon: "cog-outline",
+        items: ["Email Notification Engine", "----"],
+      },
+    ],
+  },
 };
 
 const TechnologiesUsedCaseStudy = ({ slug }) => {
