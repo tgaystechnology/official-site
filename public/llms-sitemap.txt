@@ -1,0 +1,184 @@
+
+# LLMS-SITEMAP.TXT
+# TGAYS Technology Pvt. Ltd.
+# https://www.tgaystechnology.com
+# Last Updated: 2026-06-02
+
+==================================================
+ROOT PAGES
+==================================================
+
+https://www.tgaystechnology.com/
+https://www.tgaystechnology.com/about-us
+https://www.tgaystechnology.com/contact-us
+https://www.tgaystechnology.com/career
+https://www.tgaystechnology.com/privacy-policy
+https://www.tgaystechnology.com/blog/
+
+==================================================
+SERVICE CATEGORIES
+==================================================
+
+AI Powered Services
+Social Media Marketing
+IT Staff Augmentation
+Web Development
+Mobile App Development
+Product Development
+M365 Development
+Offshore Development
+Custom Software Development
+MVP Development
+Digital Marketing
+Application Support
+
+==================================================
+INDUSTRY SOLUTIONS
+==================================================
+
+https://www.tgaystechnology.com/solutions/healthcare
+
+Retail Solutions
+Education Solutions
+Tour & Travel Solutions
+E-Commerce Solutions
+Healthcare Solutions
+Health & Fitness Solutions
+AI Powered Solutions
+Finance Solutions
+SaaS Solutions
+
+==================================================
+HEALTHCARE SOLUTION
+==================================================
+
+https://www.tgaystechnology.com/solutions/healthcare
+
+Patient Portals
+Secure Payments
+Medical Websites
+Security & Compliance
+HIPAA-Compliant Systems
+Workflow Automation
+Healthcare Software Development
+
+==================================================
+CASE STUDIES
+==================================================
+
+Ezshopit
+Multi-Currency Multi-Vendor E-Commerce Platform
+
+Worthmetrix
+Business Health Analysis Platform
+
+EvolveAI
+AI-Powered Health & Fitness App
+
+MartWat
+Inventory, Warehouse, Sales & POS Management System
+
+Smart Relief Massage
+Healthcare & Wellness E-Commerce Platform
+
+==================================================
+BLOG SECTION
+==================================================
+
+https://www.tgaystechnology.com/blog/
+
+Example Blog URLs Discovered:
+
+https://www.tgaystechnology.com/blog/blog-detail/93
+
+Blog Categories:
+
+Artificial Intelligence
+Software Development
+Web Development
+Mobile App Development
+CRM Development
+SaaS Development
+Digital Marketing
+SEO
+GEO
+AEO
+Cloud Computing
+Startup Technology
+Technology Trends
+
+==================================================
+TECHNOLOGY STACK
+==================================================
+
+Python
+Django
+Java
+Node.js
+React.js
+Next.js
+React Native
+PHP
+Artificial Intelligence
+Machine Learning
+Cloud Technologies
+REST APIs
+
+==================================================
+CLIENT INDUSTRIES
+==================================================
+
+Healthcare
+Retail
+Education
+Travel & Tourism
+Finance
+Health & Fitness
+E-Commerce
+SaaS
+Technology Startups
+
+==================================================
+COMPANY INFORMATION
+==================================================
+
+Homepage:
+https://www.tgaystechnology.com/
+
+About:
+https://www.tgaystechnology.com/about-us
+
+Contact:
+https://www.tgaystechnology.com/contact-us
+
+Career:
+https://www.tgaystechnology.com/career
+
+Blog:
+https://www.tgaystechnology.com/blog/
+
+==================================================
+PARTNERS
+==================================================
+
+AWS
+Google
+Google Workspace
+Facebook
+GoDaddy
+Hostinger
+MilesWeb
+
+==================================================
+AI DISCOVERY FILES
+==================================================
+
+https://www.tgaystechnology.com/robots.txt
+https://www.tgaystechnology.com/sitemap.xml
+https://www.tgaystechnology.com/llms.txt
+https://www.tgaystechnology.com/llms-sitemap.txt
+https://www.tgaystechnology.com/ai.txt
+
+==================================================
+END OF FILE
+==================================================
