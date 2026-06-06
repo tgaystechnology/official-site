@@ -55,6 +55,14 @@ const CaseStudyCarousel = () => {
       description: "Real-Time Ride-Hailing Engine",
       link: "/case-study/anvo-autos",
     },
+    {
+      id: 6,
+      image: "/img/sip-calculator.png",
+      alt: "SIP Calculator & Wealth Planner Case Study",
+      title: "SIP Calculator & Wealth Planner",
+      description: "Advanced Interactive Financial Simulation & Wealth Management Ecosystem",
+      link: "/case-study/sip-calculator",
+    },
   ];
 
   // autoplay effect

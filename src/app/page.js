@@ -9,6 +9,7 @@ import CTASection from "./_components/home/CTASection";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import CaseStudyCarousel from "./_components/home/CaseStudyCarousel";
 import Slider3D from "./_components/home/Slider3D";
+import AiDevelopmentSection from "./_components/home/AiDevelopmentSection";
 
 
 export default function RootPage() {
@@ -48,6 +49,7 @@ export default function RootPage() {
       <AboutUs/>
       <CaseStudyCarousel/>
       <WhyChooseUs/>
+      <AiDevelopmentSection />
       <ServicePartners/>
       <CTASection title="Need a Website, Web Application, Customized CRM Software or a Mobile App for your Business?" />
     </div>
