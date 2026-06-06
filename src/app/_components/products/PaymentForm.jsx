@@ -186,78 +186,7 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                 </div>
                 */}
                 
-                 {/* Footer Button Area */}
-                  <div className={styles.footer}>
-                    <DropdownMenu.Root open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
-                        <DropdownMenu.Trigger asChild>
-                            <div 
-                                className={styles.pkgDropdownContainer} 
-                                role="button" 
-                                aria-label="Select Subscription Package"
-                                onMouseEnter={() => setShowTooltip(true)}
-                                onMouseLeave={() => setShowTooltip(false)}
-                            >
-                                <Package className={styles.pkgIcon} />
-                                
-                                <AnimatePresence>
-                                    {showTooltip && !isDropdownOpen && (
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                                            transition={{ duration: 0.2, ease: "easeOut" }}
-                                            className={styles.tooltipContent}
-                                        >
-                                            Choose Package
-                                            <div className={styles.tooltipArrow} />
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
-                        </DropdownMenu.Trigger>
-
-                        <AnimatePresence>
-                            {isDropdownOpen && (
-                                <DropdownMenu.Portal forceMount>
-                                    <DropdownMenu.Content 
-                                        asChild 
-                                        sideOffset={8} 
-                                        align="start"
-                                        className={styles.dropdownContent}
-                                    >
-                                        <motion.div
-                                            initial={{ opacity: 0, scale: 0.95, y: -10 }}
-                                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                                            exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                                            transition={{ duration: 0.2, ease: "easeOut" }}
-                                        >
-                                            <DropdownMenu.Label className={styles.dropdownLabel}>
-                                                Choose Package
-                                            </DropdownMenu.Label>
-                                            
-                                            <DropdownMenu.RadioGroup 
-                                                value={selectedPkgForNote} 
-                                                onValueChange={setSelectedPkgForNote}
-                                            >
-                                                {pkgNames.map((pkg, idx) => (
-                                                    <DropdownMenu.RadioItem 
-                                                        key={idx} 
-                                                        value={pkg}
-                                                        className={styles.dropdownItem}
-                                                    >
-                                                        <span className={styles.itemText}>{pkg}</span>
-                                                        <DropdownMenu.ItemIndicator>
-                                                            <Check className={styles.checkIcon} />
-                                                        </DropdownMenu.ItemIndicator>
-                                                    </DropdownMenu.RadioItem>
-                                                ))}
-                                            </DropdownMenu.RadioGroup>
-                                        </motion.div>
-                                    </DropdownMenu.Content>
-                                </DropdownMenu.Portal>
-                            )}
-                        </AnimatePresence>
-                    </DropdownMenu.Root>
+                 {/* Footer Button Area */}                  <div className={styles.footer}>
                     <button 
                         type="submit"
                         disabled={loading}
@@ -272,7 +201,7 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                                 Processing...
                             </span>
                         ) : (
-                            `Book Your Demo`
+                            `starting from 25000`
                         )}
                     </button>
                 </div>

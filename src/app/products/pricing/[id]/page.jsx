@@ -410,12 +410,14 @@ const PricingDetailPage = () => {
                 </div>
                 
                 {/* Subscription Options (Full Width) */}
-                <SubscriptionOptions 
-                    basePrice={numericPrice} 
-                    features={PLAN_DETAILS[plan.type]?.features || PLAN_DETAILS.basic.features} 
-                    setSelectedSubscription={setSelectedSubscription}
-                    selectedSubscription={selectedSubscription}
-                />
+                {plan.type !== 'vidya-ai-lms' && (
+                    <SubscriptionOptions 
+                        basePrice={numericPrice} 
+                        features={PLAN_DETAILS[plan.type]?.features || PLAN_DETAILS.basic.features} 
+                        setSelectedSubscription={setSelectedSubscription}
+                        selectedSubscription={selectedSubscription}
+                    />
+                )}
 
             </div>
             
