@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 
 const AboutUsSection = () => {
@@ -26,14 +25,6 @@ const AboutUsSection = () => {
                 and ensure our clients stay ahead in an ever-evolving digital landscape.
               </p>
             </div>
-
-            <Link 
-              href="/about-us/company" 
-              className="read-more-link" 
-              aria-label="Read more about TGAYS Technology company profile"
-              >
-              <span className="title">READ MORE</span>
-            </Link>
 
             <div className="tech-about-content">
               <div className="row">
