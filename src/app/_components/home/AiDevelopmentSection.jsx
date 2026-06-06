@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import styles from './AiDevelopmentSection.module.css';
+import { Handshake, Users, Workflow, Rocket, Brain, ShieldCheck, ShoppingCart, Factory, Globe, Check } from 'lucide-react';
 
 const AiDevelopmentSection = () => {
   // FAQ accordion state
@@ -82,22 +83,27 @@ const AiDevelopmentSection = () => {
   const industries = [
     {
       name: "Healthcare",
+      icon: <Brain size={44} strokeWidth={1.5} />,
       items: ["Patient Management", "Medical Data Analysis", "Intelligent Healthcare Assistants"]
     },
     {
       name: "Finance",
+      icon: <ShieldCheck size={44} strokeWidth={1.5} />,
       items: ["Fraud Detection", "Risk Assessment", "Predictive Financial Analytics"]
     },
     {
       name: "Retail & Ecommerce",
+      icon: <ShoppingCart size={44} strokeWidth={1.5} />,
       items: ["Personalized Recommendations", "Customer Behavior Analysis", "Inventory Forecasting"]
     },
     {
       name: "Manufacturing",
+      icon: <Factory size={44} strokeWidth={1.5} />,
       items: ["Predictive Maintenance", "Process Optimization", "Quality Control Automation"]
     },
     {
       name: "Logistics",
+      icon: <Globe size={44} strokeWidth={1.5} />,
       items: ["Route Optimization", "Demand Forecasting", "Supply Chain Intelligence"]
     }
   ];
@@ -130,7 +136,7 @@ const AiDevelopmentSection = () => {
       <div className={styles.container}>
         
         {/* Intro Box */}
-        <div className={styles.introBox}>
+        <div className={styles.introHero}>
           <h1 className={styles.mainHeading}>Best AI Development Company in India for Startups, Enterprises & Global Businesses</h1>
           <h2 className={styles.subHeading}>Transform Your Business with Advanced AI Solutions</h2>
           <p className={styles.text}>
@@ -139,7 +145,7 @@ const AiDevelopmentSection = () => {
           <p className={styles.text}>
             Whether you are looking for AI-powered automation, Generative AI applications, AI agents, machine learning platforms, predictive analytics, or enterprise-grade AI software, our experienced team delivers scalable and future-ready solutions tailored to your business goals.
           </p>
-          <p className={styles.text} style={{ fontStyle: 'italic', fontWeight: 'bold' }}>
+          <p className={styles.text} style={{ fontStyle: 'italic', fontWeight: '700', color: '#0f172a' }}>
             We serve clients across the USA, UK, Canada, Australia, Europe, the Middle East, and Asia with innovative AI solutions designed to generate ROI and competitive advantage.
           </p>
         </div>
@@ -167,21 +173,28 @@ const AiDevelopmentSection = () => {
         </div>
 
         {/* Industry Specific Section */}
-        <div className={styles.introBox} style={{ marginTop: '60px', marginBottom: '30px' }}>
-          <h2 className={styles.mainHeading} style={{ fontSize: '2rem' }}>Custom AI Application Development Tailored to Your Business</h2>
+        <div style={{ marginTop: '60px', marginBottom: '30px', textAlign: 'left' }}>
+          <h2 className={styles.mainHeading} style={{ fontSize: '2.2rem' }}>Custom AI Application Development Tailored to Your Business</h2>
+          <p className={styles.text} style={{ marginBottom: '12px' }}>
+            Every business has unique challenges that off-the-shelf solutions often fail to address for specific operational requirements.
+          </p>
           <p className={styles.text}>
-            Every business has unique challenges. Off-the-shelf solutions often fail to address specific operational requirements. Our Custom AI Application Development services are designed to create intelligent software solutions customized for your business processes, customer expectations, and industry standards.
+            Our specialized Custom AI Application Development services are designed to create bespoke, intelligent software solutions customized for your unique business processes, customer expectations, and strict industry standards.
           </p>
         </div>
 
         <div className={styles.industryGrid}>
           {industries.map((ind, index) => (
             <div key={index} className={styles.industryCard}>
+              <div className={styles.industryIconWrapper}>
+                {ind.icon}
+              </div>
               <span className={styles.industryName}>{ind.name}</span>
               <ul className={styles.industryList}>
                 {ind.items.map((item, itemIdx) => (
                   <li key={itemIdx} className={styles.industryItem}>
-                    {item}
+                    <Check size={16} className={styles.industryCheckIcon} strokeWidth={3} />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -228,24 +241,36 @@ const AiDevelopmentSection = () => {
         </div>
 
         {/* Why TGAYS Technology */}
-        <div className={styles.faqSection} style={{ background: '#f8fafc', marginTop: '60px' }}>
-          <h2 className={styles.faqTitle} style={{ marginBottom: '20px' }}>Why TGAYS Technology?</h2>
-          <div className={styles.grid} style={{ gap: '20px', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', marginBottom: '0' }}>
-            <div>
-              <h4 style={{ color: '#0083ff', fontWeight: '700', marginBottom: '8px' }}>Business-First AI Approach</h4>
-              <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: '1.5' }}>We focus on solving business problems, not just building technology.</p>
+        <div className={styles.whySection}>
+          <h2 className={styles.whyTitle}>Why TGAYS Technology?</h2>
+          <div className={styles.whyGrid}>
+            <div className={styles.whyCard}>
+              <div className={styles.whyIconWrapper}>
+                <Handshake size={52} strokeWidth={1.5} />
+              </div>
+              <h3 className={styles.whyCardTitle}>Business-First AI Approach</h3>
+              <p className={styles.whyCardText}>We focus on solving business problems, not just building technology.</p>
             </div>
-            <div>
-              <h4 style={{ color: '#0083ff', fontWeight: '700', marginBottom: '8px' }}>Experienced AI Specialists</h4>
-              <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: '1.5' }}>Our team includes AI engineers, data scientists, software architects, and business analysts.</p>
+            <div className={styles.whyCard}>
+              <div className={styles.whyIconWrapper}>
+                <Users size={52} strokeWidth={1.5} />
+              </div>
+              <h3 className={styles.whyCardTitle}>Experienced AI Specialists</h3>
+              <p className={styles.whyCardText}>Our team includes AI engineers, data scientists, software architects, and business analysts.</p>
             </div>
-            <div>
-              <h4 style={{ color: '#0083ff', fontWeight: '700', marginBottom: '8px' }}>End-to-End Development</h4>
-              <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: '1.5' }}>From strategy and consulting to development, deployment, and support, we handle the entire AI lifecycle.</p>
+            <div className={styles.whyCard}>
+              <div className={styles.whyIconWrapper}>
+                <Workflow size={52} strokeWidth={1.5} />
+              </div>
+              <h3 className={styles.whyCardTitle}>End-to-End Development</h3>
+              <p className={styles.whyCardText}>From strategy and consulting to development, deployment, and support, we handle the entire AI lifecycle.</p>
             </div>
-            <div>
-              <h4 style={{ color: '#0083ff', fontWeight: '700', marginBottom: '8px' }}>Scalable Solutions</h4>
-              <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: '1.5' }}>Our AI applications are built to grow with your business and support future expansion.</p>
+            <div className={styles.whyCard}>
+              <div className={styles.whyIconWrapper}>
+                <Rocket size={52} strokeWidth={1.5} />
+              </div>
+              <h3 className={styles.whyCardTitle}>Scalable Solutions</h3>
+              <p className={styles.whyCardText}>Our AI applications are built to grow with your business and support future expansion.</p>
             </div>
           </div>
         </div>
