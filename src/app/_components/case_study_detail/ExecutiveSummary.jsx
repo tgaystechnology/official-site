@@ -86,15 +86,32 @@ const ExecutiveSummary = ({ slug }) => {
     'anvo-autos': {
       title: "Executive Summary",
       content: `
-        <p>Anvo Autos is a high-concurrency, real-time backend platform built to power seamless ride-hailing operations. The engine guarantees 100% financial consistency using immutable ledger wallets, prevents fare fraud via real-time PostGIS route deviation alerts, and ensures rider safety with secure, zero-PII live tracking links.</p>
+        <p>In the high-demand ride-hailing sector, system latency, data integrity, and real-time reliability dictate user trust and platform success. This case study highlights the engineering behind Anvo Autos—a resilient, high-concurrency backend engine built using Node.js, Fastify, PostgreSQL (PostGIS), Redis, and Socket.IO.</p>
+        <p>The platform guarantees 100% financial accuracy via double-entry ledger wallets, thwarts fare manipulation using automated PostGIS route deviation alerts, and secures passenger safety through zero-PII (Personally Identifiable Information) live trip tracking links.</p>
       `,
     },
     'shikshasetu-lms': {
       title: "Executive Summary",
       content: `
-        <p>ShikshaSetu LMS is a next-generation learning management platform developed to bridge the gap between traditional online education systems and modern AI-powered learning experiences.</p>
+        <p>Vidya AI LMS is a next-generation learning management platform developed to bridge the gap between traditional online education systems and modern AI-powered learning experiences.</p>
         <p>The platform combines live instructor-led training, self-paced recorded courses, AI-assisted learning tools, automated operational workflows, and advanced performance analytics into a single ecosystem.</p>
-        <p>Unlike conventional LMS platforms that focus only on content delivery, ShikshaSetu creates an interactive learning environment where students receive personalized support, real-time progress tracking, and intelligent recommendations throughout their learning journey.</p>
+        <p>Unlike conventional LMS platforms that focus only on content delivery, Vidya AI LMS creates an interactive learning environment where students receive personalized support, real-time progress tracking, and intelligent recommendations throughout their learning journey.</p>
+      `,
+    },
+    'ai-career-coach': {
+      title: "Executive Summary",
+      content: `
+        <p>The Ai Career Coach Agent is a next-generation professional development platform developed to bridge the gap between traditional career counseling and modern, on-demand AI-powered guidance.</p>
+        <p>The platform combines conversational AI mentorship, automated resume analysis, and dynamic career roadmap generation into a single ecosystem.</p>
+        <p>Unlike conventional platforms that offer static advice, the Ai Career Coach Agent creates an interactive environment where professionals receive personalized, real-time feedback, structured learning paths, and actionable insights to accelerate their career growth and improve job readiness.</p>
+      `,
+    },
+    'sip-calculator': {
+      title: "Executive Summary",
+      content: `
+        <p>The SIP Calculator & Wealth Planner is a next-generation interactive financial simulation platform developed to bridge the gap between static, flat-rate financial calculators and dynamic, real-world wealth forecasting.</p>
+        <p>The platform combines standard Systematic Investment Plan (SIP) projections, annual step-up compounding, goal-based target calculations, capital gains tax estimators, inflation stress-testing, and dynamic portfolio recovery models into a single client-side ecosystem.</p>
+        <p>Unlike conventional financial calculators that rely on simplified annual formulas, this platform creates an interactive planning dashboard where users receive instant visual feedback, tax liability simulations, and real-time purchasing power calculations to map out their financial independence journeys.</p>
       `,
     },
   };

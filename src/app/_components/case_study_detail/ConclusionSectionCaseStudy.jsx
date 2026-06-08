@@ -62,15 +62,27 @@ const ConclusionSectionCaseStudy = ({ slug }) => {
     'anvo-autos': {
       heading: "Conclusion",
       paragraphs: [
-        `The Anvo Autos project demonstrates TGAYS Technology's ability to deliver <strong>high-performance, high-concurrency real-time backend engines</strong> that are highly resilient, scalable, and secure. By integrating robust state management, advanced geospatial algorithms, double-entry financial ledgering, and resilient background queues, we helped our client build a solid backend foundation that handles massive traffic with ease.`,
-        `Today, Anvo Autos stands as a prime example of how state-of-the-art backend engineering can power a secure, lightning-fast, and cost-effective mobile ride-hailing experience.`,
+        `The architecture of Anvo Autos demonstrates that high-concurrency web applications do not need to sacrifice financial accuracy or user privacy for real-time responsiveness. By offloading hot-path GPS data to Redis GEO, utilizing PostGIS for localized spatial logic, and securing transactions with immutable ledgering and row-level locking, the platform stands as a benchmark for modern, scalable, and secure ride-hailing engines.`,
       ],
     },
     'shikshasetu-lms': {
       heading: "Conclusion",
       paragraphs: [
-        `ShikshaSetu LMS successfully transformed traditional online education into an <strong>intelligent, scalable, and automation-driven learning ecosystem</strong>.`,
+        `Vidya AI LMS successfully transformed traditional online education into an <strong>intelligent, scalable, and automation-driven learning ecosystem</strong>.`,
         `By combining live learning, self-paced education, AI-powered mentorship, analytics, assessments, and operational automation, the platform delivers a modern educational experience that benefits both learners and educational organizations. The result is a future-ready learning platform that improves engagement, streamlines operations, enhances learning outcomes, and supports long-term business growth.`,
+      ],
+    },
+    'ai-career-coach': {
+      heading: "Conclusion",
+      paragraphs: [
+        `The Ai Career Coach Agent successfully transformed traditional career counseling into an <strong>intelligent, highly scalable, and accessible digital ecosystem</strong>.`,
+        `By combining conversational AI, automated document analysis, dynamic visual roadmaps, and robust operational automation via Inngest, the platform delivers a modern professional development experience. The result is a future-ready product that empowers job seekers, streamlines the delivery of expert advice, and supports long-term career growth.`,
+      ],
+    },
+    'sip-calculator': {
+      heading: "Conclusion",
+      paragraphs: [
+        `The SIP Calculator & Wealth Planner converts complex financial formulas into a fast, interactive client-side tool. By modeling inflation, taxes, annual step-ups, and skipped payments, it delivers accurate planning dashboards with zero hosting costs and total user privacy.`
       ],
     },
   };

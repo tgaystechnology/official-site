@@ -74,20 +74,36 @@ const CaseStudyDetailBanner = ({ slug }) => {
       ],
     },
     'anvo-autos': {
-      image: '/img/case-study-banner.png',
-      heading: 'Anvo Autos — Real-Time Ride-Hailing Engine',
+      image: '/img/anvo-autos-banner.png',
+      heading: 'Anvo Autos — High-Concurrency, Real-Time Ride-Hailing Backend Engine',
       details: [
-        { label: 'Client Location', value: 'Global / USA' },
-        { label: 'Technology Stack', value: 'Node.js, Fastify, PostgreSQL (PostGIS), Redis, Socket.IO, BullMQ' },
-        { label: 'Platforms Served', value: 'Android, iOS, Web Admin' },
+        { label: 'Client Location', value: 'India' },
+        { label: 'Technology Stack', value: 'Node.js, Fastify, TypeScript, PostgreSQL (PostGIS), Redis, Socket.IO, BullMQ, Prisma ORM, Argon2, Prometheus' },
+        { label: 'Platforms Served', value: 'Android (Rider & Driver App), iOS (Rider & Driver App), Web Admin Dashboard' },
       ],
     },
     'shikshasetu-lms': {
-      image: '/img/case-study-banner.png',
-      heading: 'ShikshaSetu LMS – AI-Powered Learning Management Platform',
+      image: '/img/vidya-ai-lms-banner.png',
+      heading: 'Vidya AI LMS – AI-Powered Learning Management Platform',
       details: [
         { label: 'Client Location', value: 'India' },
         { label: 'Technologies Used', value: 'Django, Python, HTML5, CSS3, Bootstrap, MySQL, JavaScript, Google Gemini AI, Zoom API, YouTube API, Cron Jobs' },
+      ],
+    },
+    'ai-career-coach': {
+      image: '/img/case-study-banner.png',
+      heading: 'Ai Career Coach Agent – AI-Powered Career Development Platform',
+      details: [
+        { label: 'Client Location', value: 'Global' },
+        { label: 'Technologies Used', value: 'Next.js 15, React 18, Tailwind CSS, PostgreSQL, Drizzle ORM, Inngest, Google Gemini AI (2.0 Flash), NextAuth, ImageKit' },
+      ],
+    },
+    'sip-calculator': {
+      image: '/img/sip-calculator-banner.png',
+      heading: 'SIP Calculator & Wealth Planner – Interactive Wealth Ecosystem',
+      details: [
+        { label: 'Client Location', value: 'India' },
+        { label: 'Technologies Used', value: 'Next.js, React, TypeScript, Tailwind CSS, Recharts, Framer Motion, Radix UI' },
       ],
     },
     // ✅ Add more slugs here as needed

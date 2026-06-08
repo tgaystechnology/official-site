@@ -64,6 +64,47 @@ const PLAN_DETAILS = {
         technology: ["Django", "MySQL", "HTML", "CSS", "JavaScript",'Bootstrap','Jquery','React','OpenAI API'],
         tags: ["LMS", "Education", "AI", "Quiz", "Dashboard", "Learning", "Assessment", "Online Platform", "EdTech", "Management System"]
     },
+    'taskity': {
+        showTaskityDetails: true,
+        sections: [
+            {
+                image: "/img/taskity/01.png",
+                title: "Ultimate HRMS & Corporate Portal",
+                description: "Taskity bridges the gap between daily human resource tracking, granular financial auditing, and active project execution under a unified corporate operating ecosystem."
+            },
+            {
+                image: "/img/taskity/02.png",
+                title: "Executive command center",
+                description: "Tracks active project statuses, overall operating costs, and visual goal-tracking progress bars against target revenue milestones in real-time."
+            },
+            {
+                image: "/img/taskity/03.png",
+                title: "Financial Ledger & Payroll Matrix",
+                description: "Accountants process CTC, Basic Pay, and HRA payrolls easily while verifying sales/purchase invoices with integrated GST/TDS ledger rules."
+            },
+            {
+                image: "/img/taskity/04.png",
+                title: "Smart Time Clock attendance",
+                description: "Monitors precise punch in/out times, break durations, daily active hours, and generates engagement reports instantly."
+            },
+            {
+                image: "/img/taskity/05.png",
+                title: "Advanced evaluations & project trackers",
+                description: "Evaluate core team member competencies using continuous metric sliders and oversee project allocations from Not Started to Under Testing."
+            }
+        ],
+        features: [
+            "Super Admin, Executive & Department Manager Portals",
+            "Smart Punch Clock with Attendance Red Flags",
+            "Continuous Competency Metric Rating Sliders",
+            "Salary Slip Engine with custom CTC & HRA calculators",
+            "Tax Invoice Vault (GST / TDS LEDGER) and Reports",
+            "Project Lifecycle Pipelines & Task Board orchestrators",
+            "White-Label custom branding & deployment settings"
+        ],
+        technology: ["Next.js", "React", "MySQL", "Node.js", "Tailwind CSS", "Bootstrap Grid", "Framer Motion"],
+        tags: ["HRMS", "Portal", "SaaS", "Operations", "Finance Ledger", "Project Management", "Invoice Vault", "Attendance Clock"]
+    },
     // Fallback/Legacy
     basic: {
         description: "Vidya AI LMS is a comprehensive learning management system built to streamline online education...",
@@ -82,6 +123,7 @@ const PLAN_DETAILS = {
 
 import StackingCards from '@/app/_components/products/StackingCards';
 import QuizMasterDetails from '@/app/_components/products/QuizMasterDetails';
+import TaskityDetails from '@/app/_components/products/TaskityDetails';
 import SubscriptionOptions from '@/app/_components/products/SubscriptionOptions';
 import ProductHighlights from '@/app/_components/products/ProductHighlights';
 
@@ -116,6 +158,7 @@ const ProductDescription = ({ planType }) => {
             )}
 
             {details.showQuizMasterDetails && <QuizMasterDetails />}
+            {details.showTaskityDetails && <TaskityDetails />}
 
             {planType === 'vidya-ai-lms' && <ProductHighlights />}
 
@@ -312,7 +355,7 @@ const PricingDetailPage = () => {
                                 <h2 className={styles.checkoutTitle}>
                                     Starting From ₹25,000
                                 </h2>
-                                {plan.type === 'vidya-ai-lms' && (
+                                {(plan.type === 'vidya-ai-lms' || plan.type === 'taskity') && (
                                     <p className={styles.pricingSubText}>
                                         *For basic features. Price increases with advanced modules.
                                     </p>
@@ -394,7 +437,7 @@ const PricingDetailPage = () => {
                             <h2 className={styles.checkoutTitle}>
                                 Starting From ₹25,000
                             </h2>
-                            {plan.type === 'vidya-ai-lms' && (
+                            {(plan.type === 'vidya-ai-lms' || plan.type === 'taskity') && (
                                 <p className={styles.pricingSubText}>
                                     *For basic features. Price increases with advanced modules.
                                 </p>
@@ -420,7 +463,7 @@ const PricingDetailPage = () => {
                 </div>
                 
                 {/* Subscription Options (Full Width) */}
-                {plan.type !== 'vidya-ai-lms' && (
+                {plan.type !== 'vidya-ai-lms' && plan.type !== 'taskity' && (
                     <SubscriptionOptions 
                         basePrice={numericPrice} 
                         features={PLAN_DETAILS[plan.type]?.features || PLAN_DETAILS.basic.features} 

@@ -12,8 +12,10 @@ const CaseStudySection = () => {
     { img: 'img/taskity-cst-list.png', title: "Taskity", category: "Business Sales & Marketing Automation Platform.", url: 'taskity' },
     { img: 'img/martwat-cst-list.png', title: "MartWat", category: "Inventory, Warehouse, Sales & POS Management System.", url: 'martwat' },
     { img: 'img/SJRS-cst-list.png', title: "SJRS School ERP", category: "Comprehensive School Management System.", url: 'sjrs-school-erp' },
-    // { img: 'img/SJRS-cst-list.png', title: "ShikshaSetu LMS", category: "AI-Powered Learning Management Platform.", url: 'shikshasetu-lms' },
-    // { img: 'img/SJRS-cst-list.png', title: "Anvo Autos", category: "Real-Time Ride-Hailing Engine.", url: 'anvo-autos' },
+    { img: 'img/SJRS-cst-list.png', title: "Vidya AI LMS", category: "AI-Powered Learning Management Platform.", url: 'shikshasetu-lms' },
+    { img: 'img/SJRS-cst-list.png', title: "Ai Career Coach Agent", category: "AI-Powered Career Development Platform.", url: 'ai-career-coach' },
+    { img: 'img/sip-calculator.png', title: "SIP Calculator & Wealth Planner", category: "Advanced Interactive Financial Simulation & Wealth Management Ecosystem", url: 'sip-calculator' },
+    { img: 'img/anvo-autos-banner.png', title: "Anvo Autos", category: "High-Concurrency, Real-Time Ride-Hailing Backend Engine.", url: 'anvo-autos' },
   ];
 
   return (

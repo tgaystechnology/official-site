@@ -343,34 +343,34 @@ const caseStudyTechnologies = {
     technologies: [
       {
         id: 1,
-        title: "Backend & API",
+        title: "Runtime & Framework",
         icon: "git-network-outline",
         items: ["Node.js", "Fastify", "TypeScript"],
       },
       {
         id: 2,
-        title: "Geospatial & Database",
+        title: "Geospatial & ORM",
         icon: "layers-outline",
         items: ["PostgreSQL + PostGIS", "Prisma ORM"],
       },
       {
         id: 3,
-        title: "Caching & Queueing",
+        title: "Caching & Real-Time",
         icon: "desktop-outline",
         items: ["Redis GEO", "Socket.IO", "BullMQ"],
       },
       {
         id: 4,
-        title: "Security & Testing",
+        title: "Security & Observability",
         icon: "key-outline",
-        items: ["Argon2", "MSG91", "Vitest"],
+        items: ["Argon2", "MSG91", "Prometheus"],
       },
     ],
   },
   'shikshasetu-lms': {
     description: (
       <p>
-        ShikshaSetu LMS utilizes a modern, robust, and AI-enabled technology stack. We coupled Python and Django for a secure, scalable backend, with MySQL for reliable data storage. On the frontend, Bootstrap and JavaScript ensure a fast, responsive user experience, while dynamic API integrations with Zoom, YouTube, Vimeo, and Google Gemini AI power live classes and intelligent on-demand learning content.
+        Vidya AI LMS utilizes a modern, robust, and AI-enabled technology stack. We coupled Python and Django for a secure, scalable backend, with MySQL for reliable data storage. On the frontend, Bootstrap and JavaScript ensure a fast, responsive user experience, while dynamic API integrations with Zoom, YouTube, Vimeo, and Google Gemini AI power live classes and intelligent on-demand learning content.
       </p>
     ),
     image: "/img/school-Technologies-Used.png",
@@ -404,6 +404,80 @@ const caseStudyTechnologies = {
         title: "Automation Engine",
         icon: "cog-outline",
         items: ["Email Notification Engine", "----"],
+      },
+    ],
+  },
+  'ai-career-coach': {
+    description: (
+      <p>
+        The Ai Career Coach Agent utilizes a modern, serverless, and event-driven technology stack. We coupled Next.js 15 and Drizzle ORM for swift, typesafe backend operations, backed by a Neon serverless PostgreSQL database. On the frontend, React 18, Tailwind CSS, and React Flow construct a highly interactive and visually structured mapping experience, while Inngest manages heavy asynchronous parsing and Gemini 2.0 Flash AI tasks safely in the background.
+      </p>
+    ),
+    image: "/img/school-Technologies-Used.png",
+    technologies: [
+      {
+        id: 1,
+        title: "Frontend UI",
+        icon: "desktop-outline",
+        items: ["Next.js 15", "React 18", "Tailwind CSS", "React Flow", "Radix UI"],
+      },
+      {
+        id: 2,
+        title: "Backend & ORM",
+        icon: "git-network-outline",
+        items: ["Next.js API Routes", "Inngest (Background Jobs)", "Drizzle ORM"],
+      },
+      {
+        id: 3,
+        title: "Database & Storage",
+        icon: "layers-outline",
+        items: ["PostgreSQL (Neon Serverless)", "ImageKit", "----"],
+      },
+      {
+        id: 4,
+        title: "AI & Integrations",
+        icon: "bulb-outline",
+        items: ["Google Gemini AI (2.0 Flash)", "Inngest Agent Kit", "Remote PHP API Webhooks"],
+      },
+      {
+        id: 5,
+        title: "Automation Engine",
+        icon: "cog-outline",
+        items: ["Inngest Background Functions", "NextAuth Security", "----"],
+      },
+    ],
+  },
+  'sip-calculator': {
+    description: (
+      <p>
+        The SIP Calculator & Wealth Planner leverages a modern, fast, and completely client-side technology stack. We coupled Next.js (App Router) and React 19 to provide a smooth, performant interface, Tailwind CSS for beautiful responsive styling, Recharts for high-performance interactive visual analytics, and Radix UI primitives with Framer Motion for elegant micro-animations.
+      </p>
+    ),
+    image: "/img/sip-calculator.png",
+    technologies: [
+      {
+        id: 1,
+        title: "Frontend UI",
+        icon: "desktop-outline",
+        items: ["Next.js (App Router)", "React 19", "Tailwind CSS v4", "Radix UI Primitives"],
+      },
+      {
+        id: 2,
+        title: "Analytics & Charting",
+        icon: "stats-chart-outline",
+        items: ["Recharts (SVG Charts)", "Custom Compounding Engine", "----"],
+      },
+      {
+        id: 3,
+        title: "Styling & Motion",
+        icon: "color-palette-outline",
+        items: ["Tailwind CSS", "Framer Motion", "Lucide Icons"],
+      },
+      {
+        id: 4,
+        title: "Database & Storage",
+        icon: "layers-outline",
+        items: ["Local Client-side RAM State", "CSV Generation Engine", "----"],
       },
     ],
   },

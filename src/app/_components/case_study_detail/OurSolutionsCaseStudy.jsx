@@ -432,39 +432,52 @@ const caseStudyData = {
     },
     solutions: [
       {
-        title: "1. Driver Health State Machine",
+        title: "1. Robust Driver Lifecycle State Machine",
         points: [
-          "Decoupled availability states from sockets, with a 30s auto-offline cron fallback for inactive drivers.",
+          "Enforced strict, backend-controlled transitions (OFFLINE ↔ AVAILABLE ↔ ON_TRIP).",
+          "A background cron job (DriverHealthJob) offlines inactive drivers after 30 seconds of heartbeat loss."
         ],
       },
       {
         title: "2. Redis GEO & GPS Smoothing",
         points: [
-          "Stored real-time location pings in Redis GEO and filtered out minor movement under 10m to block GPS jitter.",
+          "Cached driver locations in memory using Redis GEO for sub-second updates.",
+          "Implemented a GPS filter that ignores insignificant movement (<10m) to minimize database write-overhead."
         ],
       },
       {
-        title: "3. Ledger Wallets with Row-Locking",
+        title: "3. Immutable Double-Entry Ledger Wallet",
         points: [
-          "Built an immutable ledger using row-level locking (SELECT FOR UPDATE) to eliminate double-spending and race conditions.",
+          "Configured a transaction ledger (wallet_ledger) utilizing Row-Level Locking (SELECT FOR UPDATE) within atomic database transactions.",
+          "Guarantees negative balance protection and prevents race conditions."
         ],
       },
       {
-        title: "4. PostGIS Route Deviation Alerts",
+        title: "4. PostGIS LineString Deviation Tracking",
         points: [
-          "Encoded planned routes into PostGIS LineStrings, comparing real-time driver locations to alert users of >500m deviations.",
+          "Decoded planned Google Routes polylines into PostGIS LineString geometry in PostgreSQL.",
+          "Used ST_Distance to compare live driver GPS points against the route, triggering Socket.IO deviation warnings if they stray >500m."
         ],
       },
       {
-        title: "5. Secure Argon2 OTP Verification",
+        title: "5. Argon2 OTP-Secured Trip Validation",
         points: [
-          "Secured ride starts with a rider-shared, 4-digit OTP hashed via Argon2, restricting attempts to 3 to prevent brute-forcing.",
+          "Secured the trip pickup phase by requiring drivers to input a 4-digit OTP.",
+          "Verified against an Argon2 hash in the database, locking verification after 3 failed attempts to block brute-force attacks."
         ],
       },
       {
-        title: "6. High-Entropy Token Sharing",
+        title: "6. High-Entropy, Zero-PII Trip Sharing",
         points: [
-          "Generated cryptographically random tracking tokens displaying zero PII inside read-only Socket.IO rooms.",
+          "Developed a tokenized sharing link (64-character hex token).",
+          "The public endpoint filters out sensitive details, streaming progress to read-only Socket.IO rooms."
+        ],
+      },
+      {
+        title: "7. Resilient Scheduled Ride Queuing",
+        points: [
+          "Automated booking dispatches with BullMQ workers on Redis.",
+          "Built a secondary local fallback database scheduler to guarantee execution during temporary Redis outages."
         ],
       },
     ],
@@ -521,6 +534,101 @@ const caseStudyData = {
         title: "7. Operational Automation",
         points: [
           "Automated critical administrative processes including session reminders, tutor notifications, attendance tracking, and learning progress updates."
+        ],
+      },
+    ],
+  },
+  'ai-career-coach': {
+    images: {
+      mobile: "/img/school-Our-Solutions-1.png",
+      desktop: "/img/school-Our-Solutions.png",
+    },
+    heading: {
+      main: "Our",
+      highlight: "Solutions",
+    },
+    solutions: [
+      {
+        title: "1. Conversational AI Career Mentor",
+        points: [
+          "Integrated Google Gemini 2.0 Flash to provide on-demand interview preparation, job search strategies, and transition advice.",
+          "Strictly prompt-engineered the agent to remain professional and focus exclusively on career-related queries."
+        ],
+      },
+      {
+        title: "2. Automated Resume Analyzer",
+        points: [
+          "Developed an advanced evaluation engine that processes uploaded PDFs to deliver an overall ATS-style score.",
+          "Provides detailed section-by-section scoring (Experience, Education, Skills) and actionable improvement tips."
+        ],
+      },
+      {
+        title: "3. Dynamic Career Roadmap Generator",
+        points: [
+          "Built an intelligent visualization system using React Flow.",
+          "Generates step-by-step career progression trees for any profession, complete with mid-career milestones and resource links."
+        ],
+      },
+      {
+        title: "4. Asynchronous Background Processing",
+        points: [
+          "Implemented Inngest to manage intensive AI tasks and file parsing in the background.",
+          "Ensures the frontend remains highly responsive while complex tasks are processed reliably without server timeouts."
+        ],
+      },
+      {
+        title: "5. Secure File Management and Authentication",
+        points: [
+          "Integrated ImageKit for secure handling of user resume uploads.",
+          "Integrated NextAuth to enforce route protection, ensuring user data and history are securely tied to authenticated sessions."
+        ],
+      },
+    ],
+  },
+  'sip-calculator': {
+    images: {
+      mobile: "/img/case-img18.png",
+      desktop: "/img/case-img1823.png",
+    },
+    heading: {
+      main: "Our",
+      highlight: "Solutions",
+    },
+    solutions: [
+      {
+        title: "1. Compounding Engine",
+        points: [
+          "Supports both standard flat SIP formulas and dynamic annual step-up options to model real-world growth."
+        ],
+      },
+      {
+        title: "2. Inflation Stress-Testing",
+        points: [
+          "Uses the Fisher Equation to show the real post-inflation purchasing power of the matured portfolio."
+        ],
+      },
+      {
+        title: "3. Tax Estimator",
+        points: [
+          "Automatically calculates short and long-term capital gains tax liability for Equity and Debt funds instantly."
+        ],
+      },
+      {
+        title: "4. Pause & Recovery Modeler",
+        points: [
+          "Calculates compounding loss from missed payments and displays custom recovery contributions or tenure extensions."
+        ],
+      },
+      {
+        title: "5. What-If Comparison",
+        points: [
+          "Allows users to compare baseline plans against custom variables like top-ups or extended tenures."
+        ],
+      },
+      {
+        title: "6. Interactive SVG Charts",
+        points: [
+          "Uses Recharts for instant updates on slider changes and provides clean, year-by-year projections as CSV exports."
         ],
       },
     ],

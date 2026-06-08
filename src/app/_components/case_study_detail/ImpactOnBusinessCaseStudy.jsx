@@ -254,16 +254,19 @@ const ImpactOnBusinessCaseStudy = ({ slug }) => {
       ),
       paragraphs: [
         <p key="1">
-          <strong>0% Ledger Discrepancies:</strong> Immutable database ledgers eliminated race conditions and double-debits.
+          <strong>0% Ledger Discrepancies:</strong> The double-entry ledger architecture completely eliminated race conditions, duplicate promo redemptions, and wallet balance errors.
         </p>,
         <p key="2">
-          <strong>45% Map API Savings:</strong> Intelligently cached dynamic ETA routing in Redis to lower mapping operational costs.
+          <strong>45% Map API Cost Reduction:</strong> Caching route geometry in Redis and applying throttling logic successfully decreased recurring Google Maps API costs.
         </p>,
         <p key="3">
-          <strong>99.9% Booking Reliability:</strong> BullMQ worker queues with localized backup fallbacks ensured zero missed scheduled rides.
+          <strong>99.9% Booking Dispatch Rate:</strong> The combination of BullMQ workers and local database fallbacks ensured scheduled trips were processed without failure.
         </p>,
         <p key="4">
-          <strong>Complete Data Privacy:</strong> High-entropy tokenized links successfully shared thousands of trips without a single PII data-leak.
+          <strong>Zero Passenger Data Leaks:</strong> Secure, high-entropy tokenized links enabled anonymous web tracking without exposing internal IDs, usernames, or phone numbers.
+        </p>,
+        <p key="5">
+          <strong>Proactive Fraud Mitigation:</strong> Real-time route deviation alerts successfully flagged unauthorized route expansions, reducing fare disputes by 30%.
         </p>,
       ],
       image: {
@@ -301,7 +304,64 @@ const ImpactOnBusinessCaseStudy = ({ slug }) => {
       ],
       image: {
         src: "/img/school-Impact-Business.png",
-        alt: "ShikshaSetu LMS Business Impact",
+        alt: "Vidya AI LMS Business Impact",
+        width: 600,
+        height: 500,
+      },
+    },
+    'ai-career-coach': {
+      heading: (
+        <>
+          Impact On <span className="c-primary">Business</span>
+        </>
+      ),
+      paragraphs: [
+        <p key="1">
+          <strong>Democratized Career Coaching:</strong> Automated, high-quality career advice drastically reduced the barrier to entry, allowing users to access premium mentorship 24/7.
+        </p>,
+        <p key="2">
+          <strong>Improved Job Readiness:</strong> Actionable resume scoring and targeted improvement tips directly enhanced the quality of user applications, increasing their confidence and placement success rates.
+        </p>,
+        <p key="3">
+          <strong>Highly Scalable Infrastructure:</strong> By offloading heavy AI processing and PDF parsing to Inngest background jobs, the platform can support high volumes of concurrent users without experiencing performance degradation or server timeouts.
+        </p>,
+        <p key="4">
+          <strong>Data-Driven Iteration:</strong> Comprehensive history tracking allows the platform to analyze user trends and continually refine the AI prompts and features for optimized learning outcomes.
+        </p>,
+        <p key="5">
+          <strong>Stronger Data Protection:</strong> Controlled session access through NextAuth and secure file management via ImageKit reduced the risk of unauthorized usage and protected personalized user reports.
+        </p>,
+      ],
+      image: {
+        src: "/img/school-Impact-Business.png",
+        alt: "Ai Career Coach Agent Business Impact",
+        width: 600,
+        height: 500,
+      },
+    },
+    'sip-calculator': {
+      heading: (
+        <>
+          Impact On <span className="c-primary">Business</span>
+        </>
+      ),
+      paragraphs: [
+        <p key="1">
+          <strong>High Engagement and Retention:</strong> Interactive sliders combined with instant, smooth SVG charts encourage active user interaction, leading to longer session durations and higher user satisfaction.
+        </p>,
+        <p key="2">
+          <strong>Improved Financial Decision Making:</strong> By adjusting for inflation and estimating post-tax returns, users gain a realistic projection of their future purchasing power, reducing visual surprises upon withdrawal.
+        </p>,
+        <p key="3">
+          <strong>Extreme Operational Scalability:</strong> Operating 100% on the client side translates to zero database hosting, API overhead, or server compute fees, allowing the platform to serve millions of visitors at zero hosting scale cost.
+        </p>,
+        <p key="4">
+          <strong>Enhanced Trust & Transparency:</strong> Clear educational tooltips and detailed year-by-year CSV summaries help build trust and position the host organization as a transparent financial resource.
+        </p>,
+      ],
+      image: {
+        src: "/img/sip-calculator.png",
+        alt: "SIP Calculator & Wealth Planner Business Impact",
         width: 600,
         height: 500,
       },

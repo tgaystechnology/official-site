@@ -509,9 +509,124 @@ const PricingModal = ({ plan }) => {
   );
 };
 
+
+
+const TASKITY_INTERFACES = [
+    {
+        id: 'executive',
+        label: 'Super Admin & Executive',
+        icon: ShieldCheck,
+        color: '#8b5cf6',
+        features: [
+            { title: "Organization Health", description: "Comprehensive bird's-eye view of organization-wide health and project statuses.", icon: TrendingUp },
+            { title: "Cost Control", description: "Audit micro-level expenses against macro goals up to $200,000,000.", icon: ClipboardCheck },
+            { title: "Goal Tracking", description: "Monitor active project counts and target revenue milestones.", icon: Award }
+        ]
+    },
+    {
+        id: 'hrmanager',
+        label: 'HR & Manager',
+        icon: Users,
+        color: '#3b82f6',
+        features: [
+            { title: "Performance Evaluator", description: "Rate core competencies (Productivity, Initiative) visually with sliders.", icon: ClipboardCheck },
+            { title: "Leave Approval", description: "Manage paid time-off applications with detailed audit logs.", icon: CalendarCheck2 },
+            { title: "Performance Levels", description: "Auto-categorize outputs like Needs Improvement, Average, or Excellent.", icon: Award }
+        ]
+    },
+    {
+        id: 'finance',
+        label: 'Finance Hub',
+        icon: FileText,
+        color: '#10b981',
+        features: [
+            { title: "Payroll & CTC Matrices", description: "Process CTC, Basic salary, and HRA slips dynamically.", icon: FileText },
+            { title: "Invoice & Tax Vault", description: "Log sales/purchase invoices with GSTIN verification and TDS rules.", icon: ShieldCheck },
+            { title: "Expense Audit Logs", description: "Categorize contractor, employee, and external agency budgets.", icon: TrendingUp }
+        ]
+    },
+    {
+        id: 'employee',
+        label: 'Team Portal',
+        icon: Zap,
+        color: '#14b8a6',
+        features: [
+            { title: "Smart Time Clock", description: "Punch in/out with login/logout time, idle flags, and active hours.", icon: Zap },
+            { title: "Daily Planner", description: "Employees track personal daily planners and update task completion.", icon: LayoutDashboard },
+            { title: "Leave Self-Service", description: "Submit time-off requests and view available paid leave balances.", icon: CalendarCheck2 }
+        ]
+    }
+];
+
+const PricingCardItem = ({ plan }) => {
+    const interfaces = plan.type === 'taskity' ? TASKITY_INTERFACES : INTERFACES;
+    const [activeRoleTab, setActiveRoleTab] = useState(interfaces[0].id);
+
+    return (
+        <div className={`pricing-card ${plan.type}-card`} style={{ display: 'flex', flexDirection: 'column', flex: '1 1 auto', alignSelf: 'stretch', height: '850px', width: '100%', textAlign: 'center' }}>
+            <div className="card-header-img" style={{ height: '180px', overflow: 'hidden' }}>
+                <img src={plan.img} alt={`${plan.type} Plan`} className="img-fluid w-100 rounded-top" style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
+            </div>
+            <div className="card-body pt-4 pb-4 px-4" style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                <h3 className="plan-title fw-bold mb-4" style={{ height: '65px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 0 1.5rem 0' }}>{plan.title}</h3>
+
+                <div className="role-tabs-container mb-4" style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className="role-tabs-nav" style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', justifyContent: 'center', width: '100%' }}>
+                        {interfaces.map((item) => (
+                            <button
+                                key={item.id}
+                                onClick={() => setActiveRoleTab(item.id)}
+                                className={`role-tab-btn ${activeRoleTab === item.id ? 'active' : ''}`}
+                                style={{ '--active-color': item.color, padding: '6px 12px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '4px' }}
+                            >
+                                <item.icon size={14} />
+                                <span>{item.label}</span>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="role-features-content scrollbar-hide" style={{ height: '350px', overflowY: 'auto', textAlign: 'left' }}>
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeRoleTab}
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="role-feature-list"
+                        >
+                            {interfaces.find(i => i.id === activeRoleTab)?.features.map((feature, idx) => (
+                                <div key={idx} className="role-feature-item">
+                                    <div 
+                                        className="role-feature-icon"
+                                        style={{ 
+                                            backgroundColor: `${interfaces.find(i => i.id === activeRoleTab).color}15`, 
+                                            color: interfaces.find(i => i.id === activeRoleTab).color 
+                                        }}
+                                    >
+                                        <feature.icon size={16} />
+                                    </div>
+                                    <div className="role-feature-info">
+                                        <h4 className="role-feature-title">{feature.title}</h4>
+                                        <p className="role-feature-desc">{feature.description}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+
+                <Link href={`/products/pricing/${plan.type}`} className="btn btn-outline-primary btn-round w-100" style={{ marginTop: 'auto' }}>
+                    View Details
+                </Link>
+            </div>
+        </div>
+    );
+};
+
 const PricingCards = () => {
     const [plans, setPlans] = useState([]);
-    const [activeRoleTab, setActiveRoleTab] = useState(INTERFACES[0].id);
 
     useEffect(() => {
         const fetchPlans = async () => {
@@ -539,68 +654,10 @@ const PricingCards = () => {
                     </div>
                 </div>
 
-                <div className="row gap-4 gap-md-0">
+                <div className="row gap-4 gap-md-0" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'stretch' }}>
                     {plans.map((plan, index) => (
-                        <div key={index} className="col-md-4 col-lg-4 mb-4 mb-md-0">
-                            <div className={`pricing-card ${plan.type}-card`}>
-                                <div className="card-header-img">
-                                    <img src={plan.img} alt={`${plan.type} Plan`} className="img-fluid w-100 rounded-top" style={{ objectFit: 'cover' }} />
-                                </div>
-                                <div className="card-body pt-4 pb-4 px-4">
-                                    <h3 className="plan-title fw-bold mb-4">{plan.title}</h3>
-
-                                    <div className="role-tabs-container mb-4">
-                                        <div className="role-tabs-nav">
-                                            {INTERFACES.map((item) => (
-                                                <button
-                                                    key={item.id}
-                                                    onClick={() => setActiveRoleTab(item.id)}
-                                                    className={`role-tab-btn ${activeRoleTab === item.id ? 'active' : ''}`}
-                                                    style={{ '--active-color': item.color }}
-                                                >
-                                                    <item.icon size={18} />
-                                                    <span>{item.label}</span>
-                                                </button>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div className="role-features-content">
-                                        <AnimatePresence mode="wait">
-                                            <motion.div
-                                                key={activeRoleTab}
-                                                initial={{ opacity: 0, x: 10 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                exit={{ opacity: 0, x: -10 }}
-                                                transition={{ duration: 0.2 }}
-                                                className="role-feature-list"
-                                            >
-                                                {INTERFACES.find(i => i.id === activeRoleTab).features.map((feature, idx) => (
-                                                    <div key={idx} className="role-feature-item">
-                                                        <div 
-                                                            className="role-feature-icon"
-                                                            style={{ 
-                                                                backgroundColor: `${INTERFACES.find(i => i.id === activeRoleTab).color}15`, 
-                                                                color: INTERFACES.find(i => i.id === activeRoleTab).color 
-                                                            }}
-                                                        >
-                                                            <feature.icon size={16} />
-                                                        </div>
-                                                        <div className="role-feature-info">
-                                                            <h4 className="role-feature-title">{feature.title}</h4>
-                                                            <p className="role-feature-desc">{feature.description}</p>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </motion.div>
-                                        </AnimatePresence>
-                                    </div>
-
-                                    <Link href={`/products/pricing/${plan.type}`} className={`btn btn-outline-primary btn-round mt-4 w-100`}>
-                                        View Details
-                                    </Link>
-                                </div>
-                            </div>
+                        <div key={index} className="col-md-6 col-lg-5 mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
+                            <PricingCardItem plan={plan} />
                         </div>
                     ))}
                 </div>
