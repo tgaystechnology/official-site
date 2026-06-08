@@ -201,7 +201,7 @@ const PaymentForm = ({ plan, isSupportChecked, setIsSupportChecked, totalAmount,
                                 Processing...
                             </span>
                         ) : (
-                            `starting from 25000`
+                            `Book Your Demo`
                         )}
                     </button>
                 </div>

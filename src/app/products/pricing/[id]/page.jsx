@@ -310,7 +310,7 @@ const PricingDetailPage = () => {
                         <div className={styles.mobilePaymentContainer}>
                             <div className={styles.paymentSection} style={{ padding: '20px' }}>
                                 <h2 className={styles.checkoutTitle}>
-                                    Book Your Demo
+                                    Starting From ₹25,000
                                 </h2>
                                 <PaymentForm 
                                     plan={plan}
@@ -387,7 +387,7 @@ const PricingDetailPage = () => {
                         {/* Payment Section (Card-like container) */}
                         <div className={styles.paymentSection} style={{ padding: '20px' }}>
                             <h2 className={styles.checkoutTitle}>
-                                Book Your Demo
+                                Starting From ₹25,000
                             </h2>
                             
                             <PaymentForm 
