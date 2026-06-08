@@ -312,6 +312,11 @@ const PricingDetailPage = () => {
                                 <h2 className={styles.checkoutTitle}>
                                     Starting From ₹25,000
                                 </h2>
+                                {plan.type === 'vidya-ai-lms' && (
+                                    <p className={styles.pricingSubText}>
+                                        *For basic features. Price increases with advanced modules.
+                                    </p>
+                                )}
                                 <PaymentForm 
                                     plan={plan}
                                     isSupportChecked={isSupportChecked}
@@ -389,6 +394,11 @@ const PricingDetailPage = () => {
                             <h2 className={styles.checkoutTitle}>
                                 Starting From ₹25,000
                             </h2>
+                            {plan.type === 'vidya-ai-lms' && (
+                                <p className={styles.pricingSubText}>
+                                    *For basic features. Price increases with advanced modules.
+                                </p>
+                            )}
                             
                             <PaymentForm 
                                 plan={plan}
