@@ -24,17 +24,17 @@ export async function GET() {
         // { text: 'Unlimited Traffic', active: false }
       ],
       sliderImages: [
-        { src: '/img/student-home-page.png', alt: 'Startup Management' },
-        { src: "/img/admin-dashboard.png", alt: "Admin Dashboard" },
-        { src: "/img/admin-dashboard-2.png", alt: "Admin Dashboard 2" },
-        { src: "/img/class-schedule.png", alt: "Class Schedule" },
-        { src: "/img/instructor.png", alt: "Instructor" },
-        { src: "/img/language-selection.png", alt: "Language Selection" },
-        // { src: "/img/quiz-selection.png", alt: "Quiz Selection" },
-        { src: "/img/student-home-page.png", alt: "Student Home Page" },
-        { src: "/img/quiz-protector.png", alt: "Quiz Protector" },
-        { src: "/img/ai-hints.png", alt: "AI Hints" },
-        { src: "/img/quiz-servilance.png", alt: "Quiz Surveillance" },
+        { src: '/img/square_student-home-page.png', alt: 'Startup Management' },
+        { src: "/img/square_admin-dashboard.png", alt: "Admin Dashboard" },
+        { src: "/img/square_admin-dashboard-2.png", alt: "Admin Dashboard 2" },
+        { src: "/img/square_class-schedule.png", alt: "Class Schedule" },
+        { src: "/img/square_instructor.png", alt: "Instructor" },
+        { src: "/img/square_language-selection.png", alt: "Language Selection" },
+        // { src: "/img/square_quiz-selection.png", alt: "Quiz Selection" },
+        { src: "/img/square_student-home-page.png", alt: "Student Home Page" },
+        { src: "/img/square_quiz-protector.png", alt: "Quiz Protector" },
+        { src: "/img/square_ai-hints.png", alt: "AI Hints" },
+        { src: "/img/square_quiz-servilance.png", alt: "Quiz Surveillance" },
       ]
     },
     {

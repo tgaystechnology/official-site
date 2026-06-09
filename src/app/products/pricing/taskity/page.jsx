@@ -37,27 +37,27 @@ import StackingCards from '@/app/_components/products/StackingCards';
 const PLAN_DETAILS = {
     sections: [
         {
-            image: "/img/taskity/01.png",
+            image: "/img/taskity/cropped_01.png",
             title: "Ultimate HRMS & Corporate Portal",
             description: "Taskity bridges the gap between daily human resource tracking, granular financial auditing, and active project execution under a unified corporate operating ecosystem."
         },
         {
-            image: "/img/taskity/02.png",
+            image: "/img/taskity/cropped_02.png",
             title: "Executive Command Center",
             description: "Tracks active project statuses, overall operating costs, and visual goal-tracking progress bars against target revenue milestones in real-time."
         },
         {
-            image: "/img/taskity/03.png",
+            image: "/img/taskity/cropped_03.png",
             title: "Financial Ledger & Payroll Matrix",
             description: "Accountants process CTC, Basic Pay, and HRA payrolls easily while verifying sales/purchase invoices with integrated GST/TDS ledger rules."
         },
         {
-            image: "/img/taskity/04.png",
+            image: "/img/taskity/cropped_04.png",
             title: "Smart Time Clock Attendance",
             description: "Monitors precise punch in/out times, break durations, daily active hours, and generates engagement reports instantly."
         },
         {
-            image: "/img/taskity/05.png",
+            image: "/img/taskity/cropped_05.png",
             title: "Advanced Evaluations & Project Trackers",
             description: "Evaluate core team member competencies using continuous metric sliders and oversee project allocations from Not Started to Under Testing."
         }
