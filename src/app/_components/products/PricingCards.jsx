@@ -571,13 +571,22 @@ const PricingCardItem = ({ plan }) => {
                 <h3 className="plan-title fw-bold mb-4" style={{ height: '65px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 0 1.5rem 0' }}>{plan.title}</h3>
 
                 <div className="role-tabs-container mb-4" style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div className="role-tabs-nav" style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', justifyContent: 'center', width: '100%' }}>
+                    <div className="role-tabs-nav" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '6px', width: '100%' }}>
                         {interfaces.map((item) => (
                             <button
                                 key={item.id}
                                 onClick={() => setActiveRoleTab(item.id)}
                                 className={`role-tab-btn ${activeRoleTab === item.id ? 'active' : ''}`}
-                                style={{ '--active-color': item.color, padding: '6px 12px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '4px' }}
+                                style={{ 
+                                    '--active-color': item.color, 
+                                    padding: '6px 12px', 
+                                    fontSize: '0.8rem', 
+                                    display: 'flex', 
+                                    alignItems: 'center', 
+                                    justifyContent: 'center', 
+                                    gap: '4px',
+                                    gridColumn: plan.type === 'vidya-ai-lms' && item.id === 'superadmin' ? 'span 2' : 'span 1'
+                                }}
                             >
                                 <item.icon size={14} />
                                 <span>{item.label}</span>

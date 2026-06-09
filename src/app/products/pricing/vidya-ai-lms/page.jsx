@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import {
@@ -11,166 +11,73 @@ import {
     CarouselNext,
 } from '@/components/ui/carousel';
 import PaymentForm from '@/app/_components/products/PaymentForm';
-import styles from './PricingDetail.module.css';
+import styles from '../PricingDetail.module.css'; // Reuse existing styles
 import Autoplay from "embla-carousel-autoplay";
-
-// Helper to format currency
-const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('en-IN', {
-        style: 'currency',
-        currency: 'INR',
-        maximumFractionDigits: 0
-    }).format(amount).replace('₹', '₹ ');
-};
-
-const PLAN_DETAILS = {
-    'vidya-ai-lms': {
-        showQuizMasterDetails: true,
-        sections: [
-            {
-                image: "/img/student-home-page.png",
-                title: "Comprehensive LMS Solution",
-                description: "Vidya AI LMS is a comprehensive learning management system built to streamline online education while delivering a secure, intelligent, and user-friendly experience for administrators, instructors, and students."
-            },
-            {
-                image: "/img/admin-dashboard-2.png",
-                title: "Super Admin Dashboard",
-                description: "The platform features a powerful Super Admin Dashboard that provides centralized control over users, class schedules, quizzes, payments, and overall system performance, along with built-in revenue tracking to monitor financial growth in real time."
-            },
-            {
-                image: "/img/instructor.png",
-                title: "Instructor Empowerment",
-                description: "Instructors are supported through a dedicated dashboard that enables them to manage classes, select and assign quizzes, evaluate student performance, and provide structured study materials efficiently."
-            },
-            {
-                image: "/img/student-home-page.png",
-                title: "Student Success Center",
-                description: "Students benefit from a personalized dashboard that displays their progress, class schedules, and assessments, enhanced with AI-powered hints during quizzes to promote learning without compromising assessment integrity."
-            },
-            {
-                image: "/img/quiz-servilance.png",
-                title: "Secure & Intelligent Assessments",
-                description: "Vidya AI LMS features quiz surveillance for secure exams, an AI-powered quiz generator, secure payments, automated reminders, and transparent transaction tracking, ensuring a reliable and scalable solution for modern digital education."
-            }
-        ],
-        features: [
-            "Super Admin, Instructor & Student Dashboards",
-            "AI-Powered Quiz Hints & Practice Quiz Generator",
-            "Quiz Surveillance for Secure Assessments",
-            "Class Scheduling & Study Material Management",
-            "Secure Payments with Automated Reminders",
-            "Real-Time Revenue Tracking & Analytics"
-        ],
-        technology: ["Django", "MySQL", "HTML", "CSS", "JavaScript",'Bootstrap','Jquery','React','OpenAI API'],
-        tags: ["LMS", "Education", "AI", "Quiz", "Dashboard", "Learning", "Assessment", "Online Platform", "EdTech", "Management System"]
-    },
-    'taskity': {
-        showTaskityDetails: true,
-        sections: [
-            {
-                image: "/img/taskity/01.png",
-                title: "Ultimate HRMS & Corporate Portal",
-                description: "Taskity bridges the gap between daily human resource tracking, granular financial auditing, and active project execution under a unified corporate operating ecosystem."
-            },
-            {
-                image: "/img/taskity/02.png",
-                title: "Executive command center",
-                description: "Tracks active project statuses, overall operating costs, and visual goal-tracking progress bars against target revenue milestones in real-time."
-            },
-            {
-                image: "/img/taskity/03.png",
-                title: "Financial Ledger & Payroll Matrix",
-                description: "Accountants process CTC, Basic Pay, and HRA payrolls easily while verifying sales/purchase invoices with integrated GST/TDS ledger rules."
-            },
-            {
-                image: "/img/taskity/04.png",
-                title: "Smart Time Clock attendance",
-                description: "Monitors precise punch in/out times, break durations, daily active hours, and generates engagement reports instantly."
-            },
-            {
-                image: "/img/taskity/05.png",
-                title: "Advanced evaluations & project trackers",
-                description: "Evaluate core team member competencies using continuous metric sliders and oversee project allocations from Not Started to Under Testing."
-            }
-        ],
-        features: [
-            "Super Admin, Executive & Department Manager Portals",
-            "Smart Punch Clock with Attendance Red Flags",
-            "Continuous Competency Metric Rating Sliders",
-            "Salary Slip Engine with custom CTC & HRA calculators",
-            "Tax Invoice Vault (GST / TDS LEDGER) and Reports",
-            "Project Lifecycle Pipelines & Task Board orchestrators",
-            "White-Label custom branding & deployment settings"
-        ],
-        technology: ["Next.js", "React", "MySQL", "Node.js", "Tailwind CSS", "Bootstrap Grid", "Framer Motion"],
-        tags: ["HRMS", "Portal", "SaaS", "Operations", "Finance Ledger", "Project Management", "Invoice Vault", "Attendance Clock"]
-    },
-    // Fallback/Legacy
-    basic: {
-        description: "Vidya AI LMS is a comprehensive learning management system built to streamline online education...",
-        features: [
-            "Super Admin, Instructor & Student Dashboards",
-            "AI-Powered Quiz Hints & Practice Quiz Generator",
-            "Quiz Surveillance for Secure Assessments",
-            "Class Scheduling & Study Material Management",
-            "Secure Payments with Automated Reminders",
-            "Real-Time Revenue Tracking & Analytics"
-        ],
-        technology: ["Django", "MySQL", "HTML", "CSS", "JavaScript",'Bootstrap','Jquery','React','OpenAI API'],
-        tags: ["LMS", "Education", "AI", "Quiz", "Dashboard", "Learning", "Assessment", "Online Platform", "EdTech", "Management System"]
-    },
-};
-
 import StackingCards from '@/app/_components/products/StackingCards';
 import QuizMasterDetails from '@/app/_components/products/QuizMasterDetails';
-import TaskityDetails from '@/app/_components/products/TaskityDetails';
-import SubscriptionOptions from '@/app/_components/products/SubscriptionOptions';
 import ProductHighlights from '@/app/_components/products/ProductHighlights';
 
-const ProductDescription = ({ planType }) => {
-    const details = PLAN_DETAILS[planType] || PLAN_DETAILS['vidya-ai-lms'] || PLAN_DETAILS.basic;
+const PLAN_DETAILS = {
+    showQuizMasterDetails: true,
+    sections: [
+        {
+            image: "/img/student-home-page.png",
+            title: "Comprehensive LMS Solution",
+            description: "Vidya AI LMS is a comprehensive learning management system built to streamline online education while delivering a secure, intelligent, and user-friendly experience for administrators, instructors, and students."
+        },
+        {
+            image: "/img/admin-dashboard-2.png",
+            title: "Super Admin Dashboard",
+            description: "The platform features a powerful Super Admin Dashboard that provides centralized control over users, class schedules, quizzes, payments, and overall system performance, along with built-in revenue tracking to monitor financial growth in real time."
+        },
+        {
+            image: "/img/instructor.png",
+            title: "Instructor Empowerment",
+            description: "Instructors are supported through a dedicated dashboard that enables them to manage classes, select and assign quizzes, evaluate student performance, and provide structured study materials efficiently."
+        },
+        {
+            image: "/img/student-home-page.png",
+            title: "Student Success Center",
+            description: "Students benefit from a personalized dashboard that displays their progress, class schedules, and assessments, enhanced with AI-powered hints during quizzes to promote learning without compromising assessment integrity."
+        },
+        {
+            image: "/img/quiz-servilance.png",
+            title: "Secure & Intelligent Assessments",
+            description: "Vidya AI LMS features quiz surveillance for secure exams, an AI-powered quiz generator, secure payments, automated reminders, and transparent transaction tracking, ensuring a reliable and scalable solution for modern digital education."
+        }
+    ],
+    features: [
+        "Super Admin, Instructor & Student Dashboards",
+        "AI-Powered Quiz Hints & Practice Quiz Generator",
+        "Quiz Surveillance for Secure Assessments",
+        "Class Scheduling & Study Material Management",
+        "Secure Payments with Automated Reminders",
+        "Real-Time Revenue Tracking & Analytics"
+    ],
+    technology: ["Django", "MySQL", "HTML", "CSS", "JavaScript", 'Bootstrap', 'Jquery', 'React', 'OpenAI API'],
+    tags: ["LMS", "Education", "AI", "Quiz", "Dashboard", "Learning", "Assessment", "Online Platform", "EdTech", "Management System"]
+};
 
-    // Transform sections to cards data if available
-    const cardsData = details.sections?.map((section, idx) => ({
+const ProductDescription = () => {
+    const cardsData = PLAN_DETAILS.sections.map((section) => ({
         title: section.title,
         description: section.description,
         src: section.image,
-        // Assign colors cyclically or fixed palette
-        // Light Theme: Use white cards with shadows (handled in CSS), or very subtle pastels if needed.
-        // For clean light theme, let's use all white (#ffffff) or maybe just slightly different shades.
-        // But since CSS has a border and shadow, white works effectively.
-        color: '#ffffff', 
-        url: "#" // No specific link in current data
-    })) || [];
+        color: '#ffffff',
+        url: "#"
+    }));
 
     return (
         <div className={styles.productDescSection}>
-            {/* Stacking Cards Section */}
-            {cardsData.length > 0 ? (
-                <StackingCards data={cardsData} />
-            ) : (
-                 <>
-                    <div className={styles.sectionHeading}>Description</div>
-                    <p className={styles.descText}>
-                        {details.description}
-                    </p>
-                </>
-            )}
-
-            {details.showQuizMasterDetails && <QuizMasterDetails />}
-            {details.showTaskityDetails && <TaskityDetails />}
-
-            {planType === 'vidya-ai-lms' && <ProductHighlights />}
-
+            <StackingCards data={cardsData} />
+            <QuizMasterDetails />
+            <ProductHighlights />
         </div>
     );
 };
 
-const PricingDetailPage = () => {
-    const params = useParams();
+const VidyaLMSDetailPage = () => {
     const router = useRouter();
-    const { id } = params;
-    
     const [plan, setPlan] = useState(null);
     const [loading, setLoading] = useState(true);
     const [api, setApi] = useState(null);
@@ -178,24 +85,19 @@ const PricingDetailPage = () => {
     const [isSupportChecked, setIsSupportChecked] = useState(true);
     const [selectedSubscription, setSelectedSubscription] = useState("");
 
-
-
     const SUPPORT_COST = 3000;
 
-    // Fetch Plan Data
+    // Fetch Plan Data specifically for vidya-ai-lms
     useEffect(() => {
         const fetchPlan = async () => {
             try {
-                // In a real app, you might have a specific API for fetching by ID, 
-                // but here we'll fetch all and filter since it's a small list.
                 const response = await fetch('/api/pricing');
                 if (response.ok) {
                     const data = await response.json();
-                    const foundPlan = data.find(p => p.type === id);
+                    const foundPlan = data.find(p => p.type === 'vidya-ai-lms');
                     if (foundPlan) {
                         setPlan(foundPlan);
                     } else {
-                        // Handle not found
                         router.push('/products/pricing');
                     }
                 }
@@ -205,11 +107,8 @@ const PricingDetailPage = () => {
                 setLoading(false);
             }
         };
-
-        if (id) {
-            fetchPlan();
-        }
-    }, [id, router]);
+        fetchPlan();
+    }, [router]);
 
     // Carousel State Sync
     useEffect(() => {
@@ -237,11 +136,7 @@ const PricingDetailPage = () => {
 
     if (!plan) return null;
 
-    // Derived State
     const baseAmount = Number(plan.amount);
-    const totalAmount = isSupportChecked ? baseAmount + (SUPPORT_COST * 100) : baseAmount;
-    
-    // Consistent Display Logic
     const numericPrice = Number(plan.price.replace(/,/g, ''));
     const displayTotal = (numericPrice + (isSupportChecked ? SUPPORT_COST : 0)).toLocaleString('en-IN');
     
@@ -249,15 +144,13 @@ const PricingDetailPage = () => {
         ? (Number(plan.amount) + SUPPORT_COST) 
         : Number(plan.amount);
 
-
-    // Use dynamic slides from plan or fallback
-    const slides = plan.sliderImages 
+    const slides = plan.sliderImages;
 
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
                 
-                {/* Back Button / Breadcrumb */}
+                {/* Back Button */}
                 <button 
                     onClick={() => router.back()} 
                     className={styles.backButton}
@@ -317,7 +210,7 @@ const PricingDetailPage = () => {
                             {/* Thumbnails Carousel */}
                             <div className={styles.thumbnailCarouselWrapper}>
                                 <Carousel 
-                                    setApi={() => {}} // We don't necessarily need the API for this one unless for sync, but simple click works
+                                    setApi={() => {}}
                                     opts={{ 
                                         align: "start",
                                         dragFree: true,
@@ -349,17 +242,15 @@ const PricingDetailPage = () => {
                             </div>
                         </div>
 
-                        {/* Mobile Payment Form - Only visible on small screens */}
+                        {/* Mobile Payment Form */}
                         <div className={styles.mobilePaymentContainer}>
                             <div className={styles.paymentSection} style={{ padding: '20px' }}>
                                 <h2 className={styles.checkoutTitle}>
                                     Starting From ₹25,000
                                 </h2>
-                                {(plan.type === 'vidya-ai-lms' || plan.type === 'taskity') && (
-                                    <p className={styles.pricingSubText}>
-                                        *For basic features. Price increases with advanced modules.
-                                    </p>
-                                )}
+                                <p className={styles.pricingSubText}>
+                                    *For basic features. Price increases with advanced modules.
+                                </p>
                                 <PaymentForm 
                                     plan={plan}
                                     isSupportChecked={isSupportChecked}
@@ -371,44 +262,36 @@ const PricingDetailPage = () => {
                             </div>
                         </div>
 
-                         {/* Product Description Section */}
-                         <div className={styles.header}>
+                        {/* Product Description */}
+                        <div className={styles.header}>
                             <h1 className={styles.title}>
                                 {plan.title}
                             </h1>
                             <p className={styles.description}>
-                                Get started with our {plan.title}. Includes premium features, dedicated resources, and everything you need to scale your business effectively.
+                                Get started with our {plan.title}. Includes premium learning tools, secure test modules, AI avatars, and everything you need to manage education successfully.
                             </p>
                         </div>
-                         <ProductDescription planType={plan.type} />
+                        <ProductDescription />
 
-                         {/* Moved Features, Files, and Tags Section */}
-                         <div className={styles.paymentSection} style={{ padding: '20px', marginTop: '20px' }}>
+                        {/* Features & Details */}
+                        <div className={styles.paymentSection} style={{ padding: '20px', marginTop: '20px' }}>
                             <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px', marginTop: '0' }}>Features</div>
                             <ul className={styles.bulletList} style={{ fontSize: '0.9rem', marginBottom: '20px' }}>
-                                {PLAN_DETAILS[plan.type]?.features?.map((feature, idx) => (
-                                    <li key={idx} style={{ marginBottom: '8px' }}>{feature}</li>
-                                )) || PLAN_DETAILS.basic.features.map((feature, idx) => (
+                                {PLAN_DETAILS.features.map((feature, idx) => (
                                     <li key={idx} style={{ marginBottom: '8px' }}>{feature}</li>
                                 ))}
                             </ul>
 
                             <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px', marginTop: '0' }}>Technologies Used</div>
                             <ul className={styles.bulletList} style={{ fontSize: '0.9rem', marginBottom: '20px' }}>
-                                {PLAN_DETAILS[plan.type]?.technology?.map((file, idx) => (
-                                    <li key={idx} style={{ marginBottom: '8px' }}>{file}</li>
-                                )) || PLAN_DETAILS.basic.technology.map((file, idx) => (
-                                    <li key={idx} style={{ marginBottom: '8px' }}>{file}</li>
+                                {PLAN_DETAILS.technology.map((tech, idx) => (
+                                    <li key={idx} style={{ marginBottom: '8px' }}>{tech}</li>
                                 ))}
                             </ul>
 
                             <div className={styles.sectionHeading} style={{ fontSize: '1.2rem', marginBottom: '10px', marginTop: '0' }}>Item Tags</div>
                             <div className={styles.tagsContainer} style={{ fontSize: '0.8rem' }}>
-                                {PLAN_DETAILS[plan.type]?.tags?.map((tag, idx) => (
-                                    <span key={idx} className={styles.tagChip} style={{ padding: '4px 8px', margin: '0 4px 4px 0' }}>
-                                        {tag}
-                                    </span>
-                                )) || PLAN_DETAILS.basic.tags.map((tag, idx) => (
+                                {PLAN_DETAILS.tags.map((tag, idx) => (
                                     <span key={idx} className={styles.tagChip} style={{ padding: '4px 8px', margin: '0 4px 4px 0' }}>
                                         {tag}
                                     </span>
@@ -417,32 +300,15 @@ const PricingDetailPage = () => {
                         </div>
                     </div>
 
-                    {/* Right Column: Details & Checkout */}
+                    {/* Right Column: Checkout */}
                     <div className={styles.detailsWrapper}>
-                        
-                        {/* Header */}
-                        {/* <div className={styles.header}>
-                            <h1 className={styles.title}>
-                                {plan.title}
-                            </h1>
-                            <p className={styles.description}>
-                                Get started with our {plan.title}. Includes premium features, dedicated resources, and everything you need to scale your business effectively.
-                            </p>
-                        </div> */}
-
-
-
-                        {/* Payment Section (Card-like container) */}
                         <div className={styles.paymentSection} style={{ padding: '20px' }}>
                             <h2 className={styles.checkoutTitle}>
                                 Starting From ₹25,000
                             </h2>
-                            {(plan.type === 'vidya-ai-lms' || plan.type === 'taskity') && (
-                                <p className={styles.pricingSubText}>
-                                    *For basic features. Price increases with advanced modules.
-                                </p>
-                            )}
-                            
+                            <p className={styles.pricingSubText}>
+                                *For basic features. Price increases with advanced modules.
+                            </p>
                             <PaymentForm 
                                 plan={plan}
                                 isSupportChecked={isSupportChecked}
@@ -451,30 +317,12 @@ const PricingDetailPage = () => {
                                 displayTotal={displayTotal}
                                 selectedSubscription={selectedSubscription}
                             />
-                            
-                            {/* <p className={styles.secureText}>
-                                Secure payment. Cancel anytime.
-                            </p> */}
                         </div>
-
-
-
                     </div>
                 </div>
-                
-                {/* Subscription Options (Full Width) */}
-                {plan.type !== 'vidya-ai-lms' && plan.type !== 'taskity' && (
-                    <SubscriptionOptions 
-                        basePrice={numericPrice} 
-                        features={PLAN_DETAILS[plan.type]?.features || PLAN_DETAILS.basic.features} 
-                        setSelectedSubscription={setSelectedSubscription}
-                        selectedSubscription={selectedSubscription}
-                    />
-                )}
-
             </div>
             
-            {/* Lightbox Overlay */}
+            {/* Lightbox */}
             {mounted && createPortal(
                 <AnimatePresence>
                     {selectedImage && (
@@ -501,7 +349,7 @@ const PricingDetailPage = () => {
                                 src={selectedImage} 
                                 alt="Full screen view" 
                                 className={styles.lightboxImage}
-                                onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+                                onClick={(e) => e.stopPropagation()}
                             />
                         </motion.div>
                     )}
@@ -512,4 +360,4 @@ const PricingDetailPage = () => {
     );
 };
 
-export default PricingDetailPage;
+export default VidyaLMSDetailPage;

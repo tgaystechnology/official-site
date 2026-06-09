@@ -102,7 +102,7 @@
     aspect-ratio: 4/3;
     width: 100%;
     position: relative;
-    background-color: #f1f5f9;
+    background-color: #ffffff;
     cursor: zoom-in;
 }
 
@@ -111,7 +111,8 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: #ffffff;
     transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -227,7 +228,6 @@
 
 .thumbnailContent {
     margin-left: -1rem; /* Negative margin to counteract item padding if needed, or adjust gap logic */
-    /* Embla carousel content logic */
 }
 
 .thumbnailItem {
@@ -282,7 +282,6 @@
 }
 
 /* Product Content Left */
-/* .productDescSection removed as it was empty */
 .productDescSection {
     margin-top: 2rem;
 }
@@ -380,7 +379,7 @@
 
 @media (max-width: 1023px) {
     .detailsWrapper {
-        display: block; /* Keep visible for tablet as per user request */
+        display: block; /* Keep visible for tablet */
     }
 }
 
@@ -455,7 +454,6 @@
     padding: 1.5rem;
     border: 1px solid #e2e8f0;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-    /* User logic has padding override, but this base styling is robust */
 }
 
 @media (min-width: 1024px) {
@@ -488,15 +486,13 @@
     position: fixed;
     inset: 0;
     z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.95); /* Light Theme: White Overlay */
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2rem;
 }
-
-/* Override for dark mode preference in lightbox if desired, but user asked for Light Theme */
 
 .lightboxCloseBtn {
     position: absolute;
@@ -593,4 +589,396 @@
     margin-bottom: 1.2rem;
     line-height: 1.4;
     font-weight: 500;
+}
+
+/* 7-Pillar Explorer Styles */
+.explorerContainer {
+    margin: 4rem 0;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+    padding: 2.5rem;
+}
+
+.explorerHeader {
+    text-align: left;
+    margin-bottom: 2.5rem;
+}
+
+.explorerBadge {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.explorerTitle {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.explorerDesc {
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.explorerLayout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+    .explorerLayout {
+        grid-template-columns: 280px 1fr;
+        gap: 3rem;
+    }
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tabBtn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.tabBtn:hover {
+    background: #f8fafc;
+}
+
+.tabBtnActive {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+}
+
+.tabIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    background: #f1f5f9;
+    color: #64748b;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.tabBtnActive .tabIconWrapper {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+.tabText {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tabLabel {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.tabBtnActive .tabLabel {
+    color: #0f172a;
+}
+
+.tabSubtitle {
+    font-size: 0.75rem;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.detailPane {
+    background: #f8fafc;
+    border-radius: 1rem;
+    border: 1px solid #f1f5f9;
+    padding: 2rem;
+    min-height: 520px;
+}
+
+.detailPillarBadge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.detailTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.detailDesc {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.featuresGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .featuresGridTwoCol {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.featureCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    transition: all 0.2s ease;
+}
+
+.featureCard:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.featureTitle {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.featureDesc {
+    font-size: 0.825rem;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.bulletDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Compliance Section Styles */
+.complianceSection {
+    margin: 4rem 0;
+    padding: 3rem;
+    border-radius: 1.5rem;
+    background: #0f172a; /* slate-900 */
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+    text-align: left;
+}
+
+.complianceBadge {
+    display: inline-block;
+    background: #22c55e; /* green-500 */
+    color: #ffffff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.complianceTitle {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+.complianceDesc {
+    color: #94a3b8; /* slate-400 */
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 650px;
+}
+
+.complianceGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .complianceGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+.complianceItem {
+    display: flex;
+    gap: 0.85rem;
+    align-items: start;
+}
+
+.complianceIcon {
+    color: #22c55e;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.complianceText {
+    font-size: 0.95rem;
+    color: #e2e8f0;
+    line-height: 1.5;
+}
+
+.lockBgIcon {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    color: #1e293b;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Responsive Explorer Layouts */
+.desktopExplorer {
+    display: none;
+}
+
+.mobileExplorer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .desktopExplorer {
+        display: block;
+    }
+    .mobileExplorer {
+        display: none;
+    }
+}
+
+/* Accordion Specific Styling */
+.accordionItem {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordionItemOpen {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+.accordionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.25rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.2s ease;
+}
+
+.accordionHeader:hover {
+    background: #f8fafc;
+}
+
+.accordionHeaderLeft {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.accordionIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    flex-shrink: 0;
+}
+
+.accordionText {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordionLabel {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.accordionSubtitle {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 0.15rem;
+}
+
+.accordionChevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+}
+
+.accordionContentInner {
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-top: 1px solid #f1f5f9;
 }
