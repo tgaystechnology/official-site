@@ -137,7 +137,7 @@ const AiDevelopmentSection = () => {
         
         {/* Intro Box */}
         <div className={styles.introHero}>
-          <h1 className={styles.mainHeading}>Best AI Development Company in India for Startups, Enterprises & Global Businesses</h1>
+          <h2 className={styles.mainHeading}>Best AI Development Company in India for Startups, Enterprises & Global Businesses</h2>
           <h2 className={styles.subHeading}>Transform Your Business with Advanced AI Solutions</h2>
           <p className={styles.text}>
             At TGAYS Technology, we help startups, enterprises, and growing businesses unlock the power of Artificial Intelligence to automate operations, improve decision-making, enhance customer experiences, and accelerate growth. As the Best AI Development Company in India, we build intelligent AI-powered solutions that solve real business challenges and create measurable outcomes.
