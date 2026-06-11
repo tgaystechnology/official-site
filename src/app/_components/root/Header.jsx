@@ -13,6 +13,29 @@ const Header = ({ menuData = [] }) => {
   const [mounted, setMounted] = React.useState(false);
   const breakpoint = 992;
 
+  // Intercept and modify Products menu item to remove dropdown and link directly to /products/pricing
+  const rawProcessedMenuData = menuData.map(page => {
+    if (page.page_title && page.page_title.toLowerCase().includes("product")) {
+      return {
+        ...page,
+        page_slug: "/products/pricing",
+        subPages: [] // Emptied to prevent rendering the dropdown
+      };
+    }
+    return page;
+  });
+
+  // Swap "Products" and "Our Work" in the array if both exist
+  const processedMenuData = [...rawProcessedMenuData];
+  const productsIdx = processedMenuData.findIndex(page => page.page_title && page.page_title.toLowerCase().includes("product"));
+  const ourWorkIdx = processedMenuData.findIndex(page => page.page_title && page.page_title.toLowerCase().replace(/\s/g, "") === "ourwork");
+  
+  if (productsIdx !== -1 && ourWorkIdx !== -1) {
+    const temp = processedMenuData[productsIdx];
+    processedMenuData[productsIdx] = processedMenuData[ourWorkIdx];
+    processedMenuData[ourWorkIdx] = temp;
+  }
+
   React.useEffect(() => {
     setMounted(true);
   }, []);
@@ -225,7 +248,7 @@ const Header = ({ menuData = [] }) => {
                 style={mounted && isMobile ? { display: isMenuOpen ? 'block' : 'none' } : {}}
               >
                 {/* Dynamic menu items from database */}
-                {menuData.map(page => renderMenuItem(page))}
+                {processedMenuData.map(page => renderMenuItem(page))}
                 
                 {/* Static menu items */}
                 {/* <li><a href="/blog">Blog</a></li> */}
