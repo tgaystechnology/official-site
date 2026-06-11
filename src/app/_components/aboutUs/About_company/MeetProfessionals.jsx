@@ -12,6 +12,13 @@ const MeetProfessionals = () => {
       alt: "Mohan Kumar Jha - Business Development Consultant"
     },
     {
+      id: 10,
+      name: "Ranjeet Singh",
+      designation: "Digital Marketing Head",
+      image: "/img/ranjeet-singh.jpg",
+      alt: "Ranjeet Singh - Digital Marketing Head"
+    },
+    {
       id: 2,
       name: "Prince Singh",
       designation: "Project Lead - Web & Mobile App",
