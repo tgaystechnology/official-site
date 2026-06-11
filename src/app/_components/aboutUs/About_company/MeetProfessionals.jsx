@@ -110,6 +110,7 @@ const MeetProfessionals = () => {
                           width={300}
                           height={300}
                           className="team-member-image"
+                          style={{ width: "100%", height: "auto", aspectRatio: "1/1", objectFit: "cover" }}
                           itemProp="image"
                         />
                       </Link>
