@@ -4,6 +4,20 @@ import Link from 'next/link'; // Changed from react-router-dom to next/link
 const AboutUs = () => {
   return (
     <section className="background-contain pt100 hm-about-sec" aria-label="About TGays Technology">
+      <style dangerouslySetInnerHTML={{__html: `
+        .heading-text a.custom-inline-link {
+          color: #0083FF !important;
+          text-decoration: underline !important;
+          background: transparent !important;
+          display: inline !important;
+          padding: 0 !important;
+        }
+        .heading-text a.custom-inline-link:hover {
+          color: #0056b3 !important;
+          background: transparent !important;
+          text-decoration: underline !important;
+        }
+      `}} />
       <div className="container">
         <div className="row">
           <div className="col-xl-6 col-lg-6 about-left">
@@ -32,9 +46,8 @@ const AboutUs = () => {
               </div>
               <p className="heading-text">
                 Welcome to TGAYS Technology, your premier partner in digital innovation and technology solutions. 
-                With a dedicated team of industry experts, we specialize in crafting cutting-edge websites, 
-                mobile applications, Software as a Service (SaaS) products, and Customer Relationship Management 
-                (CRM) systems that drive business success.
+                With a dedicated team of industry experts, we specialize in crafting cutting-edge <Link href="/services/web-development" className="custom-inline-link">websites</Link>, 
+                <Link href="/services/mobile-app" className="custom-inline-link">mobile applications</Link>, <Link href="/services/mvp-development" className="custom-inline-link">Software as a Service (SaaS) products</Link>, and <Link href="/services/customized-crm-development" className="custom-inline-link">Customer Relationship Management (CRM) systems</Link> that drive business success.
               </p>
               <p>
                 Our mission is to empower businesses by transforming their digital presence and streamlining 

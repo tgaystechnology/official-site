@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const OurSolutions = () => {
   const solutions = [
@@ -111,8 +112,101 @@ const OurSolutions = () => {
     }
   ];
 
+  const renderSolutionItem = (item) => {
+    const trimmed = item.trim();
+    if (trimmed === "Website & Mobile Application") {
+      return (
+        <span>
+          {" "}
+          <Link href="/services/web-development" className="custom-inline-link">Website</Link> &{" "}
+          <Link href="/services/mobile-app" className="custom-inline-link">Mobile Application</Link>
+        </span>
+      );
+    }
+    if (trimmed === "Web Application Platform") {
+      return (
+        <span>
+          {" "}
+          <Link href="/services/web-development" className="custom-inline-link">Web Application Platform</Link>
+        </span>
+      );
+    }
+    if (trimmed === "Medical Websites") {
+      return (
+        <span>
+          {" "}Medical{" "}
+          <Link href="/services/web-development" className="custom-inline-link">Websites</Link>
+        </span>
+      );
+    }
+    if (trimmed === "Gym & Yoga Websites") {
+      return (
+        <span>
+          {" "}Gym & Yoga{" "}
+          <Link href="/services/web-development" className="custom-inline-link">Websites</Link>
+        </span>
+      );
+    }
+    if (trimmed === "E-commerce websites & apps") {
+      return (
+        <span>
+          {" "}E-commerce{" "}
+          <Link href="/services/web-development" className="custom-inline-link">websites</Link> &{" "}
+          <Link href="/services/mobile-app" className="custom-inline-link">apps</Link>
+        </span>
+      );
+    }
+    if (trimmed === "Workout apps") {
+      return (
+        <span>
+          {" "}Workout{" "}
+          <Link href="/services/mobile-app" className="custom-inline-link">apps</Link>
+        </span>
+      );
+    }
+    if (trimmed === "Chatbots") {
+      return (
+        <span>
+          {" "}
+          <Link href="/services/ai-powered-services" className="custom-inline-link">Chatbots</Link>
+        </span>
+      );
+    }
+    if (trimmed === "AI Based Customer Services Tools") {
+      return (
+        <span>
+          {" "}
+          <Link href="/services/ai-powered-services" className="custom-inline-link">AI Based Customer Services Tools</Link>
+        </span>
+      );
+    }
+    if (trimmed === "Custom CRM Software") {
+      return (
+        <span>
+          {" "}
+          <Link href="/services/customized-crm-development" className="custom-inline-link">Custom CRM Software</Link>
+        </span>
+      );
+    }
+    return item;
+  };
+
   return (
     <section className="background-contain web-totle our_solution_section" aria-label="IT Solutions and Digital Services">
+      <style dangerouslySetInnerHTML={{__html: `
+        .counter-box ul li a.custom-inline-link {
+          color: #0083FF !important;
+          text-decoration: underline !important;
+          background: transparent !important;
+          display: inline !important;
+          padding: 0 !important;
+        }
+        .counter-box ul li a.custom-inline-link:hover {
+          color: #0056b3 !important;
+          background: transparent !important;
+          text-decoration: underline !important;
+        }
+      `}} />
       <div className="container">
         <div className="counters">
           <div className="row">
@@ -130,7 +224,7 @@ const OurSolutions = () => {
                   </div>
                   <ul>
                     {solution.items.map((item, i) => (
-                      <li key={i}><span aria-hidden="true">-</span>{item}</li>
+                      <li key={i}><span aria-hidden="true">-</span>{renderSolutionItem(item)}</li>
                     ))}
                   </ul>
                 </div>
@@ -146,4 +240,4 @@ const OurSolutions = () => {
   );
 };
 
-export default OurSolutions;
+export default OurSolutions;
