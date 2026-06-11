@@ -21,20 +21,6 @@ const BannerSlider = () => {
         className="carousel slide home_banner_slider_sec"
         data-bs-ride="carousel"
       >
-        <style dangerouslySetInnerHTML={{__html: `
-          .home_banner_slider_sec a.custom-inline-link {
-            color: #0083FF !important;
-            text-decoration: underline !important;
-            background: transparent !important;
-            display: inline !important;
-            padding: 0 !important;
-          }
-          .home_banner_slider_sec a.custom-inline-link:hover {
-            color: #0056b3 !important;
-            background: transparent !important;
-            text-decoration: underline !important;
-          }
-        `}} />
         <div className="carousel-inner">
           <div className="carousel-item">
             <Image
@@ -48,11 +34,11 @@ const BannerSlider = () => {
             <div className="overlay" />
             <div className="carousel-caption  d-md-block home-page-slider-sec home-first-slider">
               <h1>
-                Empowering the Future With <Link href="/services/ai-powered-services" className="custom-inline-link">AI</Link>
+                Empowering the Future With AI
                 <br />
               </h1>
               <p>
-                We integrate advanced <Link href="/services/ai-powered-services" className="custom-inline-link">Artificial Intelligence</Link> to create intelligent, predictive, and adaptive digital solutions. Let us help you unlock data-driven insights, automate complex processes, and build a competitive advantage that lasts.
+                We integrate advanced Artificial Intelligence to create intelligent, predictive, and adaptive digital solutions. Let us help you unlock data-driven insights, automate complex processes, and build a competitive advantage that lasts.
               </p>
               <Link href="/contact-us" aria-label="Free Consultation TGays Technology">
                 <span className="title">Schedule a Free Consultation</span>
@@ -72,7 +58,7 @@ const BannerSlider = () => {
             <div className="overlay" />
             <div className="carousel-caption  d-md-block home-page-slider-sec home-first-slider">
               <h2>
-                Trusted for <Link href="/services/mvp-development" className="custom-inline-link">SaaS</Link>, <Link href="/services/web-development" className="custom-inline-link">Websites</Link>, <Link href="/services/mobile-app" className="custom-inline-link">Mobile</Link> and <Link href="/services/web-development" className="custom-inline-link">Web Apps</Link>
+                Trusted for SaaS, Websites, Mobile and Web Apps
                 <br />
               </h2>
               <p>
