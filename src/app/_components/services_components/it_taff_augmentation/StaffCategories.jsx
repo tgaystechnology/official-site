@@ -56,30 +56,38 @@ const StaffCategories = () => {
           <p>Explore our pool of industry-ready professionals available for immediate deployment.</p>
         </div>
 
-        <div className="row clearfix">
+        <div className="row clearfix d-flex align-items-stretch">
           {categories.map((category) => (
-            <div key={category.id} className="col-lg-3 col-md-6 col-sm-12 service-block">
-              <div className="service-block-one">
-                <div className="inner-box">
-                  <figure className="image-box" aria-hidden="true">
-                    <Lottie
-                      path={`/lottie/${category.image}`}
-                      loop
-                      autoplay
-                      className=""
-                    />
-                    <span className="category">{category.category}</span>
+            <div key={category.id} className="col-lg-3 col-md-6 col-sm-12 service-block d-flex mb-4 mb-lg-0">
+              <div className="service-block-one w-100" style={{ height: "100%" }}>
+                <div className="inner-box" style={{ border: "none", boxShadow: "rgba(0, 0, 0, 0.05) 0px 10px 30px", borderRadius: "16px", background: "#fff", overflow: "hidden", height: "100%", display: "flex", flexDirection: "column", padding: "0" }}>
+                  <figure className="image-box" aria-hidden="true" style={{ background: "#f8f9fa", padding: "30px 20px 20px 20px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative", margin: "0" }}>
+                    <div style={{ width: "100%", maxWidth: "160px", height: "auto" }}>
+                      <Lottie
+                        path={`/lottie/${category.image}`}
+                        loop
+                        autoplay
+                        className=""
+                      />
+                    </div>
+                    <span className="category" style={{ position: "absolute", top: "15px", right: "15px", background: "rgba(0, 131, 255, 0.1)", color: "#0083FF", fontSize: "0.75rem", fontWeight: "700", padding: "4px 12px", borderRadius: "30px", textTransform: "uppercase" }}>
+                      {category.category}
+                    </span>
                   </figure>
-                  <div className="lower-content">
+                  <div className="lower-content" style={{ padding: "25px 20px", flexGrow: 1, display: "flex", flexDirection: "column" }}>
                     {category.link ? (
                       <Link href={category.link} legacyBehavior>
-                        <a><h3>{category.title}</h3></a>
+                        <a><h3 style={{ fontSize: "1.2rem", fontWeight: "700", marginBottom: "10px", color: "#111" }}>{category.title}</h3></a>
                       </Link>
                     ) : (
-                      <h3>{category.title}</h3>
+                      <h3 style={{ fontSize: "1.2rem", fontWeight: "700", marginBottom: "10px", color: "#111" }}>{category.title}</h3>
                     )}
-                    <p className="technology-text">{category.technologies}</p>
-                    <p className="experience-text">{category.experience}</p>
+                    <p className="technology-text" style={{ fontSize: "0.85rem", color: "#666", lineHeight: "1.5", marginBottom: "15px", flexGrow: 1 }}>
+                      {category.technologies}
+                    </p>
+                    <p className="experience-text" style={{ fontSize: "0.85rem", color: "#0083FF", fontWeight: "600", borderTop: "1px solid #f0f0f0", paddingTop: "12px", marginTop: "auto", display: "flex", alignItems: "center", gap: "6px", marginBottom: "0" }}>
+                      <span style={{ fontSize: "1.1rem", lineHeight: "1" }}>⏱</span> {category.experience}
+                    </p>
                   </div>
                 </div>
               </div>

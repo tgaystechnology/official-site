@@ -44,12 +44,28 @@ const FAQSection = ({ faqs = [] }) => {
 
   return (
     <section id="faq" className="faqs-section style-two bg-cover" role="region" aria-labelledby="ai-faq-heading">
+      <style dangerouslySetInnerHTML={{__html: `
+        @media only screen and (min-width: 1200px) {
+          .faqs-section.style-two .image-column .inner-column {
+            margin-left: 0 !important;
+            position: sticky !important;
+            top: 120px !important;
+            padding-right: 30px;
+          }
+        }
+        @media only screen and (max-width: 1199px) {
+          .faqs-section.style-two .image-column .inner-column {
+            margin-left: 0 !important;
+            margin-bottom: 40px;
+          }
+        }
+      `}} />
       <div className="container">
         <div className="row">
           {/* Image Column */}
           <div className="image-column col-xl-6 col-lg-12 col-md-12">
             <div className="inner-column">
-              <figure className="image ml-5">
+              <figure className="image mx-auto text-center">
                 <div className="ns-custom-img">
                   <div className="lottie-container faq-svg">
                     <Lottie

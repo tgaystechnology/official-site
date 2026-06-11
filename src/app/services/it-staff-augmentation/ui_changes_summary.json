@@ -1,0 +1,110 @@
+{
+  "page": "/services/it-staff-augmentation",
+  "font_specifications": {
+    "hero_banner": {
+      "font_family": "Rajdhani, sans-serif"
+    },
+    "page_content_below_banner": {
+      "font_family": "Nunito, sans-serif"
+    },
+    "new_section_headers": {
+      "font_family": "Nunito, Arial, \"Helvetica Neue\", Helvetica, sans-serif",
+      "font_size": "34px",
+      "line_height": "44.2px",
+      "font_weight": "800 (Extra Bold)",
+      "letter_spacing": "0.68px"
+    }
+  },
+  "brand_colors": {
+    "primary_blue": "#0083FF",
+    "primary_blue_tint": "rgba(0, 131, 255, 0.05)",
+    "primary_blue_light_tint": "rgba(0, 131, 255, 0.03)"
+  },
+  "sections_modified": [
+    {
+      "section": "Hero Banner",
+      "changes": [
+        "Restored original block layout (.banner-text) to avoid collision with background illustration",
+        "Shortened copy to single punchy paragraph to fit viewport cleanly",
+        "Configured 100vh height layout with vertical flex centering",
+        "Applied Rajdhani font to all internal text elements"
+      ]
+    },
+    {
+      "section": "Access Top-Tier Talent (Introduction)",
+      "changes": [
+        "Created below-banner block containing copy and 9-expertise list",
+        "Applied #0083FF styling to checkmark icons and consultation links"
+      ]
+    },
+    {
+      "section": "Why Choose Us / Differentiators",
+      "changes": [
+        "Modified header text color for 'What Sets Us Apart?' to #0083FF",
+        "Changed left card accent borders to #0083FF"
+      ]
+    },
+    {
+      "section": "IT Staff Augmentation Services India",
+      "changes": [
+        "Replaced 5-card grid with an interactive vertical tab navigation system",
+        "Dynamically updates right-hand panel content to show resources and benefits cleanly"
+      ]
+    },
+    {
+      "section": "Business Challenges We Solve",
+      "changes": [
+        "Restructured layout into a clean responsive table grid",
+        "Updated headers and custom checkmark highlights to #0083FF"
+      ]
+    },
+    {
+      "section": "Process Workflow (6-step timeline)",
+      "changes": [
+        "Updated large transparent card step numbers to rgba(0, 131, 255, 0.1)",
+        "Changed background colors of Step badges to solid #0083FF"
+      ]
+    },
+    {
+      "section": "Benefits of India Staff Augmentation",
+      "changes": [
+        "Replaced inline styles to restore native template layout for icons",
+        "Redesigned dashed cyan box into a solid soft blue border box with shadow styling"
+      ]
+    },
+    {
+      "section": "Staff Categories",
+      "changes": [
+        "Changed harsh borders to borderless layout with soft drop shadows",
+        "Configured flex row height matching",
+        "Pill-tag category badges and clock icon indicators added to footer"
+      ]
+    },
+    {
+      "section": "Industries We Serve",
+      "changes": [
+        "Updated industry icons and soft circular backdrops to #0083FF accent colors"
+      ]
+    },
+    {
+      "section": "Staff Augmentation vs Traditional Hiring",
+      "changes": [
+        "Highlighted the 'Staff Augmentation' column header with #0083FF color"
+      ]
+    },
+    {
+      "section": "FAQ Section",
+      "changes": [
+        "Overrode the template stylesheet -230px left-margin offset to center Lottie content",
+        "Added sticky scroll pinning to Lottie panel on large screens"
+      ]
+    },
+    {
+      "section": "Footer Call to Action (CTA)",
+      "changes": [
+        "Redesigned container into a space-navy card with radial glowing background",
+        "Applied badge indicator subtitle and consistent pill buttons (30px rounded) with hover transitions"
+      ]
+    }
+  ]
+}

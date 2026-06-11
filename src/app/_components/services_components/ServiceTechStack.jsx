@@ -42,15 +42,18 @@ const ServiceTechStack = ({
             
             return (
               <div
-                className={`col-lg-4 col-md-12 col-sm-12 col-xs-12 ${
+                className={`col-lg-4 col-md-12 col-sm-12 col-xs-12 d-flex mb-4 mb-lg-0 ${
                   card.highlight ? 'main-plan' : ''
                 }`}
                 key={index}
               >
-                <div className="crumina-module crumina-pricing-tables-item pricing-tables-item-standard">
-                  <div className="main-pricing-content">
+                <div 
+                  className="crumina-module crumina-pricing-tables-item pricing-tables-item-standard w-100"
+                  style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%" }}
+                >
+                  <div className="main-pricing-content" style={{ display: "flex", flexDirection: "column", height: "100%", flexGrow: 1 }}>
                     <h3 className="h1 rate">{card.title}</h3>
-                    <ul className="pricing-tables-position">
+                    <ul className="pricing-tables-position" style={{ flexGrow: 1, marginBottom: "30px", listStyle: "none", padding: 0 }}>
                       {itemsWithHidden.map((item, idx) => (
                         <li 
                           className={`position-item ${item.hidden ? 'hidden-sec' : 'd-flex align-items-center gap-3'}`} 
@@ -69,9 +72,11 @@ const ServiceTechStack = ({
                       ))}
                     </ul>
                     {card.ctaLink && (
-                      <Link href={card.ctaLink} className="pincing-read-more" aria-label={`Request AI development pricing for ${card.title}`}>
-                        {card.ctaText || 'Consult Now'}
-                      </Link>
+                      <div className="mt-auto">
+                        <Link href={card.ctaLink} className="pincing-read-more" aria-label={`Request AI development pricing for ${card.title}`} style={{ display: "block", textAlign: "center" }}>
+                          {card.ctaText || 'Consult Now'}
+                        </Link>
+                      </div>
                     )}
                   </div>
                 </div>

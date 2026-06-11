@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Lottie from 'lottie-react';
 import { useMediaQuery } from "react-responsive";
 
-
 const AIJourneySection = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });       // 📱 Mobile
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 📲 Tablet
@@ -27,8 +26,48 @@ const AIJourneySection = () => {
     width = 500;
     height = 350;
   }
+
+  const steps = [
+    {
+      step: "1",
+      title: "Discovery & Business Analysis",
+      desc: "We identify opportunities where AI can create measurable value.",
+      icon: "search-outline"
+    },
+    {
+      step: "2",
+      title: "AI Strategy & Planning",
+      desc: "Our consultants develop a roadmap aligned with business objectives.",
+      icon: "map-outline"
+    },
+    {
+      step: "3",
+      title: "Data Preparation",
+      desc: "Data collection, cleansing, validation, and optimization.",
+      icon: "server-outline"
+    },
+    {
+      step: "4",
+      title: "Model Development",
+      desc: "Building custom AI models and intelligent systems.",
+      icon: "code-working-outline"
+    },
+    {
+      step: "5",
+      title: "Integration & Deployment",
+      desc: "Seamless deployment into existing business environments.",
+      icon: "cloud-upload-outline"
+    },
+    {
+      step: "6",
+      title: "Monitoring & Optimization",
+      desc: "Continuous performance improvements and AI model refinement.",
+      icon: "pulse-outline"
+    }
+  ];
+
   return (
-    <section className="ai-step" role="region" aria-labelledby="ai-development-process-heading">
+    <section className="ai-step pt100 pb100" role="region" aria-labelledby="ai-development-process-heading">
       <div className="container">
         <div className="ai-shape">
           <Image 
@@ -40,65 +79,35 @@ const AIJourneySection = () => {
           />
         </div>
         
-        <div className="crumina-module crumina-heading text-center" id="ai-development-process-heading">
-          <h2 className="heading-title">Your AI Journey, One Smart Step at a Time</h2>
-          <p className="subheading">From strategy to scalable execution — we guide you through every stage of AI adoption</p>
+        <div className="crumina-module crumina-heading text-center mb-5" id="ai-development-process-heading">
+          <h2 className="heading-title">Our Proven AI Development Process</h2>
+          <p className="subheading text-muted" style={{ maxWidth: "700px", margin: "15px auto 0 auto" }}>
+            From discovery to continuous optimization, we guide your business through a structured and reliable journey of AI adoption.
+          </p>
         </div>
         
-        <div className="row">
+        <div className="row align-items-center">
           <div className="col-lg-6">
             <div className="ai-work-content">
-              {/* Step 1 */}
-              <div className="ai-work-item">
-                <div className="icon-box">
-                  <ion-icon name="sparkles-outline"></ion-icon>
+              {steps.map((item, idx) => (
+                <div className="ai-work-item mb-4" key={idx}>
+                  <div className="icon-box" style={{ width: "50px", height: "50px", minWidth: "50px" }}>
+                    <ion-icon name={item.icon}></ion-icon>
+                  </div>
+                  <div className="ai-work-item-content ms-3">
+                    <h3 style={{ fontSize: "1.15rem", fontWeight: "700" }}>{item.step}. {item.title}</h3>
+                    <p style={{ fontSize: "0.9rem", color: "#666" }}>{item.desc}</p>
+                  </div>
                 </div>
-                <div className="ai-work-item-content">
-                  <h3>1. Discovery & Strategy</h3>
-                  <p>We start by analyzing your business landscape to uncover opportunities where AI can deliver real, measurable impact.</p>
-                </div>
-              </div>
-              
-              {/* Step 2 */}
-              <div className="ai-work-item">
-                <div className="icon-box">
-                  <ion-icon name="layers-outline"></ion-icon>
-                </div>
-                <div className="ai-work-item-content">
-                  <h3>2. Data & Design</h3>
-                  <p>We evaluate your data readiness and architect intuitive, AI-ready designs that align with your objectives and workflows.</p>
-                </div>
-              </div>
-              
-              {/* Step 3 */}
-              <div className="ai-work-item">
-                <div className="icon-box">
-                  <ion-icon name="desktop-outline"></ion-icon>
-                </div>
-                <div className="ai-work-item-content">
-                  <h3>3. Development & Integration</h3>
-                  <p>We build, test, and integrate intelligent systems — from chatbots to RAG models — seamlessly into your existing ecosystem.</p>
-                </div>
-              </div>
-              
-              {/* Step 4 */}
-              <div className="ai-work-item">
-                <div className="icon-box">
-                  <ion-icon name="finger-print-outline"></ion-icon>
-                </div>
-                <div className="ai-work-item-content">
-                  <h3>4. Launch & Optimization</h3>
-                  <p>Once live, we monitor performance, gather feedback, and continuously optimize your AI solutions for evolving needs and scale.</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           
           <div className="col-lg-6">
-            <div className="ai-work-image">
-              <figure className="image-anime reveal" aria-hidden="true">
+            <div className="ai-work-image text-center">
+              <figure className="image-anime reveal d-inline-block" aria-hidden="true">
                 <Lottie
-                  path='/lottie/AI intelligence.json'  // always prepends /lottie/
+                  path='/lottie/AI intelligence.json'
                   loop
                   autoplay
                   style={{
