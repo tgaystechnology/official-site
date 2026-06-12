@@ -513,47 +513,45 @@ const PricingModal = ({ plan }) => {
 
 const TASKITY_INTERFACES = [
     {
-        id: 'executive',
-        label: 'Super Admin & Executive',
+        id: 'superadmin',
+        label: 'Superadmin',
         icon: ShieldCheck,
         color: '#8b5cf6',
         features: [
             { title: "Organization Health", description: "Comprehensive bird's-eye view of organization-wide health and project statuses.", icon: TrendingUp },
             { title: "Cost Control", description: "Audit micro-level expenses against macro goals up to $200,000,000.", icon: ClipboardCheck },
-            { title: "Goal Tracking", description: "Monitor active project counts and target revenue milestones.", icon: Award }
+            { title: "Goal Tracking", description: "Monitor active project counts and target revenue milestones.", icon: Award },
+            { title: "System Analytics", description: "Track system utilization, active session matrices, and processing usage.", icon: LayoutDashboard },
+            { title: "Tenant Configuration", description: "Provision white-labeled multi-tenant company nodes with custom domains.", icon: Zap },
+            { title: "Security & RBAC", description: "Enforce strict role-based access controls and granular audit logging.", icon: ShieldCheck }
         ]
     },
     {
-        id: 'hrmanager',
-        label: 'HR & Manager',
+        id: 'admin',
+        label: 'Admin',
         icon: Users,
         color: '#3b82f6',
         features: [
             { title: "Performance Evaluator", description: "Rate core competencies (Productivity, Initiative) visually with sliders.", icon: ClipboardCheck },
             { title: "Leave Approval", description: "Manage paid time-off applications with detailed audit logs.", icon: CalendarCheck2 },
-            { title: "Performance Levels", description: "Auto-categorize outputs like Needs Improvement, Average, or Excellent.", icon: Award }
-        ]
-    },
-    {
-        id: 'finance',
-        label: 'Finance Hub',
-        icon: FileText,
-        color: '#10b981',
-        features: [
             { title: "Payroll & CTC Matrices", description: "Process CTC, Basic salary, and HRA slips dynamically.", icon: FileText },
             { title: "Invoice & Tax Vault", description: "Log sales/purchase invoices with GSTIN verification and TDS rules.", icon: ShieldCheck },
-            { title: "Expense Audit Logs", description: "Categorize contractor, employee, and external agency budgets.", icon: TrendingUp }
+            { title: "Employee Directory", description: "Manage employee contracts, designation histories, and reporting lines.", icon: Users },
+            { title: "Expense Audit Logs", description: "Track contractor milestones, department budgets, and software licensing costs.", icon: TrendingUp }
         ]
     },
     {
         id: 'employee',
-        label: 'Team Portal',
+        label: 'Employee',
         icon: Zap,
         color: '#14b8a6',
         features: [
             { title: "Smart Time Clock", description: "Punch in/out with login/logout time, idle flags, and active hours.", icon: Zap },
             { title: "Daily Planner", description: "Employees track personal daily planners and update task completion.", icon: LayoutDashboard },
-            { title: "Leave Self-Service", description: "Submit time-off requests and view available paid leave balances.", icon: CalendarCheck2 }
+            { title: "Leave Self-Service", description: "Submit time-off requests and view available paid leave balances.", icon: CalendarCheck2 },
+            { title: "Work Logs & Timesheets", description: "Submit daily work summaries linked with project task allocations.", icon: FileText },
+            { title: "Payslip Hub", description: "View and download monthly payslips, tax computations, and reimbursement claims.", icon: ClipboardCheck },
+            { title: "Competency Review", description: "Access detailed HR feedback, annual reviews, and performance scores.", icon: Award }
         ]
     }
 ];
@@ -563,7 +561,7 @@ const PricingCardItem = ({ plan }) => {
     const [activeRoleTab, setActiveRoleTab] = useState(interfaces[0].id);
 
     return (
-        <div className={`pricing-card ${plan.type}-card`} style={{ display: 'flex', flexDirection: 'column', flex: '1 1 auto', alignSelf: 'stretch', height: '850px', width: '100%', textAlign: 'center' }}>
+        <div className={`pricing-card ${plan.type}-card`} style={{ display: 'flex', flexDirection: 'column', flex: '1 1 auto', alignSelf: 'stretch', minHeight: '850px', height: 'auto', width: '100%', textAlign: 'center' }}>
             <div className="card-header-img" style={{ height: '180px', overflow: 'hidden' }}>
                 <img src={plan.img} alt={`${plan.type} Plan`} className="img-fluid w-100 rounded-top" style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
             </div>
@@ -571,7 +569,7 @@ const PricingCardItem = ({ plan }) => {
                 <h3 className="plan-title fw-bold mb-4" style={{ height: '65px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 0 1.5rem 0' }}>{plan.title}</h3>
 
                 <div className="role-tabs-container mb-4" style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div className="role-tabs-nav" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '6px', width: '100%' }}>
+                    <div className="role-tabs-nav" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '6px', width: '100%' }}>
                         {interfaces.map((item) => (
                             <button
                                 key={item.id}
@@ -584,8 +582,7 @@ const PricingCardItem = ({ plan }) => {
                                     display: 'flex', 
                                     alignItems: 'center', 
                                     justifyContent: 'center', 
-                                    gap: '4px',
-                                    gridColumn: plan.type === 'vidya-ai-lms' && item.id === 'superadmin' ? 'span 2' : 'span 1'
+                                    gap: '4px'
                                 }}
                             >
                                 <item.icon size={14} />
@@ -595,7 +592,7 @@ const PricingCardItem = ({ plan }) => {
                     </div>
                 </div>
 
-                <div className="role-features-content scrollbar-hide" style={{ height: '350px', overflowY: 'auto', textAlign: 'left' }}>
+                <div className="role-features-content scrollbar-hide" style={{ height: 'auto', overflowY: 'visible', textAlign: 'left' }}>
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeRoleTab}

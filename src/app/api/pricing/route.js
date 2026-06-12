@@ -4,7 +4,7 @@ export async function GET() {
   const plans = [
     {
       type: 'vidya-ai-lms',
-      img: '/img/vidya-ai-lms-banner.png',
+      img: '/img/vidya-ai-lms-card.png',
       price: '49,999',
       amount: 49999,
       title: 'Vidya AI LMS',
@@ -39,7 +39,7 @@ export async function GET() {
     },
     {
       type: 'taskity',
-      img: '/img/taskity-banner.png',
+      img: '/img/taskity-card.png',
       price: '79,999',
       amount: 79999,
       title: 'Taskity — HRMS & Operations Portal',

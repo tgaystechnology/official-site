@@ -7,17 +7,15 @@ const CaseStudySection = () => {
     { img: 'img/ezshopit-cst-list-img.png', title: "Ezshopit", category: "Multi-Currency, Multi-Vendor E-Commerce Platform.", url: 'ezshopit' },
     { img: 'img/worthmetrix-cst-list-img.png', title: "Worthmetrix", category: "Business Health Analysis Platform.", url: 'worthmetrix' },
     { img: 'img/al-cst-list-img.png', title: "EvolveAI", category: "AI-Powered Health & Fitness App.", url: 'evolveai' },
-    { img: 'img/ezshopit-cst-list-mobile.png', title: "Ezshopit Mobile App", category: "Multi-Vendor, Multi-Currency E-Commerce Mobile App.", url: 'ezshopit-mobile' },
-    { img: 'img/bolton-cst-list-img.png', title: "Bolton Travel", category: "Tour & Travel Management System.", url: 'bolton-travel' },
-    { img: 'img/taskity-cst-list.png', title: "Taskity", category: "Business Sales & Marketing Automation Platform.", url: 'taskity' },
-    { img: 'img/martwat-cst-list.png', title: "MartWat", category: "Inventory, Warehouse, Sales & POS Management System.", url: 'martwat' },
-    { img: 'img/SJRS-cst-list.png', title: "SJRS School ERP", category: "Comprehensive School Management System.", url: 'sjrs-school-erp' },
-    /*
-    { img: 'img/SJRS-cst-list.png', title: "Vidya AI LMS", category: "AI-Powered Learning Management Platform.", url: 'shikshasetu-lms' },
-    { img: 'img/SJRS-cst-list.png', title: "Ai Career Coach Agent", category: "AI-Powered Career Development Platform.", url: 'ai-career-coach' },
-    { img: 'img/sip-calculator.png', title: "SIP Calculator & Wealth Planner", category: "Advanced Interactive Financial Simulation & Wealth Management Ecosystem", url: 'sip-calculator' },
-    { img: 'img/anvo-autos-banner.png', title: "Anvo Autos", category: "High-Concurrency, Real-Time Ride-Hailing Backend Engine.", url: 'anvo-autos' },
-    */
+    {img: 'img/ezshopit-cst-list-mobile.png', title: "Ezshopit Mobile App", category: "Multi-Vendor, Multi-Currency E-Commerce Mobile App.", url: 'ezshopit-mobile' },
+    {img: 'img/bolton-cst-list-img.png', title: "Bolton Travel", category: "Tour & Travel Management System.", url: 'bolton-travel' },
+    {img: 'img/taskity-cst-list.png', title: "Taskity", category: "Business Sales & Marketing Automation Platform.", url: 'taskity' },
+    {img: 'img/martwat-cst-list.png', title: "MartWat", category: "Inventory, Warehouse, Sales & POS Management System.", url: 'martwat' },
+    {img: 'img/SJRS-cst-list.png', title: "SJRS School ERP", category: "Comprehensive School Management System.", url: 'sjrs-school-erp' },
+    {img: 'img/vidya-ai-lms-cst-list.png', title: "Vidya AI LMS", category: "AI-Powered Learning Management Platform.", url: 'shikshasetu-lms' },
+    {img: 'img/ai-career-coach-cst-list.png', title: "Ai Career Coach Agent", category: "AI-Powered Career Development Platform.", url: 'ai-career-coach' },
+    {img: 'img/sip-calculator-cst-list.png', title: "SIP Calculator & Wealth Planner", category: "Advanced Interactive Financial Simulation & Wealth Management Ecosystem", url: 'sip-calculator' },
+    {img: 'img/anvo-autos-cst-list.png', title: "Anvo Autos", category: "High-Concurrency, Real-Time Ride-Hailing Backend Engine.", url: 'anvo-autos' },
   ];
 
   return (

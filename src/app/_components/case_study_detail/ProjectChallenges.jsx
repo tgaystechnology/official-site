@@ -443,7 +443,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>High-Concurrency Driver Availability & Lifecycle:</strong> Managing thousands of drivers transitioning between Online, Offline, On Trip, and Paused states simultaneously creates extreme database lock contention. Stale availability states result in matching inefficiencies and drop-offs.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/driver-challange.jpg",
         layout: "left"
       },
       {
@@ -452,7 +452,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Sub-Second GPS Ingestion & Network Jitter:</strong> Processing GPS coordinates emitted by driver devices every few seconds strains database write capacities, while packet loss causes lagging vehicle markers on client maps.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/gps.webp",
         layout: "right"
       },
       {
@@ -461,7 +461,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Financial Race Conditions & Transaction Integrity:</strong> During peak surge hours, concurrent wallet debits, promo applications, and trip cancellations trigger race conditions, causing balance mismatches and double-spending.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/finance.avif",
         layout: "left"
       },
       {
@@ -470,7 +470,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Fare Fraud & Route Deviation Detection:</strong> Detecting when a driver intentionally takes a longer, inefficient route to inflate travel fares requires live, continuous spatial tracking without overloading server memory.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/taxi.jpeg",
         layout: "right"
       },
       {
@@ -479,7 +479,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Data Privacy & Safe Trip Sharing:</strong> Riders need the ability to share live route tracking links with family. However, exposing internal database IDs or raw APIs risks leaking PII (Personally Identifiable Information).</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/data-privercy.jpeg",
         layout: "left"
       },
       {
@@ -488,7 +488,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Fault-Tolerant Scheduled Rides:</strong> Delayed ride bookings must dispatch at the exact minute requested. System restarts or temporary Redis outages cannot be allowed to cause missed bookings.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/fault.png",
         layout: "right"
       }
     ],
@@ -499,7 +499,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Managing Live Cohort-Based Learning:</strong> Traditional LMS solutions struggled to manage scheduled live classes, batch-based enrollments, attendance tracking, and session access control.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/live-class.jpeg",
         layout: "left"
       },
       {
@@ -508,7 +508,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Preventing Unauthorized Session Access:</strong> Students frequently shared meeting links with others, leading to revenue leakage and unauthorized participation in paid training sessions.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/authentication.jpeg",
         layout: "right"
       },
       {
@@ -517,7 +517,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Lack of Accurate Progress Tracking:</strong> Many platforms relied on manual completion marking, making progress reports unreliable and reducing the credibility of certifications.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/progress.jpeg",
         layout: "left"
       },
       {
@@ -526,7 +526,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>High Operational Workload:</strong> Administrators spent significant time sending reminders, coordinating sessions, tracking attendance, and managing learner communication.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/workload.jpeg",
         layout: "right"
       },
       {
@@ -535,7 +535,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Expensive AI Resource Consumption:</strong> Generating AI notes and assessments for every lesson in advance would dramatically increase operational API costs.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/ai-learning.jpeg",
         layout: "left"
       },
       {
@@ -544,7 +544,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Limited Student Engagement:</strong> Most online learning systems lacked interactive elements, competitive learning experiences, and personalized feedback mechanisms.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/sudent-live.jpeg",
         layout: "right"
       }
     ],
@@ -555,7 +555,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Expensive and Inaccessible Career Coaching:</strong> Traditional career coaching services were cost-prohibitive and difficult to schedule, leaving job seekers without proper guidance during crucial career transitions.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/career.jpg",
         layout: "left"
       },
       {
@@ -564,7 +564,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Lack of Actionable Resume Feedback:</strong> Candidates frequently submitted resumes without understanding the reasons for rejection. Existing tools lacked deep, context-aware analysis necessary to provide concrete, section-by-section improvement strategies.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/resume.webp",
         layout: "right"
       },
       {
@@ -573,7 +573,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Unstructured Career Progression:</strong> Professionals lacked clear direction regarding the specific skills to acquire or milestones to achieve for specialized roles, leading to inefficient skill development.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/career-progress.webp",
         layout: "left"
       },
       {
@@ -582,7 +582,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>High Operational Bottlenecks for Processing Files:</strong> Handling heavy operations—such as parsing PDF resumes and running complex AI analysis synchronously—resulted in server timeouts and a degraded user experience.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/bottle-neck.png",
         layout: "right"
       },
       {
@@ -591,7 +591,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Unsecured User Data and Session Access:</strong> There was a need to tightly control access to personalized AI reports and ensure that user history remained confidential and tied to authenticated sessions.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/user-data.png",
         layout: "left"
       }
     ],
@@ -611,7 +611,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Accounting for Inflation Erosion:</strong> Long-term nominal returns look high on paper but do not reflect actual purchasing power. Users need an easy way to check the real post-inflation value of their investments.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/iInflation.jpg",
         layout: "right"
       },
       {
@@ -629,7 +629,7 @@ const ProjectChallenges = ({ slug }) => {
         description: `
           <p><strong>Cost of Paused Contributions:</strong> Skipping installments due to emergencies hurts compounding. Traditional tools fail to calculate this loss or suggest clear portfolio recovery strategies.</p>
         `,
-        image: "/img/case-study-banner.png",
+        image: "/img/cost.png",
         layout: "right"
       },
       {
@@ -692,7 +692,7 @@ const ProjectChallenges = ({ slug }) => {
                 <div className="row">
                   {/* Content Column - position changes based on layout */}
                   <div className={`col-lg-4 ${challenge.layout === 'right' ? 'order-lg-2' : ''}`}>
-                    <div className={`pc-box-content ${challenge.layout === 'right' ? 'res-991-mt-15' : ''}`}>
+                    <div className={`pc-box-content h-100 ${challenge.layout === 'right' ? 'res-991-mt-15' : ''}`}>
                       <div className="pc-hovertext2">
                         <div className="process-num">
                           <div className="numbers">Challenge</div>
@@ -707,14 +707,14 @@ const ProjectChallenges = ({ slug }) => {
 
                   {/* Image Column */}
                   <div className={`col-lg-8 ${challenge.layout === 'right' ? 'order-lg-1' : ''}`}>
-                    <div className={`pc-box-image ${challenge.layout === 'left' ? 'res-991-mt-15' : 'res-991-pb-30'}`}>
+                    <div className={`pc-box-image h-100 position-relative ${challenge.layout === 'left' ? 'res-991-mt-15' : 'res-991-pb-30'}`} style={{ minHeight: '300px' }}>
                       <Image
                         src={challenge.image}
-                        className="proces-img img-fluid"
+                        className="proces-img"
                         alt={`Challenge ${challenge.id}`}
-                        width={challenge.imageWidth || 800}
-                        height={challenge.imageHeight || 400}
+                        fill
                         loading="lazy"
+                        style={{ objectFit: 'cover' }}
                       />
                     </div>
                   </div>

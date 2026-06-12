@@ -15,6 +15,7 @@ import OurValuesSection from '@/app/_components/services_components/AI_powered_s
 import QuickConsultation from '@/app/_components/services_components/QuickConsultation';
 import React from 'react'
 import { AnimatedTestimonials } from '@/components/ui/animated-testimonials';
+import '@/app/_components/products/PricingCards.css'; // Load Uiverse tab styling classes
 
 import { generateMetadata as generateDynamicMetadata } from '@/lib/generateMetadata';
 export async function generateMetadata() {

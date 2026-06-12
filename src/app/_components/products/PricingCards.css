@@ -106,52 +106,100 @@
 
 /* Role Tabs Styles */
 .role-tabs-container {
-    padding: 4px;
-    background: #f8fafc;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
 }
 
 .role-tabs-nav {
     display: flex;
-    gap: 4px;
+    gap: 8px;
 }
 
-.role-tab-btn {
+.role-tab-btn, .custom-uiverse-tab-btn {
     flex: 1;
+    position: relative;
+    height: 3.5em;
+    border: 3px ridge var(--active-color, #149CEA);
+    outline: none;
+    background-color: transparent;
+    color: #000000; /* High contrast black text for visibility */
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    padding: 8px 4px;
-    border-radius: 8px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #64748b;
-    transition: all 0.2s ease;
-    white-space: nowrap;
+    overflow: visible; /* Need overflow visible for absolute ::before/::after overlays */
+    z-index: 1;
 }
 
-.role-tab-btn:hover {
-    color: var(--active-color);
-    background: rgba(0, 0, 0, 0.02);
+.role-tab-btn::after, .custom-uiverse-tab-btn::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #ffffff; /* White overlay to match white theme */
+    transition: 0.5s;
+    transform-origin: center;
+    z-index: -1;
 }
 
-.role-tab-btn.active {
-    background: #ffffff;
-    color: #1e293b;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.role-tab-btn::before, .custom-uiverse-tab-btn::before {
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #ffffff; /* White overlay to match white theme */
+    transition: 0.5s;
+    z-index: -1;
 }
 
-.role-tab-btn i, .role-tab-btn svg {
-    opacity: 0.8;
+.role-tab-btn:hover::before, 
+.role-tab-btn:hover::after,
+.role-tab-btn.active::before, 
+.role-tab-btn.active::after,
+.custom-uiverse-tab-btn:hover::before, 
+.custom-uiverse-tab-btn:hover::after,
+.custom-uiverse-tab-btn.active::before, 
+.custom-uiverse-tab-btn.active::after {
+    transform: scale(0);
 }
 
-.role-tab-btn.active svg {
-    color: var(--active-color);
+.role-tab-btn:hover, .custom-uiverse-tab-btn:hover {
+    box-shadow: inset 0px 0px 25px var(--active-color, #1479EA);
+    color: #000000 !important;
+}
+
+.role-tab-btn.active, .custom-uiverse-tab-btn.active {
+    box-shadow: inset 0px 0px 25px var(--active-color, #1479EA);
+    color: #000000 !important;
+}
+
+.role-tab-btn i, .role-tab-btn svg,
+.custom-uiverse-tab-btn i, .custom-uiverse-tab-btn svg {
+    opacity: 1;
+    color: var(--active-color, #149CEA);
+    transition: color 0.3s, transform 0.3s;
+    z-index: 2;
+}
+
+.role-tab-btn:hover svg,
+.role-tab-btn.active svg,
+.custom-uiverse-tab-btn:hover svg,
+.custom-uiverse-tab-btn.active svg {
+    color: var(--active-color, #149CEA) !important;
+    transform: scale(1.1);
 }
 
 /* Role Features Styles */
