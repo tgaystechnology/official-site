@@ -79,6 +79,21 @@ const CoreServices = () => {
 
   return (
     <section className="hm-core-secvice">
+      <style dangerouslySetInnerHTML={{__html: `
+        .core-secvice-sec .crumina-info-box {
+          position: relative;
+        }
+        .core-secvice-sec .crumina-info-box .info-box-title::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 10;
+          cursor: pointer;
+        }
+      `}} />
       <div className="container core-secvice-sec mt-0">
         <div className="text-center title_core">
           <h2 className="display-4">Our Core Services</h2>
@@ -87,19 +102,17 @@ const CoreServices = () => {
         <div className="row">
           {services.map((service, index) => (
             <div key={index} className="col-lg-3 col-md-4 col-12 col-xxl-3">
-              <Link href={service.link} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }} className="h-100">
-                <div className="crumina-module crumina-info-box info-box--standard-hover h-100">
-                  <div className="shape1">
-                    <img src="img/intro-v1-shape1.png" alt="Decorative design element" loading="lazy" />
-                  </div>
-                  <div className="info-box-image">
-                    <img className="utouch-icon" src={service.icon} alt={`${service.alt} service by TGays Technology`} />
-                  </div>
-                  <div className="info-box-content text-center">
-                    <span className="h5 info-box-title" style={{ display: 'block' }}>{service.title}</span>
-                  </div>
+              <div className="crumina-module crumina-info-box info-box--standard-hover">
+                <div className="shape1">
+                  <img src="img/intro-v1-shape1.png" alt="Decorative design element" loading="lazy" />
                 </div>
-              </Link>
+                <div className="info-box-image">
+                  <img className="utouch-icon" src={service.icon} alt={`${service.alt} service by TGays Technology`} />
+                </div>
+                <div className="info-box-content text-center">
+                  <Link href={service.link} className="h5 info-box-title">{service.title}</Link>
+                </div>
+              </div>
             </div>
           ))}
         </div>
