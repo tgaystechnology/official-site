@@ -87,17 +87,19 @@ const CoreServices = () => {
         <div className="row">
           {services.map((service, index) => (
             <div key={index} className="col-lg-3 col-md-4 col-12 col-xxl-3">
-              <div className="crumina-module crumina-info-box info-box--standard-hover">
-                <div className="shape1">
-                  <img src="img/intro-v1-shape1.png" alt="Decorative design element" loading="lazy" />
+              <Link href={service.link} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }} className="h-100">
+                <div className="crumina-module crumina-info-box info-box--standard-hover h-100">
+                  <div className="shape1">
+                    <img src="img/intro-v1-shape1.png" alt="Decorative design element" loading="lazy" />
+                  </div>
+                  <div className="info-box-image">
+                    <img className="utouch-icon" src={service.icon} alt={`${service.alt} service by TGays Technology`} />
+                  </div>
+                  <div className="info-box-content text-center">
+                    <span className="h5 info-box-title" style={{ display: 'block' }}>{service.title}</span>
+                  </div>
                 </div>
-                <div className="info-box-image">
-                  <img className="utouch-icon" src={service.icon} alt={service.alt} service by TGays Technology />
-                </div>
-                <div className="info-box-content text-center">
-                  <Link href={service.link} className="h5 info-box-title">{service.title}</Link>
-                </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>
