@@ -1,5 +1,6 @@
-'use client'
+'use client';
 import React from 'react';
+import { AlertCircle, Check } from 'lucide-react';
 
 const AIChallengesAndSolutions = () => {
   const data = [
@@ -15,6 +16,135 @@ const AIChallengesAndSolutions = () => {
 
   return (
     <section className="challenges-solutions-section pt100 pb70 bg-white">
+      <style dangerouslySetInnerHTML={{__html: `
+        .custom-responsive-table {
+          border: 1px solid #e2e8f0;
+          overflow: hidden;
+          border-radius: 12px;
+          box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+          background: #fff;
+        }
+
+        .custom-responsive-table table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        .custom-responsive-table thead tr {
+          background: #0f172a;
+          color: #fff;
+        }
+
+        .custom-responsive-table th {
+          padding: 18px 24px;
+          font-size: 1rem;
+          font-weight: 700;
+          border-bottom: none;
+        }
+
+        .custom-responsive-table td {
+          padding: 18px 24px;
+          font-size: 0.95rem;
+          color: #334155;
+          border-bottom: 1px solid #f1f5f9;
+        }
+
+        .custom-responsive-table tbody tr:last-child td {
+          border-bottom: none;
+        }
+
+        .custom-responsive-table tbody tr:hover {
+          background-color: #f8fafc;
+        }
+
+        .challenge-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-weight: 600;
+          color: #1e293b;
+        }
+
+        .solution-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-weight: 600;
+          color: #0f172a;
+        }
+
+        .challenge-icon {
+          color: #ef4444;
+          flex-shrink: 0;
+        }
+
+        .solution-icon {
+          color: #3b82f6;
+          flex-shrink: 0;
+        }
+
+        @media (max-width: 767px) {
+          .custom-responsive-table {
+            border: none;
+            box-shadow: none;
+            background: transparent;
+            overflow: visible;
+          }
+
+          .custom-responsive-table table, 
+          .custom-responsive-table thead, 
+          .custom-responsive-table tbody, 
+          .custom-responsive-table th, 
+          .custom-responsive-table td, 
+          .custom-responsive-table tr { 
+            display: block; 
+            width: 100% !important;
+          }
+          
+          .custom-responsive-table thead { 
+            display: none !important;
+          }
+          
+          .custom-responsive-table tr {
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            background: #fff;
+            padding: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+          }
+          
+          .custom-responsive-table td { 
+            border: none !important;
+            padding: 10px 0 !important;
+          }
+
+          .custom-responsive-table td:first-child {
+            border-bottom: 1px dashed #e2e8f0 !important;
+            padding-bottom: 14px !important;
+            margin-bottom: 8px !important;
+          }
+          
+          .custom-responsive-table td::before { 
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 800;
+            margin-bottom: 6px;
+          }
+          
+          .custom-responsive-table td:nth-of-type(1)::before { 
+            content: "Business Challenge"; 
+            color: #ef4444; 
+          }
+          .custom-responsive-table td:nth-of-type(2)::before { 
+            content: "AI Solution"; 
+            color: #3b82f6; 
+          }
+        }
+      `}} />
+
       <div className="container">
         <div className="crumina-module crumina-heading text-center mb-5">
           <h2 className="heading-title" style={{ fontSize: "2.25rem", fontWeight: "700" }}>
@@ -23,22 +153,28 @@ const AIChallengesAndSolutions = () => {
           <p className="slider-content-text">How we apply AI solutions to resolve common business inefficiencies</p>
         </div>
 
-        <div className="table-responsive rounded-4 shadow-sm" style={{ border: "1px solid #eee", overflow: "hidden", borderRadius: "12px" }}>
-          <table className="table table-hover align-middle mb-0" style={{ background: "#fff" }}>
+        <div className="custom-responsive-table">
+          <table>
             <thead>
-              <tr style={{ background: "#0c1527", color: "#fff" }}>
-                <th className="p-4" style={{ width: "50%", borderBottom: "none", fontSize: "1.1rem", fontWeight: "600", color: "#fff" }}>Business Challenge</th>
-                <th className="p-4" style={{ width: "50%", borderBottom: "none", fontSize: "1.1rem", fontWeight: "600", color: "#0083FF" }}>AI Solution</th>
+              <tr>
+                <th style={{ width: "50%" }}>Business Challenge</th>
+                <th style={{ width: "50%", color: "#0083FF" }}>AI Solution</th>
               </tr>
             </thead>
             <tbody>
               {data.map((item, index) => (
                 <tr key={index}>
-                  <td className="p-4 fw-medium text-dark" style={{ borderBottom: "1px solid #f2f2f2", fontSize: "0.95rem" }}>
-                    <span style={{ marginRight: "10px", color: "#ff5e3a" }}>●</span> {item.challenge}
+                  <td>
+                    <div className="challenge-item">
+                      <AlertCircle size={18} className="challenge-icon" />
+                      <span>{item.challenge}</span>
+                    </div>
                   </td>
-                  <td className="p-4" style={{ borderBottom: "1px solid #f2f2f2", fontSize: "0.95rem", color: "#111", fontWeight: "500" }}>
-                    <span style={{ marginRight: "10px", color: "#0083FF", fontWeight: "bold" }}>✓</span> {item.solution}
+                  <td>
+                    <div className="solution-item">
+                      <Check size={18} className="solution-icon" />
+                      <span>{item.solution}</span>
+                    </div>
                   </td>
                 </tr>
               ))}

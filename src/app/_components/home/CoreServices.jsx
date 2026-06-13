@@ -1,7 +1,11 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const CoreServices = () => {
+  const router = useRouter();
   const services = [
     {
       title: "AI Powered Services",
@@ -79,21 +83,6 @@ const CoreServices = () => {
 
   return (
     <section className="hm-core-secvice">
-      <style dangerouslySetInnerHTML={{__html: `
-        .core-secvice-sec .crumina-info-box {
-          position: relative;
-        }
-        .core-secvice-sec .crumina-info-box .info-box-title::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 10;
-          cursor: pointer;
-        }
-      `}} />
       <div className="container core-secvice-sec mt-0">
         <div className="text-center title_core">
           <h2 className="display-4">Our Core Services</h2>
@@ -102,7 +91,11 @@ const CoreServices = () => {
         <div className="row">
           {services.map((service, index) => (
             <div key={index} className="col-lg-3 col-md-4 col-12 col-xxl-3">
-              <div className="crumina-module crumina-info-box info-box--standard-hover">
+              <div 
+                className="crumina-module crumina-info-box info-box--standard-hover"
+                onClick={() => router.push(service.link)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="shape1">
                   <img src="img/intro-v1-shape1.png" alt="Decorative design element" loading="lazy" />
                 </div>
@@ -110,7 +103,7 @@ const CoreServices = () => {
                   <img className="utouch-icon" src={service.icon} alt={`${service.alt} service by TGays Technology`} />
                 </div>
                 <div className="info-box-content text-center">
-                  <Link href={service.link} className="h5 info-box-title">{service.title}</Link>
+                  <Link href={service.link} className="h5 info-box-title" onClick={(e) => e.stopPropagation()}>{service.title}</Link>
                 </div>
               </div>
             </div>
