@@ -1,14 +1,16 @@
-import ExperienceSection from '@/app/_components/aboutUs/Industry_we_serve/ExperienceSection';
-import ServiceList from '@/app/_components/aboutUs/Industry_we_serve/ServiceList';
-import Testimonials from '@/app/_components/home/Testimonials';
-import CallToAction from '@/app/_components/services_components/CallToAction';
-import FAQSection from '@/app/_components/services_components/FAQSection';
-import DevelopmentProcess from '@/app/_components/services_components/Production_development/DevelopmentProcess';
 import ProductDevelopmentBanner from '@/app/_components/services_components/Production_development/ProductDevelopmentBanner';
-import ProductDevelopmentSectionOne from '@/app/_components/services_components/Production_development/ProductDevelopmentSectionOne';
+import WhyChooseProductDev from '@/app/_components/services_components/Production_development/WhyChooseProductDev';
+import ProductServicesTabs from '@/app/_components/services_components/Production_development/ProductServicesTabs';
+import ProductBenefits from '@/app/_components/services_components/Production_development/ProductBenefits';
+import ProductChallenges from '@/app/_components/services_components/Production_development/ProductChallenges';
+import DevelopmentProcess from '@/app/_components/services_components/Production_development/DevelopmentProcess';
+import ProductIndustries from '@/app/_components/services_components/Production_development/ProductIndustries';
+import ProductTrust from '@/app/_components/services_components/Production_development/ProductTrust';
 import QuickConsultation from '@/app/_components/services_components/QuickConsultation';
 import ServiceTechStack from '@/app/_components/services_components/ServiceTechStack';
+import FAQSection from '@/app/_components/services_components/FAQSection';
 import { AnimatedTestimonials } from '@/components/ui/animated-testimonials';
+import Link from 'next/link';
 import React from 'react'
 
 import { generateMetadata as generateDynamicMetadata } from '@/lib/generateMetadata';
@@ -18,153 +20,254 @@ export async function generateMetadata() {
   });
 }
 
-
-const serviceData = [
+const productFAQs = [
   {
-    id: 1,
-    image: '/img/product-exp-1.png',
-    title: 'Agile Methodology',
-    description:
-      'We adapt quickly to changes and deliver products in iterative cycles for faster time-to-market.'
+    id: 'pdFaqOne',
+    target: 'collapsePdOne',
+    question: '1. What industries do you serve?',
+    answer: 'We serve healthcare, fintech, e-commerce, education, logistics, real estate, SaaS, and enterprise sectors.'
   },
   {
-    id: 2,
-    image: '/img/product-exp-2.png',
-    title: 'Experienced Team',
-    description:
-      'Our skilled engineers, designers, and strategists bring years of cross-industry experience to every project.'
+    id: 'pdFaqTwo',
+    target: 'collapsePdTwo',
+    question: '2. Do you provide MVP development?',
+    answer: 'Yes, we specialize in MVP product development services for startups and innovators.'
   },
   {
-    id: 3,
-    image: '/img/product-exp-3.png',
-    title: 'End-to-End Support',
-    description:
-      'From concept and design to development and maintenance — we’re with you at every stage of your product journey.'
+    id: 'pdFaqThree',
+    target: 'collapsePdThree',
+    question: '3. Can you build AI-powered products?',
+    answer: 'Absolutely. We provide AI product development services including generative AI and machine learning solutions.'
+  },
+  {
+    id: 'pdFaqFour',
+    target: 'collapsePdFour',
+    question: '4. How long does product development take?',
+    answer: 'Most MVPs take 8–16 weeks, while enterprise products may require several months depending on complexity.'
+  },
+  {
+    id: 'pdFaqFive',
+    target: 'collapsePdFive',
+    question: '5. Do you sign NDAs?',
+    answer: 'Yes. We ensure complete confidentiality and IP protection.'
+  },
+  {
+    id: 'pdFaqSix',
+    target: 'collapsePdSix',
+    question: '6. What technologies do you use?',
+    answer: 'React, Angular, Node.js, Python, Java, Flutter, AWS, Azure, AI frameworks, and more.'
+  },
+  {
+    id: 'pdFaqSeven',
+    target: 'collapsePdSeven',
+    question: '7. Do you provide post-launch support?',
+    answer: 'Yes, we offer maintenance, monitoring, upgrades, and optimization services.'
+  },
+  {
+    id: 'pdFaqEight',
+    target: 'collapsePdEight',
+    question: '8. Can startups hire dedicated teams?',
+    answer: 'Yes. We offer flexible dedicated product teams for startups.'
+  },
+  {
+    id: 'pdFaqNine',
+    target: 'collapsePdNine',
+    question: '9. Do you work with international clients?',
+    answer: 'Yes, we serve businesses across the USA, UK, Australia, and India.'
+  },
+  {
+    id: 'pdFaqTen',
+    target: 'collapsePdTen',
+    question: '10. How do you ensure product quality?',
+    answer: 'Through rigorous QA testing, code reviews, automation testing, and security assessments.'
+  },
+  {
+    id: 'pdFaqEleven',
+    target: 'collapsePdEleven',
+    question: '11. Do you provide product consulting?',
+    answer: 'Yes, including discovery workshops and product strategy consulting.'
+  },
+  {
+    id: 'pdFaqTwelve',
+    target: 'collapsePdTwelve',
+    question: '12. Can you modernize legacy applications?',
+    answer: 'Yes, we specialize in digital transformation and product modernization.'
+  },
+  {
+    id: 'pdFaqThirteen',
+    target: 'collapsePdThirteen',
+    question: '13. What engagement models do you offer?',
+    answer: 'Fixed cost, dedicated team, and time & material models.'
+  },
+  {
+    id: 'pdFaqFourteen',
+    target: 'collapsePdFourteen',
+    question: '14. What makes TGAYS Technology different?',
+    answer: 'Our product-first mindset, AI expertise, agile methodology, and business-focused approach.'
+  },
+  {
+    id: 'pdFaqFifteen',
+    target: 'collapsePdFifteen',
+    question: '15. How do I get started?',
+    answer: 'Simply contact us for a free consultation and product discovery session.'
   }
 ];
-
-const productFAQs = [
-    {
-      id: 'headingOne',
-      target: 'collapseOne',
-      question: '1. What is product development and how can TGAYS Technology help?',
-      answer: 'Product development involves turning your idea into a full-fledged digital solution. At TGAYS Technology, we handle everything from ideation and strategy to UI/UX design, development, testing, and deployment.'
-    },
-    {
-      id: 'headingTwo',
-      target: 'collapseTwo',
-      question: '2. Do you provide support after the product is launched?',
-      answer: 'Yes, we offer complete post-launch support including maintenance, feature updates, bug fixes, and performance monitoring to ensure your product stays reliable and scalable.'
-    },
-    {
-      id: 'headingThree',
-      target: 'collapseThree',
-      question: '3. What industries do you specialize in?',
-      answer: 'We have experience across multiple industries including Finance, Healthcare, Education, Hospitality, and E-Commerce. Our team understands industry-specific needs and tailors solutions accordingly.'
-    },
-    {
-      id: 'headingFour',
-      target: 'collapseFour',
-      question: '4. How do you ensure the quality of the product?',
-      answer: 'We follow a rigorous QA process involving manual and automated testing. Every product goes through multiple rounds of testing to ensure it is bug-free, secure, and performs optimally.'
-    },
-    {
-      id: 'headingFive',
-      target: 'collapseFive',
-      question: '5. Can you build AI-powered or scalable SaaS products?',
-      answer: 'Absolutely! We specialize in building AI-powered applications, automation tools, and cloud-based SaaS platforms using cutting-edge technologies and modern architecture best practices.'
-    },
-    {
-      id: 'headingSix',
-      target: 'collapseSix',
-      question: '6. Do you offer post-launch support?',
-      answer: 'Yes, we offer one month support after project launch without any additional cost.'
-    },
-    {
-      id: 'headingSeven',
-      target: 'collapseSeven',
-      question: '7. What is your communication process during the development process?',
-      answer: 'We use Slack, Google Meet, Skype for communication and Trello, Asana or Jira for project management as per the Client comfort.'
-    }
-  ];
 
 const ProductionDevelopment = () => {
   return (
     <div>
-        <ProductDevelopmentBanner/>
-        <ProductDevelopmentSectionOne/>
-        <ExperienceSection
-          heading="Why Choose Us?"
-          description="We’re not just coders — we’re strategic partners who are committed to your product’s long-term success. Here’s why businesses trust us:"
-        />
-        <ServiceList services={serviceData} />
-        <DevelopmentProcess/>
-        <CallToAction
-            heading="Build the Future, Today – With Our Custom Product Development Services!"
-            description="From innovative web apps to intelligent mobile solutions, TGAYS Technology is your partner in building future-ready digital products. Let’s turn your ideas into exceptional software that scales."
-            buttonText=""
-        />
-        {/* <Testimonials/> */}
-        <AnimatedTestimonials autoplay={true}/>
-        <ServiceTechStack
-          heading={
-            <>
-              CUTTING-EDGE <span className="c-primary">TECH STACK</span> We Use
-            </>
+        <style dangerouslySetInnerHTML={{__html: `
+          .nunito-page-content, 
+          .nunito-page-content h1, 
+          .nunito-page-content h2, 
+          .nunito-page-content h3, 
+          .nunito-page-content h4, 
+          .nunito-page-content h5, 
+          .nunito-page-content h6, 
+          .nunito-page-content p, 
+          .nunito-page-content span, 
+          .nunito-page-content li, 
+          .nunito-page-content a, 
+          .nunito-page-content button {
+            font-family: 'Nunito', sans-serif !important;
           }
-          description=""
-          cards={[
-            {
-              title: 'Front-end Languages',
-              items: [
-                { icon: '', text: 'HTML' },     // React Native → React icon
-                { icon: '', text: 'CSS' },                               // Flutter → Flutter icon (if supported)
-                { icon: '', text: 'Bootstrap' },                        // Native Android → Android icon
-                { icon: '', text: 'React.js' },    
-                { icon: '', text: 'Angular.js' },    
-                { icon: '', text: 'Next.js' },    
-                { icon: '', text: 'JQuery' },    
-                { icon: '', text: 'Javacript' },    
-                { icon: '', text: 'FIGMA' },    
-                { icon: '', text: 'Webflow' },    
-              ],
-              minItems: 10,
-              ctaText: 'Consult Now',
-              ctaLink: '/contact-us',
-            },
-            {
-              title: 'Back-end Languages',
-              items: [
-                { icon: '', text: 'PHP and it’s Framework' },     // React Native → React icon
-                { icon: '', text: 'Node.js' },                               // Flutter → Flutter icon (if supported)
-                { icon: '', text: 'Python' },                        // Native Android → Android icon
-                { icon: '', text: 'MySQL' },    
-                { icon: '', text: 'MongoDB' },    
-                { icon: '', text: 'Redis' },    
-                { icon: '', text: 'Postgres' },    
-              ],
-              minItems: 10,
-              ctaText: 'Consult Now',
-              ctaLink: '/contact-us',
-            },
-            {
-              title: 'E-Commerce CMS and Framework',
-              items: [
-                { icon: '', text: 'Magento' },     // React Native → React icon
-                { icon: '', text: 'Woo-commerce' },                               // Flutter → Flutter icon (if supported)
-                { icon: '', text: 'Shopify' },                        // Native Android → Android icon
-                { icon: '', text: 'Bigcommerce' },      // General mobile app conversion
-                { icon: '', text: 'Magento(E-Commerce CMS)' },     
-                { icon: '', text: 'Custom ECommerce Development' },     
-              ],
-              minItems: 10,
-              ctaText: 'Consult Now',
-              ctaLink: '/contact-us',
-            },
-          ]}
-        />
-        <FAQSection faqs={productFAQs}/>
-        <QuickConsultation/>
+          .nunito-page-content h2,
+          .nunito-page-content .heading-title {
+            font-family: 'Nunito', Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+            font-size: 34px !important;
+            line-height: 44.2px !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.68px !important;
+          }
+        `}} />
+        <ProductDevelopmentBanner/>
+        
+        <div className="nunito-page-content">
+          <WhyChooseProductDev/>
+          <ProductServicesTabs/>
+          <ProductBenefits/>
+          <ProductChallenges/>
+          <DevelopmentProcess/>
+          <ProductIndustries/>
+          <ProductTrust/>
+          <AnimatedTestimonials autoplay={true}/>
+          
+          <ServiceTechStack
+            heading={
+              <>
+                CUTTING-EDGE <span className="c-primary">TECH STACK</span> We Use
+              </>
+            }
+            description="Our engineers deploy top-tier languages, systems, and cloud providers to power modern product builds."
+            cards={[
+              {
+                title: 'Frontend Frameworks',
+                items: [
+                  { icon: '', text: 'React.js' },
+                  { icon: '', text: 'Angular' },
+                  { icon: '', text: 'Next.js' },
+                  { icon: '', text: 'Bootstrap & HTML5' },
+                  { icon: '', text: 'Javascript & SCSS' },
+                  { icon: '', text: 'Figma Prototyping' }
+                ],
+                minItems: 6,
+                ctaText: 'Consult Now',
+                ctaLink: '/contact-us',
+              },
+              {
+                title: 'Backend & Databases',
+                highlight: true,
+                items: [
+                  { icon: '', text: 'Node.js' },
+                  { icon: '', text: 'Python & Django' },
+                  { icon: '', text: 'Java & Spring' },
+                  { icon: '', text: '.NET Core' },
+                  { icon: '', text: 'MySQL & PostgreSQL' },
+                  { icon: '', text: 'MongoDB & Redis' }
+                ],
+                minItems: 6,
+                ctaText: 'Consult Now',
+                ctaLink: '/contact-us',
+              },
+              {
+                title: 'Cloud & Integrations',
+                items: [
+                  { icon: '', text: 'Amazon Web Services (AWS)' },
+                  { icon: '', text: 'Microsoft Azure' },
+                  { icon: '', text: 'Google Cloud Platform (GCP)' },
+                  { icon: '', text: 'OpenAI API & Generative AI' },
+                  { icon: '', text: 'Docker & Kubernetes' },
+                  { icon: '', text: 'CI/CD Pipelines' }
+                ],
+                minItems: 6,
+                ctaText: 'Consult Now',
+                ctaLink: '/contact-us',
+              },
+            ]}
+          />
+          
+          <FAQSection faqs={productFAQs}/>
+          
+          {/* Strong Call to Action Section */}
+          <section className="bg-cover free-call-section" style={{ background: "#060913", padding: "100px 0" }}>
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-lg-10">
+                  <div className="p-5 text-center shadow-lg position-relative overflow-hidden" 
+                    style={{ 
+                      borderRadius: "24px", 
+                      background: "linear-gradient(135deg, #091020 0%, #0c1527 100%)",
+                      border: "1px solid rgba(255, 255, 255, 0.05)",
+                      boxShadow: "rgba(0, 0, 0, 0.4) 0px 30px 60px -15px"
+                    }}>
+                    {/* Glowing background light */}
+                    <div style={{
+                      position: "absolute",
+                      top: "-150px",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      width: "300px",
+                      height: "300px",
+                      background: "radial-gradient(circle, rgba(0, 131, 255, 0.2) 0%, transparent 70%)",
+                      pointerEvents: "none"
+                    }} />
+
+                    <div style={{ position: "relative", zIndex: 2 }}>
+                      <span className="badge mb-3 text-uppercase" style={{ background: "rgba(0, 131, 255, 0.15)", color: "#0083FF", fontWeight: "700", padding: "8px 16px", fontSize: "0.8rem", borderRadius: "30px", letterSpacing: "1px" }}>
+                        Transform Your Vision
+                      </span>
+                      <h2 className="text-white mb-4" style={{ fontSize: "2.3rem", fontWeight: "800", letterSpacing: "-0.5px" }}>
+                        Ready to Build Your Next Digital Product?
+                      </h2>
+                      <p className="text-white-50 mb-5" style={{ fontSize: "1.05rem", lineHeight: "1.7", maxWidth: "700px", margin: "0 auto" }}>
+                        Whether you're a startup validating a new idea or an enterprise scaling digital innovation, TGAYS Technology is your trusted partner for end-to-end product development.
+                      </p>
+
+                      <div className="d-flex flex-wrap justify-content-center align-items-center gap-3">
+                        <Link href="/contact-us" className="btn" 
+                          style={{ 
+                            minWidth: "280px", 
+                            background: "#0083FF", 
+                            color: "#fff", 
+                            fontWeight: "600",
+                            padding: "14px 28px",
+                            borderRadius: "30px",
+                            border: "none",
+                            transition: "all 0.3s ease",
+                            boxShadow: "0 4px 15px rgba(0, 131, 255, 0.3)"
+                          }}>
+                          Book Your Free Product Strategy Consultation Today
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <QuickConsultation/>
+        </div>
     </div>
   )
 }

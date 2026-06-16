@@ -1,42 +1,37 @@
 'use client'
 import React from 'react';
 
-const DevelopmentProcess = () => {
+const M365Process = () => {
   const steps = [
     {
       num: "01",
-      title: "Product Discovery",
-      desc: "We align business goals with user needs, market opportunities, and target technical requirements."
+      title: "Discovery & Assessment",
+      desc: "We analyze current systems, business processes, user requirements, and identify technology gaps."
     },
     {
       num: "02",
-      title: "Product Strategy",
-      desc: "We define the complete product roadmap, feature prioritization hierarchy, tech stack, and KPIs."
+      title: "Solution Architecture",
+      desc: "Our architects map out technical roadmaps, integration paths, security frameworks, and deployment plans."
     },
     {
       num: "03",
-      title: "UI/UX Design",
-      desc: "Creating intuitive user experiences through wireframes, prototypes, journeys, and design systems."
+      title: "Development & Configuration",
+      desc: "Active development and cloud configuration of Power Apps, Power Automate, SharePoint, and custom Teams widgets."
     },
     {
       num: "04",
-      title: "Agile Development",
-      desc: "Our developers build scalable, clean-code software solutions using modern frameworks and APIs."
+      title: "Testing & Validation",
+      desc: "Rigorous system testing validating functionality, accessibility, access security, cloud performance, and UX."
     },
     {
       num: "05",
-      title: "Quality Assurance",
-      desc: "Comprehensive testing loops validating functional correctness, load, accessibility, and security."
+      title: "Deployment & Training",
+      desc: "Go-live setups complete with detailed user training, full governance documentation, and rollout support."
     },
     {
       num: "06",
-      title: "Deployment & Launch",
-      desc: "Seamless launch execution in production environments using automated CI/CD DevOps workflows."
-    },
-    {
-      num: "07",
-      title: "Continuous Improvement",
-      desc: "Post-launch audit and maintenance optimization cycles powered by user behavior metrics."
+      title: "Ongoing Support & Optimization",
+      desc: "Continuous performance audits and software optimizations to maximize your Microsoft 365 investment."
     }
   ];
 
@@ -45,12 +40,12 @@ const DevelopmentProcess = () => {
       <div className="container">
         <div className="crumina-module crumina-heading text-center mb-5">
           <h2 className="heading-title" style={{ fontSize: "2.25rem", fontWeight: "700" }}>
-            OUR PRODUCT <span className="c-primary">DEVELOPMENT PROCESS</span>
+            OUR MICROSOFT 365 <span className="c-primary">DEVELOPMENT PROCESS</span>
           </h2>
           <p className="slider-content-text">A structured methodology that drives efficiency, mitigates risk, and ensures high adoption.</p>
         </div>
 
-        <div className="row justify-content-center">
+        <div className="row">
           {steps.map((step, idx) => (
             <div key={idx} className="col-lg-4 col-md-6 mb-4">
               <div className="step-card p-4 h-100 rounded-4 shadow-sm transition-all" 
@@ -59,18 +54,8 @@ const DevelopmentProcess = () => {
                   background: "#fff",
                   border: "1px solid #f0f0f0",
                   position: "relative",
-                  overflow: "hidden",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease"
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-5px)";
-                  e.currentTarget.style.boxShadow = "rgba(0, 131, 255, 0.08) 0px 15px 30px";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "none";
-                }}
-              >
+                  overflow: "hidden"
+                }}>
                 <div className="step-num-badge" style={{ 
                   fontSize: "3rem", 
                   fontWeight: "800", 
@@ -83,7 +68,7 @@ const DevelopmentProcess = () => {
                   {step.num}
                 </div>
                 <div style={{ position: "relative", zIndex: 2 }}>
-                  <span className="d-inline-block p-2 rounded-3 text-white mb-3" style={{ background: "#0083FF", fontSize: "0.85rem", fontWeight: "bold", padding: "4px 10px" }}>
+                  <span className="d-inline-block p-2 rounded-3 text-white mb-3" style={{ background: "#0083FF", fontSize: "0.85rem", fontWeight: "bold" }}>
                     Step {step.num}
                   </span>
                   <h3 className="h5 fw-bold mb-3 text-dark">{step.title}</h3>
@@ -100,4 +85,4 @@ const DevelopmentProcess = () => {
   );
 };
 
-export default DevelopmentProcess;
+export default M365Process;

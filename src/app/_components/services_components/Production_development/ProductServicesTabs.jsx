@@ -2,180 +2,114 @@
 import React, { useState } from 'react';
 import '../../products/PricingCards.css'; // Load Uiverse tab styling classes
 
-const M365DevelopmentServices = () => {
+const ProductServicesTabs = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const services = [
     {
-      id: "consulting",
-      tabTitle: "Consulting & Strategy",
-      title: "Microsoft 365 Consulting & Strategy Services",
-      intro: "Our consultants assess your current environment, identify opportunities, and create a roadmap for Microsoft 365 adoption and optimization.",
-      listTitle: "Services Include",
+      id: "discovery",
+      tabTitle: "Discovery & Validation",
+      title: "Product Discovery & Validation Services",
+      intro: "Before development begins, we validate your product concept to reduce risk and ensure better market alignment.",
+      listTitle: "Discovery Activities",
       listItems: [
-        "Microsoft 365 Readiness Assessment",
-        "Digital Transformation Planning",
-        "Licensing Optimization",
-        "Governance Framework Design",
-        "Security & Compliance Planning"
+        "Market research & feasibility studies",
+        "Competitor analysis & benchmarking",
+        "User research & persona definition",
+        "Technical feasibility studies",
+        "Business model validation & mapping"
       ],
-      outcomeTitle: "Business Outcome",
+      outcomeTitle: "Expected Outcomes",
       outcomeItems: [
-        "Improved productivity",
-        "Optimized technology investments",
-        "Enhanced security posture",
-        "Strategic cloud roadmap"
+        "Reduced business and financial risk",
+        "Verified customer demand signals",
+        "Clear feature roadmap definition",
+        "Better technology choices upfront"
       ]
     },
     {
-      id: "implementation",
-      tabTitle: "M365 Implementation",
-      title: "Microsoft 365 Implementation Services",
-      intro: "Successful deployment requires proper planning and execution. We setup secure M365 tenants configured to your goals.",
-      listTitle: "Implementation Scope",
+      id: "mvp",
+      tabTitle: "MVP Development",
+      title: "MVP Product Development Services",
+      intro: "Our MVP product development services help businesses launch quickly and validate ideas before investing in full-scale development. Perfect for startups and innovation-driven businesses.",
+      listTitle: "MVP Scope & Focus",
       listItems: [
-        "Tenant Setup & Configuration",
-        "Security & Compliance Setup",
-        "User Provisioning & Roles",
-        "Data Governance Setup",
-        "Collaboration Environment Design"
+        "Core feature mapping & prioritization",
+        "Rapid UI/UX wireframing & prototyping",
+        "SaaS & Cloud platform setup",
+        "Security & database schema architecture",
+        "Beta launcher & feedback instrumentation"
       ],
-      outcomeTitle: "Deployment Benefits",
+      outcomeTitle: "Benefits of MVP Development",
       outcomeItems: [
-        "Faster deployment timelines",
-        "Reduced business downtime",
-        "Enhanced access security",
-        "Improved initial user adoption"
+        "Faster time-to-market",
+        "Lower investment risk",
+        "Real user feedback and analytics",
+        "Better investor confidence & proof"
       ]
     },
     {
-      id: "migration",
-      tabTitle: "Migration Services",
-      title: "Microsoft 365 Migration Services",
-      intro: "Migrating from legacy platforms can be complex and risky. Our Microsoft 365 migration services ensure a seamless transition.",
-      listTitle: "Migration Solutions",
+      id: "custom",
+      tabTitle: "Custom Products",
+      title: "Custom Software Product Development",
+      intro: "We build scalable, custom software products tailored specifically to your unique target audience and business objectives.",
+      listTitle: "Products We Build",
       listItems: [
-        "Exchange & Mail Migration",
-        "SharePoint & OneDrive Migration",
-        "Teams & Chat Migration",
-        "File Server Cloud Migration",
-        "Legacy System Modernization"
+        "SaaS Platforms & Customer Portals",
+        "Enterprise Applications",
+        "CRM & ERP Systems",
+        "Marketplaces & Retail Hubs",
+        "Mobile Applications",
+        "AI-Powered Platforms"
       ],
-      outcomeTitle: "Why Choose Our Migration",
+      outcomeTitle: "Business Value",
       outcomeItems: [
-        "Minimal business disruption",
-        "Secure end-to-end data transfer",
-        "Compliance preservation",
-        "Zero data loss strategy"
+        "Enterprise-grade scalability",
+        "Modern frontend-backend systems",
+        "Zero dependency on generic platforms",
+        "Robust multi-tenant frameworks"
       ]
     },
     {
-      id: "power-platform",
-      tabTitle: "Power Platform",
-      title: "Microsoft Power Platform Consulting Services",
-      intro: "Leverage Microsoft's low-code ecosystem to automate business operations, improve productivity, and build custom apps fast.",
-      listTitle: "Power Platform Services",
+      id: "ai",
+      tabTitle: "AI Engineering",
+      title: "AI Product Development Services",
+      intro: "As an advanced AI product development company, we create intelligent solutions powered by modern machine learning models and neural frameworks.",
+      listTitle: "AI Capabilities We Build",
       listItems: [
-        "Power Apps Development",
-        "Power Automate Workflows",
-        "Power BI Dashboards",
-        "Power Pages Portals",
-        "Power Virtual Agents (Bots)"
+        "Machine Learning & Generative AI Models",
+        "Chatbots & Conversational AI Agents",
+        "Predictive Analytics & Forecasting Engines",
+        "Computer Vision & Pattern Recognition",
+        "Natural Language Processing (NLP) tools"
       ],
-      outcomeTitle: "Key Benefits",
+      outcomeTitle: "AI Business Use Cases",
       outcomeItems: [
-        "Faster application development",
-        "Reduced operational overhead",
-        "Increased employee productivity",
-        "Data-driven decision making"
+        "Customer support automation & routing",
+        "Sales intelligence & lead prediction",
+        "Healthcare diagnostics & data analytics",
+        "Demand forecasting & fraud detection"
       ]
     },
     {
-      id: "power-apps",
-      tabTitle: "Custom Power Apps",
-      title: "Custom Power Apps Development Company",
-      intro: "As a trusted Custom Power Apps Development Company, we build responsive business applications tailored exactly to your workflows.",
-      listTitle: "Power Apps Solutions",
+      id: "modernization",
+      tabTitle: "Modernization",
+      title: "Product Modernization Services",
+      intro: "Transform legacy systems into modern digital products with performance enhancements, API integrations, and cloud architectures.",
+      listTitle: "Modernization Scope",
       listItems: [
-        "Employee Management Systems",
-        "Approval Workflow Apps",
-        "Inventory & Asset Tracking",
-        "Field Service Mobile Apps",
-        "CRM & Legacy System Extensions",
-        "Custom Business Process Apps"
+        "Cloud Migration & Microservices Setup",
+        "API Integration & Legacy Connectivity",
+        "Database Architecture Overhauls",
+        "Security & Compliance Enhancements",
+        "UX Modernization & Mobile Extensions"
       ],
-      outcomeTitle: "Why Power Apps?",
+      outcomeTitle: "Modernization Benefits",
       outcomeItems: [
-        "Develop applications significantly faster",
-        "Enterprise-grade security standards",
-        "Low-code cloud scalability",
-        "Unified cross-platform usability"
-      ]
-    },
-    {
-      id: "power-automate",
-      tabTitle: "Power Automate",
-      title: "Power Automate Development Services",
-      intro: "Manual processes consume valuable time and resources. We help organizations automate repetitive tasks and workflows.",
-      listTitle: "Automation Use Cases",
-      listItems: [
-        "Invoice & Billing Processing",
-        "HR Onboarding Automation",
-        "Purchase Order Approvals",
-        "Multi-channel Notifications",
-        "Document Routing & Storage",
-        "Database & App Syncing"
-      ],
-      outcomeTitle: "Business Impact",
-      outcomeItems: [
-        "Reduced manual error rates",
-        "Accelerated operational speed",
-        "Improved process accuracy",
-        "Standardized system compliance"
-      ]
-    },
-    {
-      id: "power-bi",
-      tabTitle: "Power BI Analytics",
-      title: "Power BI Development Services",
-      intro: "Data-driven businesses outperform competitors. Our services transform raw business data into interactive, actionable insights.",
-      listTitle: "Power BI Solutions",
-      listItems: [
-        "Executive Dashboard Displays",
-        "KPI Monitoring Systems",
-        "Sales & Pipeline Analytics",
-        "Financial Reporting Boards",
-        "Customer Retention Insights",
-        "Operational Intelligence Panels"
-      ],
-      outcomeTitle: "Results You Can Expect",
-      outcomeItems: [
-        "Better, faster decision making",
-        "Real-time corporate reporting",
-        "Improved planning & forecasting",
-        "Increased business-wide visibility"
-      ]
-    },
-    {
-      id: "sharepoint-teams",
-      tabTitle: "SharePoint & Teams",
-      title: "SharePoint & Microsoft Teams Development",
-      intro: "Enhance team collaboration and build digital workplaces with custom intranets, collaboration workspaces, and Teams custom apps.",
-      listTitle: "Solutions Include",
-      listItems: [
-        "SharePoint Intranet Portals",
-        "Employee Communication Hubs",
-        "Knowledge Management Hubs",
-        "Teams Custom App Development",
-        "Collaboration Workspaces",
-        "Document Management Architectures"
-      ],
-      outcomeTitle: "Collaboration Benefits",
-      outcomeItems: [
-        "Unified employee digital workspace",
-        "Secure and structured file sharing",
-        "Streamlined communication channels",
-        "Optimized tool integrations"
+        "Zero legacy security vulnerabilities",
+        "Lower cloud operational costs",
+        "Faster system response times",
+        "Significantly higher user satisfaction"
       ]
     }
   ];
@@ -185,9 +119,9 @@ const M365DevelopmentServices = () => {
       <div className="container">
         <div className="crumina-module crumina-heading text-center mb-5">
           <h2 className="heading-title" style={{ fontSize: "2.25rem", fontWeight: "700" }}>
-            COMPREHENSIVE <span className="c-primary">MICROSOFT 365 DEVELOPMENT</span> SERVICES
+            COMPREHENSIVE <span className="c-primary">PRODUCT DEVELOPMENT</span> SERVICES
           </h2>
-          <p className="slider-content-text">Seamlessly integrate your business workflows with Microsoft 365 tools built to perform and scale.</p>
+          <p className="slider-content-text">Seamlessly transform your vision into high-performing, scalable, and user-centric digital products.</p>
         </div>
 
         {/* Mobile View Accordion (d-block d-lg-none) */}
@@ -240,7 +174,7 @@ const M365DevelopmentServices = () => {
                   {isOpen && (
                     <div style={{ padding: '20px', background: '#fafafa', borderTop: '1px solid #f0f0f0' }}>
                       <span className="badge mb-3" style={{ background: "rgba(0, 131, 255, 0.1)", color: "#0083ff", fontWeight: "bold", padding: "8px 12px", fontSize: "0.8rem", borderRadius: "6px" }}>
-                        M365 Cloud Capability
+                        Product Life Cycle
                       </span>
 
                       <h3 className="mb-3 text-dark" style={{ fontSize: "1.4rem", fontWeight: "700" }}>
@@ -254,7 +188,7 @@ const M365DevelopmentServices = () => {
                       <hr style={{ borderTop: "1px solid #eaeaea", margin: "20px 0" }} />
 
                       <div className="row">
-                        {/* Solutions */}
+                        {/* Scope */}
                         <div className="col-12 mb-4">
                           <div className="d-flex align-items-center mb-2">
                             <div className="icon-wrap me-2" style={{ color: "#0083ff", fontSize: "1.1rem", display: "flex" }}>
@@ -341,7 +275,7 @@ const M365DevelopmentServices = () => {
               }}>
               <div className="card-body p-0">
                 <span className="badge mb-3" style={{ background: "rgba(0, 131, 255, 0.1)", color: "#0083ff", fontWeight: "bold", padding: "8px 12px", fontSize: "0.8rem", borderRadius: "6px" }}>
-                  M365 Cloud Capability
+                  Product Life Cycle
                 </span>
 
                 <h3 className="mb-3 text-dark" style={{ fontSize: "1.6rem", fontWeight: "700" }}>
@@ -355,7 +289,7 @@ const M365DevelopmentServices = () => {
                 <hr style={{ borderTop: "1px solid #eaeaea", margin: "25px 0" }} />
 
                 <div className="row">
-                  {/* Left Column: Services Include */}
+                  {/* Left Column */}
                   <div className="col-md-6 mb-4 mb-md-0">
                     <div className="d-flex align-items-center mb-3">
                       <div className="icon-wrap me-2" style={{ color: "#0083ff", fontSize: "1.2rem", display: "flex" }}>
@@ -372,7 +306,7 @@ const M365DevelopmentServices = () => {
                     </ul>
                   </div>
 
-                  {/* Right Column: Outcomes */}
+                  {/* Right Column */}
                   <div className="col-md-6">
                     <div className="d-flex align-items-center mb-3">
                       <div className="icon-wrap me-2" style={{ color: "#ff5e3a", fontSize: "1.2rem", display: "flex" }}>
@@ -398,4 +332,4 @@ const M365DevelopmentServices = () => {
   );
 };
 
-export default M365DevelopmentServices;
+export default ProductServicesTabs;
