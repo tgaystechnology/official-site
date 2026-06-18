@@ -17,7 +17,7 @@ export default function RootPage() {
       {
         quote:
           "It was fantastic. 7 years working with the Team. I didn't even realize, we spent more than 7 years together. Excellent Difference in Results, work and never a failure.",
-        name: "Richard Stones",
+        name: "Richard Bonitz",
         designation: "Creative Media Team Technology",
         src: "/img/rich.jpg",
       },
@@ -31,7 +31,7 @@ export default function RootPage() {
       {
         quote:
           "Their expertise and dedication were evident from the start. They took the time to understand our needs and delivered a solution that exceeded our expectations. I highly recommend them.",
-        name: "Jane Smith",
+        name: "Chris Shrinkle",
         designation: "Project Manager",
         src: "/img/chris.png",
       },
