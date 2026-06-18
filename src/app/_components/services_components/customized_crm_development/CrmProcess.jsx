@@ -1,53 +1,53 @@
 'use client'
 import React from 'react';
 
-const OffshoreProcess = () => {
+const CrmProcess = () => {
   const steps = [
     {
       num: "01",
-      title: "Discovery & Consultation",
-      desc: "We understand your business objectives, target technical specifications, and key engineering scale metrics."
+      title: "Business Discovery",
+      desc: "We dive deep into your unique business goals, workflows, active users, and customer relationship challenges."
     },
     {
       num: "02",
-      title: "Resource Planning",
-      desc: "Our strategic architects map out your ideal team size, developer skill sets, and best tech stack."
+      title: "CRM Planning & Strategy",
+      desc: "Our architects draft a clear roadmap, custom modules, database architectures, and API integrations."
     },
     {
       num: "03",
-      title: "Team Selection",
-      desc: "Interview and handpick from a vetted pool of experienced Indian engineers aligned with your values."
+      title: "UI/UX Design",
+      desc: "We design intuitive CRM dashboard layouts that maximize operator productivity and encourage internal adoption."
     },
     {
       num: "04",
-      title: "Project Onboarding",
-      desc: "Set up communication channels, Slack workspace integrations, Jira boards, KPIs, and schedules."
+      title: "CRM Development",
+      desc: "Our specialists develop automation scripts, user permissions, analytics widgets, and cloud modules."
     },
     {
       num: "05",
-      title: "Agile Development",
-      desc: "Active engineering cycles, continuous testing, daily standups, and weekly review loops."
+      title: "Quality Assurance",
+      desc: "Rigorous testing loops inspect functional logic, database latency, role-based permission locks, and API data flows."
     },
     {
       num: "06",
-      title: "Quality Assurance",
-      desc: "Testing protocols verifying security parameters, browser scalability, and strict code reviews."
+      title: "Deployment & Launch",
+      desc: "We securely transition your teams and deploy the CRM infrastructure on the cloud with zero downtime."
     },
     {
       num: "07",
-      title: "Support & Optimization",
-      desc: "Post-launch product monitoring, ongoing enhancements, cloud optimizations, and updates."
+      title: "Ongoing Support",
+      desc: "Post-deployment monitoring, database tuning, regular software updates, and expert consulting assistance."
     }
   ];
 
   return (
-    <section className="process-workflow-section pt100 pb70" style={{ background: "#fcfcfc" }}>
+    <section className="process-workflow-section pt100 pb70" style={{ background: "#fcfcfc" }} role="region" aria-labelledby="crm-process-heading">
       <div className="container">
         <div className="crumina-module crumina-heading text-center mb-5">
-          <h2 className="heading-title" style={{ fontSize: "2.25rem", fontWeight: "700" }}>
-            OUR OFFSHORE <span className="c-primary">DEVELOPMENT PROCESS</span>
+          <h2 id="crm-process-heading" className="heading-title text-uppercase" style={{ fontSize: "2.25rem", fontWeight: "700" }}>
+            Our Custom <span className="c-primary">CRM Development Process</span>
           </h2>
-          <p className="slider-content-text">A structured onboarding and sprint methodology that ensures seamless delivery and transparency.</p>
+          <p className="slider-content-text">A strategic, milestone-based timeline designed to deliver high-performing enterprise tools with zero disruption.</p>
         </div>
 
         <div className="row justify-content-center">
@@ -100,4 +100,4 @@ const OffshoreProcess = () => {
   );
 };
 
-export default OffshoreProcess;
+export default CrmProcess;
