@@ -1,106 +1,88 @@
 'use client'
 import React from 'react';
-import Image from 'next/image';
-import Lottie from 'lottie-react';
-import { useMediaQuery } from "react-responsive";
 
 const AppSupportBenefits = () => {
   const benefits = [
     {
-      id: 1,
-      icon: "diamond-outline",
-      title: "Business Continuity",
-      description: "Minimize downtime with continuous monitoring, issue resolution, and fail-safe mechanisms."
+      title: "Increased Application Availability",
+      desc: "Ensure uninterrupted access for users and customers with proactive uptime monitoring.",
+      icon: "cloud-done-outline"
     },
     {
-      id: 2,
-      icon: "copy-outline",
-      title: "Cost Efficiency",
-      description: "Prevent expensive disruptions with proactive maintenance and avoid surprise repair costs."
+      title: "Faster Issue Resolution",
+      desc: "Minimize business disruption through rapid support response and expert troubleshooting.",
+      icon: "flash-outline"
     },
     {
-      id: 3,
-      icon: "key-outline",
-      title: "Security & Compliance",
-      description: "Ensure your applications stay compliant and secure against evolving cyber threats."
+      title: "Improved Security",
+      desc: "Reduce exposure to vulnerabilities and cyber threats with regular security patching.",
+      icon: "shield-checkmark-outline"
+    },
+    {
+      title: "Lower Operational Costs",
+      desc: "Optimize maintenance expenses and eliminate the overhead of managing in-house teams.",
+      icon: "cash-outline"
+    },
+    {
+      title: "Better User Experience",
+      desc: "Deliver fast, stable, and reliable application performance that keeps users engaged.",
+      icon: "happy-outline"
+    },
+    {
+      title: "Scalability for Growth",
+      desc: "Support increasing workloads and seamlessly expand business operations on demand.",
+      icon: "expand-outline"
+    },
+    {
+      title: "Predictable IT Costs",
+      desc: "Benefit from SLA-driven and transparent support models that fit your budget.",
+      icon: "calculator-outline"
+    },
+    {
+      title: "Enhanced Business Continuity",
+      desc: "Reduce risks associated with unexpected application failures and costly downtime.",
+      icon: "sync-circle-outline"
     }
   ];
 
-  const isMobile = useMediaQuery({ maxWidth: 767 });       // 📱 Mobile
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 📲 Tablet
-  const isLaptop = useMediaQuery({ minWidth: 1024, maxWidth: 1439 }); // 💻 Laptop
-  const isDesktop = useMediaQuery({ minWidth: 1440 });     // 🖥️ Large Desktop
-
-  let width = 320;
-  let height = 300;
-
-  if (isMobile) {
-    width = 420;
-    height = 400;
-  } else if (isTablet) {
-    width = 450;
-    height = 350;
-  } else if (isLaptop) {
-    width = 400;
-    height = 350;
-  } else if (isDesktop) {
-    width = 500;
-    height = 350;
-  }
-
   return (
-    <section className="ai-step it-staff-step why-app-main-supprt-sec" aria-labelledby="why-application-support-heading">
-      <div className="container">
-        <div className="ai-shape">
-          <Image 
-            src="/img/intro-v2-shape3.png" 
-            alt="Decorative shape"
-            width={100}
-            height={100}
-          />
+    <>
+      <section className="staff-key-benefits" role="region" aria-labelledby="appsupport-benefits-heading">
+        <div className="crumina-module crumina-heading hm-easy_title text-center">
+          <h2 id="appsupport-benefits-heading" className="heading-title text-uppercase" style={{ fontSize: "2.25rem", fontWeight: "700" }}>
+            BENEFITS OF <span className="c-primary">MANAGED APP SUPPORT</span>
+          </h2>
+          <p>Deliver digital solutions that drive user adoption, maximize ROI, and grow with your target market.</p>
         </div>
+      </section>
 
-        <div className="crumina-module crumina-heading text-center">
-          <h2 id="why-application-support-heading" className="heading-title">Why Application Support is Critical for Modern Businesses</h2>
-        </div>
-
-        <div className="row">
-          <div className="col-lg-6">
-            <div className="ai-work-content">
-              {benefits.map(benefit => (
-                <div key={benefit.id} className="ai-work-item">
-                  <div className="icon-box" aria-hidden="true">
-                    <ion-icon name={benefit.icon}></ion-icon>
+      <section className="key-list" role="region" aria-labelledby="appsupport-advantages-heading">
+        <div className="container">
+          <div className="row justify-content-center">
+            {benefits.map((benefit, idx) => (
+              <div key={idx} className="col-sm-12 col-md-6 col-lg-3 mb-4">
+                <div className="key-wrap" style={{ minHeight: "220px" }}>
+                  <div className="key-icon" aria-hidden="true">
+                    <span><ion-icon name={benefit.icon}></ion-icon></span>
                   </div>
-                  <div className="ai-work-item-content">
-                    <h3>{benefit.title}</h3>
-                    <p>{benefit.description}</p>
+                  <div className="key-text">
+                    <h3 className="benefit-title" style={{ fontSize: "1.2rem", fontWeight: "700", marginBottom: "15px" }}>{benefit.title}</h3>
+                    <p style={{ fontSize: "0.95rem", lineHeight: "1.6" }}>{benefit.desc}</p>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
-          <div className="col-lg-6">
-            <div className="ai-work-image">
-              <figure className="image-anime reveal" role="img"
-            aria-label="Enterprise application monitoring and business continuity illustration">
-                <Lottie
-                  path="/lottie/For Business.json"
-                  loop
-                  autoplay
-                  style={{
-                    width,
-                    height,
-                    margin: "0 auto", // centers the animation
-                  }}
-                />
-              </figure>
-            </div>
+          <div className="quick-answer-box p-4 text-center" style={{ background: "rgba(0, 131, 255, 0.03)", border: "1px solid rgba(0, 131, 255, 0.15)", borderRadius: "16px", marginTop: "45px", boxShadow: "rgba(0, 0, 0, 0.01) 0px 10px 20px" }}>
+            <h4 style={{ fontSize: "1.2rem", fontWeight: "800", color: "#0083FF", marginBottom: "8px" }}>Quick Answer: Why is application maintenance important?</h4>
+            <p className="mb-0 text-muted" style={{ fontSize: "1rem", color: "#444", fontStyle: "italic", lineHeight: "1.6" }}>
+              Application maintenance is critical because it prevents costly downtime, patches security vulnerabilities, improves system performance, and extends the overall lifespan of the software, ensuring it continues to deliver value as your business evolves.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
