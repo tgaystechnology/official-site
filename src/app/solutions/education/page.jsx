@@ -1,200 +1,163 @@
-import QuickConsultation from '@/app/_components/services_components/QuickConsultation';
-import EducationBanner from '@/app/_components/solutions_components/education/EducationBanner';
-import EducationChooseUs from '@/app/_components/solutions_components/EducationChooseUs';
-import EducationKeyBenefitsSection from '@/app/_components/solutions_components/EducationKeyBenefitsSection';
-import RetailCaseStudy from '@/app/_components/solutions_components/RetailCaseStudy';
-import RetailManagementSystem from '@/app/_components/solutions_components/RetailManagementSystem';
-import React from 'react'
-
+import React from 'react';
 import { generateMetadata as generateDynamicMetadata } from '@/lib/generateMetadata';
+
+import EducationBanner from '@/app/_components/solutions_components/education/EducationBanner';
+import EducationWhyChoose from '@/app/_components/solutions_components/education/EducationWhyChoose';
+import EducationServices from '@/app/_components/solutions_components/education/EducationServices';
+import EducationModules from '@/app/_components/solutions_components/education/EducationModules';
+import EducationChallenges from '@/app/_components/solutions_components/education/EducationChallenges';
+import EducationProcess from '@/app/_components/solutions_components/education/EducationProcess';
+import EducationBenefits from '@/app/_components/solutions_components/education/EducationBenefits';
+import EducationComparison from '@/app/_components/solutions_components/education/EducationComparison';
+import EducationIndustries from '@/app/_components/solutions_components/education/EducationIndustries';
+import EducationTrust from '@/app/_components/solutions_components/education/EducationTrust';
+import EducationCTA from '@/app/_components/solutions_components/education/EducationCTA';
+import FAQSection from '@/app/_components/services_components/FAQSection';
+
 export async function generateMetadata() {
   return await generateDynamicMetadata({ 
-    params: { slug: '/solutions/education' } // This should match exactly what's in your database
+    params: { slug: '/solutions/education' } 
   });
 }
 
-
-const educationFeatures = [
+const faqsData = [
   {
-    id: 1,
-    icon: "school", // valid Ionicon for education
-    title: "Learning Management System (LMS)",
-    description: "Deploy a full-featured LMS to manage courses, track student progress, and facilitate seamless communication."
+    id: "headingOne",
+    target: "collapseOne",
+    question: "What is an Education Management System?",
+    answer: "An Education Management System is software that manages academic, administrative, and operational activities within educational institutions."
   },
   {
-    id: 2,
-    icon: "laptop-outline", // valid Ionicon for laptop
-    title: "Online Course Platform",
-    description: "Launch your own branded online academy to sell courses, manage enrollments, and deliver high-quality content globally."
+    id: "headingTwo",
+    target: "collapseTwo",
+    question: "How much does Education Management System development cost?",
+    answer: "Costs vary based on institution size, required modules, integrations, and customization needs."
   },
   {
-    id: 3,
-    icon: "clipboard", // correct icon for clipboard/assessment
-    title: "Assessment",
-    description: "Create, deliver, and grade quizzes, exams, and assignments with our secure and robust online assessment tools."
+    id: "headingThree",
+    target: "collapseThree",
+    question: "Can the system support multiple campuses?",
+    answer: "Yes. We develop multi-campus and multi-location management solutions."
   },
   {
-    id: 4,
-    icon: "document-text", // good alternative to file-alt
-    title: "Test Platform",
-    description: "Build a dedicated platform for standardized tests and practice exams with timed assessments and performance analytics."
+    id: "headingFour",
+    target: "collapseFour",
+    question: "Is the platform cloud-based?",
+    answer: "Yes. We offer secure cloud-based deployments with remote accessibility."
   },
   {
-    id: 5,
-    icon: "cube", // suitable alternative for AR/VR/3D concept
-    title: "VR/AR Based Learning Platform",
-    description: "Step into the future with immersive VR/AR applications that make complex subjects engaging and interactive."
+    id: "headingFive",
+    target: "collapseFive",
+    question: "Can parents access student information?",
+    answer: "Yes. Dedicated parent portals provide attendance, grades, and communication updates."
+  },
+  {
+    id: "headingSix",
+    target: "collapseSix",
+    question: "Does the system support online learning?",
+    answer: "Yes. Learning Management System integration is available."
+  },
+  {
+    id: "headingSeven",
+    target: "collapseSeven",
+    question: "Can the platform manage examinations?",
+    answer: "Yes. It supports scheduling, assessments, grading, and result generation."
+  },
+  {
+    id: "headingEight",
+    target: "collapseEight",
+    question: "Is the software mobile-friendly?",
+    answer: "Absolutely. Mobile-responsive interfaces and app integrations are available."
+  },
+  {
+    id: "headingNine",
+    target: "collapseNine",
+    question: "Can we customize modules?",
+    answer: "Yes. Every module can be customized according to institutional requirements."
+  },
+  {
+    id: "headingTen",
+    target: "collapseTen",
+    question: "Do you provide technical support?",
+    answer: "Yes. We offer maintenance, upgrades, and ongoing support."
+  },
+  {
+    id: "headingEleven",
+    target: "collapseEleven",
+    question: "Can the system integrate with third-party applications?",
+    answer: "Yes. We support API-based integrations and external software connectivity."
+  },
+  {
+    id: "headingTwelve",
+    target: "collapseTwelve",
+    question: "Is student data secure?",
+    answer: "Yes. We implement enterprise-grade security protocols and role-based access controls."
+  },
+  {
+    id: "headingThirteen",
+    target: "collapseThirteen",
+    question: "How long does implementation take?",
+    answer: "Typical implementation timelines range from 8 to 24 weeks depending on complexity."
+  },
+  {
+    id: "headingFourteen",
+    target: "collapseFourteen",
+    question: "Do you provide training?",
+    answer: "Yes. We provide complete administrator and user training."
+  },
+  {
+    id: "headingFifteen",
+    target: "collapseFifteen",
+    question: "Can the system scale as the institution grows?",
+    answer: "Yes. Our architecture is designed for long-term scalability."
   }
 ];
-
-
-const educationTitle = {
-  primary: 'Education Management',
-  secondary: 'System'
-};
-
-const educationSubtitle = "From comprehensive administrative systems to immersive learning apps, we provide a full spectrum of solutions to meet the evolving needs of modern education.";
-
-
-const caseStudyData = {
-  backgroundImage: "/img/pattern-img1.png",
-  heading: { primary: "Education Case", secondary: "Study" },
-  subHeading: "TGAYS Education: A Next-Generation Learning Platform",
-  image: {
-    src: "/img/education-case-img.png",
-    alt: "education case study",
-    width: 600,
-    height: 400
-  },
-  challenge: "OA educational partner needed a modern, scalable platform to deliver diverse online courses and certification programs. Their goal was to enhance student engagement and automate administrative tasks like admissions and grading.",
-  solution: "We developed a unified ecosystem, including a central web platform and dedicated mobile apps for iOS and Android. The solution was designed to provide a rich, interactive learning experience with key features:",
-  highlights: [
-    {
-      title: "",
-      description: 'Interactive course modules with video, quizzes, and assignments.'
-    },
-    {
-      title: "",
-      description: "Automated student admission and enrollment system."
-    },
-    {
-      title: "",
-      description: "Secure online examination portal with real-time progress tracking."
-    },
-    {
-      title: "",
-      description: "A collaborative forum for students and instructors."
-    },
-    {
-      title: "",
-      description: "Personalized student dashboards and performance analytics."
-    },
-  ],
-  details: [
-    {
-      title: "Categories",
-      items: ["Education"]
-    },
-    {
-      title: "Client",
-      items: ["LOCATION: India"]
-    },
-    {
-      title: "What We Did",
-      items: ["Android App Development", "iPhone App Development", "Website Development"]
-    },
-    {
-      title: "Year",
-      items: ["2021"]
-    }
-  ],
-  caseStudyLinkText: "View Full Case Study",
-  caseStudyLinkUrl: "/case-study"
-};
-
-const chooseUsData = {
-  heading: 'Why',
-  highlighted: 'Choose',
-  subHeading: 'Us',
-  description: 'We combine educational insight with technological expertise to create platforms that are powerful, intuitive, and perfectly aligned with the goals of modern learning.',
-  image: {
-    src: 'Back to school!.json',
-    alt: 'Choose Us Image',
-    // width: 500,
-    // height: 500,
-  },
-  features: [
-    {
-      icon: 'fas fa-wallet',
-      title: 'Lower Learning Cost',
-      text: 'Our efficient digital platforms reduce administrative overhead and resource costs, making quality education more accessible.',
-    },
-    {
-      icon: 'fas fa-chalkboard-teacher',
-      title: 'Learn With Experts',
-      text: 'We build systems that connect students with educators through interactive tools, live sessions, and virtual classrooms.',
-    },
-    {
-      icon: 'fas fa-layer-group',
-      title: 'Different Course Variation',
-      text: 'Our flexible platforms allow you to create and manage a diverse range of courses, from academic subjects to vocational training.',
-    },
-  ],
-};
-
-const keyBenefitsData = {
-  title: 'Key Features & Benefits',
-  description: 'Here’s why businesses choose us to strengthen their teams with highly capable tech talent.',
-  features: [
-    {
-      icon: 'lock-closed-outline',
-      title: 'Secure & Reliable',
-      description: 'Data protection and privacy.',
-    },
-    {
-      icon: 'settings-outline',
-      title: 'Customizable',
-      description: "Solutions as per your institute's need.",
-    },
-    {
-      icon: 'trending-up-outline',
-      title: 'Scalable',
-      description: 'Designed to grow with your institution.',
-    },
-    {
-      icon: 'balloon-outline',
-      title: 'User Friendly',
-      description: 'Easy to use interfaces for everyone.',
-    },
-  ],
-};
 
 const Education = () => {
   return (
     <div>
-        <EducationBanner/>
-        <EducationChooseUs
-            heading={chooseUsData.heading}
-            highlighted={chooseUsData.highlighted}
-            subHeading={chooseUsData.subHeading}
-            description={chooseUsData.description}
-            image={chooseUsData.image}
-            features={chooseUsData.features}
-        />
-        <RetailManagementSystem
-            title={educationTitle}
-            subtitle={educationSubtitle}
-            features={educationFeatures}
-        />
-        <EducationKeyBenefitsSection
-            title={keyBenefitsData.title}
-            description={keyBenefitsData.description}
-            features={keyBenefitsData.features}
-        />
-        <RetailCaseStudy {...caseStudyData} />;
-        <QuickConsultation/>
+      <style dangerouslySetInnerHTML={{__html: `
+        .nunito-page-content, 
+        .nunito-page-content h1, 
+        .nunito-page-content h2, 
+        .nunito-page-content h3, 
+        .nunito-page-content h4, 
+        .nunito-page-content h5, 
+        .nunito-page-content h6,
+        .nunito-page-content p,
+        .nunito-page-content span,
+        .nunito-page-content a,
+        .nunito-page-content li {
+          font-family: 'Nunito', sans-serif !important;
+        }
+        .nunito-page-content h2,
+        .nunito-page-content .heading-title {
+          font-family: 'Nunito', Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+          font-size: 34px !important;
+          line-height: 44.2px !important;
+          font-weight: 800 !important;
+          letter-spacing: 0.68px !important;
+        }
+      `}} />
+      
+      {/* Banner handles its own fonts (Rajdhani) */}
+      <EducationBanner />
+
+      <div className="nunito-page-content">
+        <EducationWhyChoose />
+        <EducationServices />
+        <EducationModules />
+        <EducationChallenges />
+        <EducationProcess />
+        <EducationBenefits />
+        <EducationComparison />
+        <EducationIndustries />
+        <EducationTrust />
+        <FAQSection faqs={faqsData} />
+        <EducationCTA />
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Education;

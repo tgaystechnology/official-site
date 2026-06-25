@@ -18,32 +18,8 @@ const FAQSection = ({ faqs = [] }) => {
     icon: 'earth-outline',
     title: 'Trusted IT Solution & Service Business Agency',
   };
-
-  const isMobile = useMediaQuery({ maxWidth: 767 });       // 📱 Mobile
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 📲 Tablet
-  const isLaptop = useMediaQuery({ minWidth: 1024, maxWidth: 1439 }); // 💻 Laptop
-  const isDesktop = useMediaQuery({ minWidth: 1440 });     // 🖥️ Large Desktop
-
-  let width = 320;
-  let height = 300;
-
-  if (isMobile) {
-    width = 320;
-    height = 400;
-  } else if (isTablet) {
-    width = 600;
-    height = 650;
-  } else if (isLaptop) {
-    width = 600;
-    height = 650;
-  } else if (isDesktop) {
-    width = 500;
-    height = 350;
-  }
-
-
   return (
-    <section id="faq" className="faqs-section style-two bg-cover" role="region" aria-labelledby="ai-faq-heading">
+    <section id="faq" className="faqs-section style-two bg-cover pt-5 pb-5" role="region" aria-labelledby="ai-faq-heading">
       <style dangerouslySetInnerHTML={{__html: `
         @media only screen and (min-width: 1200px) {
           .faqs-section.style-two .image-column .inner-column {
@@ -57,6 +33,38 @@ const FAQSection = ({ faqs = [] }) => {
           .faqs-section.style-two .image-column .inner-column {
             margin-left: 0 !important;
             margin-bottom: 40px;
+          }
+        }
+        @media only screen and (max-width: 767px) {
+          .faqs-section.style-two .info-box {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            width: 100% !important;
+            margin: 20px auto 0 !important;
+            transform: none !important;
+            text-align: center;
+          }
+          .faqs-section.style-two .info-box .inner {
+            padding: 20px !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+          .faqs-section.style-two .tech-section-title {
+            font-size: 1.8rem !important;
+            text-align: center;
+            margin-top: 20px;
+          }
+          .responsive-lottie {
+            max-width: 100% !important;
+            height: auto !important;
+          }
+          .accordion-button {
+            padding: 15px 20px !important;
+            font-size: 0.95rem !important;
           }
         }
       `}} />

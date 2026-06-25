@@ -1,141 +1,155 @@
-import Testimonials from '@/app/_components/home/Testimonials';
-import QuickConsultation from '@/app/_components/services_components/QuickConsultation';
-import RetailCaseStudy from '@/app/_components/solutions_components/RetailCaseStudy';
-import RetailManagementBanner from '@/app/_components/solutions_components/retail/RetailManagementBanner';
-import RetailManagementSystem from '@/app/_components/solutions_components/RetailManagementSystem';
-import RetailWebsiteFeatures from '@/app/_components/solutions_components/retail/RetailWebsiteFeatures';
-import { AnimatedTestimonials } from '@/components/ui/animated-testimonials';
-import React from 'react'
-
+import React from 'react';
 import { generateMetadata as generateDynamicMetadata } from '@/lib/generateMetadata';
+
+import CRMBanner from '@/app/_components/solutions_components/retail/CRMBanner';
+import CRMWhyChoose from '@/app/_components/solutions_components/retail/CRMWhyChoose';
+import CRMServices from '@/app/_components/solutions_components/retail/CRMServices';
+import CRMChallenges from '@/app/_components/solutions_components/retail/CRMChallenges';
+import CRMProcess from '@/app/_components/solutions_components/retail/CRMProcess';
+import CRMBenefits from '@/app/_components/solutions_components/retail/CRMBenefits';
+import CRMFeatures from '@/app/_components/solutions_components/retail/CRMFeatures';
+import CRMIndustries from '@/app/_components/solutions_components/retail/CRMIndustries';
+import CRMTrust from '@/app/_components/solutions_components/retail/CRMTrust';
+import CRMCTA from '@/app/_components/solutions_components/retail/CRMCTA';
+import FAQSection from '@/app/_components/services_components/FAQSection';
+
 export async function generateMetadata() {
   return await generateDynamicMetadata({ 
-    params: { slug: '/solutions/retail' } // This should match exactly what's in your database
+    params: { slug: '/solutions/retail' } 
   });
 }
 
-const retailFeatures = [
+const faqsData = [
   {
-    id: 1,
-    icon: "calculator",
-    title: "Billing",
-    description: "Generate fast, accurate invoices and manage all payments with a seamless, professional billing system."
+    id: "headingOne",
+    target: "collapseOne",
+    question: "What Is a Custom CRM?",
+    answer: "A custom CRM is a customer relationship management system specifically designed around a company's business processes, customer journey, sales workflow, and operational requirements. Unlike off-the-shelf CRM platforms, custom CRM software provides greater flexibility, scalability, automation, and integration capabilities."
   },
   {
-    id: 2,
-    icon: "cart",
-    title: "POS",
-    description: "Empower your sales staff with a fast, reliable Point-of-Sale (POS) system for smooth checkouts."
+    id: "headingTwo",
+    target: "collapseTwo",
+    question: "Why Choose a CRM Development Company in India?",
+    answer: "India offers access to highly skilled CRM developers, cost-effective development services, global delivery capabilities, and extensive expertise in CRM customization, integration, and enterprise software development."
   },
   {
-    id: 3,
-    icon: "people",
-    title: "HRM",
-    description: "Effortlessly manage staff attendance, payroll, scheduling, and performance from one central hub."
+    id: "headingThree",
+    target: "collapseThree",
+    question: "What is CRM software development?",
+    answer: "CRM software development involves creating customer relationship management systems that help businesses manage customer interactions, sales processes, marketing activities, and customer support operations."
   },
   {
-    id: 4,
-    icon: "stats-chart",
-    title: "Sales",
-    description: "Analyze sales trends and get actionable insights to identify top-performing products and boost revenue."
+    id: "headingFour",
+    target: "collapseFour",
+    question: "How much does custom CRM development cost?",
+    answer: "Costs vary depending on features, integrations, complexity, user count, and customization requirements."
   },
   {
-    id: 5,
-    icon: "cube",
-    title: "Inventory",
-    description: "Prevent stockouts by monitoring stock levels in real-time across all locations and automating reordering."
+    id: "headingFive",
+    target: "collapseFive",
+    question: "How long does CRM development take?",
+    answer: "A basic CRM can take 8–12 weeks, while enterprise-grade solutions may require several months."
   },
   {
-    id: 6,
-    icon: "document-text",
-    title: "Reports",
-    description: "Make data-driven decisions with detailed, customizable reports on sales, inventory, and finances."
+    id: "headingSix",
+    target: "collapseSix",
+    question: "Do you provide CRM consulting services?",
+    answer: "Yes. We provide CRM consulting, planning, architecture design, implementation, and optimization services."
   },
   {
-    id: 7,
-    icon: "wallet",
-    title: "Finance",
-    description: "Take control of your cash flow by managing accounting, tracking expenses, and viewing financial health."
+    id: "headingSeven",
+    target: "collapseSeven",
+    question: "Can you integrate CRM with existing software?",
+    answer: "Yes. We integrate CRM systems with ERP, accounting, marketing, e-commerce, and third-party applications."
+  },
+  {
+    id: "headingEight",
+    target: "collapseEight",
+    question: "Do you offer cloud-based CRM solutions?",
+    answer: "Yes. We develop scalable cloud-based CRM platforms hosted on secure cloud infrastructure."
+  },
+  {
+    id: "headingNine",
+    target: "collapseNine",
+    question: "Can startups benefit from custom CRM development?",
+    answer: "Absolutely. Startups can automate sales processes, improve customer management, and scale operations efficiently."
+  },
+  {
+    id: "headingTen",
+    target: "collapseTen",
+    question: "Do you provide CRM migration services?",
+    answer: "Yes. We help businesses migrate data from legacy systems and existing CRM platforms."
+  },
+  {
+    id: "headingEleven",
+    target: "collapseEleven",
+    question: "Can I hire dedicated CRM developers?",
+    answer: "Yes. You can hire CRM developers on full-time, part-time, or project-based engagement models."
+  },
+  {
+    id: "headingTwelve",
+    target: "collapseTwelve",
+    question: "Which industries do you serve?",
+    answer: "We serve healthcare, real estate, education, e-commerce, logistics, manufacturing, finance, and professional services."
+  },
+  {
+    id: "headingThirteen",
+    target: "collapseThirteen",
+    question: "Is custom CRM better than off-the-shelf CRM?",
+    answer: "A custom CRM offers greater flexibility, tailored workflows, and deeper integrations aligned with business needs."
+  },
+  {
+    id: "headingFourteen",
+    target: "collapseFourteen",
+    question: "Do you provide CRM maintenance and support?",
+    answer: "Yes. We offer ongoing support, upgrades, monitoring, and optimization services."
   }
 ];
-
-const retailTitle = {
-  primary: 'Retail Management',
-  secondary: 'System'
-};
-
-const retailSubtitle = "Our comprehensive system is built with powerful modules designed to manage every aspect of your retail business from a single, intuitive dashboard.";
-
-
-const caseStudyData = {
-  backgroundImage: "/img/pattern-img1.png",
-  heading: { primary: "Retail Case", secondary: "Study" },
-  subHeading: "Ezshopit: Building a Global Multi-Vendor Marketplace",
-  image: {
-    src: "/img/Ezshopit-ss.png",
-    alt: "Ezshopit E-commerce Platform",
-    width: 600,
-    height: 400
-  },
-  challenge: "Our Dubai-based client, Ezshopit, needed to launch a comprehensive multi-vendor e-commerce platform. The goal was to create a unified digital ecosystem that could handle multiple languages and currencies, manage a diverse range of vendors, and provide a seamless shopping experience for customers on both web and mobile.",
-  solution: "We delivered a complete, end-to-end solution, architecting and developing a powerful e-commerce website, an Android app, and an iOS app from the ground up. The platform was equipped with robust features to manage the entire business lifecycle:",
-  highlights: [
-    {
-      title: "Full E-commerce Functionality:",
-      description: 'Seamless "Add to Cart," checkout, and customer login with integrated payment gateways.'
-    },
-    {
-      title: "Multi-Vendor & Catalog Management:",
-      description: "Empowering individual vendors to manage their products, inventory, and shipping."
-    },
-    {
-      title: "Advanced Logistics Control:",
-      description: "A dedicated system for warehouse management, order assignment to delivery personnel, and real-time delivery status updates."
-    },
-    {
-      title: "Comprehensive Admin Dashboard:",
-      description: "Providing Ezshopit with full control over user approvals, sales tracking, and promotional coupon campaigns."
-    }
-  ],
-  details: [
-    {
-      title: "Categories",
-      items: ["E-Commerce"]
-    },
-    {
-      title: "Client",
-      items: ["LOCATION: DUBAI"]
-    },
-    {
-      title: "What We Did",
-      items: ["Android App Development", "iPhone App Development", "Website Development"]
-    },
-    {
-      title: "Year",
-      items: ["2021"]
-    }
-  ],
-  caseStudyLinkText: "View Full Case Study",
-  caseStudyLinkUrl: "/case-study"
-};
-
 
 const RetailManagement = () => {
   return (
     <div>
-        <RetailManagementBanner/>
-        <RetailManagementSystem
-            title={retailTitle}
-            subtitle={retailSubtitle}
-            features={retailFeatures}
-        />
-        <RetailWebsiteFeatures/>
-        <RetailCaseStudy {...caseStudyData} />
-        {/* <Testimonials/> */}
-        <AnimatedTestimonials autoplay={true}/>
-        <QuickConsultation/>
+      <style dangerouslySetInnerHTML={{__html: `
+        .nunito-page-content, 
+        .nunito-page-content h1, 
+        .nunito-page-content h2, 
+        .nunito-page-content h3, 
+        .nunito-page-content h4, 
+        .nunito-page-content h5, 
+        .nunito-page-content h6,
+        .nunito-page-content p,
+        .nunito-page-content span,
+        .nunito-page-content a,
+        .nunito-page-content li {
+          font-family: 'Nunito', sans-serif !important;
+        }
+        .nunito-page-content h2,
+        .nunito-page-content .heading-title {
+          font-family: 'Nunito', Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+          font-size: 34px !important;
+          line-height: 44.2px !important;
+          font-weight: 800 !important;
+          letter-spacing: 0.68px !important;
+        }
+      `}} />
+      
+      {/* Banner handles its own fonts (Rajdhani) */}
+      <CRMBanner />
+
+      <div className="nunito-page-content">
+        <CRMWhyChoose />
+        <CRMServices />
+        <CRMChallenges />
+        <CRMProcess />
+        <CRMBenefits />
+        <CRMFeatures />
+        <CRMIndustries />
+        <CRMTrust />
+        <FAQSection faqs={faqsData} />
+        <CRMCTA />
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default RetailManagement;
