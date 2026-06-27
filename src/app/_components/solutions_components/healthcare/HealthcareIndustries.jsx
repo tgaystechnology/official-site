@@ -1,16 +1,16 @@
 'use client'
 import React from 'react';
 
-const TourIndustries = () => {
+const HealthcareIndustries = () => {
   const industries = [
-    { title: "Travel Agencies", desc: "Comprehensive management solutions for retail and online agencies.", icon: "airplane-outline" },
-    { title: "Tour Operators", desc: "Package management, itinerary creation, and customer engagement.", icon: "map-outline" },
-    { title: "DMCs", desc: "Destination Management Company supplier coordination and operational control.", icon: "location-outline" },
-    { title: "Corporate Travel", desc: "Business travel booking and expense management workflows.", icon: "briefcase-outline" },
-    { title: "Online Travel Agencies", desc: "Scalable platforms supporting large booking volumes (OTAs).", icon: "globe-outline" },
-    { title: "Hospitality Businesses", desc: "Hotel booking and reservation integration.", icon: "bed-outline" },
-    { title: "Transportation Providers", desc: "Vehicle booking and fleet management solutions.", icon: "car-sport-outline" },
-    { title: "Travel Aggregators", desc: "API integrations combining multiple supplier feeds.", icon: "git-network-outline" }
+    { title: "Hospitals & Networks", desc: "Integrated digital solutions for large-scale healthcare operations.", icon: "business-outline" },
+    { title: "Clinics & Practices", desc: "Patient management and workflow automation solutions.", icon: "medkit-outline" },
+    { title: "Telemedicine Providers", desc: "Virtual care platforms that connect providers and patients.", icon: "videocam-outline" },
+    { title: "Healthcare Startups", desc: "Scalable software products designed for innovation and growth.", icon: "rocket-outline" },
+    { title: "Diagnostic Laboratories", desc: "Laboratory management and test reporting systems.", icon: "flask-outline" },
+    { title: "Pharmacies", desc: "Inventory management and prescription processing solutions.", icon: "medical-outline" },
+    { title: "Health Insurance", desc: "Claims management and customer engagement platforms.", icon: "shield-checkmark-outline" },
+    { title: "Wellness & Fitness", desc: "Health tracking, wearables, and engagement applications.", icon: "fitness-outline" }
   ];
 
   return (
@@ -21,7 +21,7 @@ const TourIndustries = () => {
             INDUSTRIES <span className="c-primary">WE SERVE</span>
           </h2>
           <p className="slider-content-text mx-auto" style={{ maxWidth: "800px" }}>
-            Delivering specialized travel technology and engineering solutions across key sectors.
+            Delivering specialized healthcare technology and engineering solutions across key medical sectors.
           </p>
         </div>
 
@@ -52,4 +52,4 @@ const TourIndustries = () => {
   );
 };
 
-export default TourIndustries;
+export default HealthcareIndustries;

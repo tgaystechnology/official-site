@@ -54,7 +54,9 @@ const EducationComparison = () => {
 
         <div className="row justify-content-center mt-5">
           <div className="col-lg-10">
-            <div className="table-responsive rounded-4 shadow-sm" style={{ border: "1px solid #eee", background: "#fff", overflow: "hidden" }}>
+            
+            {/* Desktop Table View */}
+            <div className="table-responsive rounded-4 shadow-sm d-none d-md-block" style={{ border: "1px solid #eee", background: "#fff", overflow: "hidden" }}>
               <table className="table table-hover mb-0" style={{ minWidth: "700px" }}>
                 <thead>
                   <tr>
@@ -82,6 +84,35 @@ const EducationComparison = () => {
                 </tbody>
               </table>
             </div>
+
+            {/* Mobile Card View */}
+            <div className="d-block d-md-none">
+              {comparisonData.map((row, index) => (
+                <div key={index} className="card mb-4 border-0 shadow-sm rounded-4" style={{ border: "1px solid #eee" }}>
+                  <div className="card-body p-4">
+                    <h5 className="fw-bold text-dark border-bottom pb-3 mb-3" style={{ fontSize: "1.1rem" }}>{row.feature}</h5>
+                    
+                    <div className="mb-3 p-3 rounded-3" style={{ background: "#f8f9fa", border: "1px solid #eee" }}>
+                      <div className="text-muted fw-semibold mb-2" style={{ fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.5px" }}>Traditional Administration:</div>
+                      <div className="text-muted d-flex align-items-center">
+                        <ion-icon name="close-circle" style={{ color: "#dc3545", marginRight: "8px", fontSize: "1.2rem" }}></ion-icon>
+                        <span>{row.traditional}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-3 rounded-3" style={{ background: "rgba(0, 131, 255, 0.05)", border: "1px solid #e6f2ff" }}>
+                      <div className="fw-semibold mb-2" style={{ color: "#0083FF", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.5px" }}>TGAYS Education System:</div>
+                      <div className="fw-bold d-flex align-items-center" style={{ color: "#0083FF" }}>
+                        <ion-icon name="checkmark-circle" style={{ color: "#0083FF", marginRight: "8px", fontSize: "1.2rem" }}></ion-icon>
+                        <span>{row.digital}</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </div>

@@ -1,14 +1,14 @@
 'use client'
 import React from 'react';
 
-const CRMWhyChoose = () => {
+const HealthcareWhyChoose = () => {
   const reasons = [
-    { title: "Tailor-Made Solutions", desc: "We build retail and CRM software precisely for your workflows, rather than forcing your business to adapt to generic tools.", icon: "cut-outline" },
-    { title: "Advanced Automation", desc: "Eliminate repetitive manual tasks with intelligent automation, allowing your team to focus on customer relationships and sales.", icon: "flash-outline" },
-    { title: "AI-Powered Workflows", desc: "Leverage intelligent data, predictive insights, and machine learning to forecast trends and personalize customer experiences.", icon: "hardware-chip-outline" },
-    { title: "Scalable Cloud Architecture", desc: "Our retail and CRM systems are built on cloud-native architectures that grow seamlessly as your business expands.", icon: "cloud-upload-outline" },
-    { title: "Agile Methodology", desc: "We ensure iterative, fast, and flexible delivery, maintaining complete transparency throughout the development lifecycle.", icon: "sync-circle-outline" },
-    { title: "Long-Term Support", desc: "We provide ongoing maintenance, security updates, and optimization to ensure continuous improvement post-launch.", icon: "shield-checkmark-outline" }
+    { title: "Healthcare Domain Expertise", desc: "Our development team understands healthcare workflows, patient journeys, provider requirements, and regulatory considerations.", icon: "medkit-outline" },
+    { title: "Custom Healthcare Software Development", desc: "We design and develop tailored healthcare applications that align with your business goals and clinical processes.", icon: "color-wand-outline" },
+    { title: "Security & Compliance Focus", desc: "Healthcare data demands the highest level of protection. We implement industry-standard security protocols and compliance-ready architectures.", icon: "lock-closed-outline" },
+    { title: "Scalable & Future-Proof Solutions", desc: "Our healthcare systems are built to support growing patient volumes, expanding services, and evolving healthcare technologies.", icon: "trending-up-outline" },
+    { title: "Global Delivery Capability", desc: "Serving clients across India, USA, UK, Australia, and Dubai with world-class healthcare software solutions.", icon: "earth-outline" },
+    { title: "Long-Term Support & Innovation", desc: "We provide ongoing support, maintenance, upgrades, and technology consulting to ensure continuous improvement.", icon: "headset-outline" }
   ];
 
   return (
@@ -50,10 +50,10 @@ const CRMWhyChoose = () => {
               Why Choose TGAYS?
             </span>
             <h2 className="heading-title mb-4">
-              Why Choose TGAYS as Your <span className="c-primary">Retail & CRM Software</span> Development Partner?
+              Why Choose TGAYS as Your <span className="c-primary">Healthcare Software</span> Development Partner?
             </h2>
             <p className="text-muted" style={{ fontSize: "1.1rem", maxWidth: "700px", margin: "0 auto" }}>
-              Retail businesses require more than generic tools—they need custom, scalable, and intelligent digital solutions that solve real business challenges and drive customer retention.
+              Healthcare organizations require more than software—they need reliable, compliant, and future-ready digital solutions that support patient care and operational excellence.
             </p>
           </div>
         </div>
@@ -77,4 +77,4 @@ const CRMWhyChoose = () => {
   );
 };
 
-export default CRMWhyChoose;
+export default HealthcareWhyChoose;

@@ -1,16 +1,16 @@
 'use client'
 import React from 'react';
 
-const TourIndustries = () => {
+const EcommerceIndustries = () => {
   const industries = [
-    { title: "Travel Agencies", desc: "Comprehensive management solutions for retail and online agencies.", icon: "airplane-outline" },
-    { title: "Tour Operators", desc: "Package management, itinerary creation, and customer engagement.", icon: "map-outline" },
-    { title: "DMCs", desc: "Destination Management Company supplier coordination and operational control.", icon: "location-outline" },
-    { title: "Corporate Travel", desc: "Business travel booking and expense management workflows.", icon: "briefcase-outline" },
-    { title: "Online Travel Agencies", desc: "Scalable platforms supporting large booking volumes (OTAs).", icon: "globe-outline" },
-    { title: "Hospitality Businesses", desc: "Hotel booking and reservation integration.", icon: "bed-outline" },
-    { title: "Transportation Providers", desc: "Vehicle booking and fleet management solutions.", icon: "car-sport-outline" },
-    { title: "Travel Aggregators", desc: "API integrations combining multiple supplier feeds.", icon: "git-network-outline" }
+    { title: "Retail & Consumer Goods", desc: "Launch online stores that drive product sales and customer engagement.", icon: "cart-outline" },
+    { title: "Manufacturing", desc: "Enable distributors and dealers to order products online efficiently.", icon: "cog-outline" },
+    { title: "Healthcare", desc: "Sell healthcare products securely while maintaining compliance standards.", icon: "medkit-outline" },
+    { title: "Real Estate", desc: "Develop property listing and transaction platforms.", icon: "business-outline" },
+    { title: "Fashion & Apparel", desc: "Create engaging shopping experiences for fashion brands.", icon: "shirt-outline" },
+    { title: "Electronics", desc: "Manage large product catalogs and complex inventory structures.", icon: "hardware-chip-outline" },
+    { title: "Automotive", desc: "Sell parts, accessories, and services online.", icon: "car-sport-outline" },
+    { title: "Food & Beverage", desc: "Support online ordering, delivery, and subscription services.", icon: "restaurant-outline" }
   ];
 
   return (
@@ -21,13 +21,13 @@ const TourIndustries = () => {
             INDUSTRIES <span className="c-primary">WE SERVE</span>
           </h2>
           <p className="slider-content-text mx-auto" style={{ maxWidth: "800px" }}>
-            Delivering specialized travel technology and engineering solutions across key sectors.
+            Delivering specialized ecommerce technology solutions across key sectors.
           </p>
         </div>
 
         <div className="row mt-5 justify-content-center">
           {industries.map((item, index) => (
-            <div key={index} className="col-lg-4 col-md-6 col-sm-6 mb-4">
+            <div key={index} className="col-lg-3 col-md-4 col-sm-6 mb-4">
               <div className="industry-card p-4 text-center h-100" style={{ transition: "all 0.3s ease", borderBottom: "3px solid transparent", cursor: "default", borderRadius: "8px" }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderBottom = "3px solid #0083FF";
@@ -52,4 +52,4 @@ const TourIndustries = () => {
   );
 };
 
-export default TourIndustries;
+export default EcommerceIndustries;

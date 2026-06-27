@@ -36,7 +36,7 @@ const EducationChallenges = () => {
   ];
 
   return (
-    <section className="challenges-section pt100 pb70 bg-light" role="region" aria-labelledby="challenges-heading">
+    <section className="challenges-section pt100 pb70 bg-white" role="region" aria-labelledby="challenges-heading">
       <div className="container">
         <div className="crumina-module crumina-heading text-center mb-5">
           <h2 id="challenges-heading" className="heading-title" style={{ fontSize: "2.5rem", fontWeight: "800" }}>

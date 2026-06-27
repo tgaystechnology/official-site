@@ -68,7 +68,9 @@ const EducationWhyChoose = () => {
                 WHAT MAKES US <span className="c-primary">DIFFERENT?</span>
               </h2>
             </div>
-            <div className="table-responsive rounded-4 shadow-sm" style={{ border: "1px solid #eee", overflow: "hidden" }}>
+            
+            {/* Desktop Table View */}
+            <div className="table-responsive rounded-4 shadow-sm d-none d-md-block" style={{ border: "1px solid #eee", overflow: "hidden" }}>
               <table className="table mb-0 bg-white" style={{ minWidth: "700px" }}>
                 <thead>
                   <tr>
@@ -95,6 +97,29 @@ const EducationWhyChoose = () => {
                 </tbody>
               </table>
             </div>
+
+            {/* Mobile Card View */}
+            <div className="d-block d-md-none">
+              {comparisonData.map((row, idx) => (
+                <div key={idx} className="card mb-3 border-0 shadow-sm rounded-4" style={{ border: "1px solid #eee" }}>
+                  <div className="card-body p-4">
+                    <h5 className="fw-bold text-dark border-bottom pb-3 mb-3" style={{ fontSize: "1.1rem" }}>{row.feature}</h5>
+                    <div className="d-flex justify-content-between align-items-center mb-3">
+                      <span className="text-muted fw-semibold" style={{ fontSize: "0.95rem" }}>TGAYS Technology:</span>
+                      <span className="fw-bold d-flex align-items-center" style={{ color: "#0083FF", fontSize: "1rem" }}>
+                        <ion-icon name="checkmark-circle" style={{ marginRight: "6px", fontSize: "1.2rem" }}></ion-icon>
+                        {row.tgays}
+                      </span>
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <span className="text-muted fw-semibold" style={{ fontSize: "0.95rem" }}>Generic Providers:</span>
+                      <span className="text-muted" style={{ fontSize: "0.95rem" }}>{row.generic}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </div>

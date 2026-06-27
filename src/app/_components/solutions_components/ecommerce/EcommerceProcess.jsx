@@ -1,15 +1,15 @@
 'use client'
 import React from 'react';
 
-const EducationProcess = () => {
+const EcommerceProcess = () => {
   const steps = [
-    { num: "01", title: "Discovery & Analysis", desc: "Understand institution goals, current challenges, academic workflows, and administrative requirements.", icon: "search-outline", color: "#00c6ff" },
-    { num: "02", title: "Architecture Planning", desc: "Define user roles, security framework, module structure, and integration requirements.", icon: "layers-outline", color: "#0072ff" },
-    { num: "03", title: "UI/UX Design", desc: "Design intuitive and accessible interfaces for students, parents, faculty, and administrators.", icon: "color-palette-outline", color: "#8e2de2" },
-    { num: "04", title: "Development", desc: "Develop and customize the platform according to your institution's unique needs.", icon: "code-working-outline", color: "#f107a3" },
-    { num: "05", title: "Testing & QA", desc: "Perform rigorous functional, security, performance, and user acceptance testing.", icon: "shield-checkmark-outline", color: "#ff512f" },
-    { num: "06", title: "Deployment", desc: "Smooth implementation and data migration with minimal disruption to ongoing operations.", icon: "rocket-outline", color: "#f09819" },
-    { num: "07", title: "Training & Support", desc: "Comprehensive user onboarding and ongoing technical support for your staff.", icon: "headset-outline", color: "#56ab2f" }
+    { num: "01", title: "Discovery & Strategy", desc: "We assess your business model, customers, competitors, and goals to build a winning strategy.", icon: "search-outline", color: "#00c6ff" },
+    { num: "02", title: "Solution Architecture", desc: "Define the ideal platform structure, integrations, and technology stack for scalability.", icon: "layers-outline", color: "#0072ff" },
+    { num: "03", title: "UX/UI Design", desc: "Design intuitive shopping experiences that maximize conversions and brand loyalty.", icon: "color-palette-outline", color: "#8e2de2" },
+    { num: "04", title: "Development", desc: "Build custom ecommerce functionality, payment gateways, and backend integrations.", icon: "code-slash-outline", color: "#f107a3" },
+    { num: "05", title: "Testing & QA", desc: "Validate performance, security, and usability across all devices and browsers.", icon: "shield-checkmark-outline", color: "#ff512f" },
+    { num: "06", title: "Deployment", desc: "Launch your platform with minimal disruption to your existing operations.", icon: "rocket-outline", color: "#f09819" },
+    { num: "07", title: "Optimization & Support", desc: "Continuously improve performance, security updates, and customer experience post-launch.", icon: "headset-outline", color: "#56ab2f" }
   ];
 
   // Split steps into chunks of 4 for desktop rows
@@ -54,10 +54,10 @@ const EducationProcess = () => {
         <div className="container">
           <div className="crumina-module crumina-heading text-center mb-5 pb-4">
             <h2 className="heading-title">
-              OUR EMS <span className="c-primary">DEVELOPMENT PROCESS</span>
+              Our Ecommerce Software <span className="c-primary">Development Process</span>
             </h2>
             <p className="slider-content-text mx-auto" style={{ maxWidth: "800px" }}>
-              A proven, agile methodology designed to deliver high-quality education management solutions on time and within budget.
+              A proven, agile methodology designed to turn your ecommerce vision into a fully functional, high-converting digital reality.
             </p>
           </div>
 
@@ -136,4 +136,4 @@ const EducationProcess = () => {
   );
 };
 
-export default EducationProcess;
+export default EcommerceProcess;
