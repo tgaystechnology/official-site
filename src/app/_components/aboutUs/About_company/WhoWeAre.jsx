@@ -1,15 +1,16 @@
 import React from 'react';
+import Link from 'next/link';
 
 const WhoWeAre = () => {
   const industries = [
-    { name: 'E-Commerce', className: 'dark-black' },
-    { name: 'Healthcare', className: 'lite-black' },
-    { name: 'Tour & Travel', className: 'lite-black' },
+    { name: 'E-Commerce', className: 'dark-black', link: '/solutions/e-commerce-solution' },
+    { name: 'Healthcare', className: 'lite-black', link: '/solutions/healthcare' },
+    { name: 'Tour & Travel', className: 'lite-black', link: '/solutions/tour-travel' },
     { name: 'Finance', className: 'dark-black' },
     { name: 'Real Estate', className: 'dark-black' },
-    { name: 'Education', className: 'lite-black' },
+    { name: 'Education', className: 'lite-black', link: '/solutions/education' },
     { name: 'Food Industry', className: 'lite-black' },
-    { name: 'Gym', className: 'dark-black' }
+    { name: 'Gym', className: 'dark-black', link: '/solutions/health-fitness' }
   ];
 
   return (
@@ -41,7 +42,13 @@ const WhoWeAre = () => {
                     <li key={index} className={industry.className} itemScope
                   itemType="https://schema.org/Industry">
                       <ion-icon name="checkmark-outline"></ion-icon>
-                      <span itemProp="name">{industry.name}</span>
+                      {industry.link ? (
+                        <Link href={industry.link} style={{ color: 'inherit', textDecoration: 'none' }}>
+                          <span itemProp="name">{industry.name}</span>
+                        </Link>
+                      ) : (
+                        <span itemProp="name">{industry.name}</span>
+                      )}
                     </li>
                   ))}
                 </ul>

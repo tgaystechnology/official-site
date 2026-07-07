@@ -7,8 +7,10 @@ const AIPoweredBanner = () => {
       className="testomonial-banner bg-cover hero-section"
       role="banner"
       aria-labelledby="ai-services-heading"
+      aria-label="Best AI Development Company"
+      title="Best AI Development Company"
       style={{ 
-        backgroundImage: 'url(/img/ai-power-banner.png)',
+        backgroundImage: 'url(/img/best-ai-development-company.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}

@@ -28,7 +28,7 @@ const AppSupportCTA = () => {
                 Ready to Improve Application Reliability?
               </h2>
               <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.8)", marginBottom: "30px", lineHeight: "1.6" }}>
-                Your applications are critical business assets. Don't let downtime, security vulnerabilities, or performance issues affect your growth. Partner with TGAYS Technology Pvt. Ltd. for reliable, scalable, and cost-effective Application Support & Maintenance Services India designed to keep your business running efficiently.
+                Your applications are critical business assets. Don't let downtime, security vulnerabilities, or performance issues affect your growth. Partner with TGAYS Technology Pvt. Ltd. for reliable, scalable, and cost-effective <Link href="https://www.tgaystechnology.com/services/application-support-maintenance" style={{ color: "#0083FF", textDecoration: "none" }}>Application Support & Maintenance Services India</Link> designed to keep your business running efficiently.
               </p>
               
               <div className="d-flex flex-column flex-sm-row flex-wrap gap-3 mt-4">

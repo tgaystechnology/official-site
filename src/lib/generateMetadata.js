@@ -11,20 +11,25 @@ export async function generateMetadata({ params, searchParams }) {
       };
     }
 
-    let cleanSlug = slug;
+    let cleanSlug = slug || '';
     if (typeof cleanSlug === 'string') {
-      cleanSlug = cleanSlug.replace(/^\/+|\/+$/g, '');
+      cleanSlug = cleanSlug.trim();
     } else if (Array.isArray(cleanSlug)) {
       cleanSlug = cleanSlug.join('/');
     }
 
-    const segments = cleanSlug.split('/').filter(Boolean);
+    // Strip leading/trailing slashes for segment counting, but detect if it's the home route
+    const isHome = cleanSlug === '' || cleanSlug === '/';
+    const strippedSlug = cleanSlug.replace(/^\/+|\/+$/g, '');
+    const segments = strippedSlug.split('/').filter(Boolean);
     let apiUrl = '';
 
-    if (segments.length === 1) {
-      apiUrl = `https://admin.tgaystechnology.com/api/api_v1/seo/page/${cleanSlug}`;
+    if (isHome) {
+      apiUrl = `https://admin.tgaystechnology.com/api/api_v1/seo/page/%2F`;
+    } else if (segments.length === 1) {
+      apiUrl = `https://admin.tgaystechnology.com/api/api_v1/seo/page/${strippedSlug}`;
     } else if (segments.length >= 2) {
-      apiUrl = `https://admin.tgaystechnology.com/api/api_v1/seo/subpage/${cleanSlug}`;
+      apiUrl = `https://admin.tgaystechnology.com/api/api_v1/seo/subpage/${strippedSlug}`;
     } else {
       return {
         title: 'Default Title | Technology',

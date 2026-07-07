@@ -1,66 +1,79 @@
 import React from 'react';
+import Link from 'next/link';
 
 const WhatWeDo = () => {
   const services = [
     { 
       name: 'AI Powered Services', 
       icon: 'logo-apple-appstore',
-      className: 'dark-black'
+      className: 'dark-black',
+      link: '/services/ai-powered-services'
     },
     { 
       name: 'Social Media Marketing', 
       icon: 'analytics-outline',
-      className: 'lite-black'
+      className: 'lite-black',
+      link: '/services/social-media-marketing'
     },
     { 
       name: 'IT Staff Augmentation', 
       icon: 'desktop-outline',
-      className: 'lite-black'
+      className: 'lite-black',
+      link: '/services/it-staff-augmentation'
     },
     { 
       name: 'Web Development', 
       icon: 'desktop-outline',
-      className: 'dark-black'
+      className: 'dark-black',
+      link: '/services/web-development'
     },
     { 
       name: 'Mobile App Development', 
       icon: 'phone-portrait-outline',
-      className: 'dark-black'
+      className: 'dark-black',
+      link: '/services/mobile-app'
     },
     { 
       name: 'Product Development', 
       icon: 'grid-outline',
-      className: 'lite-black'
+      className: 'lite-black',
+      link: '/services/product-development'
     },
     { 
       name: 'M365 Development', 
       icon: 'logo-medium',
-      className: 'lite-black'
+      className: 'lite-black',
+      link: '/services/m365-development'
     },
     { 
       name: 'Offshore Development', 
       icon: 'cog-outline',
-      className: 'dark-black'
+      className: 'dark-black',
+      link: '/services/offshore-development'
     },
     { 
       name: 'Custom Software Development', 
       icon: 'desktop-outline',
-      className: 'dark-black'
+      className: 'dark-black',
+      link: '/services/customized-crm-development'
     },
     { 
       name: 'MVP Development', 
       icon: 'logo-medium',
-      className: 'lite-black'
+      className: 'lite-black',
+      link: '/services/mvp-development'
     },
     { 
       name: 'Digital Marketing', 
       icon: 'megaphone-outline',
-      className: 'lite-black'
+      className: 'lite-black',
+      link: '/services/digital-marketing'
     },
     { 
       name: 'Application Support', 
       icon: 'construct-outline',
-      className: 'dark-black'
+      className: 'dark-black',
+      link: '/services/application-support-maintenance'
     }
   ];
 
@@ -77,7 +90,13 @@ const WhatWeDo = () => {
                     {services.map((service, index) => (
                       <li key={index} className={service.className} itemScop itemType="https://schema.org/Service">
                         <ion-icon name={service.icon}></ion-icon>
-                        <span itemProp="name">{service.name}</span>
+                        {service.link ? (
+                          <Link href={service.link} style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <span itemProp="name">{service.name}</span>
+                          </Link>
+                        ) : (
+                          <span itemProp="name">{service.name}</span>
+                        )}
                       </li>
                     ))}
                   </ul>

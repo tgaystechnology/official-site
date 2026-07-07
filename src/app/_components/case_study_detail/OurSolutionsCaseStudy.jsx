@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 // Centralized Data Object
 const caseStudyData = {
@@ -16,7 +17,7 @@ const caseStudyData = {
       {
         title: "1. Advanced E-Commerce Architecture",
         points: [
-          "Developed using CodeIgniter to ensure stability, performance, and flexibility for future upgrades.",
+          <>Developed using CodeIgniter to ensure stability, performance, and flexibility for future upgrades.</>,
         ],
       },
       {
@@ -119,7 +120,7 @@ const caseStudyData = {
       {
         title: "1. Cross-Platform Development with React Native",
         points: [
-          "Delivered a single codebase app optimized for both Android and iOS.",
+          <>Delivered a single codebase app optimized for both Android and iOS using <Link href="/services/mobile-app" style={{color: '#0083FF', textDecoration: 'underline'}}>React Native</Link>.</>,
         ],
       },
       {
@@ -167,7 +168,7 @@ const caseStudyData = {
       {
         title: "1. Cross-Platform App Development",
         points: [
-          "Built with React Native to ensure unified codebase and consistent UI/UX across devices.",
+          <>Built with <Link href="/services/mobile-app" style={{color: '#0083FF', textDecoration: 'underline'}}>React Native</Link> to ensure unified codebase and consistent UI/UX across devices.</>,
         ],
       },
       {
@@ -240,7 +241,7 @@ const caseStudyData = {
       {
         title: "4. KYC & Payment Management",
         points: [
-          "Added secure KYC document management and client payment tracking modules.",
+          <>Added secure KYC document management and client payment tracking modules.</>,
         ],
       },
       {
@@ -276,7 +277,7 @@ const caseStudyData = {
       {
         title: "2. Role-Based Multi-User Interface",
         points: [
-          "Implemented secure authentication with role-specific access controls for administrators, managers, and employees.",
+          <>Implemented secure authentication with role-specific access controls for administrators, managers, and employees.</>,
         ],
       },
       {
@@ -298,7 +299,7 @@ const caseStudyData = {
       {
         title: "5. Interactive UI/UX",
         points: [
-          "Used HTML5, CSS3, Bootstrap, and Ajax to ensure a responsive and dynamic user experience.",
+          <>Used HTML5, CSS3, Bootstrap, and Ajax to ensure a responsive and dynamic user experience.</>,
         ],
       },
     ],
@@ -334,7 +335,7 @@ const caseStudyData = {
       {
         title: "4. CRM Module",
         points: [
-          "Integrated client management, ticketing system for customer queries, and history tracking.",
+          <>Integrated client management, ticketing system for customer queries, and history tracking.</>,
         ],
       },
       {
@@ -441,8 +442,8 @@ const caseStudyData = {
       {
         title: "2. Redis GEO & GPS Smoothing",
         points: [
-          "Cached driver locations in memory using Redis GEO for sub-second updates.",
-          "Implemented a GPS filter that ignores insignificant movement (<10m) to minimize database write-overhead."
+          <>Cached driver locations in memory using Redis GEO for sub-second updates.</>,
+          <>Implemented a GPS filter that ignores insignificant movement (&lt;10m) to minimize database write-overhead.</>
         ],
       },
       {
@@ -455,8 +456,8 @@ const caseStudyData = {
       {
         title: "4. PostGIS LineString Deviation Tracking",
         points: [
-          "Decoded planned Google Routes polylines into PostGIS LineString geometry in PostgreSQL.",
-          "Used ST_Distance to compare live driver GPS points against the route, triggering Socket.IO deviation warnings if they stray >500m."
+          <>Decoded planned Google Routes polylines into PostGIS LineString geometry in PostgreSQL.</>,
+          <>Used ST_Distance to compare live driver GPS points against the route, triggering Socket.IO deviation warnings if they stray &gt;500m.</>
         ],
       },
       {
@@ -515,7 +516,7 @@ const caseStudyData = {
       {
         title: "4. AI-Powered Learning Assistance",
         points: [
-          "Integrated Google Gemini AI to provide study notes, AI-generated quizzes, and lesson summaries on-demand to optimize resource consumption."
+          <>Integrated <Link href="/services/ai-powered-services" style={{color: '#0083FF', textDecoration: 'underline'}}>Google Gemini AI</Link> to provide study notes, AI-generated quizzes, and lesson summaries on-demand to optimize resource consumption.</>
         ],
       },
       {
@@ -551,8 +552,8 @@ const caseStudyData = {
       {
         title: "1. Conversational AI Career Mentor",
         points: [
-          "Integrated Google Gemini 2.0 Flash to provide on-demand interview preparation, job search strategies, and transition advice.",
-          "Strictly prompt-engineered the agent to remain professional and focus exclusively on career-related queries."
+          <>Integrated <Link href="/services/ai-powered-services" style={{color: '#0083FF', textDecoration: 'underline'}}>Google Gemini</Link> 2.0 Flash to provide on-demand interview preparation, job search strategies, and transition advice.</>,
+          <>Strictly prompt-engineered the agent to remain professional and focus exclusively on career-related queries.</>
         ],
       },
       {

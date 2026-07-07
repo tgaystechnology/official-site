@@ -1,8 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import styles from './AiDevelopmentSection.module.css';
 import { Handshake, Users, Workflow, Rocket, Brain, ShieldCheck, ShoppingCart, Factory, Globe, Check } from 'lucide-react';
+
+const inlineLinkStyle = { color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0 };
 
 const AiDevelopmentSection = () => {
   // FAQ accordion state
@@ -33,7 +36,7 @@ const AiDevelopmentSection = () => {
         "Natural Language Processing (NLP)",
         "Computer Vision Applications",
         "Recommendation Engines",
-        "AI-Powered CRM & ERP Systems"
+        <span key="crm"><Link href="/services/customized-crm-development" style={inlineLinkStyle}>AI-Powered CRM & ERP Systems</Link></span>
       ]
     },
     {
@@ -127,7 +130,7 @@ const AiDevelopmentSection = () => {
     },
     {
       question: "Can you integrate AI into our existing software?",
-      answer: "Absolutely. Our team specializes in integrating AI capabilities into existing CRM, ERP, SaaS platforms, web applications, and enterprise systems."
+      answer: <>Absolutely. Our team specializes in integrating AI capabilities into existing <Link href="/services/customized-crm-development" style={inlineLinkStyle}>CRM</Link>, ERP, SaaS platforms, <Link href="/services/web-development" style={inlineLinkStyle}>web applications</Link>, and enterprise systems.</>
     }
   ];
 
@@ -140,7 +143,7 @@ const AiDevelopmentSection = () => {
           <h2 className={styles.mainHeading}>Best AI Development Company in India for Startups, Enterprises & Global Businesses</h2>
           <h2 className={styles.subHeading}>Transform Your Business with Advanced AI Solutions</h2>
           <p className={styles.text}>
-            At TGAYS Technology, we help startups, enterprises, and growing businesses unlock the power of Artificial Intelligence to automate operations, improve decision-making, enhance customer experiences, and accelerate growth. As the Best AI Development Company in India, we build intelligent AI-powered solutions that solve real business challenges and create measurable outcomes.
+            At TGAYS Technology, we help startups, enterprises, and growing businesses unlock the power of Artificial Intelligence to automate operations, improve decision-making, enhance customer experiences, and accelerate growth. As the Best AI Development Company in India, we build intelligent <Link href="/services/ai-powered-services" style={inlineLinkStyle}>AI-powered solutions</Link> that solve real business challenges and create measurable outcomes.
           </p>
           <p className={styles.text}>
             Whether you are looking for AI-powered automation, Generative AI applications, AI agents, machine learning platforms, predictive analytics, or enterprise-grade AI software, our experienced team delivers scalable and future-ready solutions tailored to your business goals.

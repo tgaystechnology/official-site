@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const AboutUsSection = () => {
   return (
@@ -14,9 +15,9 @@ const AboutUsSection = () => {
               </div>
               <p className="heading-text">
                 Welcome to TGAYS Technology, your premier partner in digital innovation and technology solutions. 
-                With a dedicated team of industry experts, we specialize in crafting cutting-edge websites, 
-                mobile applications, Software as a Service (SaaS) products, and Customer Relationship Management 
-                (CRM) systems that drive business success.
+                With a dedicated team of industry experts, we specialize in crafting cutting-edge <Link href="/services/web-development" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>websites</Link>, 
+                <Link href="/services/mobile-app" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>mobile applications</Link>, Software as a Service (SaaS) products, and <Link href="/services/customized-crm-development" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>Customer Relationship Management 
+                (CRM)</Link> systems that drive business success.
               </p>
               <p className="heading-text">
                 Our mission is to empower businesses by transforming their digital presence and streamlining 

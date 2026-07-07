@@ -13,7 +13,8 @@ import ServiceTechStack from '@/app/_components/services_components/ServiceTechS
 import FAQSection from '@/app/_components/services_components/FAQSection';
 import OurValuesSection from '@/app/_components/services_components/AI_powered_services/OurValuesSection';
 import QuickConsultation from '@/app/_components/services_components/QuickConsultation';
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 import { AnimatedTestimonials } from '@/components/ui/animated-testimonials';
 import '@/app/_components/products/PricingCards.css'; // Load Uiverse tab styling classes
 

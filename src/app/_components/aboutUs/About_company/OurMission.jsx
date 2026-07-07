@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Lottie from 'lottie-react';
+import Link from 'next/link';
 
 const OurMission = () => {
   return (
@@ -30,7 +31,7 @@ const OurMission = () => {
               <h2 id="mission-vision-heading" className="heading-title hire-heading">Mission</h2>
             </div>
             <p>
-              Our mission is to create innovative and user-friendly web and mobile applications 
+              Our mission is to create innovative and user-friendly <Link href="/services/web-development" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>web</Link> and <Link href="/services/mobile-app" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>mobile applications</Link> 
               that meet the needs and exceed the expectations of our clients. We strive to be a 
               leader in the industry, leveraging the latest technologies and tools to deliver 
               exceptional products and services.
@@ -48,7 +49,7 @@ const OurMission = () => {
             </div>
             <p>
               Our vision is to revolutionize the way people interact with technology. Through innovative 
-              software solutions, we strive to enhance the lives of individuals and businesses around the 
+              <Link href="/services/customized-crm-development" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>software solutions</Link>, we strive to enhance the lives of individuals and businesses around the 
               world, empowering them to achieve their goals and aspirations. We aim to be the leading 
               provider of cutting-edge software solutions that enable our customers to thrive in a rapidly 
               changing technological landscape.

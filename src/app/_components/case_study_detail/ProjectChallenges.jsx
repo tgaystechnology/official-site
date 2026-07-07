@@ -67,7 +67,7 @@ const ProjectChallenges = ({ slug }) => {
         id: 2,
         title: "2",
         description: `
-          <p><strong>Complex Financial Calculations:</strong> Building a backend engine capable of analyzing multi-year data and generating accurate health assessments.</p>
+          <p><strong>Complex Financial Calculations:</strong> Building a <a href="/services/web-development" style="color: #0083FF; text-decoration: underline;">backend engine</a> capable of analyzing multi-year data and generating accurate health assessments.</p>
         `,
         image: "/img/Complex-Financial-Calculations.png",
         layout: "right"
@@ -105,7 +105,7 @@ const ProjectChallenges = ({ slug }) => {
         id: 1,
         title: "1",
         description: `
-          <p><strong>Cross-Platform Consistency:</strong> Ensuring identical performance and UI/UX across Android and iOS devices.</p>
+          <p><strong>Cross-Platform Consistency:</strong> Ensuring identical performance and UI/UX across Android and <a href="/services/mobile-app" style="color: #0083FF; text-decoration: underline;">iOS</a> devices.</p>
         `,
         image: "/img/Cross-Platform-Consistency.png",
         layout: "left"
@@ -141,7 +141,7 @@ const ProjectChallenges = ({ slug }) => {
         id: 5,
         title: "5",
         description: `
-          <p><strong>UI Integration from Figma:</strong> Accurately translating detailed Figma designs into a responsive, interactive mobile app.</p>
+          <p><strong>UI Integration from Figma:</strong> Accurately translating detailed Figma designs into a responsive, interactive <a href="/services/mobile-app" style="color: #0083FF; text-decoration: underline;">mobile app</a>.</p>
         `,
         image: "/img/UI-Integration-from-Figma.png",
         layout: "left"
@@ -329,7 +329,7 @@ const ProjectChallenges = ({ slug }) => {
         id: 1,
         title: "1",
         description: `
-          <p><strong>Multiple Functional Modules in One Platform:</strong> Integrating POS, warehouse, accounting, HRM, and CRM without compromising speed or usability.</p>
+          <p><strong>Multiple Functional Modules in One Platform:</strong> Integrating POS, warehouse, accounting, HRM, and <a href="/services/customized-crm-development" style="color: #0083FF; text-decoration: underline;">CRM</a> without compromising speed or usability.</p>
         `,
         image: "/img/Multiple-Functional-Modules.png",
         layout: "left"

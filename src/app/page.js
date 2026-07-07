@@ -11,6 +11,12 @@ import CaseStudyCarousel from "./_components/home/CaseStudyCarousel";
 import Slider3D from "./_components/home/Slider3D";
 import AiDevelopmentSection from "./_components/home/AiDevelopmentSection";
 
+import { generateMetadata as generateDynamicMetadata } from '@/lib/generateMetadata';
+export async function generateMetadata() {
+  return await generateDynamicMetadata({ 
+    params: { slug: '/' } // Home route slug
+  });
+}
 
 export default function RootPage() {
     const testimonials = [

@@ -33,7 +33,7 @@ const AISolutionsSection = () => {
               </h2>
               
               <p className="slider-content-text mb-3" style={{ fontSize: "1.02rem", lineHeight: "1.7", color: "#444" }}>
-                Looking for the Best AI Development Company in India to accelerate innovation, automate business processes, and gain a competitive advantage? TGAYS Technology Pvt. Ltd. delivers cutting-edge AI-powered services that help startups, SMEs, and enterprises transform operations, improve customer experiences, and unlock new revenue opportunities. From AI agents and generative AI solutions to intelligent automation and custom AI applications, we develop scalable AI systems tailored to your unique business goals.
+                Looking for the <Link href="/" style={{color: "#0083FF", textDecoration: "underline", backgroundColor: "transparent", padding: 0}}>Best AI Development Company in India</Link> to accelerate innovation, automate business processes, and gain a competitive advantage? TGAYS Technology Pvt. Ltd. delivers cutting-edge AI-powered services that help startups, SMEs, and enterprises transform operations, improve customer experiences, and unlock new revenue opportunities. From AI agents and generative AI solutions to intelligent automation and custom AI applications, we develop scalable AI systems tailored to your unique business goals.
               </p>
               
               <p className="slider-content-text mb-4" style={{ fontSize: "1.02rem", lineHeight: "1.7", color: "#444" }}>

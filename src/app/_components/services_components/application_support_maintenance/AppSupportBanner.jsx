@@ -29,13 +29,17 @@ const AppSupportBanner = () => {
         className="testomonial-banner bg-cover hero-section"
         role="banner"
         aria-labelledby="app-support-heading"
-        style={{ backgroundImage: "url('/img/it-staff-banner.png')", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", padding: "0", margin: "0", overflow: "hidden", position: "relative" }}
+        aria-label="Application Support & Maintenance Services India"
+        title="Application Support & Maintenance Services India"
+        style={{ backgroundImage: "url('/img/application-support-maintenance-services-india.png')", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", padding: "0", margin: "0", overflow: "hidden", position: "relative" }}
       >
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.6)", zIndex: 1 }}></div>
         <div className="container" style={{ position: "relative", zIndex: 2 }}>
           <div className="banner-text" style={{ padding: "0" }}>
             <span className="badge mb-3 text-uppercase" style={{ background: "rgba(0, 131, 255, 0.2)", color: "#4da3ff", fontWeight: "bold", padding: "8px 16px", fontSize: "0.85rem", borderRadius: "30px", letterSpacing: "1px", border: "1px solid rgba(0, 131, 255, 0.4)" }}>
-              Application Support & Maintenance Services India
+              <Link href="https://www.tgaystechnology.com/services/application-support-maintenance" className="text-decoration-none" style={{ color: "inherit", background: "transparent", padding: 0, margin: 0 }}>
+                Application Support & Maintenance Services India
+              </Link>
             </span>
             <h1 id="app-support-heading" style={{ fontWeight: "700", lineHeight: "1.2", marginBottom: "20px", fontSize: "2.8rem", color: "#fff" }}>
               Keep Your Applications Running at Peak Performance
