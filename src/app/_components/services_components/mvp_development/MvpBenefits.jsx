@@ -1,114 +1,83 @@
 'use client'
 import React from 'react';
-import Image from 'next/image';
-import Lottie from 'lottie-react';
-import { useMediaQuery } from "react-responsive";
 
 const MvpBenefits = () => {
-  // Benefits data
   const benefits = [
     {
-      id: 1,
-      icon: "diamond-outline",
       title: "Faster Market Entry",
-      description: "Launch early and test your product with real users to gain a competitive edge."
+      desc: "Launch your product within weeks instead of months to capture early market opportunities.",
+      icon: "rocket-outline"
     },
     {
-      id: 2,
-      icon: "copy-outline",
-      title: "Cost Efficiency",
-      description: "Reduce upfront investment by focusing only on the features that matter most."
+      title: "Reduced Development Costs",
+      desc: "Control development expenses by focusing strictly on essential product functionality.",
+      icon: "cash-outline"
     },
     {
-      id: 3,
-      icon: "key-outline",
-      title: "User-Centric Innovation",
-      description: "Make informed decisions based on real feedback from your early adopters."
+      title: "Real User Validation",
+      desc: "Make informed product decisions based on actual customer feedback and user behavior.",
+      icon: "people-outline"
+    },
+    {
+      title: "Better Investor Readiness",
+      desc: "Demonstrate early market traction and validate demand before seeking significant funding.",
+      icon: "briefcase-outline"
+    },
+    {
+      title: "Lower Business Risk",
+      desc: "Avoid investing heavily in unproven concepts by testing the market with minimum required capital.",
+      icon: "shield-checkmark-outline"
+    },
+    {
+      title: "Faster Product Iteration",
+      desc: "Improve your product continuously and rapidly based on direct user insights and data.",
+      icon: "sync-outline"
+    },
+    {
+      title: "Scalable Product Foundation",
+      desc: "Build a solid technical architecture designed to support future product growth and scale.",
+      icon: "layers-outline"
     }
   ];
 
-  const isMobile = useMediaQuery({ maxWidth: 767 });       // 📱 Mobile
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 📲 Tablet
-  const isLaptop = useMediaQuery({ minWidth: 1024, maxWidth: 1439 }); // 💻 Laptop
-  const isDesktop = useMediaQuery({ minWidth: 1440 });     // 🖥️ Large Desktop
-
-  let width = 320;
-  let height = 300;
-
-  if (isMobile) {
-    width = 320;
-    height = 400;
-  } else if (isTablet) {
-    width = 300;
-    height = 350;
-  } else if (isLaptop) {
-    width = 300;
-    height = 350;
-  } else if (isDesktop) {
-    width = 500;
-    height = 350;
-  }
-
   return (
-    <section className="ai-step it-staff-step benefit-mvp-solution-sec">
-      <div className="container">
-        <div className="ai-shape">
-          <Image 
-            src="/img/intro-v2-shape3.png" 
-            alt="Decorative shape"
-            width={100}
-            height={100}
-          />
+    <>
+      <section className="staff-key-benefits" role="region" aria-labelledby="mvp-benefits-heading">
+        <div className="crumina-module crumina-heading hm-easy_title text-center">
+          <h2 id="mvp-benefits-heading" className="heading-title text-uppercase" style={{ fontSize: "2.25rem", fontWeight: "700" }}>
+            BENEFITS OF <span className="c-primary">MVP DEVELOPMENT</span>
+          </h2>
+          <p>Maximize your startup's potential with a strategic, cost-effective product launch.</p>
         </div>
+      </section>
 
-        <div className="crumina-module crumina-heading text-center">
-          <h2 className="heading-title">Benefits of MVP Solutions</h2>
-        </div>
-
-        <div className="row">
-          {/* Benefits Column */}
-          <div className="col-lg-6">
-            <div className="ai-work-content">
-              {benefits.map(benefit => (
-                <div key={benefit.id} className="ai-work-item">
-                  <div className="icon-box">
-                    <ion-icon name={benefit.icon}></ion-icon>
+      <section className="key-list" role="region" aria-labelledby="mvp-advantages-heading">
+        <div className="container">
+          <div className="row justify-content-center">
+            {benefits.map((benefit, idx) => (
+              <div key={idx} className="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div className="key-wrap" style={{ minHeight: "220px" }}>
+                  <div className="key-icon" aria-hidden="true">
+                    <span><ion-icon name={benefit.icon}></ion-icon></span>
                   </div>
-                  <div className="ai-work-item-content">
-                    <h3>{benefit.title}</h3>
-                    <p>{benefit.description}</p>
+                  <div className="key-text">
+                    <h3 className="benefit-title" style={{ fontSize: "1.2rem", fontWeight: "700", marginBottom: "15px" }}>{benefit.title}</h3>
+                    <p style={{ fontSize: "0.95rem", lineHeight: "1.6" }}>{benefit.desc}</p>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
-          {/* Image Column */}
-          <div className="col-lg-6">
-            <div className="ai-work-image">
-              <figure className="image-anime reveal">
-                {/* <Image 
-                  src="/img/mvp-right-img.png" 
-                  alt="MVP Benefits Illustration"
-                  width={600}
-                  height={450}
-                /> */}
-                <Lottie
-                  path="/lottie/Launch.json"
-                  loop
-                  autoplay
-                  style={{
-                    width,
-                    height,
-                    margin: "0 auto", // centers the animation
-                  }}
-                />
-              </figure>
-            </div>
+          <div className="quick-answer-box p-4 text-center" style={{ background: "rgba(0, 131, 255, 0.03)", border: "1px solid rgba(0, 131, 255, 0.15)", borderRadius: "16px", marginTop: "45px", boxShadow: "rgba(0, 0, 0, 0.01) 0px 10px 20px" }}>
+            <h4 style={{ fontSize: "1.2rem", fontWeight: "800", color: "#0083FF", marginBottom: "8px" }}>Quick Answer: What Is MVP Development?</h4>
+            <p className="mb-0 text-muted" style={{ fontSize: "1rem", color: "#444", fontStyle: "italic", lineHeight: "1.6" }}>
+              MVP (Minimum Viable Product) development is the process of building a product with only the core features necessary to validate an idea, attract early users, and gather market feedback before investing in full-scale development. Businesses use MVPs to reduce risk, accelerate product launches, and make data-driven decisions based on actual user behavior.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

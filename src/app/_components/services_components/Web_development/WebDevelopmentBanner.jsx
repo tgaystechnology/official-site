@@ -29,16 +29,17 @@ const WebDevelopmentBanner = () => {
       <section
         className="testomonial-banner bg-cover hero-section"
         role="banner"
-        aria-labelledby="web-development-heading"
-        style={{ backgroundImage: "url('/img/Web-App-Development-bg.png')", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", padding: "0", margin: "0", overflow: "hidden" }}
+        aria-label="web development company India"
+        title="web development company India"
+        style={{ backgroundImage: "url('/img/web-development-company-india.png')", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", padding: "0", margin: "0", overflow: "hidden" }}
       >
         <div className="container">
           <div className="banner-text text-start" style={{ padding: "0" }}>
             <h1 id="web-development-heading" style={{ fontWeight: "700", lineHeight: "1.2", marginBottom: "20px", fontSize: "2.8rem" }}>
-              Transform Your Digital Presence with a Leading Web Development Company India
+              Transform Your Digital Presence with Leading Web Development Services
             </h1>
             <p style={{ fontSize: "1.1rem", lineHeight: "1.6", marginBottom: "30px", color: "#eee" }}>
-              Looking for a reliable web development company India that can build high-performance websites, scalable web applications, and revenue-generating digital experiences? TGAYS Technology Pvt. Ltd. helps startups, SMEs, enterprises, and growing brands across the USA, UK, and India create powerful web solutions that drive traffic, increase conversions, and accelerate business growth.
+              Looking for a reliable web development partner that can build high-performance websites, scalable web applications, and revenue-generating digital experiences? TGAYS Technology Pvt. Ltd. helps startups, SMEs, enterprises, and growing brands across the USA, UK, and India create powerful web solutions that drive traffic, increase conversions, and accelerate business growth.
             </p>
             <div className="d-flex flex-wrap gap-3 mt-4" style={{ gap: "12px" }}>
               <Link href="/contact-us" className="first-tag" aria-label="Get Free Consultation" style={{ margin: "0" }}>
@@ -62,7 +63,7 @@ const WebDevelopmentBanner = () => {
                   Future-Ready Web Solutions Tailored to Your Business Objectives
                 </h2>
                 <p style={{ fontSize: "1.05rem", lineHeight: "1.6", color: "#555", marginBottom: "25px" }}>
-                  As a trusted technology partner, we combine strategic thinking, modern technologies, and user-centric design to deliver custom websites and web applications tailored to your business objectives. Whether you need a corporate website, eCommerce platform, enterprise application, SaaS solution, or custom portal, our expert developers deliver future-ready digital solutions that perform.
+                  As a trusted <Link href="https://www.tgaystechnology.com" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>web development company India</Link>, we combine strategic thinking, modern technologies, and user-centric design to deliver custom websites and web applications tailored to your business objectives. Whether you need a corporate website, eCommerce platform, enterprise application, SaaS solution, or custom portal, our expert developers deliver future-ready digital solutions that perform.
                 </p>
                 
                 <div className="get-started-box p-4 rounded-4" style={{ background: "rgba(0, 131, 255, 0.05)", borderLeft: "4px solid #0083FF", borderRadius: "12px" }}>

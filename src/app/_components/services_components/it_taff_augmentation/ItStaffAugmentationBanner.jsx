@@ -27,8 +27,10 @@ const ItStaffAugmentationBanner = () => {
       <section
         className="testomonial-banner bg-cover hero-section"
         role="banner"
+        aria-label="IT staff augmentation company India"
+        title="IT staff augmentation company India"
         aria-labelledby="it-staff-augmentation-heading"
-        style={{ backgroundImage: "url('/img/it-staff-banner.png')", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", padding: "0", margin: "0", overflow: "hidden" }}
+        style={{ backgroundImage: "url('/img/it-staff-augmentation-company-india.png')", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", padding: "0", margin: "0", overflow: "hidden" }}
       >
         <div className="container">
           <div className="banner-text" style={{ padding: "0" }}>
@@ -60,7 +62,7 @@ const ItStaffAugmentationBanner = () => {
                   Access Top-Tier Technology Talent Without Long-Term Hiring Risks
                 </h2>
                 <p style={{ fontSize: "1.05rem", lineHeight: "1.6", color: "#555", marginBottom: "25px" }}>
-                  Whether you need a single developer, a specialized technical resource, or a complete offshore development team, we provide pre-vetted professionals who seamlessly integrate into your existing processes and deliver measurable business results.
+                  As a leading <Link href="https://www.tgaystechnology.com" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>IT staff augmentation company India</Link>, we provide pre-vetted professionals—whether you need a single developer, a specialized technical resource, or a complete offshore development team—who seamlessly integrate into your existing processes and deliver measurable business results.
                 </p>
                 
                  <div className="get-started-box p-4 rounded-4" style={{ background: "rgba(0, 131, 255, 0.05)", borderLeft: "4px solid #0083FF", borderRadius: "12px" }}>

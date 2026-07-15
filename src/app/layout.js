@@ -5,6 +5,7 @@ import "./globals.css";
 import HeaderServer from "./_components/root/HeaderServer";
 import Footer from "./_components/root/Footer";
 import BottomNavigationWrapper from './../components/ui/BottomNavigationWrapper';
+import FloatingContactButtons from "./_components/home/FloatingContactButtons";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next"
 
@@ -352,6 +353,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer/>
         <BottomNavigationWrapper />
+        <FloatingContactButtons />
          {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0QD6J1K87W"

@@ -15,8 +15,10 @@ const EcommerceBanner = () => {
       <section
         className="testomonial-banner bg-cover hero-section"
         role="banner"
+        aria-label="ecommerce development company India"
+        title="ecommerce development company India"
         aria-labelledby="ecommerce-heading"
-        style={{ backgroundImage: "url('/img/E-Commerce-solution-bg.png')", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", padding: "0", margin: "0", overflow: "hidden", position: "relative" }}
+        style={{ backgroundImage: "url('/img/ecommerce-development-company-india.png')", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", padding: "0", margin: "0", overflow: "hidden", position: "relative" }}
       >
         {/* Dark Overlay for better text readability */}
         <div className="position-absolute top-0 start-0 w-100 h-100" style={{ background: "linear-gradient(90deg, rgba(6, 11, 25, 0.9) 0%, rgba(6, 11, 25, 0.75) 50%, rgba(6, 11, 25, 0.4) 100%)", zIndex: 1 }}></div>
@@ -27,7 +29,7 @@ const EcommerceBanner = () => {
               Build, Scale & Grow with a High-Performance E-Commerce System
             </h1>
             <p style={{ fontSize: "1.1rem", lineHeight: "1.6", marginBottom: "30px", color: "#eee", maxWidth: "800px" }}>
-              As a trusted ecommerce development company India, TGAYS Technology Pvt. Ltd. helps businesses launch, manage, and scale powerful online stores, B2B portals, multi-vendor marketplaces, and enterprise eCommerce platforms.
+              TGAYS Technology Pvt. Ltd. helps businesses launch, manage, and scale powerful online stores, B2B portals, multi-vendor marketplaces, and enterprise eCommerce platforms.
             </p>
             
             <p className="fw-bold text-white mb-2" style={{ fontSize: "1.15rem" }}>Turn Visitors into Customers with a Future-Ready E-Commerce Platform</p>

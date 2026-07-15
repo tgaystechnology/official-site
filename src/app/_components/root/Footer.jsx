@@ -159,6 +159,16 @@ const Footer = () => {
                   mobileClassName="translate-y-20" // adjust/remove for production
                   items={links}
                 />
+                <div style={{ marginTop: '20px' }}>
+                  <a href="https://google.com/preferences/source?q=tgaystechnology.com" target="_blank" rel="noopener noreferrer">
+                    <img 
+                      src="https://mypreferredsources.com/badges/en-dark.png" 
+                      alt="Add as a preferred source" 
+                      height="40" 
+                      style={{ display: 'block', height: '40px', width: 'auto', border: 0 }} 
+                    />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

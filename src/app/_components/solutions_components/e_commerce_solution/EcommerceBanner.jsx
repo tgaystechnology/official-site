@@ -8,7 +8,7 @@ const ecommerceBannerData = {
     "Launch and scale a powerful online store with our end-to-end e-commerce solutions. We build beautiful, high-performing websites and mobile apps designed to attract customers, streamline operations, and drive sales.",
   buttonText: 'Contact Us',
   buttonLink: '/contact-us', // Update this if your route differs
-  backgroundImage: '/img/E-Commerce-solution-bg.png', // Make sure this file is in /public/img/
+  backgroundImage: '/img/ecommerce-development-company-india.png', // Make sure this file is in /public/img/
 };
 
 const EcommerceBanner = () => {
@@ -17,6 +17,8 @@ const EcommerceBanner = () => {
   return (
     <section
       className="testomonial-banner bg-cover hero-section"
+      aria-label="ecommerce development company India"
+      title="ecommerce development company India"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="container">

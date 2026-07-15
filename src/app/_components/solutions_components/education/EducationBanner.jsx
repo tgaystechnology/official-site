@@ -25,8 +25,10 @@ const EducationBanner = () => {
       <section
         className="testomonial-banner bg-cover hero-section"
         role="banner"
+        aria-label="education software development company India"
+        title="education software development company India"
         aria-labelledby="education-heading"
-        style={{ backgroundImage: "url('/img/Education-bg.png')", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", padding: "0", margin: "0", overflow: "hidden", position: "relative" }}
+        style={{ backgroundImage: "url('/img/education-software-development-company-india.png')", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", padding: "0", margin: "0", overflow: "hidden", position: "relative" }}
       >
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.6)", zIndex: 1 }}></div>
         <div className="container" style={{ position: "relative", zIndex: 2 }}>
@@ -38,7 +40,7 @@ const EducationBanner = () => {
               Transform Educational Institutions with a Smart Education Management System
             </h1>
             <p style={{ fontSize: "1.1rem", lineHeight: "1.6", marginBottom: "30px", color: "#eee", maxWidth: "800px" }}>
-              As a leading education software development company India, TGAYS Technology Pvt. Ltd. develops advanced Education Management Systems (EMS) that help schools, colleges, universities, coaching institutes, and training organizations streamline administration, improve student engagement, automate academic processes, and enhance institutional performance.
+              Streamline administration, improve student engagement, and automate academic processes with a customized Education Management System.
             </p>
             <div className="d-flex flex-wrap gap-3 mt-4" style={{ gap: "12px" }}>
               <Link href="/contact-us" className="first-tag m-0" aria-label="Request a Free Consultation Today" style={{ margin: "0" }}>
@@ -59,10 +61,10 @@ const EducationBanner = () => {
                   Build a Future-Ready Education Management Platform
                 </h2>
                 <p style={{ fontSize: "1.05rem", lineHeight: "1.6", color: "#555", marginBottom: "15px" }}>
-                  While many organizations searching for a CRM development company India seek solutions to manage relationships and operations, educational institutions require a specialized Education Management System that combines student lifecycle management, admissions, attendance tracking, fee management, examination management, communication tools, and analytics within a single platform.
+                  While many organizations searching for a <Link href="https://www.tgaystechnology.com/solutions/retail" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>CRM development company India</Link> seek solutions to manage relationships and operations, educational institutions require a specialized Education Management System that combines student lifecycle management, admissions, attendance tracking, fee management, examination management, communication tools, and analytics within a single platform.
                 </p>
                 <p style={{ fontSize: "1.05rem", lineHeight: "1.6", color: "#555", marginBottom: "25px" }}>
-                  Our customized Education Management Systems empower educational institutions across India, USA, UK, Australia, and Dubai to digitize operations, improve efficiency, reduce administrative workloads, and deliver better learning experiences.
+                  As a leading <Link href="https://www.tgaystechnology.com/solutions/education" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>education software development company India</Link>, our customized Education Management Systems empower schools, colleges, universities, coaching institutes, and training organizations across India, USA, UK, Australia, and Dubai to digitize operations, improve efficiency, reduce administrative workloads, and deliver better learning experiences.
                 </p>
                 
                  <div className="get-started-box p-4 rounded-4" style={{ background: "rgba(0, 131, 255, 0.05)", borderLeft: "4px solid #0083FF", borderRadius: "12px" }}>

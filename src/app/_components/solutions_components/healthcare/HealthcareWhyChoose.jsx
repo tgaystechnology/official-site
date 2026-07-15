@@ -1,5 +1,6 @@
 'use client'
 import React from 'react';
+import Link from 'next/link';
 
 const HealthcareWhyChoose = () => {
   const reasons = [
@@ -53,7 +54,7 @@ const HealthcareWhyChoose = () => {
               Why Choose TGAYS as Your <span className="c-primary">Healthcare Software</span> Development Partner?
             </h2>
             <p className="text-muted" style={{ fontSize: "1.1rem", maxWidth: "700px", margin: "0 auto" }}>
-              Healthcare organizations require more than software—they need reliable, compliant, and future-ready digital solutions that support patient care and operational excellence.
+              As a leading <Link href="https://www.tgaystechnology.com" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>healthcare software development company India</Link>, we help healthcare providers, hospitals, clinics, and medical enterprises implement reliable, compliant, and future-ready digital solutions that support patient care and operational excellence.
             </p>
           </div>
         </div>

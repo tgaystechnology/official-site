@@ -26,9 +26,11 @@ const MobileAppBanner = () => {
       <section 
         className="testomonial-banner bg-cover hero-section"
         role="banner"
+        aria-label="mobile app development company in India"
+        title="mobile app development company in India"
         aria-labelledby="mobile-app-development-heading"
         style={{ 
-          backgroundImage: 'url(/img/mobile-app-bg.png)',
+          backgroundImage: 'url(/img/mobile-app-development-company-in-india.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '100vh',
@@ -74,7 +76,7 @@ const MobileAppBanner = () => {
                   Build Scalable, Future-Ready Mobile Applications Tailored to Your Business Objectives
                 </h2>
                 <p style={{ fontSize: "1.05rem", lineHeight: "1.6", color: "#555", marginBottom: "25px" }}>
-                  TGAYS Technology Pvt. Ltd. is a trusted mobile app development company in India helping startups, SMEs, enterprises, <Link href="/solutions/healthcare" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>healthcare providers</Link>, real estate companies, <Link href="/solutions/e-commerce-solution" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>e-commerce brands</Link>, and fintech businesses transform ideas into powerful mobile applications. Our team specializes in designing, developing, and deploying custom mobile solutions that enhance customer engagement, streamline operations, and accelerate revenue growth.
+                  TGAYS Technology Pvt. Ltd. is a trusted <Link href="https://www.tgaystechnology.com" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>mobile app development company in India</Link> helping startups, SMEs, enterprises, <Link href="/solutions/healthcare" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>healthcare providers</Link>, real estate companies, <Link href="/solutions/e-commerce-solution" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>e-commerce brands</Link>, and fintech businesses transform ideas into powerful mobile applications. Our team specializes in designing, developing, and deploying custom mobile solutions that enhance customer engagement, streamline operations, and accelerate revenue growth.
                 </p>
                 
                  <div className="get-started-box p-4 rounded-4" style={{ background: "rgba(0, 131, 255, 0.05)", borderLeft: "4px solid #0083FF", borderRadius: "12px" }}>

@@ -21,8 +21,11 @@ const ProductDevelopmentBanner = () => {
       `}} />
       <section 
         className="testomonial-banner bg-cover hero-section"
+        role="banner"
+        aria-label="product development company in India"
+        title="product development company in India"
         style={{ 
-          backgroundImage: 'url(/img/product-dev-banner.png)',
+          backgroundImage: 'url(/img/product-development-company-in-india.png)',
           height: "100vh", 
           minHeight: "650px", 
           display: "flex", 
@@ -35,10 +38,10 @@ const ProductDevelopmentBanner = () => {
         <div className="container">
           <div className="banner-text" style={{ padding: "0" }}>
             <h1 id="product-development-heading" style={{ fontWeight: "700", lineHeight: "1.2", marginBottom: "20px", fontSize: "2.8rem" }}>
-              Product Development Company in India for Startups, SMEs & Enterprises
+              Product Development Services for Startups, SMEs & Enterprises
             </h1>
             <p style={{ fontSize: "1.1rem", lineHeight: "1.6", marginBottom: "30px", color: "#eee" }}>
-              Looking for a reliable product development company in India that can transform your idea into a successful digital product? TGAYS Technology Pvt. Ltd. helps startups, SMEs, and enterprises build innovative, scalable, and user-centric products that accelerate growth and maximize ROI.
+              Looking for a reliable product development partner that can transform your idea into a successful digital product? TGAYS Technology Pvt. Ltd. helps startups, SMEs, and enterprises build innovative, scalable, and user-centric products that accelerate growth and maximize ROI.
             </p>
             <div className="d-flex flex-wrap gap-3 mt-4" style={{ gap: "12px" }}>
               <Link href="/contact-us" className="first-tag" aria-label="Schedule a Free Product Discovery Call" style={{ margin: "0" }}>
@@ -62,7 +65,7 @@ const ProductDevelopmentBanner = () => {
                   Accelerate Innovation. Reduce Development Risk. Launch Faster.
                 </h2>
                 <p style={{ fontSize: "1.05rem", lineHeight: "1.6", color: "#555", marginBottom: "25px" }}>
-                  From idea validation and MVP development to AI integration, cloud architecture, and full-scale product engineering, our experts deliver end-to-end product development solutions tailored to your business goals. Whether you're launching a new SaaS platform, healthcare application, fintech solution, or enterprise product, we provide the technology, strategy, and execution needed to succeed in competitive markets across the USA, UK, and India.
+                  As a leading <Link href="https://www.tgaystechnology.com" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>product development company in India</Link>, from idea validation and MVP development to AI integration, cloud architecture, and full-scale product engineering, our experts deliver end-to-end product development solutions tailored to your business goals. Whether you're launching a new SaaS platform, healthcare application, fintech solution, or enterprise product, we provide the technology, strategy, and execution needed to succeed in competitive markets across the USA, UK, and India.
                 </p>
                 
                 <div className="get-started-box p-4 rounded-4" style={{ background: "rgba(0, 131, 255, 0.05)", borderLeft: "4px solid #0083FF", borderRadius: "12px" }}>

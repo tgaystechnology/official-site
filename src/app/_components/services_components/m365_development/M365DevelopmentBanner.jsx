@@ -23,8 +23,11 @@ const M365DevelopmentBanner = () => {
       `}} />
       <section 
         className="testomonial-banner bg-cover hero-section"
+        role="banner"
+        aria-label="Microsoft 365 Development Company in India"
+        title="Microsoft 365 Development Company in India"
         style={{ 
-          backgroundImage: 'url(/img/M365-Development-bg.png)',
+          backgroundImage: 'url(/img/microsoft-365-development-company-in-india.png)',
           height: "100vh", 
           minHeight: "650px", 
           display: "flex", 
@@ -64,7 +67,7 @@ const M365DevelopmentBanner = () => {
                   Accelerate Digital Transformation with Microsoft 365
                 </h2>
                 <p style={{ fontSize: "1.05rem", lineHeight: "1.6", color: "#555", marginBottom: "25px" }}>
-                  TGAYS helps businesses implement Microsoft 365 custom solutions to digitize operations, automate manual tasks, and optimize resource deployment. Our certified experts deliver scalable solutions tailored to your compliance, security, and integration criteria.
+                  As a leading <Link href="https://www.tgaystechnology.com" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>Microsoft 365 Development Company in India</Link>, TGAYS helps businesses implement Microsoft 365 custom solutions to digitize operations, automate manual tasks, and optimize resource deployment. Our certified experts deliver scalable solutions tailored to your compliance, security, and integration criteria.
                 </p>
                 
                 <div className="get-started-box p-4 rounded-4" style={{ background: "rgba(0, 131, 255, 0.05)", borderLeft: "4px solid #0083FF", borderRadius: "12px" }}>

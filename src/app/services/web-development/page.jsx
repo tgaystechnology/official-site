@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import WebDevelopmentBanner from '@/app/_components/services_components/Web_development/WebDevelopmentBanner'
 import WebDevelopmentServices from '@/app/_components/services_components/Web_development/WebDevelopmentServices'
 import WhyChooseWebDev from '@/app/_components/services_components/Web_development/WhyChooseWebDev'
@@ -25,7 +26,7 @@ const webAppFAQs = [
   {
     id: 'faqOne',
     target: 'collapseOne',
-    question: 'Why should I hire a web development company India?',
+    question: <>Why should I hire a <Link href="https://www.tgaystechnology.com" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>web development company India</Link>?</>,
     answer: 'India offers access to highly skilled developers, cost-effective solutions, and expertise across modern web technologies.'
   },
   {

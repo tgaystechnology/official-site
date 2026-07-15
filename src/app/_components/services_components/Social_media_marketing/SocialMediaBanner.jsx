@@ -25,8 +25,11 @@ const SocialMediaBanner = () => {
       `}} />
       <section 
         className="testomonial-banner bg-cover hero-section"
+        role="banner"
+        aria-label="social media marketing company India"
+        title="social media marketing company India"
         style={{ 
-          backgroundImage: 'url(/img/social-media-marketing.png)',
+          backgroundImage: 'url(/img/social-media-marketing-company-india.png)',
           height: "100vh", 
           minHeight: "650px", 
           display: "flex", 
@@ -39,10 +42,10 @@ const SocialMediaBanner = () => {
         <div className="container">
           <div className="banner-text" style={{ padding: "0" }}>
             <h1 id="social-media-marketing-heading" style={{ fontWeight: "700", lineHeight: "1.2", marginBottom: "20px", fontSize: "2.8rem" }}>
-              Social Media Marketing Company India That Drives Engagement, Leads & Revenue
+              Social Media Marketing Services That Drive Engagement, Leads & Revenue
             </h1>
             <p style={{ fontSize: "1.1rem", lineHeight: "1.6", marginBottom: "30px", color: "#eee" }}>
-              Looking for a trusted social media marketing company India to grow your brand, generate qualified leads, and increase customer engagement? TGAYS Technology Pvt. Ltd. delivers result-driven social media marketing services that help startups, SMEs, enterprises, eCommerce brands, healthcare organizations, real estate firms, and local businesses build meaningful connections with their target audience across today's most influential social platforms.
+              Looking for a trusted social media marketing partner to grow your brand, generate qualified leads, and increase customer engagement? TGAYS Technology Pvt. Ltd. delivers result-driven social media marketing services that help startups, SMEs, enterprises, eCommerce brands, healthcare organizations, real estate firms, and local businesses build meaningful connections with their target audience across today's most influential social platforms.
             </p>
             <div className="d-flex flex-wrap gap-3 mt-4" style={{ gap: "12px" }}>
               <Link href="/contact-us" className="first-tag" aria-label="Book a Free Consultation" style={{ margin: "0" }}>
@@ -66,7 +69,7 @@ const SocialMediaBanner = () => {
                   A Trusted Social Media Management Company in India
                 </h2>
                 <p style={{ fontSize: "1.05rem", lineHeight: "1.6", color: "#555", marginBottom: "25px" }}>
-                  As a leading social media management company India, we combine strategy, content creation, paid advertising, audience targeting, community management, influencer collaborations, and performance analytics to transform social media into a powerful business growth engine. Whether you are targeting customers in India, USA, UK, Australia, Dubai, or global markets, our social media specialists create data-driven campaigns that deliver measurable business outcomes.
+                  As a leading <Link href="https://www.tgaystechnology.com" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>social media marketing company India</Link>, we combine strategy, content creation, paid advertising, audience targeting, community management, influencer collaborations, and performance analytics to transform social media into a powerful business growth engine. Whether you are targeting customers in India, USA, UK, Australia, Dubai, or global markets, our social media specialists create data-driven campaigns that deliver measurable business outcomes.
                 </p>
                 
                 <div className="get-started-box p-4 rounded-4" style={{ background: "rgba(0, 131, 255, 0.05)", borderLeft: "4px solid #0083FF", borderRadius: "12px" }}>

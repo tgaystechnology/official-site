@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useMediaQuery } from "react-responsive";
 import Lottie from 'lottie-react';
 
@@ -44,7 +45,7 @@ const DigitalMarketingServices = () => {
           <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 about-us-sec">
             <div className="crumina-module crumina-heading">
               <p className="slider-content-text">
-                Are you finding it hard to grow your online presence? We’re here to help! Our digital marketing services—SEO, SEM, and PPC—are designed to bring more visitors to your website and turn them into customers.
+                Are you finding it hard to grow your online presence? We’re here to help! Our <Link href="https://www.tgaystechnology.com" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>digital marketing services</Link>—SEO, SEM, and PPC—are designed to bring more visitors to your website and turn them into customers.
               </p>
               <p className="slider-content-text">
                 With SEO, we make sure your website shows up higher on Google and other search engines. We do keyword research, write great content, and fix technical issues to improve your rankings and bring in more organic traffic.

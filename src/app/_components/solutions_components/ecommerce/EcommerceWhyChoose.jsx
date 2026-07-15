@@ -1,5 +1,6 @@
 'use client'
 import React from 'react';
+import Link from 'next/link';
 
 const EcommerceWhyChoose = () => {
   const reasons = [
@@ -77,7 +78,7 @@ const EcommerceWhyChoose = () => {
               Why Choose TGAYS as Your <span className="c-primary">Ecommerce Development</span> Company?
             </h2>
             <p className="text-muted" style={{ fontSize: "1.1rem", maxWidth: "700px", margin: "0 auto" }}>
-              Businesses across the USA, India, UK, Australia, and Dubai trust TGAYS Technology because we combine technical excellence, industry expertise, and strategic business thinking.
+              As a trusted <Link href="https://www.tgaystechnology.com/solutions/e-commerce-solution" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>ecommerce development company India</Link>, businesses across the USA, India, UK, Australia, and Dubai trust TGAYS Technology because we combine technical excellence, industry expertise, and strategic business thinking.
             </p>
           </div>
         </div>

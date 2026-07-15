@@ -25,8 +25,10 @@ const CrmDevelopmentBanner = () => {
       `}} />
       <section 
         className="testomonial-banner bg-cover hero-section"
+        aria-label="custom CRM development company in India"
+        title="custom CRM development company in India"
         style={{ 
-          backgroundImage: 'url(/img/customized-banner_img.png)',
+          backgroundImage: 'url(/img/custom-crm-development-company-in-india.png)',
           height: "100vh", 
           minHeight: "650px", 
           display: "flex", 
@@ -45,7 +47,7 @@ const CrmDevelopmentBanner = () => {
               Build a CRM That Fits Your Business, Not the Other Way Around
             </h3>
             <p style={{ fontSize: "1.1rem", lineHeight: "1.6", marginBottom: "30px", color: "#eee" }}>
-              Looking for a reliable custom CRM development company in India that can design, develop, and scale a CRM solution tailored to your unique business processes? TGAYS Technology Pvt. Ltd. helps startups, SMEs, enterprises, healthcare providers, real estate firms, and eCommerce businesses streamline operations, automate workflows, improve customer engagement, and accelerate growth through fully customized CRM solutions.
+              Looking for a reliable custom CRM development company in India that can design, develop, and scale a CRM solution tailored to your unique business processes?
             </p>
             <div className="d-flex flex-wrap gap-3 mt-4" style={{ gap: "12px" }}>
               <Link href="/contact-us" className="first-tag" aria-label="Schedule a Free CRM Consultation" style={{ margin: "0" }}>
@@ -69,7 +71,7 @@ const CrmDevelopmentBanner = () => {
                   A Strategic CRM Development Partner for Global Businesses
                 </h2>
                 <p style={{ fontSize: "1.05rem", lineHeight: "1.6", color: "#555", marginBottom: "25px" }}>
-                  Unlike off-the-shelf CRM platforms that force businesses to adapt their processes, our custom CRM development services are built around your workflows, goals, customer journey, and operational requirements. Whether you need sales automation, lead management, customer support, marketing automation, analytics, or enterprise-level integrations, we deliver CRM systems that create measurable business value.
+                  As a leading <Link href="https://www.tgaystechnology.com/services/customized-crm-development" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>custom CRM development company in India</Link>, TGAYS Technology Pvt. Ltd. helps startups, SMEs, enterprises, healthcare providers, real estate firms, and eCommerce businesses streamline operations, automate workflows, improve customer engagement, and accelerate growth through fully customized CRM solutions. Unlike off-the-shelf CRM platforms that force businesses to adapt their processes, our custom CRM development services are built around your workflows, goals, customer journey, and operational requirements. Whether you need sales automation, lead management, customer support, marketing automation, analytics, or enterprise-level integrations, we deliver CRM systems that create measurable business value.
                 </p>
                 
                 <div className="get-started-box p-4 rounded-4" style={{ background: "rgba(0, 131, 255, 0.05)", borderLeft: "4px solid #0083FF", borderRadius: "12px" }}>

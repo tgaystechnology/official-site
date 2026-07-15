@@ -25,8 +25,10 @@ const HealthFitnessBanner = () => {
       <section
         className="testomonial-banner bg-cover hero-section"
         role="banner"
+        aria-label="fitness app development company India"
+        title="fitness app development company India"
         aria-labelledby="health-fitness-heading"
-        style={{ backgroundImage: "url('/img/Health-Fitness-bg.png')", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", padding: "0", margin: "0", overflow: "hidden", position: "relative" }}
+        style={{ backgroundImage: "url('/img/fitness-app-development-company-india.png')", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", padding: "0", margin: "0", overflow: "hidden", position: "relative" }}
       >
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.6)", zIndex: 1 }}></div>
         <div className="container" style={{ position: "relative", zIndex: 2 }}>
@@ -38,7 +40,7 @@ const HealthFitnessBanner = () => {
               Build the Next Generation of Health & Fitness Applications
             </h1>
             <p style={{ fontSize: "1.1rem", lineHeight: "1.6", marginBottom: "30px", color: "#eee", maxWidth: "800px" }}>
-              As a leading fitness app development company India, TGAYS Technology Pvt. Ltd. helps fitness startups, gym chains, personal trainers, wellness brands, healthcare providers, sports organizations, and enterprises create innovative digital fitness experiences that drive user engagement, retention, and revenue growth.
+              Create innovative digital fitness experiences that drive user engagement, retention, and revenue growth with smart technology.
             </p>
             <div className="d-flex flex-wrap gap-3 mt-4" style={{ gap: "12px" }}>
               <Link href="/contact-us" className="first-tag m-0" aria-label="Schedule a Free Fitness App Consultation" style={{ margin: "0" }}>
@@ -62,7 +64,7 @@ const HealthFitnessBanner = () => {
                   We specialize in designing and developing high-performance health and fitness applications, gym management systems, wearable integrations, nutrition platforms, wellness ecosystems, fitness marketplaces, AI-powered coaching apps, and SaaS fitness solutions that transform how people manage their health and wellness.
                 </p>
                 <p style={{ fontSize: "1.05rem", lineHeight: "1.6", color: "#555", marginBottom: "25px" }}>
-                  Whether you're launching a fitness startup, digitizing gym operations, building a wellness platform, or developing an enterprise fitness ecosystem, our experts deliver scalable and secure solutions tailored to your business goals.
+                  As a leading <Link href="https://www.tgaystechnology.com" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>fitness app development company India</Link>, we help fitness startups, gym chains, personal trainers, wellness brands, healthcare providers, sports organizations, and enterprises deliver scalable and secure solutions tailored to their business goals.
                 </p>
                 
                  <div className="get-started-box p-4 rounded-4" style={{ background: "rgba(0, 131, 255, 0.05)", borderLeft: "4px solid #0083FF", borderRadius: "12px" }}>

@@ -1,5 +1,6 @@
 'use client'
 import React from 'react';
+import Link from 'next/link';
 
 const TourWhyChoose = () => {
   const reasons = [
@@ -53,7 +54,7 @@ const TourWhyChoose = () => {
               Why Choose TGAYS Technology for <span className="c-primary">Travel Portal Development?</span>
             </h2>
             <p className="text-muted" style={{ fontSize: "1.1rem", maxWidth: "700px", margin: "0 auto" }}>
-              We combine deep travel industry knowledge with cutting-edge engineering to build platforms that scale.
+              As a leading <Link href="https://www.tgaystechnology.com" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>travel portal development company India</Link>, we combine deep travel industry knowledge with cutting-edge engineering to build platforms that scale.
             </p>
           </div>
         </div>

@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Lottie from 'lottie-react';
 import { useMediaQuery } from "react-responsive";
 
@@ -43,7 +44,7 @@ const MvpDevelopmentSection = () => {
                 Minimum Viable Product (MVP) development is a strategic way to validate your product idea with minimal investment and faster time-to-market. It focuses on building only the core features that solve the main problem for your target audience—helping you gain real user feedback early and iterate quickly.
               </h6>
               <h6 className="slider-content-text">
-                At TGAYS Technology, we specialize in delivering custom MVP solutions tailored to your business goals. Whether you’re a startup exploring a new market or an enterprise testing product innovation, our team ensures your MVP is scalable, secure, and designed for measurable impact. Let’s transform your idea into a working product that attracts users and investors.
+                As a leading <Link href="https://www.tgaystechnology.com" style={{ color: "#0083FF", background: "transparent", textDecoration: "none" }}>MVP development company in India</Link>, TGAYS Technology specializes in delivering custom MVP solutions tailored to your business goals. Whether you’re a startup exploring a new market or an enterprise testing product innovation, our team ensures your MVP is scalable, secure, and designed for measurable impact. Let’s transform your idea into a working product that attracts users and investors.
               </h6>
             </div>
           </div>

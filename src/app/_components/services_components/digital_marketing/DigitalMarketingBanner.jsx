@@ -7,8 +7,10 @@ const DigitalMarketingBanner = () => {
       className="testomonial-banner bg-cover hero-section"
       role="banner"
       aria-labelledby="digital-marketing-hero-heading"
+      aria-label="digital marketing company in India"
+      title="digital marketing company in India"
       style={{ 
-        backgroundImage: 'url(/img/digital-marketing.png)',
+        backgroundImage: 'url(/img/digital-marketing-company-in-india.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}
