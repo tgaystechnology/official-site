@@ -367,6 +367,34 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-0QD6J1K87W');
           `}
         </Script>
+        <Script 
+          id="mps-pref-script" 
+          strategy="afterInteractive" 
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function (w, d) {
+                w.MPSPref = w.MPSPref || function () { (w.MPSPref.q = w.MPSPref.q || []).push(arguments); };
+                var s = d.createElement("script");
+                s.async = true; s.src = "https://mypreferredsources.com/float.js";
+                d.head.appendChild(s);
+              })(window, document);
+
+              MPSPref("init", {
+                site: "tgaystechnology.com",
+                theme: "dark",
+                size: "sm",
+                lang: "en",
+                label: "Add {site} as a preferred source",
+                mark: "star",
+                position: "right",
+                collapsed: true,
+                trigger: "delay",
+                delay: 3000,
+                dismissDays: 30
+              });
+            `
+          }} 
+        />
         <SpeedInsights />
         <Analytics />
       </body>

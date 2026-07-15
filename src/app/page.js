@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import BannerSlider from "./_components/home/BannerSlider";
 import CoreServices from "./_components/home/CoreServices";
 import ClientsWorldwide from "./_components/home/ClientsWorldwide";
@@ -45,34 +44,7 @@ export default function RootPage() {
     ];
   return (
     <div>
-      <Script 
-        id="mps-pref-script" 
-        strategy="afterInteractive" 
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function (w, d) {
-              w.MPSPref = w.MPSPref || function () { (w.MPSPref.q = w.MPSPref.q || []).push(arguments); };
-              var s = d.createElement("script");
-              s.async = true; s.src = "https://mypreferredsources.com/float.js";
-              d.head.appendChild(s);
-            })(window, document);
 
-            MPSPref("init", {
-              site: "tgaystechnology.com",
-              theme: "dark",
-              size: "sm",
-              lang: "en",
-              label: "Add {site} as a preferred source",
-              mark: "star",
-              position: "right",
-              collapsed: true,
-              trigger: "delay",
-              delay: 3000,
-              dismissDays: 30
-            });
-          `
-        }} 
-      />
       <BannerSlider/>
       {/* <div className="mt-10">
         <Slider3D />
