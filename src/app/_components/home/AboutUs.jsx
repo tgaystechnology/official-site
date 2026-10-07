@@ -7,15 +7,20 @@ const AboutUs = () => {
       <style dangerouslySetInnerHTML={{__html: `
         .heading-text a.custom-inline-link {
           color: #0083FF !important;
-          text-decoration: underline !important;
+          text-decoration: none !important;
           background: transparent !important;
           display: inline !important;
           padding: 0 !important;
+          font-weight: 500;
+          transition: all 0.3s ease-in-out !important;
         }
         .heading-text a.custom-inline-link:hover {
           color: #0056b3 !important;
           background: transparent !important;
           text-decoration: underline !important;
+          text-decoration-color: #0056b3 !important;
+          text-underline-offset: 4px;
+          text-decoration-thickness: 2px;
         }
       `}} />
       <div className="container">
@@ -46,8 +51,12 @@ const AboutUs = () => {
               </div>
               <p className="heading-text">
                 Welcome to TGAYS Technology, your premier partner in digital innovation and technology solutions. 
-                With a dedicated team of industry experts, we specialize in crafting cutting-edge <Link href="/services/web-development" className="custom-inline-link">websites</Link>, 
-                <Link href="/services/mobile-app" className="custom-inline-link">mobile applications</Link>, <Link href="/services/mvp-development" className="custom-inline-link">Software as a Service (SaaS) products</Link>, and <Link href="/services/customized-crm-development" className="custom-inline-link">Customer Relationship Management (CRM) systems</Link> that drive business success.
+                With a dedicated team of industry experts, we specialize in crafting cutting-edge{" "}
+                <Link href="/services/web-development" className="custom-inline-link">Websites</Link>,{" "}
+                <Link href="/services/mobile-app" className="custom-inline-link">Mobile Applications</Link>,{" "}
+                <Link href="/services/mvp-development" className="custom-inline-link">Software as a Service (SaaS) Products</Link>, and{" "}
+                <Link href="/services/customized-crm-development" className="custom-inline-link">Customer Relationship Management (CRM) Systems</Link>{" "}
+                that drive business success.
               </p>
               <p>
                 Our mission is to empower businesses by transforming their digital presence and streamlining 

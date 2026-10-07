@@ -12815,3 +12815,15 @@ background: linear-gradient(79deg,rgba(42, 123, 155, 1) 0%, rgba(23, 163, 194, 1
         padding: 35px 0 60px !important;
     }
  }
+
+/* Custom Inline Links Override */
+a.custom-inline-link, .custom-inline-link { color: #0083FF !important; text-decoration: none !important; background: transparent !important; display: inline !important; padding: 0 !important; font-weight: 500 !important; transition: all 0.3s ease-in-out !important; border-radius: 0 !important; }
+a.custom-inline-link:hover, .custom-inline-link:hover { color: #0056b3 !important; background: transparent !important; text-decoration: underline !important; text-decoration-color: #0056b3 !important; text-underline-offset: 4px !important; text-decoration-thickness: 2px !important; }
+
+
+/* Custom Inline Links Override Addendum */
+a.custom-inline-link, .custom-inline-link { margin: 0 !important; }
+
+
+/* Custom Inline Links Hover Override Addendum */
+a.custom-inline-link:hover, .custom-inline-link:hover { background-image: none !important; background: transparent !important; background-color: transparent !important; }

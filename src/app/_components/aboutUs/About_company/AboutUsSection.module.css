@@ -1,0 +1,26 @@
+.customInlineLink.customInlineLink.customInlineLink.customInlineLink {
+  color: #0083FF !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  display: inline !important;
+  padding: 0 !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease-in-out !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.customInlineLink.customInlineLink.customInlineLink.customInlineLink:hover {
+  color: #0056b3 !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  background: transparent !important;
+  text-decoration: underline !important;
+  text-decoration-color: #0056b3 !important;
+  text-underline-offset: 4px !important;
+  text-decoration-thickness: 2px !important;
+  box-shadow: none !important;
+  border: none !important;
+}

@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Lottie from 'lottie-react';
 import Link from 'next/link';
-
+import styles from './OurMission.module.css';
 const OurMission = () => {
   return (
     <section className="medium-padding100 our-mission-box-sec" role="region" aria-labelledby="mission-vision-heading">
@@ -31,7 +31,10 @@ const OurMission = () => {
               <h2 id="mission-vision-heading" className="heading-title hire-heading">Mission</h2>
             </div>
             <p>
-              Our mission is to create innovative and user-friendly <Link href="/services/web-development" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>web</Link> and <Link href="/services/mobile-app" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>mobile applications</Link> 
+              Our mission is to create innovative and user-friendly{" "}
+              <Link href="/services/web-development" className={styles.customInlineLink}>web</Link>{" "}
+              and{" "}
+              <Link href="/services/mobile-app" className={styles.customInlineLink}>mobile applications</Link>{" "}
               that meet the needs and exceed the expectations of our clients. We strive to be a 
               leader in the industry, leveraging the latest technologies and tools to deliver 
               exceptional products and services.
@@ -48,8 +51,9 @@ const OurMission = () => {
               <h2 className="heading-title hire-heading">Vision</h2>
             </div>
             <p>
-              Our vision is to revolutionize the way people interact with technology. Through innovative 
-              <Link href="/services/customized-crm-development" style={{color: '#0083FF', textDecoration: 'underline', background: 'transparent', padding: 0, fontWeight: 'inherit', display: 'inline', borderRadius: 0}}>software solutions</Link>, we strive to enhance the lives of individuals and businesses around the 
+              Our vision is to revolutionize the way people interact with technology. Through innovative{" "}
+              <Link href="/services/customized-crm-development" className={styles.customInlineLink}>software solutions</Link>,{" "}
+              we strive to enhance the lives of individuals and businesses around the 
               world, empowering them to achieve their goals and aspirations. We aim to be the leading 
               provider of cutting-edge software solutions that enable our customers to thrive in a rapidly 
               changing technological landscape.

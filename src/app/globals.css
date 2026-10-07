@@ -86,3 +86,23 @@ body::-webkit-scrollbar-thumb:hover,
   scrollbar-width: thin !important;
   scrollbar-color: #0083FF rgba(0, 131, 255, 0.05) !important;
 }
+
+/* Custom Inline Links */
+.custom-inline-link {
+  color: #0083FF !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  display: inline !important;
+  padding: 0 !important;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out !important;
+}
+
+.custom-inline-link:hover {
+  color: #0056b3 !important;
+  background: transparent !important;
+  text-decoration: underline !important;
+  text-decoration-color: #0056b3 !important;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}

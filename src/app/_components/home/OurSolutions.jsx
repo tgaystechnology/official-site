@@ -116,76 +116,76 @@ const OurSolutions = () => {
     const trimmed = item.trim();
     if (trimmed === "Website & Mobile Application") {
       return (
-        <span>
+        <>
           {" "}
           <Link href="/services/web-development" className="custom-inline-link">Website</Link> &{" "}
           <Link href="/services/mobile-app" className="custom-inline-link">Mobile Application</Link>
-        </span>
+        </>
       );
     }
     if (trimmed === "Web Application Platform") {
       return (
-        <span>
+        <>
           {" "}
           <Link href="/services/web-development" className="custom-inline-link">Web Application Platform</Link>
-        </span>
+        </>
       );
     }
     if (trimmed === "Medical Websites") {
       return (
-        <span>
+        <>
           {" "}Medical{" "}
           <Link href="/services/web-development" className="custom-inline-link">Websites</Link>
-        </span>
+        </>
       );
     }
     if (trimmed === "Gym & Yoga Websites") {
       return (
-        <span>
+        <>
           {" "}Gym & Yoga{" "}
           <Link href="/services/web-development" className="custom-inline-link">Websites</Link>
-        </span>
+        </>
       );
     }
     if (trimmed === "E-commerce websites & apps") {
       return (
-        <span>
+        <>
           {" "}E-commerce{" "}
           <Link href="/services/web-development" className="custom-inline-link">websites</Link> &{" "}
           <Link href="/services/mobile-app" className="custom-inline-link">apps</Link>
-        </span>
+        </>
       );
     }
     if (trimmed === "Workout apps") {
       return (
-        <span>
+        <>
           {" "}Workout{" "}
           <Link href="/services/mobile-app" className="custom-inline-link">apps</Link>
-        </span>
+        </>
       );
     }
     if (trimmed === "Chatbots") {
       return (
-        <span>
+        <>
           {" "}
           <Link href="/services/ai-powered-services" className="custom-inline-link">Chatbots</Link>
-        </span>
+        </>
       );
     }
     if (trimmed === "AI Based Customer Services Tools") {
       return (
-        <span>
+        <>
           {" "}
           <Link href="/services/ai-powered-services" className="custom-inline-link">AI Based Customer Services Tools</Link>
-        </span>
+        </>
       );
     }
     if (trimmed === "Custom CRM Software") {
       return (
-        <span>
+        <>
           {" "}
           <Link href="/services/customized-crm-development" className="custom-inline-link">Custom CRM Software</Link>
-        </span>
+        </>
       );
     }
     return item;
@@ -196,15 +196,20 @@ const OurSolutions = () => {
       <style dangerouslySetInnerHTML={{__html: `
         .counter-box ul li a.custom-inline-link {
           color: #0083FF !important;
-          text-decoration: underline !important;
+          text-decoration: none !important;
           background: transparent !important;
           display: inline !important;
           padding: 0 !important;
+          font-weight: 500;
+          transition: all 0.3s ease-in-out !important;
         }
         .counter-box ul li a.custom-inline-link:hover {
           color: #0056b3 !important;
           background: transparent !important;
           text-decoration: underline !important;
+          text-decoration-color: #0056b3 !important;
+          text-underline-offset: 4px;
+          text-decoration-thickness: 2px;
         }
       `}} />
       <div className="container">
