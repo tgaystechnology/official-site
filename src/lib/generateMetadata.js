@@ -25,7 +25,7 @@ export async function generateMetadata({ params, searchParams }) {
     let apiUrl = '';
 
     if (isHome) {
-      apiUrl = `https://admin.tgaystechnology.com/api/api_v1/seo/page/%2F`;
+      apiUrl = `https://admin.tgaystechnology.com/api/api_v1/seo/page/home`;
     } else if (segments.length === 1) {
       apiUrl = `https://admin.tgaystechnology.com/api/api_v1/seo/page/${strippedSlug}`;
     } else if (segments.length >= 2) {
